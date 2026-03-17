@@ -5,6 +5,7 @@ on:
     - cron: '0 0 * * 1'
   workflow_dispatch:
 
+# ÉP NODE 24 Ở CẤP ĐỘ TOÀN CỤC
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
@@ -13,6 +14,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    
+    # ÉP NODE 24 Ở CẤP ĐỘ JOB
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
+      
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -44,6 +50,6 @@ jobs:
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            git commit -m "Auto-Pilot Update: $(date)"
+            git commit -m "🚀 Auto-Pilot Update: $(date)"
             git push
           fi
