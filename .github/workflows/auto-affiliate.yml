@@ -1,11 +1,11 @@
-name: "TAM-VAN-PHUC-AI-FACTORY-2026"
+name: "TAM-VAN-PHUC-DAILY-FACTORY"
 
 on:
   schedule:
-    - cron: '0 0 * * 1'
-  workflow_dispatch:
+    # Cấu hình quét mỗi ngày một lần vào lúc 00:00 UTC (tức 07:00 sáng giờ Việt Nam)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # Vẫn giữ nút bấm tay khi cần chạy gấp
 
-# ÉP NODE 24 Ở CẤP ĐỘ TOÀN CỤC
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
 
@@ -14,11 +14,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    
-    # ÉP NODE 24 Ở CẤP ĐỘ JOB
-    env:
-      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
-      
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,25 +26,25 @@ jobs:
       - name: Install Engines
         run: pip install -q google-genai beautifulsoup4 requests
 
-      - name: Market Scanner
+      - name: Daily Market Scanner
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: python scripts/scanner.py
 
-      - name: Factory Production
+      - name: Daily Factory Production
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           AFFILIATE_LINK: ${{ secrets.AFFILIATE_LINK }}
         run: python scripts/factory.py
 
-      - name: Deploy to Projects
+      - name: Deploy Update
         run: |
           git config --global user.name "Tam-Van-Phuc-AI-Manager"
           git config --global user.email "manager@tamvanphuc.com"
           git add .
           if git diff --staged --quiet; then
-            echo "No changes to commit."
+            echo "Không có sản phẩm mới nào từ Affitor hôm nay."
           else
-            git commit -m "🚀 Auto-Pilot Update: $(date)"
+            git commit -m "📅 Cập nhật tự động hàng ngày: $(date)"
             git push
           fi
