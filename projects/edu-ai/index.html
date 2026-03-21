@@ -1,591 +1,513 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc AI Giáo Dục - Khai Phóng Tiềm Năng Học Tập</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Edu-AI: Khai Phóng Tiềm Năng Học Tập - Tâm Vạn Phúc</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #3b82f6; /* A vibrant blue for education/future */
-            --secondary-color: #10b981; /* A refreshing green for growth/success */
-            --text-color: #333;
-            --light-text-color: #555;
-            --background-light: #f8fafc;
-            --background-medium: #e2e8f0;
-            --white: #ffffff;
-            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-medium: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --primary-color: #4CAF50; /* Green - often associated with growth, education */
+            --secondary-color: #2196F3; /* Blue - tech, innovation */
+            --accent-color: #FFC107; /* Amber - highlight, warmth */
+            --dark-color: #333;
+            --light-color: #f4f4f4;
+            --text-color: #555;
+            --white-color: #fff;
+            --heading-font: 'Montserrat', sans-serif;
+            --body-font: 'Poppins', sans-serif;
         }
 
+        /* Basic Reset */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            color: var(--text-color);
+            font-family: var(--body-font);
             line-height: 1.6;
-            background-color: var(--background-light);
-            scroll-behavior: smooth;
+            color: var(--text-color);
+            background: var(--white-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--heading-font);
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+        }
+
+        ul {
+            list-style: none;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 1rem;
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 2rem;
+            overflow: hidden;
         }
 
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow-light);
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+
+        .py-2 { padding: 2rem 0; }
+        .py-3 { padding: 3rem 0; }
+        .py-4 { padding: 4rem 0; }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white-color);
+            padding: 0.8rem 2rem;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #45a049; /* Slightly darker green */
+        }
+
+        .btn-secondary {
+            background: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background: #1e87db; /* Slightly darker blue */
+        }
+
+        /* Header */
+        .main-header {
+            background: var(--white-color);
             padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        .header-content {
+        .main-header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+        .main-header .logo {
+            font-family: var(--heading-font);
             font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .main-header .logo span {
             color: var(--primary-color);
-            text-decoration: none;
         }
 
-        .logo span {
-            color: var(--secondary-color);
-        }
-
-        nav ul {
-            list-style: none;
+        .main-nav ul {
             display: flex;
         }
 
-        nav ul li {
+        .main-nav ul li a {
+            color: var(--dark-color);
             margin-left: 1.5rem;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: var(--light-text-color);
             font-weight: 600;
             transition: color 0.3s ease;
         }
 
-        nav ul li a:hover {
+        .main-nav ul li a:hover {
             color: var(--primary-color);
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 0.8rem 1.8rem;
-            border-radius: 9999px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn:hover {
-            background-color: #2563eb; /* Darker primary */
-            transform: translateY(-2px);
-        }
-
-        .btn.btn-secondary {
-            background-color: var(--secondary-color);
-        }
-
-        .btn.btn-secondary:hover {
-            background-color: #059669; /* Darker secondary */
         }
 
         /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--background-light) 0%, var(--background-medium) 100%);
-            padding: 4rem 0;
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1590402494682-cd3dc1f23823?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--white-color);
             text-align: center;
+            padding: 8rem 0;
             display: flex;
             align-items: center;
+            justify-content: center;
             min-height: 80vh;
         }
 
-        .hero-content {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
+        #hero .hero-content {
+            max-width: 800px;
+            margin: auto;
         }
 
-        .hero h1 {
-            font-family: 'Montserrat', sans-serif;
+        #hero h1 {
             font-size: 3.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--white-color);
             line-height: 1.2;
         }
 
-        .hero h1 span {
-            color: var(--secondary-color);
-        }
-
-        .hero p {
+        #hero p {
             font-size: 1.3rem;
-            color: var(--light-text-color);
             margin-bottom: 2rem;
-            max-width: 700px;
-        }
-
-        .hero img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-medium);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 4rem 0;
-        }
-
-        section.bg-light {
-            background-color: var(--background-light);
-        }
-
-        section.bg-medium {
-            background-color: var(--background-medium);
-        }
-
-        .section-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--primary-color);
-        }
-
-        .section-title span {
-            color: var(--secondary-color);
+            opacity: 0.9;
         }
 
         /* Features Section */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        #features {
+            background: var(--light-color);
         }
 
-        .feature-card {
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-light);
+        #features h2 {
+            font-size: 2.5rem;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 3rem;
         }
 
-        .feature-card:hover {
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .feature-item {
+            background: var(--white-color);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: var(--shadow-medium);
         }
 
-        .feature-card i { /* Placeholder for icons */
+        .feature-item i {
             font-size: 3rem;
             color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
-        .feature-card h3 {
-            font-family: 'Montserrat', sans-serif;
+        .feature-item h3 {
             font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 0.8rem;
-            color: var(--text-color);
+            margin-bottom: 1rem;
         }
 
-        .feature-card p {
-            color: var(--light-text-color);
-        }
-
-        /* Benefits Section */
-        .benefits-content {
+        /* About Section (Edu-AI) */
+        #about-eduai {
             display: flex;
             align-items: center;
-            gap: 3rem;
             flex-wrap: wrap;
-            justify-content: center;
+            padding: 4rem 0;
         }
 
-        .benefits-img {
+        #about-eduai .about-content {
             flex: 1;
+            padding-right: 2rem;
             min-width: 300px;
         }
 
-        .benefits-img img {
-            max-width: 100%;
-            border-radius: 1rem;
-            box-shadow: var(--shadow-medium);
-        }
-
-        .benefits-list {
-            flex: 2;
-            min-width: 400px;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
+        #about-eduai .about-content h2 {
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            gap: 1rem;
         }
 
-        .benefit-item i { /* Placeholder for icons */
-            font-size: 2rem;
-            color: var(--secondary-color);
-            flex-shrink: 0;
-            margin-top: 0.2rem;
+        #about-eduai .about-content p {
+            margin-bottom: 1.5rem;
         }
 
-        .benefit-item h4 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.3rem;
+        #about-eduai .about-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
         }
 
-        .benefit-item p {
-            color: var(--light-text-color);
+        #about-eduai .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         /* Testimonials Section */
-        .testimonials-grid {
+        #testimonials {
+            background: var(--secondary-color);
+            color: var(--white-color);
+            text-align: center;
+        }
+
+        #testimonials h2 {
+            font-size: 2.5rem;
+            color: var(--white-color);
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
 
-        .testimonial-card {
-            background-color: var(--white);
+        .testimonial-item {
+            background: rgba(255,255,255,0.1);
             padding: 2rem;
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow-light);
-            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .testimonial-card p {
+        .testimonial-item p {
             font-style: italic;
             margin-bottom: 1rem;
-            color: var(--light-text-color);
+            font-size: 1.1rem;
+            line-height: 1.7;
         }
 
-        .testimonial-card .author {
+        .testimonial-item .author {
             font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        .testimonial-card .role {
-            font-size: 0.9rem;
-            color: var(--light-text-color);
+            font-size: 1.2rem;
         }
 
         /* CTA Section */
-        .cta {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 4rem 0;
+        #cta {
+            background: var(--primary-color);
+            color: var(--white-color);
             text-align: center;
+            padding: 5rem 0;
         }
 
-        .cta h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
+        #cta h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: var(--white-color);
         }
 
-        .cta p {
-            font-size: 1.2rem;
+        #cta p {
+            font-size: 1.3rem;
             margin-bottom: 2.5rem;
-            max-width: 700px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .cta .btn {
-            background-color: var(--secondary-color);
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-            border-radius: 9999px;
-        }
-
-        .cta .btn:hover {
-            background-color: #059669;
+            line-height: 1.5;
         }
 
         /* Footer */
-        footer {
-            background-color: var(--text-color);
-            color: var(--white);
-            padding: 3rem 0;
+        .main-footer {
+            background: var(--dark-color);
+            color: var(--light-color);
             text-align: center;
-            font-size: 0.9rem;
+            padding: 3rem 0;
         }
 
-        footer .container {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        footer .footer-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+        .main-footer .social-links a {
+            color: var(--light-color);
             font-size: 1.5rem;
-            color: var(--white);
-            text-decoration: none;
-        }
-
-        footer .footer-logo span {
-            color: var(--secondary-color);
-        }
-
-        footer a {
-            color: var(--background-medium);
-            text-decoration: none;
+            margin: 0 0.8rem;
             transition: color 0.3s ease;
         }
 
-        footer a:hover {
+        .main-footer .social-links a:hover {
             color: var(--primary-color);
         }
 
-        /* Responsive Adjustments */
+        .main-footer p {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            nav ul {
-                display: none; /* Hide nav for mobile, could add a burger menu */
-            }
-
-            .hero {
-                padding: 3rem 0;
-                min-height: auto;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .benefits-content {
+            .main-header .container {
                 flex-direction: column;
             }
 
-            .benefits-list {
-                min-width: unset;
+            .main-nav ul {
+                margin-top: 1rem;
             }
 
-            .cta h2 {
+            .main-nav ul li a {
+                margin: 0 0.8rem;
+            }
+
+            #hero {
+                padding: 6rem 0;
+                min-height: 60vh;
+            }
+
+            #hero h1 {
+                font-size: 2.5rem;
+            }
+
+            #hero p {
+                font-size: 1.1rem;
+            }
+
+            #features h2, #testimonials h2, #cta h2, #about-eduai .about-content h2 {
                 font-size: 2rem;
             }
 
-            .cta p {
-                font-size: 1rem;
+            .feature-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            #about-eduai {
+                flex-direction: column;
+            }
+
+            #about-eduai .about-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+            #cta p {
+                font-size: 1.1rem;
             }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
+        @media (max-width: 500px) {
+            .main-nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .main-nav ul li {
+                margin-bottom: 0.5rem;
+            }
+
+            #hero h1 {
                 font-size: 2rem;
             }
 
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
+            #hero p {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <a href="#" class="logo">Tâm Vạn <span>Phúc AI</span></a>
-            <nav>
+    <header class="main-header">
+        <div class="container">
+            <h1 class="logo">Tâm Vạn <span>Phúc</span></h1>
+            <nav class="main-nav">
                 <ul>
-                    <li><a href="#gioi-thieu">Giới thiệu</a></li>
-                    <li><a href="#loi-ich">Lợi ích</a></li>
-                    <li><a href="#tinh-nang">Tính năng</a></li>
-                    <li><a href="#lien-he">Tham gia ngay</a></li>
+                    <li><a href="#hero">Trang Chủ</a></li>
+                    <li><a href="#features">Ưu Điểm</a></li>
+                    <li><a href="#about-eduai">Về Edu-AI</a></li>
+                    <li><a href="#testimonials">Đánh Giá</a></li>
+                    <li><a href="#cta">Liên Hệ</a></li>
                 </ul>
             </nav>
-            <a href="https://tamvanphuc.com/go?ref=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Tham gia ngay</a>
         </div>
     </header>
 
-    <main>
-        <section class="hero" id="gioi-thieu">
-            <div class="container hero-content">
-                <h1>Khai Phóng Tiềm Năng, Vững Bước Tương Lai với <span>AI Giáo Dục</span></h1>
-                <p>Giải pháp AI tiên phong từ Tâm Vạn Phúc giúp tối ưu hóa hành trình học tập, phát triển cá nhân và mở ra kỷ nguyên giáo dục thông minh.</p>
-                <a href="https://tamvanphuc.com/go?ref=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn btn-secondary">Khám phá ngay</a>
-                <img src="https://via.placeholder.com/900x500?text=AI+Education+Hero+Image" alt="Hình ảnh minh họa AI giáo dục hiện đại" loading="lazy">
-            </div>
-        </section>
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Khai Phóng Tiềm Năng Học Tập Với Trí Tuệ Nhân Tạo</h1>
+            <p>Giải pháp giáo dục thông minh từ Tâm Vạn Phúc, giúp bạn tiếp cận kiến thức hiệu quả, cá nhân hóa lộ trình học và bứt phá mọi giới hạn.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn btn-secondary">Khám Phá Ngay</a>
+        </div>
+    </section>
 
-        <section class="bg-light" id="loi-ich">
-            <div class="container">
-                <h2 class="section-title">Tại sao chọn <span>Tâm Vạn Phúc AI Giáo Dục?</span></h2>
-                <div class="benefits-content">
-                    <div class="benefits-img">
-                        <img src="https://via.placeholder.com/500x400?text=Benefits+Illustration" alt="Lợi ích của AI Giáo Dục" loading="lazy">
-                    </div>
-                    <div class="benefits-list">
-                        <div class="benefit-item">
-                            <i>&#x1F4DA;</i> <!-- Book icon -->
-                            <div>
-                                <h4>Cá nhân hóa lộ trình học tập</h4>
-                                <p>AI phân tích điểm mạnh, điểm yếu và sở thích để tạo ra một lộ trình học tập độc đáo, phù hợp với từng cá nhân.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <i>&#x1F4AA;</i> <!-- Biceps icon -->
-                            <div>
-                                <h4>Tối ưu hóa hiệu quả và thời gian</h4>
-                                <p>Học tập thông minh hơn, không chỉ chăm chỉ hơn. AI giúp bạn tập trung vào những kiến thức cần thiết, tiết kiệm thời gian và nâng cao kết quả.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <i>&#x1F3AF;</i> <!-- Dartboard icon -->
-                            <div>
-                                <h4>Định hướng tương lai vững chắc</h4>
-                                <p>Không chỉ học kiến thức, bạn còn được trang bị kỹ năng AI, tư duy phản biện để sẵn sàng cho mọi thách thức trong kỷ nguyên số.</p>
-                            </div>
-                        </div>
-                        <div class="benefit-item">
-                            <i>&#x1F4BC;</i> <!-- Briefcase icon -->
-                            <div>
-                                <h4>Môi trường học tập linh hoạt</h4>
-                                <p>Học mọi lúc, mọi nơi với các tài nguyên đa dạng, được cập nhật liên tục, hỗ trợ bởi công nghệ AI hàng đầu.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-medium" id="tinh-nang">
-            <div class="container">
-                <h2 class="section-title">Các <span>Tính Năng Vượt Trội</span></h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <i>&#x1F9BE;</i> <!-- Robot icon -->
-                        <h3>Gia Sư AI 24/7</h3>
-                        <p>Hỏi đáp mọi lúc, mọi nơi. Gia sư AI giải đáp thắc mắc, cung cấp kiến thức bổ sung và luyện tập tương tác.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i>&#x1F4C8;</i> <!-- Chart icon -->
-                        <h3>Phân Tích Tiến Độ Học Tập</h3>
-                        <p>Theo dõi chi tiết hiệu suất, nhận diện xu hướng và đề xuất điều chỉnh để đạt được mục tiêu nhanh nhất.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i>&#x1F4AC;</i> <!-- Speech Bubble icon -->
-                        <h3>Bài Giảng Tương Tác Đa Chiều</h3>
-                        <p>Học qua video, mô phỏng, câu đố và các hoạt động thực hành được AI thiết kế riêng biệt.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i>&#x1F50D;</i> <!-- Magnifying Glass icon -->
-                        <h3>Đánh Giá Năng Lực Thông Minh</h3>
-                        <p>Hệ thống AI tự động đánh giá, chấm điểm và đưa ra phản hồi chi tiết để cải thiện kỹ năng.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i>&#x1F3C6;</i> <!-- Trophy icon -->
-                        <h3>Thử Thách & Thành Tựu</h3>
-                        <p>Tạo động lực học tập với các thử thách thú vị, huy hiệu thành tích và hệ thống xếp hạng.</p>
-                    </div>
-                    <div class="feature-card">
-                        <i>&#x1F4AD;</i> <!-- Lightbulb icon -->
-                        <h3>Cập Nhật Kiến Thức AI Mới Nhất</h3>
-                        <p>Luôn dẫn đầu với các khóa học và nội dung được cập nhật liên tục về công nghệ AI.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-light testimonials-section">
-            <div class="container">
-                <h2 class="section-title">Học Viên <span>Nói Gì Về Chúng Tôi</span></h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <p>"Trước đây tôi rất khó tập trung, nhưng với lộ trình cá nhân hóa của Tâm Vạn Phúc AI, việc học trở nên thú vị và hiệu quả hơn rất nhiều."</p>
-                        <div class="author">Nguyễn Thị Hoa</div>
-                        <div class="role">Sinh viên</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Hệ thống gia sư AI thật sự tuyệt vời! Tôi có thể hỏi bất cứ lúc nào và nhận được câu trả lời chi tiết, giúp tôi giải quyết các bài toán khó."</p>
-                        <div class="author">Trần Văn An</div>
-                        <div class="role">Lập trình viên</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Tôi đã tìm thấy hướng đi mới cho sự nghiệp nhờ các khóa học AI của Tâm Vạn Phúc. Đây là nền tảng giáo dục mà ai cũng cần!"</p>
-                        <div class="author">Lê Minh Khôi</div>
-                        <div class="role">Chuyên gia Marketing</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta" id="lien-he">
-            <div class="container">
-                <h2>Sẵn Sàng <span>Khai Phóng Tiềm Năng Của Bạn?</span></h2>
-                <p>Đừng bỏ lỡ cơ hội định hình tương lai với nền tảng giáo dục AI tiên tiến từ Tâm Vạn Phúc. Hãy bắt đầu hành trình học tập thông minh ngay hôm nay!</p>
-                <a href="https://tamvanphuc.com/go?ref=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Bắt Đầu Miễn Phí Ngay!</a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <section id="features" class="py-4">
         <div class="container">
-            <a href="#" class="footer-logo">Tâm Vạn <span>Phúc AI</span></a>
-            <p>&copy; 2024 Hệ Sinh Thái Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <p>Liên hệ: <a href="mailto:info@tamvanphuc.com">info@tamvanphuc.com</a></p>
+            <h2 class="text-center">Edu-AI Mang Lại Cho Bạn Những Gì?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-brain"></i>
+                    <h3>Học Tập Cá Nhân Hóa</h3>
+                    <p>Hệ thống tự động điều chỉnh nội dung và phương pháp giảng dạy phù hợp với tốc độ và phong cách học của từng cá nhân.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Tối Ưu Hóa Hiệu Suất</h3>
+                    <p>Phân tích hiệu suất học tập, nhận diện điểm mạnh, điểm yếu và đề xuất lộ trình phát triển tối ưu nhất.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>Tiếp Cận Tài Nguyên Thông Minh</h3>
+                    <p>Kho học liệu khổng lồ được cập nhật liên tục, sử dụng AI để gợi ý tài liệu liên quan và nâng cao trải nghiệm học tập.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-comments"></i>
+                    <h3>Hỗ Trợ 24/7</h3>
+                    <p>Gia sư AI luôn sẵn sàng giải đáp thắc mắc, cung cấp phản hồi tức thì và hỗ trợ bạn trong suốt quá trình học tập.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-eduai" class="container py-4">
+        <div class="about-content">
+            <h2>Edu-AI: Tương Lai Của Giáo Dục Đã Đến</h2>
+            <p>Trong kỷ nguyên số, trí tuệ nhân tạo không chỉ là công cụ mà còn là người bạn đồng hành, giúp chúng ta vượt qua những thách thức trong học tập và phát triển bản thân. Edu-AI của Tâm Vạn Phúc không ngừng đổi mới để mang đến trải nghiệm học tập vượt trội.</p>
+            <p>Chúng tôi tin rằng mỗi cá nhân đều có tiềm năng vô hạn. Với Edu-AI, bạn sẽ được trang bị những công cụ tốt nhất để khai phá và phát huy tối đa tiềm năng đó, chuẩn bị cho một tương lai thành công.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Tìm Hiểu Thêm</a>
+        </div>
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1510511232890-fd7768007e9f?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="AI in Education">
+        </div>
+    </section>
+
+    <section id="testimonials" class="py-4">
+        <div class="container">
+            <h2 class="text-center">Học Viên Nói Gì Về Edu-AI?</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <p>"Edu-AI đã thay đổi hoàn toàn cách tôi học. Lộ trình cá nhân hóa giúp tôi tiếp thu nhanh hơn và hứng thú hơn rất nhiều."</p>
+                    <div class="author">- Nguyễn Văn A, Sinh viên Đại học</div>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Là một giáo viên, tôi thấy Edu-AI là công cụ hỗ trợ tuyệt vời, giúp tôi hiểu rõ hơn về nhu cầu của học sinh và tối ưu bài giảng."</p>
+                    <div class="author">- Trần Thị B, Giáo viên THPT</div>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Khóa học rất thiết thực! Nhờ có sự hỗ trợ của AI, tôi đã nắm vững kiến thức mới trong thời gian ngắn kỷ lục."</p>
+                    <div class="author">- Lê Minh C, Chuyên gia CNTT</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container">
+            <h2>Đừng Bỏ Lỡ Cơ Hội Bứt Phá Tiềm Năng!</h2>
+            <p>Gia nhập cộng đồng Edu-AI của Tâm Vạn Phúc ngay hôm nay để trải nghiệm môi trường học tập thông minh và hiệu quả nhất.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn btn-secondary">Đăng Ký Khóa Học Ngay</a>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2023 Tâm Vạn Phúc Ecosystem. All Rights Reserved.</p>
+            <p>Powering the future of education with AI.</p>
         </div>
     </footer>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
