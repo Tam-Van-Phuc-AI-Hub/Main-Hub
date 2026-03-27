@@ -1,544 +1,407 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc AI Tài Chính - Nâng Tầm Đầu Tư Cùng Trí Tuệ Nhân Tạo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Tâm Vạn Phúc AI Tài Chính - Nâng Tầm Đầu Tư Của Bạn</title>
     <style>
         :root {
-            --primary-color: #007bff; /* Blue */
-            --secondary-color: #6c757d; /* Gray */
-            --accent-color: #28a745; /* Green for CTA */
-            --background-light: #f8f9fa;
-            --text-dark: #343a40;
-            --text-light: #ffffff;
-            --font-family-heading: 'Montserrat', sans-serif;
-            --font-family-body: 'Roboto', sans-serif;
+            --primary-color: #007bff; /* Tâm Vạn Phúc Blue */
+            --secondary-color: #28a745; /* Prosperity Green */
+            --text-color-dark: #343a40;
+            --text-color-light: #f8f9fa;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --bg-dark: #343a40;
+            --button-hover-primary: #0056b3;
+            --button-hover-secondary: #218838;
         }
 
-        * {
+        /* Base Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            color: var(--text-color-dark);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        *, *::before, *::after {
             box-sizing: border-box;
         }
 
-        body {
-            font-family: var(--font-family-body);
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background-light);
-            scroll-behavior: smooth;
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        a:hover {
+            text-decoration: underline;
         }
 
         /* Header */
         header {
-            background: linear-gradient(to right, var(--primary-color), #0056b3);
-            color: var(--text-light);
-            padding: 15px 0;
+            background-color: var(--bg-white);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        header .container {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .logo {
-            font-family: var(--font-family-heading);
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-light);
-            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.8rem;
+            color: var(--primary-color);
             display: flex;
             align-items: center;
         }
-
-        .logo span {
-            font-size: 18px;
-            font-weight: 400;
-            margin-left: 8px;
-            opacity: 0.8;
-        }
-
-        nav ul {
-            list-style: none;
-        }
-
-        nav ul li {
-            display: inline-block;
-            margin-left: 25px;
-        }
-
-        nav ul li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: #d0eaff;
+        .logo::before {
+            content: '🧠'; /* AI Brain icon */
+            margin-right: 0.5rem;
+            font-size: 1.5em;
         }
 
         /* Hero Section */
-        .hero {
-            background: url('https://images.unsplash.com/photo-1579621970795-87facc2f9397?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80') no-repeat center center/cover;
-            color: var(--text-light);
+        #hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #00bfff 100%);
+            color: var(--text-color-light);
+            padding: 6rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
             text-align: center;
-            padding: 150px 0;
-            position: relative;
-            animation: fadeIn 1s ease-out;
+            max-width: 100%;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+        .hero-content {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
         }
 
-        .hero .container {
-            position: relative;
-            z-index: 1;
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .hero h1 {
-            font-family: var(--font-family-heading);
-            font-size: 56px;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
 
-        .hero p {
-            font-size: 22px;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 300;
+        .hero-image {
+            flex: 1;
+            min-width: 300px;
+            max-width: 600px;
+            text-align: center;
         }
 
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* CTA Button */
         .cta-button {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--text-light);
-            padding: 18px 40px;
+            background-color: var(--secondary-color);
+            color: var(--text-color-light);
+            padding: 1.2rem 2.5rem;
             border-radius: 50px;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+            font-size: 1.25rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .cta-button:hover {
-            background-color: #218838;
+            background-color: var(--button-hover-secondary);
             transform: translateY(-3px);
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
-        /* Sections */
-        section {
-            padding: 80px 0;
+        .primary-cta {
+            background-color: var(--primary-color);
+        }
+        .primary-cta:hover {
+            background-color: var(--button-hover-primary);
         }
 
-        section:nth-of-type(even) {
-            background-color: var(--background-light);
-        }
 
-        h2 {
-            font-family: var(--font-family-heading);
-            font-size: 42px;
+        /* Features Section */
+        #features {
+            padding: 5rem 2rem;
+            background-color: var(--bg-white);
             text-align: center;
-            margin-bottom: 60px;
-            color: var(--primary-color);
+        }
+
+        #features h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-color-dark);
             position: relative;
         }
-
-        h2::after {
+        #features h2::after {
             content: '';
+            display: block;
             width: 80px;
             height: 4px;
-            background-color: var(--accent-color);
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
+            background-color: var(--secondary-color);
+            margin: 1rem auto 0;
             border-radius: 2px;
         }
 
-        /* Features Section */
-        .features-grid {
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            text-align: center;
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .feature-item {
-            background-color: var(--text-light);
-            padding: 40px 25px;
+            background-color: var(--bg-light);
+            padding: 2.5rem;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .feature-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-item i {
-            font-size: 60px;
-            color: var(--primary-color);
-            margin-bottom: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
         }
 
         .feature-item h3 {
-            font-family: var(--font-family-heading);
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 1.6rem;
             color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
         }
+        .feature-item h3::before {
+            margin-right: 0.8rem;
+            font-size: 1.5em; /* Make icons larger */
+            line-height: 1;
+        }
+        /* Specific icons for each feature item */
+        .feature-item:nth-child(1) h3::before { content: '📈'; } /* Chart up */
+        .feature-item:nth-child(2) h3::before { content: '🔮'; } /* Crystal ball */
+        .feature-item:nth-child(3) h3::before { content: '⚙️'; } /* Gear */
+        .feature-item:nth-child(4) h3::before { content: '🤝'; } /* Handshake/personal */
+
 
         .feature-item p {
-            font-size: 17px;
-            color: var(--secondary-color);
+            font-size: 1rem;
+            color: #555;
         }
 
-        /* Testimonials Section */
-        .testimonials {
+        /* Call to Action Bottom */
+        #call-to-action-bottom {
             background-color: var(--primary-color);
-            color: var(--text-light);
-        }
-
-        .testimonials h2 {
-            color: var(--text-light);
-        }
-
-        .testimonial-carousel {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
-            padding-bottom: 20px;
-            gap: 30px;
-        }
-
-        .testimonial-card {
-            flex: 0 0 90%; /* Adjust width for responsive carousel */
-            max-width: 450px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 30px;
+            color: var(--text-color-light);
+            padding: 5rem 2rem;
             text-align: center;
-            scroll-snap-align: start;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .testimonial-card p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            font-style: italic;
+        #call-to-action-bottom h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
 
-        .testimonial-card .author {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .testimonial-card .author-title {
-            font-size: 15px;
-            opacity: 0.8;
-        }
-
-        /* Call to Action Final */
-        .cta-final {
-            text-align: center;
-            background-color: var(--background-light);
-            padding: 100px 0;
-        }
-
-        .cta-final h2 {
-            font-size: 48px;
-            margin-bottom: 30px;
-        }
-
-        .cta-final p {
-            font-size: 20px;
-            margin-bottom: 50px;
+        #call-to-action-bottom p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            color: var(--secondary-color);
         }
+
 
         /* Footer */
         footer {
-            background-color: var(--text-dark);
-            color: var(--text-light);
-            padding: 40px 0;
+            background-color: var(--bg-dark);
+            color: var(--text-color-light);
+            padding: 2rem;
             text-align: center;
-            font-size: 15px;
+            font-size: 0.9rem;
         }
 
         footer p {
-            margin-bottom: 10px;
+            margin: 0.5rem 0;
+            opacity: 0.8;
         }
 
-        footer a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        footer a:hover {
-            color: #d0eaff;
-        }
-
-        /* Utility classes for icons (simulated with text for no external dependencies) */
-        .icon {
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            line-height: 60px;
-            border-radius: 50%;
-            background-color: rgba(0, 123, 255, 0.1);
-            color: var(--primary-color);
-            font-size: 30px;
-            text-align: center;
-            margin-bottom: 25px;
-            font-weight: bold;
-        }
-
-        /* Responsive Design */
+        /* Responsive Adjustments */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 48px;
-            }
-            .hero p {
-                font-size: 18px;
-            }
-            h2 {
-                font-size: 36px;
-            }
-            .testimonial-card {
-                flex: 0 0 100%;
-            }
-        }
-
-        @media (max-width: 768px) {
-            header .container {
+            #hero {
                 flex-direction: column;
+                padding: 4rem 1.5rem;
                 text-align: center;
             }
-            nav {
-                margin-top: 15px;
+
+            #hero h1 {
+                font-size: 2.8rem;
             }
-            nav ul li {
-                margin: 0 10px;
+
+            #hero p {
+                font-size: 1.1rem;
             }
-            .hero {
-                padding: 100px 0;
+
+            .hero-image {
+                order: -1; /* Image appears above content on mobile */
+                margin-bottom: 2rem;
             }
-            .hero h1 {
-                font-size: 40px;
+
+            .hero-image img {
+                max-width: 90%;
             }
-            .hero p {
-                font-size: 16px;
-            }
-            .cta-button {
-                padding: 15px 30px;
-                font-size: 18px;
-            }
-            h2 {
-                font-size: 32px;
-            }
-            .features-grid {
+
+            .feature-grid {
                 grid-template-columns: 1fr;
             }
-            .cta-final h2 {
-                font-size: 38px;
-            }
-            .cta-final p {
-                font-size: 18px;
-            }
-        }
 
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 24px;
-            }
-            .logo span {
-                font-size: 16px;
-            }
-            nav ul {
-                padding: 0;
-            }
-            nav ul li {
-                margin: 0 5px;
-            }
-            .hero h1 {
-                font-size: 32px;
-            }
-            .hero p {
-                font-size: 14px;
-            }
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 16px;
-            }
-            h2 {
-                font-size: 28px;
-            }
-            .feature-item i {
-                font-size: 50px;
+            .feature-item {
+                text-align: center;
+                padding: 2rem;
             }
             .feature-item h3 {
-                font-size: 20px;
+                justify-content: center; /* Center icon and text */
             }
-            .testimonial-card p {
-                font-size: 16px;
+
+            #features h2, #call-to-action-bottom h2 {
+                font-size: 2rem;
             }
-            .cta-final h2 {
-                font-size: 30px;
-            }
-            .cta-final p {
-                font-size: 16px;
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
             }
         }
 
-        /* Basic animations */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+        @media (max-width: 576px) {
+            header {
+                padding: 1rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+            .logo::before {
+                font-size: 1.2em;
+            }
+
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+
+            #hero p {
+                font-size: 1rem;
+            }
+
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+                padding: 1rem 1.5rem;
+                font-size: 1rem;
+            }
+
+            #features {
+                padding: 3rem 1rem;
+            }
+
+            .feature-item {
+                padding: 1.5rem;
+            }
+
+            #features h2, #call-to-action-bottom h2 {
+                font-size: 1.8rem;
+            }
+
+            #call-to-action-bottom p {
+                font-size: 1rem;
+            }
         }
     </style>
-    <!-- Font Awesome for icons (CDN - usually added, but keeping it simple for no external JS/CSS files) -->
-    <!-- For demonstration, I'll use basic text or Unicode characters as icons to avoid external dependencies. -->
 </head>
 <body>
     <header>
-        <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc <span>AI Tài Chính</span></a>
-            <nav>
-                <ul>
-                    <li><a href="#hero">Trang Chủ</a></li>
-                    <li><a href="#features">Tính Năng</a></li>
-                    <li><a href="#testimonials">Đánh Giá</a></li>
-                    <li><a href="#cta-final">Liên Hệ</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <div class="logo">Tâm Vạn Phúc</div>
+        </nav>
     </header>
 
     <main>
-        <section id="hero" class="hero">
-            <div class="container">
-                <h1>AI Tài Chính Tâm Vạn Phúc: Đột Phá Đầu Tư Cùng Trí Tuệ Nhân Tạo</h1>
-                <p>Tối ưu hóa lợi nhuận, giảm thiểu rủi ro, đưa ra quyết định thông minh hơn với công nghệ AI tiên tiến từ hệ sinh thái Tâm Vạn Phúc.</p>
-                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button" target="_blank" rel="noopener noreferrer">Khai Phóng Tiềm Năng Đầu Tư Của Bạn Ngay!</a>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>AI Tài Chính Đột Phá: Nâng Tầm Đầu Tư Cùng Tâm Vạn Phúc</h1>
+                <p>Tận dụng sức mạnh trí tuệ nhân tạo để đưa ra quyết định tài chính thông minh, tối ưu hóa lợi nhuận và xây dựng thịnh vượng bền vững.</p>
+                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button">Khám Phá Sức Mạnh AI Ngay!</a>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/600x400/007bff/ffffff?text=AI+Finance+Illustration" alt="Minh họa AI Tài Chính hiện đại" />
             </div>
         </section>
 
-        <section id="features" class="features">
-            <div class="container">
-                <h2>Giải Pháp AI Tài Chính Độc Quyền</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <div class="icon">📊</div> <!-- Chart icon -->
-                        <h3>Phân Tích Thị Trường Chuyên Sâu</h3>
-                        <p>AI liên tục quét và phân tích dữ liệu thị trường khổng lồ, cung cấp cái nhìn toàn diện và dự đoán xu hướng chính xác.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="icon">🛡️</div> <!-- Shield icon -->
-                        <h3>Quản Lý Rủi Ro Thông Minh</h3>
-                        <p>Xác định và đánh giá rủi ro tiềm ẩn trong danh mục đầu tư của bạn, đưa ra cảnh báo kịp thời và chiến lược giảm thiểu.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="icon">💡</div> <!-- Lightbulb icon -->
-                        <h3>Chiến Lược Cá Nhân Hóa</h3>
-                        <p>Tạo ra các chiến lược đầu tư phù hợp riêng với mục tiêu tài chính và khẩu vị rủi ro của từng nhà đầu tư.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="icon">⚙️</div> <!-- Gear icon -->
-                        <h3>Tự Động Hóa Giao Dịch</h3>
-                        <p>Thực hiện các giao dịch một cách nhanh chóng, hiệu quả, loại bỏ yếu tố cảm xúc và tối đa hóa lợi nhuận.</p>
-                    </div>
+        <section id="features">
+            <h2>Tại Sao Chọn AI Tài Chính Tâm Vạn Phúc?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>Phân Tích Thị Trường Chính Xác</h3>
+                    <p>Công nghệ AI tiên tiến quét và phân tích hàng triệu dữ liệu thị trường theo thời gian thực, cung cấp cái nhìn sâu sắc và dự báo đáng tin cậy.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Dự Đoán Xu Hướng Thông Minh</h3>
+                    <p>Nhận diện các mô hình và xu hướng tiềm ẩn mà con người khó có thể thấy được, giúp bạn đi trước thị trường một bước.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Quản Lý Danh Mục Tối Ưu</h3>
+                    <p>AI liên tục điều chỉnh và tối ưu hóa danh mục đầu tư của bạn để đạt được hiệu suất tốt nhất, phù hợp với mục tiêu và mức độ chấp nhận rủi ro của bạn.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Lời Khuyên Cá Nhân Hóa</h3>
+                    <p>Nhận được các khuyến nghị tài chính được tùy chỉnh riêng cho bạn, từ kế hoạch đầu tư đến chiến lược tiết kiệm, dựa trên tình hình tài chính độc đáo của bạn.</p>
                 </div>
             </div>
         </section>
 
-        <section id="testimonials" class="testimonials">
-            <div class="container">
-                <h2>Khách Hàng Nói Gì Về Chúng Tôi</h2>
-                <div class="testimonial-carousel">
-                    <div class="testimonial-card">
-                        <p>"Công nghệ AI của Tâm Vạn Phúc đã thay đổi hoàn toàn cách tôi đầu tư. Quyết định nhanh hơn, chính xác hơn và lợi nhuận tăng rõ rệt!"</p>
-                        <div class="author">Nguyễn Văn A</div>
-                        <div class="author-title">Nhà Đầu Tư Cá Nhân</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Phân tích thị trường chuyên sâu và cảnh báo rủi ro kịp thời là điều tôi đánh giá cao nhất. Cảm thấy an toàn hơn khi giao dịch."</p>
-                        <div class="author">Trần Thị B</div>
-                        <div class="author-title">Chuyên Gia Tài Chính</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <p>"Giải pháp AI của Tâm Vạn Phúc thực sự mạnh mẽ. Nó không chỉ cung cấp dữ liệu mà còn đưa ra những đề xuất hành động thông minh."</p>
-                        <div class="author">Lê Minh C</div>
-                        <div class="author-title">Giám Đốc Quỹ Đầu Tư</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="cta-final" class="cta-final">
-            <div class="container">
-                <h2>Sẵn Sàng Nâng Cấp Tương Lai Tài Chính Của Bạn?</h2>
-                <p>Đừng để cơ hội trôi qua. Tham gia cùng hàng ngàn nhà đầu tư thông minh khác và trải nghiệm sức mạnh đột phá của AI Tài Chính Tâm Vạn Phúc ngay hôm nay!</p>
-                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button" target="_blank" rel="noopener noreferrer">Bắt Đầu Hành Trình AI Tài Chính Của Bạn</a>
-            </div>
+        <section id="call-to-action-bottom">
+            <h2>Đừng Bỏ Lỡ Cơ Hội Nâng Tầm Tài Chính Của Bạn</h2>
+            <p>Tham gia cộng đồng những nhà đầu tư thông minh đang xây dựng tương lai thịnh vượng cùng AI Tâm Vạn Phúc.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button primary-cta">Bắt Đầu Hành Trình Thịnh Vượng Của Bạn</a>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; <span id="current-year"></span> Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <p>Thuộc Hệ Sinh Thái <a href="#" target="_blank" rel="noopener noreferrer">Tâm Vạn Phúc</a>.</p>
-        </div>
+        <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+        <p>Hệ sinh thái kiến tạo thịnh vượng bền vững.</p>
     </footer>
-
-    <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Optional: Smooth scroll for navigation links
-        document.querySelectorAll('nav ul li a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - (document.querySelector('header').offsetHeight), // Adjust for sticky header
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
