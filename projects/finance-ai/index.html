@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc AI - Tối Ưu Hóa Tài Chính Với Trí Tuệ Nhân Tạo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Tâm Vạn Phúc - Tối Ưu Tài Chính Với AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2C3E50; /* Dark Blue-Grey */
-            --secondary-color: #3498DB; /* Bright Blue */
-            --accent-color: #E67E22; /* Orange for CTA */
-            --text-color: #333;
-            --light-bg: #F8F8F8;
-            --white: #FFFFFF;
-            --shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #28a745; /* Green */
+            --dark-color: #343a40; /* Dark Grey */
+            --light-color: #f8f9fa; /* Light Grey */
+            --white-color: #ffffff;
+            --text-color: #495057;
+            --border-radius: 8px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -26,8 +27,8 @@
             font-family: 'Roboto', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--light-bg);
-            scroll-behavior: smooth;
+            background-color: var(--light-color);
+            overflow-x: hidden;
         }
 
         .container {
@@ -36,358 +37,442 @@
             padding: 0 20px;
         }
 
-        /* Header */
-        header {
-            background-color: var(--primary-color);
-            color: var(--white);
+        /* --- Header --- */
+        .header {
+            background-color: var(--white-color);
             padding: 15px 0;
-            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        header .logo {
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.2em;
+            font-size: 28px;
             font-weight: 700;
-            color: var(--white);
+            color: var(--primary-color);
             text-decoration: none;
         }
-
-        header .logo span {
+        .logo span {
             color: var(--secondary-color);
         }
 
-        /* Hero Section */
+        .nav-menu ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section --- */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #34495E 100%);
-            color: var(--white);
-            padding: 100px 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?finance,ai,technology') no-repeat center center/cover;
+            color: var(--white-color);
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            padding: 150px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: rgba(var(--secondary-color), 0.1);
-            border-radius: 50%;
-            animation: pulse 4s infinite ease-in-out;
-        }
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -70px;
-            right: -70px;
-            width: 250px;
-            height: 250px;
-            background: rgba(var(--accent-color), 0.1);
-            border-radius: 50%;
-            animation: pulse 5s infinite reverse ease-in-out;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 0.8; }
-            100% { transform: scale(0.8); opacity: 0.5; }
+        .hero-content {
+            max-width: 800px;
         }
 
         .hero h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5em;
+            font-size: 4.2em;
             margin-bottom: 20px;
-            font-weight: 700;
             line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
+            font-size: 1.6em;
+            margin-bottom: 40px;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            padding: 18px 40px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            background-color: #218838; /* Darker green */
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3; /* Darker blue */
+        }
+
+        /* --- Sections --- */
+        .section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section:nth-child(even) {
+            background-color: var(--white-color);
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3em;
+            margin-bottom: 60px;
+            color: var(--dark-color);
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 20px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- Features Section --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            background-color: var(--white-color);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-item i {
+            font-size: 3.5em;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        .feature-item h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .feature-item p {
+            font-size: 1.1em;
+            color: var(--text-color);
+        }
+        
+        /* Font Awesome for icons */
+        @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css");
+
+        /* --- Call to Action Section --- */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 100px 0;
+            text-align: center;
+            background-image: url('https://source.unsplash.com/1600x600/?abstract,geometric,blue') ;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Overlay to make text readable */
+            z-index: 1;
+        }
+        .cta-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-section h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5em;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .cta-section p {
             font-size: 1.4em;
             margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            font-weight: 300;
         }
 
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 18px 35px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2em;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .cta-button:hover {
-            background-color: #d1701e;
-            transform: translateY(-3px);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background-color: var(--white);
+        /* --- Footer --- */
+        .footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 50px 0;
             text-align: center;
         }
 
-        .features h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-bottom: 60px;
-            font-weight: 700;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-        }
-
-        .feature-item {
-            background-color: var(--light-bg);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .footer .container {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 20px;
         }
 
-        .feature-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .feature-item .icon {
-            font-size: 3em;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            background-color: var(--white);
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-item h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6em;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .feature-item p {
-            font-size: 1em;
-            color: #555;
-        }
-
-        /* About/Trust Section */
-        .about-us {
-            background-color: #F0F3F4;
-            padding: 80px 0;
-            text-align: center;
-        }
-        
-        .about-us h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-bottom: 40px;
-            font-weight: 700;
-        }
-
-        .about-us p {
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-            font-size: 1.1em;
-            color: #444;
-        }
-
-        /* Final CTA Section */
-        .final-cta {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .final-cta h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8em;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-
-        .final-cta p {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 30px 0;
-            text-align: center;
+        .footer p {
+            margin: 0;
             font-size: 0.9em;
         }
 
-        footer a {
-            color: var(--secondary-color);
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .footer-links a {
+            color: var(--light-color);
             text-decoration: none;
-            margin: 0 10px;
+            font-weight: 400;
             transition: color 0.3s ease;
         }
 
-        footer a:hover {
-            color: var(--accent-color);
+        .footer-links a:hover {
+            color: var(--primary-color);
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
+        /* --- Responsive Design --- */
+        @media (max-width: 992px) {
             .hero h1 {
+                font-size: 3.5em;
+            }
+            .hero p {
+                font-size: 1.4em;
+            }
+            .section-title {
                 font-size: 2.5em;
+            }
+            .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+            .cta-section h2 {
+                font-size: 3em;
+            }
+            .cta-section p {
+                font-size: 1.2em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .nav-menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .hero {
+                padding: 100px 0;
+                min-height: 60vh;
+            }
+            .hero h1 {
+                font-size: 2.8em;
             }
             .hero p {
                 font-size: 1.2em;
             }
-            .cta-button {
+            .btn {
                 padding: 15px 30px;
-                font-size: 1em;
+                font-size: 1.1em;
             }
-            .features h2, .about-us h2, .final-cta h2 {
+            .section {
+                padding: 60px 0;
+            }
+            .section-title {
                 font-size: 2em;
+                margin-bottom: 40px;
             }
-            .feature-grid {
-                grid-template-columns: 1fr;
+            .feature-item {
+                padding: 30px;
+            }
+            .feature-item h3 {
+                font-size: 1.6em;
+            }
+            .cta-section {
+                padding: 80px 0;
+            }
+            .cta-section h2 {
+                font-size: 2.5em;
+            }
+            .cta-section p {
+                font-size: 1.1em;
+            }
+            .footer-links ul {
+                flex-direction: column;
+                gap: 10px;
             }
         }
 
         @media (max-width: 480px) {
-            header .logo {
-                font-size: 1.8em;
-            }
-            .hero {
-                padding: 80px 0;
-            }
             .hero h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
             .hero p {
                 font-size: 1em;
             }
-            .cta-button {
+            .btn {
                 padding: 12px 25px;
-                font-size: 0.9em;
+                font-size: 1em;
             }
-            .features, .about-us, .final-cta {
-                padding: 50px 0;
-            }
-            .features h2, .about-us h2, .final-cta h2 {
+            .section-title {
                 font-size: 1.8em;
-                margin-bottom: 40px;
             }
             .feature-item h3 {
                 font-size: 1.4em;
+            }
+            .cta-section h2 {
+                font-size: 2em;
+            }
+            .cta-section p {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc <span>AI</span></a>
+            <a href="#" class="logo">Tâm Vạn <span>Phúc</span></a>
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#hero">Trang Chủ</a></li>
+                    <li><a href="#features">Tính Năng</a></li>
+                    <li><a href="#cta">Liên Hệ</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1>Tối Ưu Hóa Tài Chính Cùng AI Thông Minh</h1>
-            <p>Tương lai thịnh vượng của bạn bắt đầu từ đây. Giải pháp tài chính cá nhân hóa, tự động và hiệu quả, được cung cấp bởi trí tuệ nhân tạo hàng đầu từ Tâm Vạn Phúc.</p>
-            <a href="https://affiliate.example.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button" target="_blank" rel="noopener noreferrer">
-                Bắt Đầu Hành Trình Của Bạn
-            </a>
-        </div>
-    </section>
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Tối Ưu Tài Chính Của Bạn Với Trí Tuệ Nhân Tạo Từ Tâm Vạn Phúc</h1>
+                <p>Đưa ra quyết định đầu tư thông minh, tự động hóa quản lý và dự đoán xu hướng thị trường với công nghệ AI tiên tiến nhất.</p>
+                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Bắt Đầu Hành Trình Của Bạn Ngay!</a>
+            </div>
+        </section>
 
-    <section class="features">
-        <div class="container">
-            <h2>Tại Sao Chọn Tâm Vạn Phúc AI?</h2>
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <div class="icon">&#128176;</div> <!-- Money Bag icon -->
-                    <h3>Phân Tích Thị Trường Chính Xác</h3>
-                    <p>AI của chúng tôi liên tục quét và phân tích dữ liệu thị trường khổng lồ để cung cấp những insight giá trị nhất.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">&#128712;&#65039;</div> <!-- Shield icon -->
-                    <h3>Quản Lý Rủi Ro Thông Minh</h3>
-                    <p>Xây dựng danh mục đầu tư an toàn hơn với công nghệ AI dự đoán và giảm thiểu rủi ro tiềm ẩn.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">&#129504;</div> <!-- Brain icon -->
-                    <h3>Chiến Lược Đầu Tư Cá Nhân</h3>
-                    <p>Không có hai nhà đầu tư nào giống nhau. AI tạo ra chiến lược độc đáo phù hợp với mục tiêu và mức độ chấp nhận rủi ro của bạn.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">&#9200;</div> <!-- Watch icon -->
-                    <h3>Tiết Kiệm Thời Gian & Công Sức</h3>
-                    <p>Tự động hóa các tác vụ phức tạp, giúp bạn tập trung vào những gì quan trọng nhất trong cuộc sống.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">&#128200;</div> <!-- Chart Increasing icon -->
-                    <h3>Nâng Cao Hiệu Quả Sinh Lời</h3>
-                    <p>Khám phá cơ hội mới và tối đa hóa lợi nhuận với các đề xuất được hỗ trợ bởi trí tuệ nhân tạo.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="icon">&#128274;</div> <!-- Lock icon -->
-                    <h3>Bảo Mật Tối Cao</h3>
-                    <p>Dữ liệu và thông tin tài chính của bạn luôn được bảo vệ an toàn tuyệt đối với các tiêu chuẩn mã hóa hàng đầu.</p>
+        <section id="features" class="section">
+            <div class="container">
+                <h2 class="section-title">Tại Sao Chọn AI Tài Chính Của Tâm Vạn Phúc?</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Phân Tích Thị Trường Chuyên Sâu</h3>
+                        <p>Nhận biết các cơ hội và rủi ro tiềm ẩn với khả năng phân tích dữ liệu thị trường khổng lồ theo thời gian thực.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-robot"></i>
+                        <h3>Tự Động Hóa Quản Lý Danh Mục</h3>
+                        <p>Tiết kiệm thời gian và công sức với các công cụ tự động giúp cân bằng lại danh mục và tối ưu hóa hiệu suất.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Dự Đoán Xu Hướng Chính Xác</h3>
+                        <p>Sử dụng thuật toán AI để dự báo các biến động thị trường, giúp bạn luôn đi trước một bước.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Bảo Mật Dữ Liệu Hàng Đầu</h3>
+                        <p>An tâm với các tiêu chuẩn bảo mật cao nhất, đảm bảo mọi thông tin tài chính của bạn được bảo vệ tuyệt đối.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-wallet"></i>
+                        <h3>Tối Ưu Hóa Lợi Nhuận</h3>
+                        <p>AI giúp xác định các chiến lược đầu tư hiệu quả nhất, tối đa hóa lợi nhuận tiềm năng cho bạn.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-clock"></i>
+                        <h3>Tiết Kiệm Thời Gian</h3>
+                        <p>Giảm thiểu thời gian phân tích thủ công, tập trung vào việc ra quyết định chiến lược và tận hưởng cuộc sống.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="about-us">
-        <div class="container">
-            <h2>Về Hệ Sinh Thái Tâm Vạn Phúc</h2>
-            <p>Tâm Vạn Phúc luôn nỗ lực mang đến những giải pháp đột phá, kết hợp trí tuệ con người và công nghệ tiên tiến để tạo ra giá trị bền vững. Với Tâm Vạn Phúc AI, chúng tôi cam kết đồng hành cùng bạn trên con đường xây dựng một tương lai tài chính vững chắc và thịnh vượng.</p>
-            <p>Chúng tôi tin rằng, với sự hỗ trợ của AI, mọi cá nhân đều có thể tiếp cận và tối ưu hóa tiềm năng tài chính của mình.</p>
-        </div>
-    </section>
+        <section id="cta" class="cta-section">
+            <div class="container cta-content">
+                <h2>Sẵn Sàng Thay Đổi Tương Lai Tài Chính Của Bạn?</h2>
+                <p>Đừng bỏ lỡ cơ hội bứt phá với công nghệ tài chính AI hàng đầu. Tham gia cộng đồng Tâm Vạn Phúc ngay hôm nay!</p>
+                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">Khám Phá Giải Pháp AI Của Chúng Tôi</a>
+            </div>
+        </section>
+    </main>
 
-    <section class="final-cta">
+    <footer class="footer">
         <div class="container">
-            <h2>Bạn Đã Sẵn Sàng Cho Tương Lai Tài Chính Của Mình?</h2>
-            <p>Đừng bỏ lỡ cơ hội bứt phá với sức mạnh của trí tuệ nhân tạo. Tham gia cộng đồng Tâm Vạn Phúc AI ngay hôm nay!</p>
-            <a href="https://affiliate.example.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button" target="_blank" rel="noopener noreferrer">
-                Khám Phá Giải Pháp AI Của Chúng Tôi
-            </a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Tâm Vạn Phúc AI. Mọi quyền được bảo lưu.</p>
-            <p>
-                <a href="#">Điều khoản sử dụng</a> |
-                <a href="#">Chính sách bảo mật</a>
-            </p>
+            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Chính Sách Bảo Mật</a></li>
+                    <li><a href="#">Điều Khoản Dịch Vụ</a></li>
+                    <li><a href="#">Liên Hệ</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 </body>
