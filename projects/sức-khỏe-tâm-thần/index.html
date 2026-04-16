@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Nơi Nương Tựa Tinh Thần Của Bạn</title>
-    <meta name="description" content="Khám phá Tâm Vạn Phúc - Hệ sinh thái chăm sóc sức khỏe tâm thần toàn diện, giúp bạn tìm lại bình yên, giảm căng thẳng và phát triển bản thân.">
+    <title>Tâm Vạn Phúc - Nơi Thanh Lọc Tâm Hồn & Sức Khỏe Tâm Thần</title>
     <style>
-        /* CSS Reset & Basic Styles */
+        :root {
+            --primary-color: #4CAF50; /* Green */
+            --secondary-color: #2196F3; /* Blue */
+            --accent-color: #FFC107; /* Amber */
+            --text-color: #333;
+            --light-text-color: #f4f4f4;
+            --bg-light: #f9f9f9;
+            --bg-dark: #2c3e50; /* Dark blue/gray */
+            --border-color: #ddd;
+            --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            --heading-font-family: 'Georgia', serif;
+        }
+
+        /* Basic Reset & Body Styles */
         * {
             margin: 0;
             padding: 0;
@@ -14,600 +26,566 @@
         }
 
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: var(--font-family);
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f7f6; /* Light background */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            color: var(--text-color);
+            background-color: #fff;
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
         a {
+            color: var(--primary-color);
             text-decoration: none;
-            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        h1, h2, h3 {
+            font-family: var(--heading-font-family);
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        h1 { font-size: 3.2em; }
+        h2 { font-size: 2.5em; }
+        h3 { font-size: 1.8em; }
+        p { margin-bottom: 1em; }
+
+        .lead {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .text-center { text-align: center; }
+        .bg-light { background-color: var(--bg-light); }
+        .bg-dark { background-color: var(--bg-dark); color: var(--light-text-color); }
+        .bg-dark h2 { color: var(--light-text-color); }
+
+        .section-padded {
+            padding: 80px 0;
         }
 
         /* Header */
         header {
-            background-color: #ffffff;
-            padding: 15px 0;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            text-align: center;
         }
 
-        .logo {
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-family: var(--heading-font-family);
             font-size: 1.8em;
             font-weight: bold;
-            color: #4CAF50; /* Primary green */
-            letter-spacing: 0.5px;
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%); /* Soothing gradient */
-            color: #263238; /* Darker text for contrast */
-            padding: 80px 0;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://via.placeholder.com/1920x800/87CEEB/FFFFFF?text=Thanh+Lọc+Tâm+Hồn') no-repeat center center/cover;
+            color: #fff;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            min-height: 450px;
+            padding: 150px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 70vh;
+        }
+
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            line-height: 1.4;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.4);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .secondary-cta {
+            background-color: var(--secondary-color);
+        }
+        .secondary-cta:hover {
+            background-color: var(--primary-color);
+        }
+
+        .primary-cta-large {
+            padding: 20px 45px;
+            font-size: 1.4em;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .feature-item i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+        /* Placeholder icons using emojis */
+        .icon-mindfulness::before { content: "🧘"; }
+        .icon-focus::before { content: "🎯"; }
+        .icon-peace::before { content: "🕊️"; }
+        .icon-check::before { content: "✔️"; color: var(--primary-color); margin-right: 10px;}
+
+        /* Content with image */
+        .content-left-image-right {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .content-left-image-right .content-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .content-left-image-right .content-text ul {
+            list-style: none;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        .content-left-image-right .content-text ul li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
             display: flex;
             align-items: center;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://source.unsplash.com/random/1600x900/?meditation,nature,calm'); /* Placeholder image */
-            background-size: cover;
-            background-position: center;
-            opacity: 0.2; /* Subtle background image */
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            animation: fadeIn 1s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .hero h1 {
-            font-size: 3.2em;
-            margin-bottom: 20px;
-            color: #004d40; /* Dark teal */
-            line-height: 1.2;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-        }
-
-        .hero p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            color: #37474f; /* Dark grey-blue */
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background-color: #4CAF50; /* Primary green */
-            color: white;
-            padding: 15px 35px;
-            border-radius: 50px;
-            font-size: 1.25em;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 6px 15px rgba(0, 150, 136, 0.4);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            background-color: #66BB6A; /* Lighter green on hover */
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 150, 136, 0.5);
-        }
-
-        /* Sections General Styling */
-        section {
-            padding: 70px 0;
+        .content-left-image-right .content-image {
+            flex: 1;
+            min-width: 300px;
             text-align: center;
         }
 
-        section h2 {
-            font-size: 2.5em;
-            color: #004d40;
-            margin-bottom: 25px;
-            position: relative;
-            padding-bottom: 15px;
+        .content-left-image-right .content-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        section h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: #4CAF50;
-            border-radius: 2px;
-        }
-
-        section p {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 20px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Key Benefits Section */
-        .key-benefits {
-            background-color: #e8f5e9; /* Light green background */
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .benefit-item {
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .benefit-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-
-        .benefit-item i { /* Font Awesome Icon */
-            font-size: 2.8em;
-            color: #4CAF50;
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .benefit-item h3 {
-            font-size: 1.4em;
-            color: #004d40;
-            margin-bottom: 10px;
-        }
-
-        .benefit-item p {
-            font-size: 1em;
-            color: #666;
-            margin-bottom: 0;
-        }
-
-        /* How It Works Section */
-        .how-it-works {
-            background-color: #ffffff;
-        }
-
+        /* Steps Grid */
         .steps-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+            counter-reset: step-counter; /* Initialize counter */
         }
 
         .step-item {
-            background-color: #f9fdf9;
+            background-color: #fff;
             padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .step-item::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            width: 50px;
-            height: 50px;
-            background-color: #d1e8d2; /* Lighter shade of green */
-            border-radius: 50%;
-            opacity: 0.3;
-            z-index: 0;
-        }
-
-        .step-item .step-number {
-            font-size: 2.5em;
-            font-weight: bold;
-            color: #8BC34A; /* Lighter green */
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
         }
 
         .step-item h3 {
-            font-size: 1.3em;
-            color: #004d40;
-            margin-bottom: 10px;
             position: relative;
-            z-index: 1;
+            margin-top: 20px;
+            color: var(--primary-color);
         }
 
-        .step-item p {
-            font-size: 1em;
-            color: #666;
-            margin-bottom: 0;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Testimonials Section */
-        .testimonials {
-            background-color: #e0f2f1; /* Light teal background */
-            padding-bottom: 80px;
-        }
-
-        .testimonial-carousel {
+        .step-item::before {
+            counter-increment: step-counter; /* Increment counter for each step */
+            content: counter(step-counter);
             display: flex;
-            overflow-x: auto; /* Enable horizontal scrolling */
-            scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-            gap: 25px;
-            padding: 20px 0;
-            margin-top: 40px;
-            justify-content: center; /* Center testimonials if few */
-            scrollbar-width: thin; /* Firefox */
-            scrollbar-color: #4CAF50 #f1f1f1; /* Firefox */
-        }
-
-        .testimonial-carousel::-webkit-scrollbar {
-            height: 8px;
-        }
-        .testimonial-carousel::-webkit-scrollbar-thumb {
-            background-color: #4CAF50;
-            border-radius: 10px;
-        }
-        .testimonial-carousel::-webkit-scrollbar-track {
-            background-color: #f1f1f1;
-        }
-
-        .testimonial-card {
-            flex: 0 0 320px; /* Fixed width for cards */
-            background-color: #ffffff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            text-align: left;
-            scroll-snap-align: start;
-            min-width: 300px; /* Ensure cards don't shrink too much */
-            transition: transform 0.2s ease;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 15px;
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.05em;
-        }
-
-        .testimonial-card .author {
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            font-size: 1.8em;
             font-weight: bold;
-            color: #004d40;
-            margin-top: 10px;
-            display: block;
+            position: absolute;
+            top: -30px; /* Half of height to center vertically */
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: 4px solid var(--bg-light); /* To match bg-light in section */
         }
 
-        .testimonial-card .rating {
-            color: #FFC107; /* Gold for stars */
-            font-size: 1.1em;
-            margin-bottom: 10px;
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
         }
 
-        /* CTA Section */
-        .cta-banner {
-            background: linear-gradient(90deg, #4CAF50 0%, #8BC34A 100%); /* Green gradient */
-            color: white;
-            padding: 80px 0;
+        .testimonial-item {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
             text-align: center;
+            font-style: italic;
+            position: relative;
+            padding-top: 60px;
         }
 
-        .cta-banner h2 {
-            color: white;
-            font-size: 2.8em;
+        .testimonial-item::before {
+            content: '❝'; /* Quote icon */
+            font-size: 4em;
+            color: var(--accent-color);
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.2;
+        }
+
+        .testimonial-item p {
+            font-size: 1.1em;
             margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-        }
-        .cta-banner h2::after {
-            background-color: white; /* White line for contrast */
         }
 
-        .cta-banner p {
-            color: #f0f0f0;
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        .testimonial-item span {
+            display: block;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-style: normal;
+            margin-top: 15px;
         }
 
         /* Footer */
         footer {
-            background-color: #263238; /* Dark blue-grey */
-            color: #b0bec5; /* Light grey */
+            background-color: #333;
+            color: #ccc;
             padding: 40px 0;
             text-align: center;
             font-size: 0.9em;
         }
 
-        footer .footer-links {
-            margin-bottom: 20px;
-        }
-
-        footer .footer-links a {
-            color: #8BC34A;
-            margin: 0 12px;
-            transition: color 0.3s ease;
-            white-space: nowrap; /* Prevent breaking on small screens */
-        }
-
-        footer .footer-links a:hover {
-            color: #c8e6c9;
-            text-decoration: underline;
-        }
-
         footer p {
-            margin-top: 15px;
-            color: #78909c;
+            margin-bottom: 10px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+        }
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
             .hero h1 {
-                font-size: 2.8em;
+                font-size: 3em;
             }
             .hero p {
                 font-size: 1.2em;
             }
-            section h2 {
-                font-size: 2.2em;
+            .content-left-image-right {
+                flex-direction: column;
+                text-align: center;
+            }
+            .content-left-image-right .content-text ul {
+                text-align: left;
+                margin: 0 auto 30px auto;
+                max-width: 400px;
+            }
+            .content-left-image-right .content-image {
+                order: -1; /* Image first on mobile */
             }
         }
 
         @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.5em; }
+
+            header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 15px;
+                padding-bottom: 10px;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
             .hero {
-                padding: 60px 0;
-                min-height: 380px;
+                padding: 100px 0;
+                min-height: 60vh;
             }
             .hero h1 {
-                font-size: 2.4em;
+                font-size: 2.5em;
             }
-
             .hero p {
                 font-size: 1.1em;
             }
-
-            section {
-                padding: 50px 0;
-            }
-            section h2 {
-                font-size: 2em;
-            }
-
-            .benefits-grid, .steps-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .benefit-item, .step-item {
-                padding: 25px;
-            }
-
-            .testimonial-carousel {
-                justify-content: flex-start; /* Allow scrolling on smaller screens */
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            .testimonial-card {
-                flex: 0 0 85%; /* Make cards take more width */
-                min-width: unset;
-                max-width: 400px; /* Cap width on wider mobiles */
-            }
-            .cta-banner h2 {
-                font-size: 2.4em;
-            }
-            .cta-banner p {
-                font-size: 1.1em;
-            }
-            .btn-primary {
+            .cta-button {
                 padding: 12px 25px;
-                font-size: 1.1em;
+                font-size: 1em;
+            }
+            .primary-cta-large {
+                padding: 15px 30px;
+                font-size: 1.2em;
+            }
+            .section-padded {
+                padding: 60px 0;
             }
         }
 
         @media (max-width: 480px) {
-            .hero {
-                padding: 50px 0;
-                min-height: 320px;
-            }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.8em; }
             .hero h1 {
                 font-size: 2em;
             }
             .hero p {
                 font-size: 1em;
             }
-            section {
-                padding: 40px 0;
+            nav ul li {
+                display: block;
+                margin: 10px 0;
             }
-            section h2 {
-                font-size: 1.8em;
-            }
-            .logo {
-                font-size: 1.5em;
-            }
-            .cta-banner h2 {
-                font-size: 2em;
-            }
-            .footer-links a {
-                margin: 0 8px;
+            .features-grid, .steps-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlalYIeB7jJ03hF/a5M1+B7f6C7zP0XyT1C2gY5O3B9d5yA2t7I3qW/w0X92zB3oE+z/rVl7nJ7p3Q0Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc</a>
+            <div class="logo">
+                <a href="#">Tâm Vạn Phúc</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
+                    <li><a href="#loi-ich">Lợi ích</a></li>
+                    <li><a href="#hanh-trinh">Hành trình</a></li>
+                    <li><a href="#lien-he">Liên hệ</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Tìm Lại Bình Yên, Vững Vàng Tinh Thần Cùng Tâm Vạn Phúc</h1>
-                <p>Hệ sinh thái toàn diện giúp bạn chăm sóc sức khỏe tâm thần, giảm căng thẳng, lo âu và sống một cuộc đời trọn vẹn.</p>
-                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn-primary" target="_blank" rel="noopener noreferrer">Khám Phá Hành Trình Của Bạn Ngay</a>
-            </div>
-        </section>
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>Thanh Lọc Tâm Hồn, Vạn Phúc Bình An</h1>
+            <p>Khám phá con đường tới sức khỏe tâm thần toàn diện cùng Tâm Vạn Phúc – Hệ sinh thái dẫn lối bạn đến sự bình yên nội tại.</p>
+            <a href="https://tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">Bắt đầu hành trình của bạn</a>
+        </div>
+    </section>
 
-        <section class="key-benefits">
-            <div class="container">
-                <h2>Tại Sao Nên Chọn Tâm Vạn Phúc?</h2>
-                <p>Chúng tôi mang đến những giải pháp cá nhân hóa, khoa học và dễ tiếp cận để hỗ trợ bạn trên con đường tìm về sự cân bằng và hạnh phúc.</p>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <i class="fas fa-heartbeat"></i>
-                        <h3>Hỗ Trợ Toàn Diện</h3>
-                        <p>Từ thiền định, tư vấn chuyên gia đến cộng đồng chia sẻ, mọi thứ bạn cần cho sức khỏe tinh thần đều có tại đây.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-seedling"></i>
-                        <h3>Phát Triển Cá Nhân</h3>
-                        <p>Giúp bạn hiểu rõ bản thân, vượt qua thử thách và kiến tạo một cuộc sống có ý nghĩa hơn.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-users"></i>
-                        <h3>Cộng Đồng Đồng Hành</h3>
-                        <p>Kết nối với những người cùng chí hướng, nhận được sự thấu hiểu và sẻ chia từ cộng đồng ấm áp của chúng tôi.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-brain"></i>
-                        <h3>Khoa Học Ứng Dụng</h3>
-                        <p>Các phương pháp và nội dung được xây dựng dựa trên nghiên cứu khoa học và kinh nghiệm của các chuyên gia hàng đầu.</p>
-                    </div>
+    <section id="ve-chung-toi" class="section-padded bg-light">
+        <div class="container text-center">
+            <h2>Bạn đang tìm kiếm sự bình yên?</h2>
+            <p class="lead">Trong nhịp sống hối hả, lo âu, căng thẳng dường như trở thành một phần không thể tránh khỏi. Tâm Vạn Phúc hiểu rằng sức khỏe tâm thần là nền tảng của một cuộc sống hạnh phúc và trọn vẹn.</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="icon-mindfulness"></i>
+                    <h3>Giảm căng thẳng</h3>
+                    <p>Phương pháp khoa học giúp bạn giải tỏa áp lực, tìm lại sự thư thái.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="icon-focus"></i>
+                    <h3>Tăng cường tập trung</h3>
+                    <p>Rèn luyện tâm trí để cải thiện hiệu suất công việc và cuộc sống.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="icon-peace"></i>
+                    <h3>Tìm thấy bình an</h3>
+                    <p>Kết nối sâu sắc với bản thân, khám phá nguồn năng lượng tích cực.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="how-it-works">
-            <div class="container">
-                <h2>Bắt Đầu Hành Trình Của Bạn Chỉ Với 3 Bước Đơn Giản</h2>
-                <p>Hãy để Tâm Vạn Phúc đồng hành cùng bạn trên con đường tìm về sự cân bằng và hạnh phúc.</p>
-                <div class="steps-grid">
-                    <div class="step-item">
-                        <div class="step-number">1</div>
-                        <h3>Khám Phá Nhu Cầu</h3>
-                        <p>Làm bài kiểm tra ngắn để chúng tôi hiểu rõ hơn về tình trạng và mục tiêu sức khỏe tâm thần của bạn.</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">2</div>
-                        <h3>Trải Nghiệm Giải Pháp</h3>
-                        <p>Tiếp cận kho tài nguyên phong phú: thiền, khóa học, buổi trị liệu, và các công cụ tự giúp đỡ.</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">3</div>
-                        <h3>Sống Trọn Vẹn Hơn</h3>
-                        <p>Cảm nhận sự thay đổi tích cực, giảm căng thẳng, tăng cường sự tập trung và niềm vui trong cuộc sống.</p>
-                    </div>
+    <section id="loi-ich" class="section-padded">
+        <div class="container">
+            <div class="content-left-image-right">
+                <div class="content-text">
+                    <h2>Tâm Vạn Phúc mang đến điều gì cho bạn?</h2>
+                    <ul>
+                        <li><i class="icon-check"></i> Kho tàng thiền định có hướng dẫn</li>
+                        <li><i class="icon-check"></i> Các khóa học chuyên sâu về tâm lý</li>
+                        <li><i class="icon-check"></i> Cộng đồng hỗ trợ và chia sẻ</li>
+                        <li><i class="icon-check"></i> Bài tập thực hành hàng ngày</li>
+                        <li><i class="icon-check"></i> Chuyên gia đồng hành</li>
+                    </ul>
+                    <a href="https://tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button secondary-cta">Khám phá ngay</a>
+                </div>
+                <div class="content-image">
+                    <img src="https://via.placeholder.com/500x350/E6F3F9/2C3E50?text=Sức+Khỏe+Tâm+Thần" alt="Người đang thiền định">
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="testimonials">
-            <div class="container">
-                <h2>Khách Hàng Nói Gì Về Tâm Vạn Phúc</h2>
-                <p>Những câu chuyện truyền cảm hứng từ những người đã tìm thấy bình yên và hạnh phúc cùng chúng tôi.</p>
-                <div class="testimonial-carousel">
-                    <div class="testimonial-card">
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Trước đây tôi thường xuyên cảm thấy lo lắng và mất ngủ. Nhờ Tâm Vạn Phúc, tôi đã học được cách thiền định và quản lý cảm xúc tốt hơn. Cảm ơn rất nhiều!"</p>
-                        <div class="author">- Nguyễn Thị Lan, 32 tuổi</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <p>"Cộng đồng ở đây thật tuyệt vời! Tôi đã tìm thấy những người bạn đồng cảm và nhận được lời khuyên hữu ích từ các chuyên gia. Tôi không còn cảm thấy cô đơn nữa."</p>
-                        <div class="author">- Trần Minh Hải, 28 tuổi</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Các bài học về tự nhận thức và thiền định của Tâm Vạn Phúc đã thực sự thay đổi cách tôi nhìn nhận cuộc sống. Tôi cảm thấy bình an và tự tin hơn rất nhiều."</p>
-                        <div class="author">- Lê Thu Hằng, 45 tuổi</div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="rating">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                        </div>
-                        <p>"Tâm Vạn Phúc đã giúp tôi tìm lại sự cân bằng sau một giai đoạn căng thẳng kéo dài. Các công cụ và hỗ trợ ở đây thực sự chuyên nghiệp và hiệu quả."</p>
-                        <div class="author">- Phạm Văn Nam, 38 tuổi</div>
-                    </div>
+    <section id="hanh-trinh" class="section-padded bg-light">
+        <div class="container text-center">
+            <h2>Hành Trình Chuyển Hóa Của Bạn</h2>
+            <div class="steps-grid">
+                <div class="step-item">
+                    <h3>1. Khám phá</h3>
+                    <p>Tìm hiểu các khóa học và tài nguyên phù hợp với nhu cầu của bạn.</p>
+                </div>
+                <div class="step-item">
+                    <h3>2. Thực hành</h3>
+                    <p>Bắt đầu hành trình thiền định và thực hành các bài tập hàng ngày.</p>
+                </div>
+                <div class="step-item">
+                    <h3>3. Chuyển hóa</h3>
+                    <p>Cảm nhận sự thay đổi tích cực trong tâm trí và cuộc sống của bạn.</p>
                 </div>
             </div>
-        </section>
+            <a href="https://tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">Bắt đầu ngay hôm nay</a>
+        </div>
+    </section>
 
-        <section class="cta-banner">
-            <div class="container">
-                <h2>Sẵn Sàng Thay Đổi Cuộc Sống Của Bạn?</h2>
-                <p>Tham gia Tâm Vạn Phúc ngay hôm nay để bắt đầu hành trình tìm về bình yên và hạnh phúc đích thực.</p>
-                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn-primary" target="_blank" rel="noopener noreferrer">Bắt Đầu Hành Trình Của Bạn</a>
+    <section id="testimonials" class="section-padded">
+        <div class="container text-center">
+            <h2>Những Câu Chuyện Truyền Cảm Hứng</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <p>"Tâm Vạn Phúc đã giúp tôi tìm lại sự cân bằng sau những tháng ngày căng thẳng. Tôi cảm thấy bình an hơn rất nhiều!"</p>
+                    <span>- Nguyễn Thu Hằng, 35 tuổi</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Các bài thiền hướng dẫn rất dễ hiểu và hiệu quả. Tôi ngủ ngon hơn và tập trung tốt hơn trong công việc."</p>
+                    <span>- Trần Văn Minh, 42 tuổi</span>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Cộng đồng hỗ trợ tuyệt vời! Tôi cảm thấy mình không đơn độc trên hành trình này."</p>
+                    <span>- Lê Thị Lan, 28 tuổi</span>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <section id="bottom-cta" class="section-padded bg-dark text-center">
+        <div class="container">
+            <h2>Sẵn Sàng Cho Một Cuộc Sống Bình An Hơn?</h2>
+            <p>Đừng chần chừ, hãy để Tâm Vạn Phúc dẫn lối bạn đến một tâm hồn thanh thản và một cuộc sống viên mãn.</p>
+            <a href="https://tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button primary-cta-large">Khám Phá Tâm Vạn Phúc Ngay</a>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="#">Về Chúng Tôi</a>
-                <a href="#">Liên Hệ</a>
-                <a href="#">Chính Sách Bảo Mật</a>
-                <a href="#">Điều Khoản Dịch Vụ</a>
-            </div>
             <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <p>Hệ sinh thái chăm sóc sức khỏe tâm thần.</p>
+            <p><a href="#">Chính sách bảo mật</a> | <a href="#">Điều khoản sử dụng</a></p>
         </div>
     </footer>
+
+    <script>
+        // Smooth scroll for internal links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
