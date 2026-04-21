@@ -3,66 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lofi Music - Thư Giãn Cùng Tâm Vạn Phúc</title>
+    <title>Tâm Vạn Phúc - Giai Điệu Lofi Cho Tâm Hồn Tĩnh Lặng</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-bg: #1a1a2e;
-            --secondary-bg: #0f0f1d;
-            --text-color: #e0e0e0;
-            --accent-color: #e94560;
-            --highlight-color: #ffd369;
-            --button-hover-bg: #c9354e;
-            --border-radius: 8px;
-            --padding-section: 80px 0;
-            --container-width: 1000px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary-color: #6a8e7e; /* Muted Green */
+            --secondary-color: #f7e1d7; /* Soft Peach */
+            --accent-color: #b79c85; /* Dusty Rose */
+            --text-dark: #333;
+            --text-light: #f4f4f4;
+            --bg-dark: #2c3e50; /* Dark Blue-Gray */
+            --bg-light: #ecf0f1; /* Light Gray */
+            --lofi-bg-overlay: rgba(0, 0, 0, 0.4);
         }
 
         body {
             font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--primary-bg);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
             overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            color: var(--text-light);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
         }
 
         .container {
-            max-width: var(--container-width);
+            max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Header / Hero Section */
+        /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, rgba(26,26,46,0.9), rgba(15,15,29,0.9)), url('https://source.unsplash.com/random/1600x900/?lofi,chill,aesthetic,city,night') no-repeat center center/cover;
+            position: relative;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            position: relative;
-            padding: 20px;
+            color: var(--text-light);
+            overflow: hidden;
+            background-image: url('https://source.unsplash.com/1600x900/?lofi,rain,city,night'); /* Placeholder for lofi background */
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(20%);
+            animation: fadeIn 2s ease-out;
         }
 
-        .hero-section::before {
-            content: '';
+        .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            width: 100%;
+            height: 100%;
+            background: var(--lofi-bg-overlay);
             z-index: 1;
         }
 
@@ -70,206 +97,183 @@
             position: relative;
             z-index: 2;
             max-width: 800px;
-            animation: fadeIn 1.5s ease-out;
-        }
-
-        .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.8em;
-            margin-bottom: 15px;
-            color: var(--text-color);
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero-content h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.8em;
-            margin-bottom: 25px;
-            color: var(--text-color);
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
-        }
-
-        .hero-content h2 span {
-            color: var(--highlight-color);
-            font-weight: 700;
+            padding: 20px;
         }
 
         .hero-content p {
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            color: var(--text-color);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
         }
 
-        .cta-button {
+        .btn {
             display: inline-block;
             background-color: var(--accent-color);
-            color: var(--text-color);
-            padding: 18px 35px;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: 700;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            color: var(--text-light);
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border: none;
             cursor: pointer;
         }
 
-        .cta-button:hover {
-            background-color: var(--button-hover-bg);
+        .btn:hover {
+            background-color: #a08470; /* Slightly darker accent */
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .cta-button.secondary {
-            background-color: transparent;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
+        /* Section Styling */
+        section {
+            padding: 80px 0;
         }
 
-        .cta-button.secondary:hover {
-            background-color: var(--accent-color);
-            color: var(--text-color);
+        section:nth-child(even) {
+            background-color: var(--secondary-color);
         }
 
-        /* Benefits Section */
-        .benefits-section {
-            background-color: var(--secondary-bg);
-            padding: var(--padding-section);
-            text-align: center;
-        }
-
-        .benefits-section h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5em;
-            margin-bottom: 60px;
-            color: var(--highlight-color);
-        }
-
-        .benefits-grid {
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
         }
 
-        .benefit-item {
-            background-color: var(--primary-bg);
+        .feature-item {
+            text-align: center;
             padding: 30px;
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease;
         }
 
-        .benefit-item:hover {
+        .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
         }
 
-        .benefit-item .icon {
-            font-size: 3em;
+        .feature-item i { /* Placeholder for icons - using emojis directly for simplicity */
+            font-size: 3rem;
+            color: var(--primary-color);
             margin-bottom: 20px;
-            display: block;
-            color: var(--highlight-color);
+            display: block; /* Ensure emojis are block for margin-bottom */
         }
 
-        .benefit-item h4 {
-            font-size: 1.4em;
-            margin-bottom: 15px;
-            color: var(--text-color);
-            font-weight: 600;
+        .feature-item h3 {
+            color: var(--primary-color);
+            margin-top: 0;
         }
 
-        .benefit-item p {
-            font-size: 0.95em;
-            color: var(--text-color);
-        }
-
-        /* Quote Section */
-        .quote-section {
-            background-color: var(--primary-bg);
-            padding: var(--padding-section);
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             text-align: center;
         }
 
-        .quote-section blockquote {
-            font-family: 'Playfair Display', serif;
-            font-size: 2em;
+        .testimonials h2 {
+            color: var(--secondary-color);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
             font-style: italic;
-            margin-bottom: 20px;
-            color: var(--text-color);
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
             position: relative;
+            min-height: 180px;
         }
 
-        .quote-section blockquote::before,
-        .quote-section blockquote::after {
-            content: '"';
-            font-size: 3em;
-            color: var(--accent-color);
-            position: absolute;
-            opacity: 0.6;
+        .testimonial-item p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
         }
 
-        .quote-section blockquote::before {
-            left: -30px;
-            top: -10px;
-        }
-        .quote-section blockquote::after {
-            right: -30px;
-            bottom: -10px;
-        }
-
-
-        .quote-section cite {
-            display: block;
-            font-size: 1.1em;
-            margin-top: 15px;
-            color: var(--highlight-color);
+        .testimonial-item .author {
             font-weight: 600;
+            font-style: normal;
+            display: block;
+            margin-top: 10px;
+            color: var(--accent-color);
         }
 
-        /* Call to Action Bottom */
-        .cta-bottom {
-            background-color: var(--secondary-bg);
-            padding: var(--padding-section);
+        /* Call to Action Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--text-light);
             text-align: center;
+            padding: 60px 0;
         }
 
-        .cta-bottom h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.8em;
-            margin-bottom: 25px;
-            color: var(--text-color);
-        }
-
-        .cta-bottom p {
-            font-size: 1.1em;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        .cta-section h2 {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
         }
 
         /* Footer */
-        footer {
-            background-color: var(--secondary-bg);
-            color: var(--text-color);
+        .footer {
+            background-color: var(--bg-dark);
+            color: var(--bg-light);
             text-align: center;
-            padding: 30px 20px;
-            font-size: 0.9em;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: auto; /* Pushes footer to the bottom */
+            padding: 40px 0;
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin: 5px 0;
-            color: rgba(255, 255, 255, 0.7);
+        .footer p {
+            margin: 0;
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            margin: 0 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+
+            .features-grid, .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+            .hero-section {
+                height: 80vh; /* Shorter on mobile */
+            }
         }
 
         /* Animations */
@@ -278,136 +282,127 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.8em;
-            }
-
-            .hero-content h2 {
-                font-size: 1.4em;
-            }
-
-            .cta-button {
-                padding: 15px 25px;
-                font-size: 1em;
-            }
-
-            .benefits-section h3,
-            .cta-bottom h3 {
-                font-size: 2em;
-            }
-
-            .quote-section blockquote {
-                font-size: 1.5em;
-            }
-
-            .benefits-grid {
-                grid-template-columns: 1fr;
-            }
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2em;
-            }
-
-            .hero-content h2 {
-                font-size: 1.2em;
-            }
-
-            .hero-content p {
-                font-size: 0.9em;
-            }
-
-            .cta-button {
-                padding: 12px 20px;
-                font-size: 0.9em;
-            }
-
-            .benefits-section h3,
-            .cta-bottom h3 {
-                font-size: 1.8em;
-            }
-
-            .quote-section blockquote {
-                font-size: 1.2em;
-                padding: 0 10px;
-            }
-
-            .quote-section blockquote::before,
-            .quote-section blockquote::after {
-                font-size: 2em;
-            }
+        .fade-in-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
     <header class="hero-section">
+        <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1>Thả Mình Vào Giai Điệu Lofi</h1>
-            <h2>Nâng Tầm Tâm Hồn Cùng <span>Tâm Vạn Phúc</span></h2>
-            <p>Tìm kiếm sự bình yên, tập trung hay chỉ đơn giản là những khoảnh khắc thư thái? Khám phá thế giới âm nhạc lofi độc đáo, được tuyển chọn kỹ lưỡng để đồng hành cùng bạn trên mọi hành trình.</p>
-            <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" rel="noopener noreferrer" class="cta-button">
-                Khám Phá Lofi Tâm Vạn Phúc Ngay
-            </a>
+            <h1>Tâm Vạn Phúc: Giai Điệu Lofi Cho Tâm Hồn Tĩnh Lặng</h1>
+            <p>Đắm chìm vào không gian âm nhạc thư thái, giúp bạn tập trung, sáng tạo và tìm thấy sự bình yên trong cuộc sống bận rộn.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Khám Phá Giai Điệu Lofi Ngay!</a>
         </div>
     </header>
 
-    <main>
-        <section class="benefits-section">
-            <div class="container">
-                <h3>Lợi Ích Khi Đắm Chìm Trong Lofi</h3>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <i class="icon">🧘‍♀️</i>
-                        <h4>Giảm Căng Thẳng</h4>
-                        <p>Thư giãn tâm trí, xua tan lo âu và tìm lại sự bình yên nội tại.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="icon">📚</i>
-                        <h4>Tăng Cường Tập Trung</h4>
-                        <p>Tạo không gian lý tưởng để học tập, làm việc hiệu quả hơn.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="icon">😴</i>
-                        <h4>Cải Thiện Giấc Ngủ</h4>
-                        <p>Đắm chìm vào những giai điệu êm dịu để có giấc ngủ sâu và ngon hơn.</p>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="icon">✨</i>
-                        <h4>Thức Tỉnh Cảm Xúc</h4>
-                        <p>Kết nối với cảm xúc của bạn, khám phá chiều sâu tâm hồn.</p>
-                    </div>
+    <section id="gioi-thieu">
+        <div class="container fade-in-on-scroll">
+            <h2>Tại Sao Lofi Music Từ Tâm Vạn Phúc Là Dành Cho Bạn?</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 50px;">Trong thế giới hối hả ngày nay, việc tìm thấy một khoảnh khắc tĩnh lặng để tái tạo năng lượng là điều vô cùng cần thiết. Lofi Music của Tâm Vạn Phúc mang đến một giải pháp hoàn hảo.</p>
+            <div class="features-grid">
+                <div class="feature-item fade-in-on-scroll">
+                    <i>&#9836;</i> <!-- Musical note emoji -->
+                    <h3>Tăng Cường Tập Trung</h3>
+                    <p>Những nhịp điệu nhẹ nhàng giúp loại bỏ xao nhãng, đưa bạn vào trạng thái tập trung sâu sắc cho công việc, học tập.</p>
+                </div>
+                <div class="feature-item fade-in-on-scroll">
+                    <i>&#127769;</i> <!-- Moon emoji -->
+                    <h3>Giảm Căng Thẳng & Thư Giãn</h3>
+                    <p>Âm thanh êm dịu xoa dịu tâm trí, giúp bạn giải tỏa áp lực và tìm lại sự cân bằng sau một ngày dài.</p>
+                </div>
+                <div class="feature-item fade-in-on-scroll">
+                    <i>&#128161;</i> <!-- Lightbulb emoji -->
+                    <h3>Khơi Nguồn Sáng Tạo</h3>
+                    <p>Tạo không gian lý tưởng để những ý tưởng mới mẻ thăng hoa, kích thích trí tưởng tượng và khả năng sáng tạo.</p>
+                </div>
+                <div class="feature-item fade-in-on-scroll">
+                    <i>&#128153;</i> <!-- Blue heart emoji -->
+                    <h3>Nâng Cao Chất Lượng Giấc Ngủ</h3>
+                    <p>Những bản nhạc lofi ru êm đưa bạn vào giấc ngủ sâu và ngon hơn, phục hồi năng lượng hiệu quả.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="quote-section">
-            <div class="container">
-                <blockquote>
-                    "Âm nhạc lofi của Tâm Vạn Phúc đã trở thành người bạn đồng hành không thể thiếu trong mỗi buổi sáng thiền định của tôi. Thật sự tuyệt vời!"
-                </blockquote>
-                <cite>- Một người bạn Tâm Vạn Phúc</cite>
+    <section id="testimonials" class="testimonials">
+        <div class="container fade-in-on-scroll">
+            <h2>Khách Hàng Nói Gì Về Âm Nhạc Của Chúng Tôi?</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item fade-in-on-scroll">
+                    <p>"Từ khi biết đến Lofi của Tâm Vạn Phúc, tôi dễ dàng tập trung hơn khi làm việc. Cảm giác như có một người bạn đồng hành vậy!"</p>
+                    <span class="author">- Nguyễn Mai Anh, Sinh viên</span>
+                </div>
+                <div class="testimonial-item fade-in-on-scroll">
+                    <p>"Sau một ngày dài mệt mỏi, chỉ cần bật nhạc lofi lên là mọi lo toan tan biến. Giấc ngủ của tôi cũng ngon hơn rất nhiều."</p>
+                    <span class="author">- Trần Văn Hoàng, Lập trình viên</span>
+                </div>
+                <div class="testimonial-item fade-in-on-scroll">
+                    <p>"Thật sự tuyệt vời! Những giai điệu này giúp tôi tìm lại sự bình yên, và thậm chí còn giúp tôi có nhiều ý tưởng sáng tạo hơn."</p>
+                    <span class="author">- Lê Thị Thảo, Designer</span>
+                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="cta-bottom">
-            <div class="container">
-                <h3>Sẵn sàng trải nghiệm sự bình yên?</h3>
-                <p>Nhấn vào nút bên dưới để khám phá ngay thế giới lofi do Tâm Vạn Phúc tuyển chọn!</p>
-                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" rel="noopener noreferrer" class="cta-button secondary">
-                    Khám Phá Ngay
-                </a>
-            </div>
-        </section>
-    </main>
+    <section id="about-us">
+        <div class="container fade-in-on-scroll">
+            <h2 style="text-align: center;">Về Hệ Sinh Thái 'Tâm Vạn Phúc'</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Tâm Vạn Phúc không chỉ là âm nhạc. Chúng tôi là một hệ sinh thái toàn diện, kiến tạo những giá trị về sự bình an, hạnh phúc và phát triển bản thân. Lofi Music là một phần trong hành trình đó, mang đến sự thư thái cho tâm hồn và sự tập trung cho trí óc.</p>
+            <p style="text-align: center; max-width: 800px; margin: 20px auto 0;">Với Tâm Vạn Phúc, bạn sẽ tìm thấy những nguồn tài nguyên quý giá để nuôi dưỡng tâm hồn, phát triển tư duy và kiến tạo một cuộc sống trọn vẹn hơn. Hãy để giai điệu lofi là cánh cửa mở ra thế giới bình yên của bạn.</p>
+        </div>
+    </section>
 
-    <footer>
+    <section class="cta-section">
+        <div class="container fade-in-on-scroll">
+            <h2>Sẵn sàng đắm chìm vào bình yên?</h2>
+            <p>Khám phá bộ sưu tập Lofi Music độc quyền từ Tâm Vạn Phúc ngay hôm nay!</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Bắt Đầu Hành Trình Lofi Của Bạn</a>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="container">
             <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <p>Thiết kế bởi Máy xuất bản mã nguồn HTML.</p>
+            <p>
+                <a href="#about-us">Về chúng tôi</a> |
+                <a href="#">Chính sách bảo mật</a> |
+                <a href="#">Điều khoản sử dụng</a>
+            </p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const faders = document.querySelectorAll('.fade-in-on-scroll');
+
+            const appearOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) {
+                        return;
+                    } else {
+                        entry.target.classList.add('is-visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+        });
+    </script>
 </body>
 </html>
