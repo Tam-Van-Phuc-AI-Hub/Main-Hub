@@ -1,168 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Khám Phá Giáo Dục AI Toàn Diện</title>
+    <title>Tâm Vạn Phúc AI - Mở Khóa Tương Lai Với Trí Tuệ Nhân Tạo</title>
     <style>
-        /* Biến CSS cho màu sắc và font */
         :root {
-            --primary-color: #007bff; /* Xanh dương chủ đạo */
-            --secondary-color: #6c757d; /* Xám phụ */
-            --accent-color: #28a745; /* Xanh lá cây nổi bật cho CTA */
-            --light-bg: #f8f9fa; /* Nền sáng */
-            --dark-text: #343a40; /* Màu chữ tối */
-            --white-text: #ffffff;
-            --font-family-primary: 'Arial', sans-serif; /* Font chữ cơ bản */
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #28a745; /* Green */
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --text-color: #495057;
+            --white-color: #ffffff;
+            --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
         }
 
-        /* Thiết lập lại CSS cơ bản */
         body {
-            font-family: var(--font-family-primary);
+            font-family: var(--font-family);
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: var(--light-bg);
-            color: var(--dark-text);
+            background-color: var(--light-color);
+            color: var(--text-color);
             scroll-behavior: smooth;
         }
 
-        /* Container giới hạn độ rộng nội dung */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Định dạng tiêu đề */
-        h1, h2, h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: var(--dark-text);
+        /* Header */
+        header {
+            background: var(--dark-color);
+            color: var(--white-color);
+            padding: 1rem 0;
+            text-align: center;
         }
 
-        /* Định dạng link */
-        a {
-            text-decoration: none;
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        header .logo span {
             color: var(--primary-color);
         }
 
-        a:hover {
-            text-decoration: underline;
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?artificial-intelligence,education,future') no-repeat center center/cover;
+            color: var(--white-color);
+            text-align: center;
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 600px;
         }
 
-        /* Nút kêu gọi hành động (CTA Button) */
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Buttons */
         .btn {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--white-text);
+            background: var(--primary-color);
+            color: var(--white-color);
             padding: 15px 30px;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            transition: background-color 0.3s ease;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background 0.3s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
         }
 
         .btn:hover {
-            background-color: #218838; /* Xanh lá đậm hơn khi hover */
-            text-decoration: none;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            background: #0056b3; /* Darker primary */
         }
 
-        /* Phần Header */
-        header {
-            background-color: var(--white-text);
-            padding: 20px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--primary-color);
-            text-transform: uppercase;
-        }
-
-        /* Phần Hero (Ảnh nền lớn đầu trang) */
-        #hero {
-            background: linear-gradient(to right, #007bff, #0056b3); /* Gradient xanh dương */
-            color: var(--white-text);
-            padding: 100px 0;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            min-height: 60vh;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Lớp phủ hình nền AI */
-        #hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://via.placeholder.com/1500x800/007bff/ffffff?text=AI+Future') no-repeat center center/cover; /* Hình nền AI placeholder */
-            opacity: 0.15; /* Độ trong suốt nhẹ */
-            z-index: 1;
-        }
-
-        #hero .container {
-            position: relative;
-            z-index: 2;
-        }
-
-        #hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--white-text);
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        #hero p {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        /* Phong cách cho các phần nội dung */
-        section {
+        /* Sections */
+        .section {
             padding: 80px 0;
-        }
-
-        section:nth-of-type(even) { /* Các phần chẵn có nền sáng hơn */
-            background-color: var(--light-bg);
-        }
-
-        section h2 {
-            font-size: 2.5rem;
             text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 15px;
-            color: var(--dark-text);
         }
 
-        section h2::after { /* Đường gạch chân dưới tiêu đề */
+        .section:nth-of-type(even) {
+            background-color: var(--white-color);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section h2::after {
             content: '';
             position: absolute;
             left: 50%;
@@ -174,264 +125,235 @@
             border-radius: 2px;
         }
 
-        /* Phần Giới thiệu (About) */
-        #about .content-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        #about .text-content {
-            flex: 1;
-        }
-
-        #about .image-placeholder {
-            flex: 1;
-            min-height: 300px;
-            background: linear-gradient(to right bottom, #add8e6, #87ceeb); /* Gradient xanh lam nhạt */
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--white-text);
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            background-image: url('https://via.placeholder.com/600x400/add8e6/ffffff?text=AI+Learning+by+Tam+Van+Phuc'); /* Hình ảnh placeholder */
-            background-size: cover;
-            background-position: center;
-        }
-
-        #about p {
+        .section p {
             font-size: 1.1rem;
-            margin-bottom: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
         }
 
-        /* Phần Lợi ích (Benefits) */
-        #benefits .grid-container {
+        .grid-3-col {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 40px;
         }
 
-        .benefit-item {
-            background-color: var(--white-text);
+        .grid-item {
+            background: var(--white-color);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .benefit-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        .section:nth-of-type(even) .grid-item {
+            background-color: var(--light-color);
         }
 
-        .benefit-item .icon { /* Placeholder cho icon, dùng Unicode */
-            font-size: 3rem;
+        .grid-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .grid-item h3 {
             color: var(--primary-color);
+            font-size: 1.6rem;
             margin-bottom: 15px;
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            line-height: 60px;
-            background-color: var(--light-bg);
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
+            text-align: center;
         }
-        .benefit-item:hover .icon {
-            background-color: var(--primary-color);
-            color: var(--white-text);
-        }
-        .benefit-item h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        .benefit-item p {
+
+        .grid-item p {
             font-size: 1rem;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .icon {
+            font-size: 3rem;
             color: var(--secondary-color);
+            margin-bottom: 20px;
         }
 
-        /* Phần CTA cuối trang */
-        #cta-final {
-            background: linear-gradient(to right, #28a745, #218838); /* Gradient xanh lá */
-            color: var(--white-text);
-            text-align: center;
+        /* Call to Action Section */
+        .cta-section {
+            background: var(--primary-color);
+            color: var(--white-color);
             padding: 80px 0;
-        }
-
-        #cta-final h2 {
-            color: var(--white-text);
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-        }
-
-        #cta-final h2::after { /* Đường gạch chân dưới tiêu đề */
-            background-color: var(--white-text);
-        }
-        
-        #cta-final p {
-            font-size: 1.2rem;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        /* Phần Footer */
-        footer {
-            background-color: var(--dark-text);
-            color: var(--white-text);
             text-align: center;
-            padding: 30px 0;
+        }
+
+        .cta-section h2 {
+            color: var(--white-color);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section h2::after {
+            background-color: var(--secondary-color);
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+        }
+
+        .cta-section .btn {
+            background: var(--secondary-color);
+        }
+
+        .cta-section .btn:hover {
+            background: #218838;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: var(--white-color);
+            text-align: center;
+            padding: 2rem 0;
             font-size: 0.9rem;
         }
 
-        footer p {
-            margin: 0;
-        }
-
-        /* Điều chỉnh responsive cho thiết bị di động */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            #hero {
+            .hero {
                 padding: 80px 0;
-                min-height: 50vh;
+                min-height: 450px;
             }
-            #hero h1 {
+
+            .hero h1 {
                 font-size: 2.5rem;
             }
-            #hero p {
+
+            .hero p {
                 font-size: 1.2rem;
             }
 
-            section {
-                padding: 60px 0;
-            }
-            section h2 {
+            .section h2 {
                 font-size: 2rem;
             }
 
-            #about .content-wrapper {
-                flex-direction: column; /* Xếp chồng nội dung và ảnh */
-            }
-            #about .image-placeholder {
-                min-height: 250px;
-                width: 100%;
+            .section p {
+                font-size: 1rem;
             }
 
-            .benefit-item {
-                padding: 25px;
+            .grid-3-col {
+                grid-template-columns: 1fr;
             }
 
-            #cta-final h2 {
-                font-size: 2.2rem;
-            }
             .btn {
                 padding: 12px 25px;
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5rem;
-            }
-            #hero h1 {
+            .hero h1 {
                 font-size: 2rem;
             }
-            #hero p {
+
+            .hero p {
                 font-size: 1rem;
             }
-            section h2 {
-                font-size: 1.8rem;
-            }
-            .benefit-item h3 {
-                font-size: 1.3rem;
+
+            .btn {
+                width: 90%;
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
     </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">Tâm Vạn Phúc</div>
-            <nav>
-                <!-- Thẻ này có thể chứa các link điều hướng nếu trang có nhiều phần, ví dụ: <a href="#about">Về chúng tôi</a> -->
-            </nav>
+            <div class="logo">Tâm Vạn Phúc <span>AI</span></div>
         </div>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h1>Mở Khóa Tương Lai AI Cùng Tâm Vạn Phúc</h1>
-            <p>Học hỏi, sáng tạo và dẫn đầu trong kỷ nguyên trí tuệ nhân tạo với lộ trình bài bản từ cơ bản đến nâng cao.</p>
-            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">Đăng Ký Ngay Để Nhận Ưu Đãi!</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mở Khóa Tương Lai Vượt Trội Với Trí Tuệ Nhân Tạo Cùng Tâm Vạn Phúc</h1>
+            <p>Nắm vững AI từ cơ bản đến nâng cao, ứng dụng thực tiễn để kiến tạo sự nghiệp và cuộc sống thịnh vượng. Hãy sẵn sàng cho kỷ nguyên số!</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Bắt Đầu Hành Trình AI Của Bạn Ngay Hôm Nay!</a>
         </div>
     </section>
 
-    <section id="about">
+    <section class="section" id="why-us">
         <div class="container">
-            <h2>Tâm Vạn Phúc: Nền Tảng Giáo Dục AI Toàn Diện</h2>
-            <div class="content-wrapper">
-                <div class="text-content">
-                    <p>Biến ước mơ làm chủ công nghệ AI thành hiện thực. Dù bạn là người mới bắt đầu, sinh viên công nghệ hay chuyên gia muốn nâng cao kỹ năng, Tâm Vạn Phúc cung cấp các khóa học được thiết kế khoa học, dễ hiểu và ứng dụng cao.</p>
-                    <p>Chúng tôi tập trung vào kiến thức thực chiến, giúp học viên không chỉ hiểu lý thuyết mà còn có khả năng áp dụng AI vào các dự án và vấn đề thực tế, mở ra cánh cửa sự nghiệp rộng lớn trong kỷ nguyên số.</p>
-                    <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">Tìm Hiểu Thêm</a>
+            <h2>Tại Sao Nên Chọn Tâm Vạn Phúc AI?</h2>
+            <p>Trong thế giới đang thay đổi nhanh chóng bởi AI, việc trang bị kiến thức và kỹ năng phù hợp là chìa khóa. Tâm Vạn Phúc mang đến một lộ trình học tập độc đáo, kết hợp kiến thức chuyên sâu và ứng dụng thực tế.</p>
+            <div class="grid-3-col">
+                <div class="grid-item">
+                    <i class="fas fa-brain icon"></i>
+                    <h3>Kiến Thức AI Toàn Diện</h3>
+                    <p>Học từ những nguyên lý cơ bản đến các mô hình phức tạp, đảm bảo bạn hiểu sâu sắc về cách AI hoạt động.</p>
                 </div>
-                <div class="image-placeholder" aria-label="Hình ảnh minh họa giáo dục AI">
-                    <!-- Placeholder cho hình ảnh liên quan đến học tập AI -->
+                <div class="grid-item">
+                    <i class="fas fa-cogs icon"></i>
+                    <h3>Ứng Dụng Thực Tế</h3>
+                    <p>Tập trung vào các dự án thực tế, giúp bạn biến lý thuyết thành kỹ năng có thể áp dụng ngay vào công việc.</p>
+                </div>
+                <div class="grid-item">
+                    <i class="fas fa-users icon"></i>
+                    <h3>Cộng Đồng Hỗ Trợ</h3>
+                    <p>Tham gia vào một cộng đồng năng động, nơi bạn có thể học hỏi, chia sẻ và phát triển cùng những người đam mê AI.</p>
+                </div>
+                <div class="grid-item">
+                    <i class="fas fa-chalkboard-teacher icon"></i>
+                    <h3>Giảng Viên Chuyên Gia</h3>
+                    <p>Được dẫn dắt bởi các chuyên gia hàng đầu trong lĩnh vực AI, với kinh nghiệm giảng dạy và thực tiễn phong phú.</p>
+                </div>
+                <div class="grid-item">
+                    <i class="fas fa-chart-line icon"></i>
+                    <h3>Định Hướng Sự Nghiệp</h3>
+                    <p>Nhận được sự hỗ trợ và tư vấn để định hướng sự nghiệp, giúp bạn tự tin bước vào tương lai với AI.</p>
+                </div>
+                <div class="grid-item">
+                    <i class="fas fa-seedling icon"></i>
+                    <h3>Phát Triển Tư Duy</h3>
+                    <p>Không chỉ học kỹ năng, bạn còn phát triển tư duy đột phá, sáng tạo để khai thác tối đa tiềm năng của AI.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="benefits">
+    <section class="cta-section">
         <div class="container">
-            <h2>Tại Sao Chọn Giáo Dục AI Của Tâm Vạn Phúc?</h2>
-            <div class="grid-container">
-                <div class="benefit-item">
-                    <div class="icon">💡</div> <!-- Icon Unicode: Bóng đèn -->
-                    <h3>Lộ Trình Học Tập Cá Nhân Hóa</h3>
-                    <p>Tùy chỉnh hành trình học tập phù hợp với mục tiêu và trình độ riêng của bạn.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="icon">👨‍🏫</div> <!-- Icon Unicode: Giáo viên -->
-                    <h3>Giảng Viên Chuyên Gia Thực Chiến</h3>
-                    <p>Học hỏi trực tiếp từ những chuyên gia hàng đầu với kinh nghiệm sâu rộng trong ngành AI.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="icon">🛠️</div> <!-- Icon Unicode: Công cụ -->
-                    <h3>Dự Án Thực Tế & Ứng Dụng Cao</h3>
-                    <p>Thực hành qua các dự án thực tế, xây dựng portfolio ấn tượng và kỹ năng cần thiết.</p>
-                </div>
-                <div class="benefit-item">
-                    <div class="icon">🤝</div> <!-- Icon Unicode: Bắt tay -->
-                    <h3>Cộng Đồng Hỗ Trợ Năng Động</h3>
-                    <p>Kết nối, chia sẻ kiến thức và cùng phát triển trong cộng đồng học viên và chuyên gia.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="cta-final">
-        <div class="container">
-            <h2>Đừng Bỏ Lỡ Cơ Hội Làm Chủ Tương Lai AI!</h2>
-            <p>Tham gia cùng hàng ngàn học viên khác của Tâm Vạn Phúc và bắt đầu hành trình chinh phục AI của bạn ngay hôm nay!</p>
-            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">Đăng Ký Khóa Học Ngay!</a>
+            <h2>Đừng Bỏ Lỡ Cơ Hội Này!</h2>
+            <p>Hành trình làm chủ Trí Tuệ Nhân Tạo của bạn bắt đầu ngay hôm nay. Đầu tư vào bản thân là đầu tư vào tương lai.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Gia Nhập Cộng Đồng Tâm Vạn Phúc AI</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Tâm Vạn Phúc. Bảo lưu mọi quyền.</p>
-            <!-- Bạn có thể thêm các liên kết như Chính sách bảo mật, Điều khoản sử dụng tại đây -->
+            <p>&copy; 2023 Tâm Vạn Phúc AI. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Optional: Simple JavaScript for smooth scrolling if navigation links were present.
+        // For a single landing page without internal navigation, this might not be strictly needed.
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
