@@ -3,61 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc | Mental-AI: Sức Khỏe Tinh Thần Thời Đại Số</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Mental-AI: Khai Phóng Tiềm Năng Tinh Thần Cùng AI | Tâm Vạn Phúc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6a4c93; /* A shade of purple */
-            --secondary-color: #8ac926; /* A shade of green */
+            --primary-color: #6a82fb; /* Soft Blue-Purple */
+            --secondary-color: #fc5c7d; /* Soft Pink */
+            --accent-color: #56CCF2; /* Light Blue */
             --text-dark: #333;
             --text-light: #f4f4f4;
-            --bg-light: #f9f9f9;
-            --bg-dark: #303030;
-            --accent-color: #1982c4; /* A shade of blue */
+            --bg-light: #ffffff;
+            --bg-dark: #2c3e50;
+            --gradient-main: linear-gradient(to right, #6a82fb, #fc5c7d);
+            --gradient-dark: linear-gradient(to right, #4facfe, #00f2fe);
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             color: var(--text-dark);
-            background-color: #fff;
+            background-color: var(--bg-light);
             scroll-behavior: smooth;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            color: #fff; /* For hero section */
-        }
-
-        h2 {
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 2.5rem;
-            position: relative;
-            padding-bottom: 0.5rem;
-        }
-        h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
-        }
-
-        p {
-            margin-bottom: 1rem;
         }
 
         .container {
@@ -66,366 +40,535 @@
             padding: 0 20px;
         }
 
-        /* Header */
         header {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 1rem 0;
-            text-align: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            background: var(--bg-light);
+            padding: 15px 0;
+            box-shadow: var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        header .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8em;
             font-weight: 700;
-            color: var(--text-light);
+            color: var(--primary-color);
             text-decoration: none;
         }
-        header .logo span {
+        .logo span {
             color: var(--secondary-color);
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/random/1600x900/?mindfulness,ai,brain,meditation') no-repeat center center/cover;
-            color: var(--text-light);
-            text-align: center;
-            padding: 100px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 60vh;
+        .nav-links a {
+            color: var(--text-dark);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
-        .hero h1 {
-            margin-bottom: 1.5rem;
-            font-size: 3rem;
-            max-width: 900px;
-            line-height: 1.2;
-        }
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
-            opacity: 0.9;
+
+        .nav-links a:hover {
+            color: var(--primary-color);
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--text-dark);
-            padding: 15px 35px;
+            padding: 14px 30px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.2rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: none;
+            cursor: pointer;
         }
-        .btn:hover {
-            background-color: #7ab81e; /* Slightly darker green */
+
+        .btn-primary {
+            background: var(--gradient-main);
+            color: var(--text-light);
+            box-shadow: 0 5px 15px rgba(106, 130, 251, 0.4);
+        }
+
+        .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(106, 130, 251, 0.6);
+            opacity: 0.9;
         }
 
-        /* Section Styling */
-        section {
-            padding: 80px 0;
-            background-color: #fff;
-        }
-        section:nth-of-type(even) {
-            background-color: var(--bg-light);
+        .btn-secondary {
+            background: none;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 12px 28px;
         }
 
-        .section-content {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            align-items: flex-start;
-            gap: 40px;
-            margin-top: 40px;
+        .btn-secondary:hover {
+            background: var(--primary-color);
+            color: var(--text-light);
+            transform: translateY(-3px);
         }
 
-        .feature-card {
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            padding: 30px;
-            flex: 1;
-            min-width: 280px;
-            max-width: 350px;
+        .hero {
+            background: var(--gradient-main);
+            color: var(--text-light);
+            padding: 120px 0;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            position: relative;
+            overflow: hidden;
         }
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/1600x900/?mindfulness,ai') no-repeat center center/cover; /* Placeholder background image */
+            opacity: 0.2;
+            z-index: 1;
         }
-        .feature-card img {
-            width: 80px;
-            height: 80px;
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5em;
             margin-bottom: 20px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            padding: 10px;
-            object-fit: contain;
-        }
-        .feature-card h3 {
-            color: var(--accent-color);
-            margin-top: 0;
-            font-size: 1.5rem;
-        }
-        .feature-card p {
-            font-size: 1rem;
-            color: #555;
+            line-height: 1.2;
+            animation: fadeInDown 1s ease-out;
         }
 
-        .text-block {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            text-align: left;
-        }
-        .image-block {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            text-align: center;
-        }
-        .image-block img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        .hero p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.3s;
         }
 
-        /* Testimonials Section */
-        .testimonials {
-            background-color: var(--primary-color);
-            color: var(--text-light);
+        .section {
             padding: 80px 0;
             text-align: center;
         }
-        .testimonials h2 {
-            color: var(--text-light);
-            margin-bottom: 40px;
+
+        .section:nth-of-type(even) {
+            background-color: #f9f9f9;
         }
-        .testimonial-grid {
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--gradient-main);
+            border-radius: 2px;
+        }
+
+        .section-description {
+            font-size: 1.1em;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto 50px auto;
+        }
+
+        .grid-3-cols {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
-        .testimonial-card {
-            background-color: rgba(255,255,255,0.1);
-            border-radius: 10px;
+
+        .feature-card {
+            background-color: var(--bg-light);
             padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            border-top: 5px solid var(--primary-color);
         }
-        .testimonial-card p {
-            font-style: italic;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            line-height: 1.8;
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-main);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
         }
-        .testimonial-card .author {
-            font-weight: 600;
-            font-size: 1rem;
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+            border-top-color: var(--secondary-color);
+        }
+        .feature-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .feature-card i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .feature-card:hover i {
             color: var(--secondary-color);
         }
 
-        /* Call to Action Section */
-        .cta-section {
-            background-color: var(--secondary-color);
+
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
             color: var(--text-dark);
-            text-align: center;
-            padding: 80px 20px;
+            position: relative;
+            z-index: 1;
         }
-        .cta-section h2 {
-            color: var(--primary-color);
-            margin-bottom: 30px;
-        }
-        .cta-section .btn {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-        }
-        .cta-section .btn:hover {
-            background-color: #5e3a80; /* Darker purple */
+        .feature-card:hover h3 {
+             color: var(--primary-color);
         }
 
-        /* Footer */
+
+        .feature-card p {
+            font-size: 1em;
+            color: #666;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            margin-bottom: 20px;
+            text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-card::before {
+            content: '“';
+            font-family: serif;
+            font-size: 8em;
+            color: var(--accent-color);
+            opacity: 0.1;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            line-height: 0.5;
+            z-index: 0;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #444;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            position: relative;
+            z-index: 1;
+        }
+        .testimonial-author span {
+            font-weight: 400;
+            color: #777;
+            font-size: 0.9em;
+        }
+
+
+        .cta-banner {
+            background: var(--gradient-main);
+            color: var(--text-light);
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/1600x900/?meditation,technology') no-repeat center center/cover;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        .cta-banner .container {
+            position: relative;
+            z-index: 2;
+        }
+        .cta-banner h2 {
+            color: var(--text-light);
+            font-size: 3em;
+            margin-bottom: 25px;
+        }
+        .cta-banner h2::after {
+            background: var(--gradient-dark);
+        }
+        .cta-banner p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        .cta-banner .btn {
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            box-shadow: 0 5px 15px rgba(86, 204, 242, 0.4);
+        }
+        .cta-banner .btn:hover {
+            background-color: #4CAF50; /* A slightly different accent on hover */
+            box-shadow: 0 8px 20px rgba(86, 204, 242, 0.6);
+        }
+
+
         footer {
             background-color: var(--bg-dark);
             color: var(--text-light);
             text-align: center;
-            padding: 30px 0;
-            font-size: 0.9rem;
+            padding: 40px 0;
+            font-size: 0.9em;
         }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
         footer a {
-            color: var(--secondary-color);
+            color: var(--accent-color);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
+
         footer a:hover {
-            text-decoration: underline;
+            color: var(--primary-color);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.5em;
             }
             .hero p {
-                font-size: 1.2rem;
-            }
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
+                font-size: 1em;
             }
             h2 {
-                font-size: 1.8rem;
+                font-size: 2em;
             }
-            .section-content {
+            .grid-3-cols {
+                grid-template-columns: 1fr;
+            }
+            .navbar {
                 flex-direction: column;
-                align-items: center;
             }
-            .feature-card, .text-block, .image-block {
-                max-width: 90%;
+            .nav-links {
+                margin-top: 20px;
             }
-            .testimonial-card {
-                padding: 20px;
+            .nav-links a {
+                margin: 0 10px;
+                display: inline-block;
+                margin-bottom: 10px;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .cta-banner h2 {
+                font-size: 2.2em;
             }
         }
 
         @media (max-width: 480px) {
-            .hero {
-                padding: 60px 15px;
-            }
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2em;
             }
             .hero p {
-                font-size: 1rem;
+                font-size: 0.9em;
             }
-            h2 {
-                font-size: 1.5rem;
+            .btn {
+                padding: 12px 25px;
             }
-            section {
-                padding: 50px 0;
+            .section-description {
+                font-size: 1em;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
     </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <a href="#" class="logo">Tâm Vạn <span>Phúc</span></a>
+        <div class="container navbar">
+            <a href="#" class="logo">Tâm Vạn Phúc <span>AI</span></a>
+            <nav class="nav-links">
+                <a href="#ve-chung-toi">Về chúng tôi</a>
+                <a href="#loi-ich">Lợi ích</a>
+                <a href="#cam-nhan">Cảm nhận</a>
+                <a href="#lien-he" class="btn btn-secondary">Đăng ký</a>
+            </nav>
         </div>
     </header>
 
     <main>
         <section class="hero">
-            <div class="container">
-                <h1>Khám phá Sức Mạnh AI Cho Tinh Thần Vững Vàng Của Bạn.</h1>
-                <p>Giải pháp đột phá từ Tâm Vạn Phúc kết hợp trí tuệ nhân tạo để nâng cao hạnh phúc và bình an nội tại.</p>
-                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">Bắt Đầu Hành Trình Của Bạn Ngay!</a>
+            <div class="hero-content">
+                <h1>Khai Phóng Tiềm Năng Tinh Thần Cùng AI</h1>
+                <p>Khám phá giải pháp độc đáo từ hệ sinh thái Tâm Vạn Phúc, kết hợp trí tuệ nhân tạo và sự sâu sắc tâm lý để đạt đến sự bình an và phát triển toàn diện.</p>
+                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn btn-primary">Bắt Đầu Hành Trình Của Bạn Ngay</a>
             </div>
         </section>
 
-        <section id="problem">
+        <section id="ve-chung-toi" class="section">
             <div class="container">
-                <h2>Bạn đang đối mặt với những áp lực nào trong cuộc sống hiện đại?</h2>
-                <div class="section-content">
-                    <div class="text-block">
-                        <p>Trong nhịp sống hối hả, chúng ta thường xuyên đối mặt với:</p>
-                        <ul>
-                            <li><strong>Căng thẳng công việc và học tập:</strong> Áp lực KPI, deadline, thi cử khiến bạn kiệt sức.</li>
-                            <li><strong>Lo âu xã hội và mối quan hệ:</strong> Nỗi sợ bị đánh giá, cô đơn giữa đám đông hay những mâu thuẫn dai dẳng.</li>
-                            <li><strong>Mất ngủ và khó tập trung:</strong> Tâm trí bận rộn với hàng tá suy nghĩ, không thể tìm thấy sự bình yên.</li>
-                            <li><strong>Cảm giác quá tải và mất kiểm soát:</strong> Cảm thấy cuộc sống trôi đi quá nhanh mà không thể bắt kịp.</li>
-                        </ul>
-                        <p>Đã đến lúc có một người bạn đồng hành thấu hiểu, giúp bạn vượt qua những thách thức này và tìm lại sự cân bằng.</p>
+                <h2>AI đồng hành cùng sức khỏe tinh thần</h2>
+                <p class="section-description">Trong một thế giới đầy biến động, Tâm Vạn Phúc Mental-AI mang đến một phương pháp tiếp cận mới, cá nhân hóa để bạn tìm thấy sự cân bằng, sự rõ ràng và hạnh phúc bền vững.</p>
+
+                <div class="grid-3-cols">
+                    <div class="feature-card">
+                        <i class="fas fa-brain"></i>
+                        <h3>Hiểu Rõ Bản Thân Sâu Sắc</h3>
+                        <p>AI phân tích các mẫu suy nghĩ và cảm xúc của bạn, cung cấp cái nhìn sâu sắc về tâm trạng và hành vi, giúp bạn tự nhận thức tốt hơn.</p>
                     </div>
-                    <div class="image-block">
-                        <img src="https://source.unsplash.com/random/500x400/?stress,anxiety,modern-life" alt="Người đang căng thẳng">
+                    <div class="feature-card">
+                        <i class="fas fa-hand-holding-heart"></i>
+                        <h3>Cân Bằng Cảm Xúc Vượt Trội</h3>
+                        <p>Nhận được các bài tập và gợi ý cá nhân hóa để quản lý căng thẳng, lo âu và cải thiện khả năng phục hồi cảm xúc của bạn.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Tăng Cường Tập Trung & Sáng Tạo</h3>
+                        <p>AI giúp bạn nhận diện và vượt qua các yếu tố gây xao nhãng, nuôi dưỡng sự tập trung và khơi nguồn tiềm năng sáng tạo bên trong.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="solution">
+        <section id="loi-ich" class="section">
             <div class="container">
-                <h2>Tâm Vạn Phúc Mental-AI: Trợ Lý Tinh Thần Cá Nhân Của Bạn</h2>
-                <div class="section-content">
+                <h2>Lợi Ích Bạn Sẽ Nhận Được</h2>
+                <p class="section-description">Mental-AI không chỉ là một công cụ, đó là người bạn đồng hành thấu hiểu, giúp bạn xây dựng một cuộc sống trọn vẹn và ý nghĩa hơn.</p>
+
+                <div class="grid-3-cols">
                     <div class="feature-card">
-                        <img src="https://www.svgrepo.com/show/368817/personalized.svg" alt="Icon Cá nhân hóa">
-                        <h3>Cá nhân hóa tối ưu</h3>
-                        <p>AI phân tích thói quen, cảm xúc và nhu cầu của bạn để đưa ra lộ trình phát triển tinh thần dành riêng, đảm bảo hiệu quả cao nhất.</p>
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Hỗ Trợ Cá Nhân Hóa</h3>
+                        <p>Chương trình được thiết kế riêng cho từng cá nhân, dựa trên dữ liệu và phản hồi của bạn để tối ưu hóa hiệu quả.</p>
                     </div>
                     <div class="feature-card">
-                        <img src="https://www.svgrepo.com/show/368822/support-24-hours.svg" alt="Icon Hỗ trợ 24/7">
-                        <h3>Hỗ trợ 24/7</h3>
-                        <p>Trợ lý AI luôn sẵn sàng lắng nghe, trò chuyện và đưa ra lời khuyên hữu ích bất cứ lúc nào bạn cần, dù là giữa đêm hay sáng sớm.</p>
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Tiến Bộ Rõ Ràng</h3>
+                        <p>Theo dõi sự phát triển của bạn thông qua các báo cáo trực quan, nhận biết những thay đổi tích cực theo thời gian.</p>
                     </div>
                     <div class="feature-card">
-                        <img src="https://www.svgrepo.com/show/368809/scientific.svg" alt="Icon Kỹ thuật khoa học">
-                        <h3>Kỹ thuật khoa học</h3>
-                        <p>Áp dụng các phương pháp trị liệu nhận thức hành vi (CBT), thiền định và chánh niệm được chứng minh khoa học để mang lại hiệu quả bền vững.</p>
-                    </div>
-                    <div class="feature-card">
-                        <img src="https://www.svgrepo.com/show/368826/tracking.svg" alt="Icon Theo dõi tiến độ">
-                        <h3>Theo dõi tiến độ</h3>
-                        <p>Ghi nhận và hiển thị sự cải thiện trong tâm trạng, giấc ngủ, mức độ căng thẳng của bạn theo thời gian, giúp bạn có động lực hơn.</p>
-                    </div>
-                    <div class="feature-card">
-                        <img src="https://www.svgrepo.com/show/368810/security.svg" alt="Icon Bảo mật tuyệt đối">
-                        <h3>Bảo mật tuyệt đối</h3>
-                        <p>Mọi thông tin cá nhân và cuộc trò chuyện của bạn đều được mã hóa và bảo vệ nghiêm ngặt, đảm bảo sự riêng tư hoàn toàn.</p>
-                    </div>
-                    <div class="feature-card">
-                        <img src="https://www.svgrepo.com/show/368818/positive-mind.svg" alt="Icon Thói quen tích cực">
-                        <h3>Xây dựng thói quen</h3>
-                        <p>Cùng bạn thiết lập và duy trì những thói quen tích cực hàng ngày, từ thiền định, hít thở sâu đến nhật ký biết ơn.</p>
+                        <i class="fas fa-infinity"></i>
+                        <h3>Phát Triển Bền Vững</h3>
+                        <p>Xây dựng thói quen tinh thần lành mạnh, giúp bạn duy trì sự bình an và phát triển liên tục trong mọi khía cạnh cuộc sống.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="testimonials">
+        <section id="cam-nhan" class="section">
             <div class="container">
-                <h2>Khách hàng nói gì về Tâm Vạn Phúc Mental-AI</h2>
-                <div class="testimonial-grid">
+                <h2>Cảm Nhận Từ Những Người Đã Trải Nghiệm</h2>
+                <p class="section-description">Nghe những câu chuyện thành công từ cộng đồng Tâm Vạn Phúc Mental-AI của chúng tôi.</p>
+
+                <div class="grid-3-cols">
                     <div class="testimonial-card">
-                        <p>"Kể từ khi sử dụng Tâm Vạn Phúc Mental-AI, tôi cảm thấy bình tĩnh và tập trung hơn rất nhiều. Trợ lý AI thực sự thấu hiểu và đưa ra lời khuyên rất đúng lúc."</p>
-                        <div class="author">– Nguyễn Thị Lan Anh, 32 tuổi</div>
+                        <p>"Mental-AI đã thay đổi cách tôi nhìn nhận căng thẳng. Tôi học được cách quản lý cảm xúc tốt hơn và cảm thấy bình yên hơn rất nhiều."</p>
+                        <div class="testimonial-author">Nguyễn Thị An <span>- Chuyên viên Marketing</span></div>
                     </div>
                     <div class="testimonial-card">
-                        <p>"Tôi từng rất lo lắng về công việc, nhưng nhờ các bài tập thiền và chánh niệm cá nhân hóa, tôi đã học được cách quản lý căng thẳng hiệu quả hơn. Cuộc sống của tôi đã thay đổi tích cực."</p>
-                        <div class="author">– Trần Văn Dũng, 40 tuổi</div>
+                        <p>"Nhờ có AI, tôi đã tìm lại được sự tập trung đã mất. Khả năng làm việc của tôi tăng lên đáng kể, và tôi cảm thấy sáng tạo hơn."</p>
+                        <div class="testimonial-author">Lê Văn Bình <span>- Lập trình viên</span></div>
                     </div>
                     <div class="testimonial-card">
-                        <p>"Tôi không ngờ một ứng dụng AI lại có thể mang lại sự hỗ trợ tinh thần tuyệt vời đến vậy. Tôi ngủ ngon hơn và cảm thấy tràn đầy năng lượng mỗi ngày."</p>
-                        <div class="author">– Lê Thị Mai, 26 tuổi</div>
+                        <p>"Đây không chỉ là một ứng dụng, mà là một người bạn đồng hành. Tôi được thấu hiểu và nhận những lời khuyên thực sự hữu ích."</p>
+                        <div class="testimonial-author">Trần Thu Hà <span>- Giáo viên</span></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta-section">
+        <section id="lien-he" class="cta-banner">
             <div class="container">
-                <h2>Đừng để căng thẳng làm chủ cuộc sống của bạn.</h2>
-                <p style="font-size: 1.3rem; margin-bottom: 3rem; color: #444;">Hãy khám phá tiềm năng của bạn với sự hỗ trợ từ công nghệ tiên tiến nhất.</p>
-                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">Trải Nghiệm Tâm Vạn Phúc Mental-AI Ngay Hôm Nay!</a>
+                <h2>Sẵn Sàng Khám Phá Tiềm Năng Tinh Thần Của Bạn?</h2>
+                <p>Đừng chần chừ! Hãy tham gia cùng hàng ngàn người đã và đang cải thiện sức khỏe tinh thần mỗi ngày với Tâm Vạn Phúc Mental-AI.</p>
+                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn btn-primary">Bắt Đầu Trải Nghiệm Miễn Phí Ngay Hôm Nay!</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu. | <a href="#">Điều khoản sử dụng</a> | <a href="#">Chính sách bảo mật</a></p>
+            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+            <p>Một sản phẩm của Hệ sinh thái <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank">Tâm Vạn Phúc</a>.</p>
         </div>
     </footer>
 </body>
