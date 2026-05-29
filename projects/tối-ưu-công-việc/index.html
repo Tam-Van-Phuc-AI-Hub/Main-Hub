@@ -1,440 +1,320 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tối Ưu Công Việc - Khai Phóng Tiềm Năng Cùng Tâm Vạn Phúc</title>
+    <title>Tâm Vạn Phúc - Tối Ưu Công Việc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
         :root {
-            --primary-color: #2E86C1; /* A shade of blue */
-            --secondary-color: #27AE60; /* A shade of green */
-            --accent-color: #F1C40F; /* A shade of yellow for highlights */
+            --primary-color: #3f51b5; /* Indigo */
+            --primary-dark: #303f9f;
+            --accent-color: #ffc107; /* Amber */
             --text-dark: #333;
             --text-light: #f4f4f4;
-            --bg-light: #f8f8f8;
-            --bg-dark: #2c3e50; /* Dark background for some sections */
+            --bg-light: #ffffff;
+            --bg-dark: #f0f2f5;
+            --box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             line-height: 1.6;
             color: var(--text-dark);
             background-color: var(--bg-light);
             scroll-behavior: smooth;
         }
 
+        /* Global Styles */
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        /* Header/Navigation (simple for landing page) */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        p {
+            font-weight: 300;
+        }
+
+        /* Header */
         header {
-            background-color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 20px 0;
             text-align: center;
         }
 
-        header .logo {
-            font-size: 1.8em;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: var(--text-light);
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            font-weight: 300;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color), #4CAF50);
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?productivity,workspace,efficiency') no-repeat center center/cover;
             color: var(--text-light);
-            padding: 80px 0;
             text-align: center;
+            padding: 100px 20px;
             position: relative;
-            overflow: hidden;
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="0,100 100,0 100,100" fill="%232E86C1" opacity="0.1"/><polygon points="0,0 0,100 50,0" fill="%2327AE60" opacity="0.15"/></svg>') repeat;
-            opacity: 0.1;
-            z-index: 0;
-        }
-
-        .hero .content {
+        
+        .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
-        .hero h1 {
-            font-size: 3.2em;
+        .hero h2 {
+            font-size: 3.5em;
             margin-bottom: 20px;
             line-height: 1.2;
-            font-weight: 700;
+            color: var(--text-light);
         }
 
         .hero p {
-            font-size: 1.3em;
+            font-size: 1.5em;
             margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            font-weight: 300;
         }
 
         .cta-button {
             display: inline-block;
             background-color: var(--accent-color);
-            color: var(--text-dark);
+            color: var(--primary-dark);
             padding: 18px 35px;
-            font-size: 1.2em;
-            font-weight: 700;
             text-decoration: none;
+            font-size: 1.4em;
+            font-weight: 700;
             border-radius: 50px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             border: none;
             cursor: pointer;
         }
 
         .cta-button:hover {
-            background-color: #F39C12; /* Slightly darker yellow */
+            background-color: #ffd740; /* Lighter amber */
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Section Styling */
-        .section {
+        /* Features Section */
+        .features {
+            background-color: var(--bg-dark);
             padding: 60px 0;
             text-align: center;
         }
 
-        .section:nth-of-type(even) {
-            background-color: var(--bg-light);
-        }
-
-        .section h2 {
+        .features h3 {
             font-size: 2.5em;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            position: relative;
-            display: inline-block;
-            padding-bottom: 10px;
+            margin-bottom: 50px;
         }
 
-        .section h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
-        }
-
-        /* Features Section */
-        .features-grid {
+        .feature-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 40px;
+            text-align: left;
         }
 
         .feature-item {
-            background-color: #fff;
+            background-color: var(--bg-light);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: var(--box-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
-            border-left: 5px solid var(--primary-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .feature-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .feature-item .icon {
+        .feature-item i { /* For Font Awesome icons */
             font-size: 3em;
-            color: var(--secondary-color);
-            margin-bottom: 15px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
             display: block;
-            text-align: center;
         }
-        
-        .feature-item h3 {
+
+        .feature-item h4 {
             font-size: 1.5em;
             margin-bottom: 15px;
-            color: var(--text-dark);
             text-align: center;
         }
 
         .feature-item p {
-            font-size: 1em;
-            color: #555;
-        }
-
-        /* Benefits Section */
-        .benefits-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            max-width: 800px;
-            margin: 40px auto 0 auto;
-        }
-
-        .benefit-item {
-            display: flex;
-            align-items: flex-start;
-            text-align: left;
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--secondary-color);
-        }
-
-        .benefit-item .icon {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-right: 20px;
-            flex-shrink: 0;
-        }
-
-        .benefit-item h3 {
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 10px;
+            font-size: 1.1em;
             color: var(--text-dark);
-        }
-
-        .benefit-item p {
-            color: #666;
-            margin: 0;
-        }
-
-        /* Call to Action Section */
-        .cta-section {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 80px 0;
             text-align: center;
         }
 
-        .cta-section h2 {
-            color: var(--text-light);
-            margin-bottom: 25px;
+        /* About Section */
+        .about {
+            padding: 60px 0;
+            text-align: center;
         }
 
-        .cta-section p {
+        .about h3 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+        }
+
+        .about p {
             font-size: 1.2em;
-            margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-section .cta-button {
-            background-color: var(--accent-color);
+            max-width: 800px;
+            margin: 0 auto 40px auto;
             color: var(--text-dark);
-        }
-
-        .cta-section .cta-button:hover {
-            background-color: #F39C12;
         }
 
         /* Footer */
         footer {
-            background-color: var(--bg-dark);
-            color: #a0a0a0;
-            padding: 40px 0;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
             text-align: center;
+            padding: 30px 0;
             font-size: 0.9em;
         }
 
-        footer p {
-            margin: 0;
-        }
-
         footer a {
-            color: var(--primary-color);
+            color: var(--accent-color);
             text-decoration: none;
+            transition: color 0.3s ease;
         }
 
         footer a:hover {
-            text-decoration: underline;
+            color: #ffd740;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero {
-                padding: 60px 0;
-            }
-
-            .hero h1 {
+            .hero h2 {
                 font-size: 2.5em;
             }
 
             .hero p {
-                font-size: 1.1em;
-                margin-bottom: 30px;
+                font-size: 1.2em;
             }
 
             .cta-button {
+                font-size: 1.2em;
                 padding: 15px 30px;
-                font-size: 1.1em;
             }
 
-            .section {
-                padding: 40px 0;
-            }
-
-            .section h2 {
+            .features h3, .about h3 {
                 font-size: 2em;
             }
 
-            .features-grid, .benefits-list {
+            .feature-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .feature-item, .benefit-item {
-                text-align: center;
-            }
-
-            .feature-item .icon, .benefit-item .icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-
-            .benefit-item {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .cta-section {
-                padding: 60px 0;
-            }
-
-            .cta-section p {
-                font-size: 1em;
             }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
+            header h1 {
                 font-size: 2em;
             }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
             .hero p {
                 font-size: 1em;
             }
+
             .cta-button {
                 font-size: 1em;
                 padding: 12px 25px;
             }
-            .section h2 {
-                font-size: 1.8em;
-            }
         }
     </style>
-    <!-- Simple icon font for illustrative purposes. In a real project, use SVG or image assets. -->
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc</a>
+            <h1>Tâm Vạn Phúc</h1>
+            <p>Hệ Sinh Thái Nâng Tầm Cuộc Sống & Công Việc Của Bạn</p>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container content">
-                <h1>Tối Ưu Công Việc, Khai Phóng Tiềm Năng Thực Sự Của Bạn</h1>
-                <p>Giải pháp toàn diện từ Tâm Vạn Phúc giúp bạn làm việc thông minh hơn, hiệu quả hơn và đạt được thành công bền vững trong mọi lĩnh vực cuộc sống.</p>
-                <a href="https://app.compa.vn/aff/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">Khám Phá Ngay!</a>
-            </div>
-        </section>
+    <section class="hero">
+        <div class="hero-content container">
+            <h2>Giải Phóng Tiềm Năng, Nâng Cao Hiệu Suất: Tối Ưu Công Việc Cùng Tâm Vạn Phúc</h2>
+            <p>Khám phá các phương pháp và công cụ tiên tiến giúp bạn làm việc thông minh hơn, quản lý thời gian hiệu quả, và đạt được mục tiêu nhanh chóng.</p>
+            <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">Bắt Đầu Hành Trình Tối Ưu Ngay!</a>
+        </div>
+    </section>
 
-        <section id="features" class="section">
-            <div class="container">
-                <h2>Bạn Sẽ Đạt Được Gì?</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <i class="fas fa-clock icon"></i>
-                        <h3>Quản Lý Thời Gian Hiệu Quả</h3>
-                        <p>Học cách ưu tiên công việc, loại bỏ lãng phí thời gian và làm chủ lịch trình của bạn. Tăng cường khả năng tập trung và hoàn thành mục tiêu đúng hạn.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-chart-line icon"></i>
-                        <h3>Nâng Cao Năng Suất Làm Việc</h3>
-                        <p>Áp dụng các kỹ thuật làm việc tiên tiến, tự động hóa nhiệm vụ và tối ưu hóa quy trình để đạt được nhiều hơn trong thời gian ngắn hơn.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-brain icon"></i>
-                        <h3>Tăng Cường Sự Tập Trung & Sáng Tạo</h3>
-                        <p>Giảm thiểu phiền nhiễu, cải thiện khả năng ra quyết định và kích thích tư duy sáng tạo để giải quyết vấn đề một cách hiệu quả.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-handshake icon"></i>
-                        <h3>Phát Triển Kỹ Năng Mềm Quan Trọng</h3>
-                        <p>Nâng cao kỹ năng giao tiếp, lãnh đạo, làm việc nhóm và giải quyết xung đột, xây dựng mối quan hệ bền vững trong công việc và cuộc sống.</p>
-                    </div>
+    <section class="features">
+        <div class="container">
+            <h3>Bạn Sẽ Đạt Được Gì Với Tâm Vạn Phúc?</h3>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-clock"></i>
+                    <h4>Quản Lý Thời Gian Hiệu Quả</h4>
+                    <p>Học cách phân bổ thời gian hợp lý, ưu tiên công việc quan trọng và loại bỏ lãng phí, giúp bạn hoàn thành nhiều hơn trong ít thời gian hơn.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-robot"></i>
+                    <h4>Tự Động Hóa Công Việc</h4>
+                    <p>Khám phá các công cụ và kỹ thuật để tự động hóa các tác vụ lặp đi lặp lại, giải phóng bạn khỏi công việc nhàm chán và tập trung vào sáng tạo.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-brain"></i>
+                    <h4>Nâng Cao Năng Suất Cá Nhân</h4>
+                    <p>Phát triển khả năng tập trung, ra quyết định nhanh chóng và duy trì động lực, biến mỗi ngày làm việc thành một ngày năng suất đỉnh cao.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Sáng Tạo Đột Phá</h4>
+                    <p>Tạo không gian cho sự đổi mới bằng cách tối giản các quy trình, giúp bạn có nhiều thời gian và năng lượng hơn để phát triển ý tưởng mới.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-balance-scale"></i>
+                    <h4>Cân Bằng Công Việc & Cuộc Sống</h4>
+                    <p>Tìm kiếm sự hài hòa giữa công việc và đời sống cá nhân, giảm căng thẳng và tăng cường hạnh phúc tổng thể.</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Đạt Mục Tiêu Nhanh Chóng</h4>
+                    <p>Thiết lập mục tiêu thông minh, theo dõi tiến độ và áp dụng các chiến lược tối ưu để biến mục tiêu thành hiện thực một cách hiệu quả nhất.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="benefits" class="section">
-            <div class="container">
-                <h2>Tại Sao Chọn Giải Pháp Tối Ưu Công Việc Từ Tâm Vạn Phúc?</h2>
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <i class="fas fa-lightbulb icon"></i>
-                        <div>
-                            <h3>Phương Pháp Đã Được Chứng Minh</h3>
-                            <p>Chúng tôi cung cấp các chiến lược và công cụ đã được kiểm nghiệm, giúp hàng ngàn người chuyển đổi cách họ làm việc.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-users icon"></i>
-                        <div>
-                            <h3>Hỗ Trợ Tận Tâm</h3>
-                            <p>Đồng hành cùng bạn trên mỗi bước đường, từ hướng dẫn ban đầu đến các buổi tư vấn chuyên sâu để đảm bảo bạn đạt được mục tiêu.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fas fa-leaf icon"></i>
-                        <div>
-                            <h3>Tiếp Cận Toàn Diện</h3>
-                            <p>Không chỉ tối ưu công việc, chúng tôi còn giúp bạn cân bằng cuộc sống, giảm căng thẳng và phát triển bản thân toàn diện.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <div class="container">
-                <h2>Đừng Để Công Việc Áp Lực Kiểm Soát Bạn!</h2>
-                <p>Đã đến lúc bạn nắm quyền kiểm soát, làm việc thông minh hơn và tận hưởng cuộc sống trọn vẹn hơn. Hãy bắt đầu hành trình tối ưu công việc của bạn ngay hôm nay cùng Tâm Vạn Phúc!</p>
-                <a href="https://app.compa.vn/aff/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">Bắt Đầu Thay Đổi Ngay Bây Giờ!</a>
-            </div>
-        </section>
-    </main>
+    <section class="about">
+        <div class="container">
+            <h3>Vì Sao Chọn Tâm Vạn Phúc?</h3>
+            <p>Tâm Vạn Phúc không chỉ cung cấp kiến thức, mà còn là một hệ sinh thái toàn diện với các công cụ, cộng đồng và sự hỗ trợ chuyên sâu giúp bạn thực sự thay đổi cách làm việc và sống. Chúng tôi cam kết mang lại những giá trị thực tiễn, có thể áp dụng ngay để bạn thấy sự khác biệt rõ rệt trong năng suất và chất lượng cuộc sống.</p>
+            <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">Khám Phá Giải Pháp Tối Ưu Ngay!</a>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
             <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <p>Giải pháp tối ưu công việc từ <a href="#" style="color: var(--accent-color);">Hệ sinh thái Tâm Vạn Phúc</a>.</p>
+            <p>Powered by <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank">Tâm Vạn Phúc Ecosystem</a></p>
         </div>
     </footer>
 </body>
