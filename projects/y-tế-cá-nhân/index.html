@@ -1,682 +1,345 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Y Tế Cá Nhân Toàn Diện</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Chăm Sóc Sức Khỏe Cá Nhân Toàn Diện | Tâm Vạn Phúc</title>
     <style>
-        /* General Resets & Base Styles */
         :root {
-            --primary-color: #007bff; /* Blue for trust and professionalism */
-            --secondary-color: #28a745; /* Green for health and growth */
-            --accent-color: #ffc107; /* Yellow for attention/highlight */
-            --text-color: #343a40;
+            --primary-color: #28a745; /* Green for health, growth */
+            --secondary-color: #007bff; /* Blue for trust, professionalism */
+            --text-color: #333;
             --light-bg: #f8f9fa;
-            --dark-bg: #e9ecef;
-            --white: #ffffff;
-            --font-heading: 'Montserrat', sans-serif;
-            --font-body: 'Roboto', sans-serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --white-bg: #ffffff;
+            --shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
 
         body {
-            font-family: var(--font-body);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--white);
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            background-color: var(--light-bg);
+            scroll-behavior: smooth;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-heading);
-            margin-bottom: 1rem;
-            color: var(--text-color);
-        }
-
-        h1 { font-size: 2.8rem; }
-        h2 { font-size: 2.2rem; }
-        h3 { font-size: 1.8rem; }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--secondary-color);
-        }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            font-family: var(--font-heading);
-            border: none;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--white);
-            box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-            box-shadow: 0 6px 15px rgba(0, 123, 255, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn-large {
-            padding: 15px 35px;
-            font-size: 1.1rem;
+            padding: 20px;
         }
 
         /* Header */
         header {
-            background-color: var(--white);
+            background-color: var(--white-bg);
             padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-heading);
-            font-weight: 700;
-            font-size: 1.8rem;
-        }
-
-        .logo a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-color);
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 5px;
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(to right, var(--light-bg), var(--dark-bg));
-            padding: 80px 0;
-            display: flex;
-            align-items: center;
-            min-height: 70vh;
-        }
-
-        .hero-section .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .hero-content {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 40px;
-        }
-
-        .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: var(--text-color);
-        }
-
-        .hero-image {
-            flex: 1;
-            min-width: 300px;
+            box-shadow: var(--shadow);
             text-align: center;
         }
 
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        header .logo {
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+            display: inline-block;
+        }
+        header .logo span {
+            color: var(--secondary-color);
         }
 
-        /* Sections General */
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1576091160550-2173dba99935?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NTQ4NzZ8MHwxfHNlYXJjaHw1OXx8aGVhbHRoY2FyZXxlbnwwfHx8fDE3MTQ5Mjc4NjB8MA&ixlib=rb-4.0.3&q=80&w=1080') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh;
+        }
+
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 40px;
+            max-width: 800px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: var(--shadow);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #218838; /* Darker green */
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
         section {
             padding: 80px 0;
             text-align: center;
         }
 
         section:nth-of-type(even) {
-            background-color: var(--light-bg);
+            background-color: var(--white-bg);
         }
 
         section h2 {
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            font-size: 2.5rem;
+            font-size: 2.5em;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
         }
 
-        /* About Section */
-        .about-section .about-grid {
-            display: flex;
-            justify-content: center;
+        /* Intro Section */
+        .intro p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Features Section */
+        .features .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
-        .about-item {
-            background-color: var(--white);
+        .features .feature-item {
+            background-color: var(--white-bg);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            flex: 1;
-            min-width: 280px;
-            max-width: 350px;
+            box-shadow: var(--shadow);
             text-align: left;
             transition: transform 0.3s ease;
         }
 
-        .about-item:hover {
+        .features .feature-item:hover {
             transform: translateY(-5px);
         }
 
-        .about-item h3 {
+        .features .feature-item i {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: block;
+        }
+        .features .feature-item h3 {
+            font-size: 1.5em;
             color: var(--secondary-color);
             margin-bottom: 15px;
         }
-
-        .about-section .solution-intro {
-            margin-top: 50px;
-            font-size: 1.3rem;
-            font-weight: 500;
-            color: var(--primary-color);
-        }
-
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .service-item {
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .service-item .icon {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            display: inline-block;
-            width: 60px;
-            height: 60px;
-            line-height: 60px;
-            border-radius: 50%;
-            background-color: var(--dark-bg);
-        }
-
-        /* Placeholder icons using unicode characters */
-        .icon-stethoscope::before { content: "🩺"; }
-        .icon-clipboard::before { content: "📋"; }
-        .icon-heartbeat::before { content: "❤️"; }
-        .icon-brain::before { content: "🧠"; }
-
-        .service-item h3 {
-            color: var(--text-color);
-            margin-bottom: 10px;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            background-color: var(--dark-bg);
-        }
-
-        .testimonial-grid {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .testimonial-item {
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            flex: 1;
-            min-width: 300px;
-            max-width: 450px;
-            text-align: left;
-        }
-
-        .testimonial-item p {
-            font-style: italic;
-            margin-bottom: 20px;
+        .features .feature-item p {
+            font-size: 1em;
             color: #555;
-            line-height: 1.8;
         }
 
-        .client-info {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
+        /* CTA Section (repeat) */
+        .cta-section {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 60px 20px;
         }
-
-        .client-info img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 2px solid var(--primary-color);
-        }
-
-        .client-info span {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-family: var(--font-heading);
-        }
-
-        /* CTA Bottom Section */
-        .cta-bottom-section {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 60px 0;
-        }
-
-        .cta-bottom-section h2 {
-            color: var(--white);
-            font-size: 2.2rem;
+        .cta-section h2 {
+            color: white;
+            font-size: 2.8em;
             margin-bottom: 20px;
         }
-
-        .cta-bottom-section p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+        .cta-section h2::after {
+            background-color: var(--primary-color);
         }
-
-        .btn-cta-bottom {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            box-shadow: 0 4px 10px rgba(40, 167, 69, 0.3);
+        .cta-section p {
+            font-size: 1.3em;
+            margin-bottom: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .btn-cta-bottom:hover {
+        .cta-section .btn {
+            background-color: var(--primary-color);
+        }
+        .cta-section .btn:hover {
             background-color: #218838;
-            box-shadow: 0 6px 15px rgba(40, 167, 69, 0.4);
         }
 
         /* Footer */
         footer {
             background-color: var(--text-color);
-            color: var(--white);
+            color: var(--light-bg);
             padding: 40px 0;
             text-align: center;
-            font-size: 0.9rem;
+            font-size: 0.9em;
         }
-
-        footer .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 10px;
         }
-
-        footer ul {
-            list-style: none;
-            display: flex;
-            margin-top: 15px;
-        }
-
-        footer ul li {
-            margin: 0 15px;
-        }
-
-        footer ul li a {
-            color: var(--dark-bg);
-        }
-
-        footer ul li a:hover {
-            color: var(--white);
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-section .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 40px;
-            }
-
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-
-            .hero-image {
-                order: -1; /* Image first on mobile */
-                margin-bottom: 30px;
-            }
-        }
-
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.5rem; }
-
-            header .container {
-                flex-wrap: wrap;
+            .hero h1 {
+                font-size: 2.5em;
             }
-
-            nav {
-                order: 3;
-                width: 100%;
-                margin-top: 15px;
+            .hero p {
+                font-size: 1.2em;
             }
-
-            nav ul {
-                flex-direction: column;
-                display: none; /* Hidden by default for mobile */
-                width: 100%;
-                background-color: var(--white);
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
-                border-radius: 5px;
+            section h2 {
+                font-size: 2em;
             }
-
-            nav ul.active {
-                display: flex; /* Show when active */
-            }
-
-            nav ul li {
-                margin: 0;
-                border-bottom: 1px solid var(--dark-bg);
-            }
-
-            nav ul li:last-child {
-                border-bottom: none;
-            }
-
-            nav ul li a {
-                display: block;
-                padding: 15px 20px;
-                text-align: center;
-            }
-
-            nav ul li a::after {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .about-item, .testimonial-item {
-                max-width: 100%;
-            }
-
-            .services-grid {
+            .features .feature-grid {
                 grid-template-columns: 1fr;
             }
-
-            footer ul {
-                flex-direction: column;
-                gap: 10px;
+            .features .feature-item {
+                text-align: center;
+            }
+            .features .feature-item i {
+                margin: 0 auto 20px auto;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            .cta-section h2 {
+                font-size: 2em;
+            }
+            .cta-section p {
+                font-size: 1em;
             }
         }
 
         @media (max-width: 480px) {
-            .btn {
-                padding: 10px 20px;
-                font-size: 0.9rem;
+            .hero h1 {
+                font-size: 2em;
             }
-
-            .hero-content h1 {
-                font-size: 2rem;
+            .hero p {
+                font-size: 1em;
             }
-            .hero-content p {
-                font-size: 1rem;
+            header .logo {
+                font-size: 1.5em;
             }
             section {
-                padding: 60px 0;
-            }
-            section h2 {
-                font-size: 2rem;
+                padding: 50px 0;
             }
         }
     </style>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <div class="logo">
-                <a href="#">Tâm Vạn Phúc</a>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#hero">Trang chủ</a></li>
-                    <li><a href="#about">Về chúng tôi</a></li>
-                    <li><a href="#services">Dịch vụ</a></li>
-                    <li><a href="#testimonials">Khách hàng</a></li>
-                    <li><a href="#cta-bottom">Bắt đầu</a></li>
-                </ul>
-            </nav>
-            <button class="menu-toggle" aria-label="Toggle navigation">&#9776;</button>
+            <a href="#" class="logo">Tâm Vạn Phúc <span>Health</span></a>
         </div>
     </header>
 
     <main>
-        <section id="hero" class="hero-section">
+        <section class="hero">
             <div class="container">
-                <div class="hero-content">
-                    <h1>Sức Khỏe Của Bạn, Ưu Tiên Hàng Đầu Của Chúng Tôi</h1>
-                    <p>Khám phá hệ sinh thái y tế cá nhân toàn diện từ Tâm Vạn Phúc – đồng hành cùng bạn trên hành trình sống khỏe mạnh và hạnh phúc.</p>
-                    <a href="https://tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn btn-primary">Bắt Đầu Chăm Sóc Sức Khỏe Ngay</a>
-                </div>
-                <div class="hero-image">
-                    <img src="https://via.placeholder.com/600x400/87CEEB/FFFFFF?text=Y+T%E1%BA%BF+C%C3%A1+Nh%C3%A2n" alt="Y tế cá nhân toàn diện">
-                </div>
+                <h1>Sức Khỏe Của Bạn, Ưu Tiên Hàng Đầu Của Chúng Tôi.</h1>
+                <p>Khám phá giải pháp chăm sóc y tế cá nhân toàn diện cùng hệ sinh thái Tâm Vạn Phúc. Nâng tầm chất lượng cuộc sống của bạn ngay hôm nay!</p>
+                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">Bắt Đầu Hành Trình Sức Khỏe Của Bạn Ngay!</a>
             </div>
         </section>
 
-        <section id="about" class="about-section">
+        <section class="intro">
             <div class="container">
-                <h2>Bạn đang tìm kiếm một giải pháp y tế cá nhân?</h2>
-                <div class="about-grid">
-                    <div class="about-item">
-                        <h3>Thiếu thời gian</h3>
-                        <p>Lịch trình bận rộn khiến bạn khó sắp xếp thăm khám định kỳ?</p>
-                    </div>
-                    <div class="about-item">
-                        <h3>Thông tin không rõ ràng</h3>
-                        <p>Băn khoăn giữa vô vàn thông tin sức khỏe trên mạng?</p>
-                    </div>
-                    <div class="about-item">
-                        <h3>Cần hỗ trợ cá nhân</h3>
-                        <p>Mong muốn được tư vấn riêng, theo dõi sức khỏe chuyên biệt?</p>
-                    </div>
-                </div>
-                <p class="solution-intro">Tâm Vạn Phúc mang đến giải pháp toàn diện, đặt bạn vào trung tâm của mọi quyết định y tế.</p>
+                <h2>Tâm Vạn Phúc: Đối Tác Sức Khỏe Cá Nhân Của Bạn</h2>
+                <p>Trong cuộc sống hiện đại đầy bận rộn, việc duy trì sức khỏe toàn diện - cả thể chất và tinh thần - là một thách thức lớn. Hệ sinh thái Tâm Vạn Phúc ra đời với sứ mệnh mang đến cho bạn những giải pháp y tế cá nhân hóa, tiện lợi và hiệu quả, giúp bạn chủ động quản lý và nâng cao chất lượng cuộc sống.</p>
+                <p>Chúng tôi hiểu rằng mỗi cá nhân là duy nhất, và vì vậy, mỗi hành trình sức khỏe cũng cần được thiết kế riêng biệt. Hãy để Tâm Vạn Phúc đồng hành cùng bạn trên con đường hướng tới một cuộc sống khỏe mạnh, hạnh phúc và tràn đầy năng lượng.</p>
             </div>
         </section>
 
-        <section id="services" class="services-section">
+        <section class="features">
             <div class="container">
-                <h2>Dịch Vụ Y Tế Cá Nhân Nổi Bật</h2>
-                <div class="services-grid">
-                    <div class="service-item">
-                        <i class="icon icon-stethoscope"></i>
-                        <h3>Tư Vấn Trực Tuyến</h3>
-                        <p>Kết nối với bác sĩ chuyên khoa mọi lúc, mọi nơi qua các kênh an toàn.</p>
+                <h2>Những Lợi Ích Nổi Bật Của Tâm Vạn Phúc</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-stethoscope"></i>
+                        <h3>Tư Vấn Y Tế Trực Tuyến 24/7</h3>
+                        <p>Kết nối với đội ngũ bác sĩ và chuyên gia sức khỏe hàng đầu mọi lúc, mọi nơi thông qua nền tảng trực tuyến an toàn và tiện lợi.</p>
                     </div>
-                    <div class="service-item">
-                        <i class="icon icon-clipboard"></i>
-                        <h3>Kế Hoạch Chăm Sóc Cá Thể</h3>
-                        <p>Phác đồ chăm sóc sức khỏe riêng biệt, phù hợp với nhu cầu và tình trạng của bạn.</p>
+                    <div class="feature-item">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Kế Hoạch Chăm Sóc Cá Nhân Hóa</h3>
+                        <p>Thiết kế lộ trình sức khỏe riêng biệt, phù hợp với tình trạng, mục tiêu và lối sống của bạn, từ dinh dưỡng đến vận động.</p>
                     </div>
-                    <div class="service-item">
-                        <i class="icon icon-heartbeat"></i>
-                        <h3>Theo Dõi Sức Khỏe Chủ Động</h3>
-                        <p>Công cụ ghi nhận, phân tích dữ liệu sức khỏe giúp bạn hiểu rõ cơ thể mình.</p>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Quản Lý Hồ Sơ Sức Khỏe Điện Tử</h3>
+                        <p>Dễ dàng theo dõi lịch sử y tế, kết quả xét nghiệm, và tiến độ điều trị của bạn một cách minh bạch và bảo mật.</p>
                     </div>
-                    <div class="service-item">
-                        <i class="icon icon-brain"></i>
-                        <h3>Chăm Sóc Sức Khỏe Tinh Thần</h3>
-                        <p>Hỗ trợ tâm lý, các chương trình giảm stress và nâng cao chất lượng cuộc sống.</p>
+                    <div class="feature-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>Hỗ Trợ Sức Khỏe Tinh Thần Toàn Diện</h3>
+                        <p>Tiếp cận các chương trình thiền định, tư vấn tâm lý và tài liệu hướng dẫn giúp bạn cân bằng cảm xúc, giảm căng thẳng.</p>
                     </div>
-                </div>
-                <a href="https://tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn btn-primary btn-large">Khám Phá Toàn Bộ Dịch Vụ</a>
-            </div>
-        </section>
-
-        <section id="testimonials" class="testimonials-section">
-            <div class="container">
-                <h2>Khách Hàng Nói Gì Về Chúng Tôi</h2>
-                <div class="testimonial-grid">
-                    <div class="testimonial-item">
-                        <p>"Nhờ Tâm Vạn Phúc, tôi đã có thể quản lý bệnh tiểu đường tốt hơn. Các buổi tư vấn trực tuyến rất tiện lợi và hữu ích."</p>
-                        <div class="client-info">
-                            <img src="https://via.placeholder.com/60x60/CCCCCC/FFFFFF?text=KH1" alt="Khách hàng 1">
-                            <span>Nguyễn Thị An</span>
-                        </div>
+                    <div class="feature-item">
+                        <i class="fas fa-utensils"></i>
+                        <h3>Dinh Dưỡng Thông Minh & Vận Động Hiệu Quả</h3>
+                        <p>Nhận lời khuyên chuyên sâu từ chuyên gia dinh dưỡng và các bài tập được thiết kế khoa học phù hợp với thể trạng của bạn.</p>
                     </div>
-                    <div class="testimonial-item">
-                        <p>"Tôi thực sự đánh giá cao kế hoạch chăm sóc cá nhân. Nó giúp tôi duy trì lối sống lành mạnh và giải quyết các vấn đề sức khỏe nhỏ kịp thời."</p>
-                        <div class="client-info">
-                            <img src="https://via.placeholder.com/60x60/CCCCCC/FFFFFF?text=KH2" alt="Khách hàng 2">
-                            <span>Trần Văn Bình</span>
-                        </div>
+                    <div class="feature-item">
+                        <i class="fas fa-bell"></i>
+                        <h3>Nhắc Nhở & Lịch Trình Chăm Sóc</h3>
+                        <p>Không bỏ lỡ bất kỳ cuộc hẹn hay liều thuốc nào với hệ thống nhắc nhở thông minh, giúp bạn tuân thủ kế hoạch điều trị.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="cta-bottom" class="cta-bottom-section">
+        <section class="cta-section">
             <div class="container">
-                <h2>Đừng Chần Chừ, Hãy Bắt Đầu Chăm Sóc Sức Khỏe Của Bạn Ngay Hôm Nay!</h2>
-                <p>Tâm Vạn Phúc cam kết mang lại trải nghiệm y tế cá nhân hóa, hiệu quả và đáng tin cậy.</p>
-                <a href="https://tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn btn-primary btn-cta-bottom">Đăng Ký Ngay</a>
+                <h2>Đừng Chờ Đợi, Hãy Đầu Tư Cho Sức Khỏe Của Bạn Ngay Hôm Nay!</h2>
+                <p>Tham gia cộng đồng Tâm Vạn Phúc và bắt đầu hành trình chăm sóc sức khỏe cá nhân của bạn. Chỉ với một cú nhấp chuột, bạn sẽ mở ra cánh cửa đến một cuộc sống khỏe mạnh và viên mãn hơn.</p>
+                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">Đăng Ký Thành Viên Tâm Vạn Phúc</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Tâm Vạn Phúc. Tất cả quyền được bảo lưu.</p>
-            <ul>
-                <li><a href="#">Điều khoản sử dụng</a></li>
-                <li><a href="#">Chính sách bảo mật</a></li>
-            </ul>
+            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+            <p><a href="#">Chính sách bảo mật</a> | <a href="#">Điều khoản sử dụng</a></p>
         </div>
     </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const nav = document.querySelector('nav ul');
-            const navLinks = document.querySelectorAll('nav ul li a');
-
-            if (menuToggle && nav) {
-                menuToggle.addEventListener('click', function() {
-                    nav.classList.toggle('active');
-                });
-            }
-
-            if (navLinks) {
-                navLinks.forEach(link => {
-                    link.addEventListener('click', () => {
-                        if (nav.classList.contains('active')) {
-                            nav.classList.remove('active');
-                        }
-                    });
-                });
-            }
-        });
-    </script>
 </body>
 </html>
