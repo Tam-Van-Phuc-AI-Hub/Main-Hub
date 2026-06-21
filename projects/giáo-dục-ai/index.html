@@ -1,50 +1,100 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Khám phá Giáo Dục AI Tương Lai</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKx3n9fUAIXlX6hL/dqrGg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Tâm Vạn Phúc AI - Mở Khóa Tương Lai AI Cùng Chúng Tôi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Quicksand:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #007bff; /* Blue */
-            --secondary-color: #6c757d; /* Grey */
-            --accent-color: #28a745; /* Green */
-            --text-dark: #343a40;
-            --text-light: #f8f9fa;
-            --bg-light: #ffffff;
-            --bg-dark: #f0f2f5;
-            --font-primary: 'Montserrat', sans-serif;
-            --font-secondary: 'Open Sans', sans-serif;
+            --secondary-color: #6c757d; /* Gray */
+            --accent-color: #28a745; /* Green for success/CTA */
+            --light-bg: #f8f9fa; /* Light gray background */
+            --dark-text: #343a40; /* Dark gray text */
+            --light-text: #ffffff; /* White text */
+            --border-color: #e0e0e0;
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Quicksand', sans-serif;
+            --box-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --box-shadow-medium: 0 6px 18px rgba(0, 0, 0, 0.12);
         }
 
-        * {
+        /* Base Styles */
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            scroll-behavior: smooth;
         }
 
-        body {
-            font-family: var(--font-secondary);
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            overflow-x: hidden;
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+            color: var(--dark-text);
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 2.8rem; line-height: 1.2; }
+        h2 { font-size: 2.2rem; line-height: 1.3; }
+        h3 { font-size: 1.7rem; line-height: 1.4; }
+
+        p { margin-bottom: 1rem; }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #218838; /* Darker green */
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        .btn-secondary {
+            background-color: var(--primary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #0056b3; /* Darker blue */
         }
 
         /* Header */
         header {
-            background-color: var(--bg-light);
-            padding: 15px 0;
-            border-bottom: 1px solid #eee;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            background-color: var(--light-text);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -57,433 +107,445 @@
         }
 
         .logo {
-            font-family: var(--font-primary);
-            font-size: 28px;
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-color);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
         }
 
         .logo span {
-            color: var(--text-dark);
-            margin-left: 5px;
-            font-size: 22px;
-            font-weight: 600;
+            color: var(--accent-color);
         }
-        
-        .logo i {
-            height: 40px; 
-            font-size: 40px;
-            margin-right: 10px;
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--dark-text);
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 0.2rem;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?artificial-intelligence,education,future') no-repeat center center/cover;
-            color: var(--text-light);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #00c6ff 100%);
+            color: var(--light-text);
+            padding: 6rem 0;
             text-align: center;
-            padding: 100px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 60vh;
+            position: relative;
+            overflow: hidden;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://source.unsplash.com/random/1600x900/?ai-education,technology') no-repeat center center/cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-family: var(--font-primary);
-            font-size: 4em;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            animation: fadeInDown 1s ease-out;
+            font-size: 3.8rem;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero p {
-            font-size: 1.5em;
-            margin-bottom: 40px;
+            font-size: 1.4rem;
             max-width: 800px;
-            animation: fadeInUp 1s ease-out 0.3s backwards;
+            margin: 0 auto 2.5rem auto;
+            color: rgba(255, 255, 255, 0.9);
         }
 
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--text-light);
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1.2em;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-        }
-
-        .btn:hover {
-            background-color: #218838; /* Darker accent */
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.4);
-        }
-
-        /* Sections */
-        .section {
-            padding: 80px 0;
+        /* Features Section */
+        .features {
+            padding: 5rem 0;
+            background-color: var(--light-bg);
             text-align: center;
         }
 
-        .section:nth-of-type(even) {
-            background-color: var(--bg-dark);
-        }
-
-        .section h2 {
-            font-family: var(--font-primary);
-            font-size: 3em;
-            color: var(--primary-color);
-            margin-bottom: 40px;
+        .features h2 {
+            margin-bottom: 3.5rem;
+            font-size: 2.8rem;
             position: relative;
             display: inline-block;
         }
-
-        .section h2::after {
+        
+        .features h2::after {
             content: '';
             position: absolute;
-            width: 70px;
-            height: 4px;
-            background-color: var(--accent-color);
-            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
+            bottom: -10px;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
             border-radius: 2px;
         }
 
-        .section p {
-            font-size: 1.1em;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
-        }
-
-        .grid-3 {
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            gap: 2rem;
+            margin-top: 3rem;
         }
 
         .feature-item {
-            background-color: var(--bg-light);
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            background-color: var(--light-text);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left;
-            border-top: 5px solid var(--primary-color);
         }
 
         .feature-item:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: var(--box-shadow-medium);
         }
 
         .feature-item i {
-            font-size: 3em;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .feature-item h3 {
-            font-family: var(--font-primary);
-            font-size: 1.8em;
+            font-size: 3rem;
             color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .feature-item p {
-            font-size: 1em;
-            color: var(--secondary-color);
-            margin: 0;
-            max-width: none; /* Override section p max-width */
-        }
-
-        /* CTA Section */
-        .cta-banner {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 80px 20px;
+            margin-bottom: 1.5rem;
+            display: block;
             text-align: center;
         }
 
-        .cta-banner h2 {
-            font-family: var(--font-primary);
-            font-size: 3.5em;
-            margin-bottom: 25px;
-            color: var(--text-light); /* Override section h2 color */
+        .feature-item h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+            text-align: center;
+        }
+
+        .feature-item p {
+            font-size: 1.05rem;
+            color: var(--secondary-color);
+            text-align: center;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: #f0f8ff; /* Light blueish background */
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            margin-bottom: 3.5rem;
+            font-size: 2.8rem;
+            position: relative;
+            display: inline-block;
         }
         
-        .cta-banner h2::after {
-            background-color: var(--text-light); /* Override for visibility */
+        .testimonials h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -10px;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-item {
+            background-color: var(--light-text);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--box-shadow-light);
+            text-align: center;
+            font-style: italic;
+            color: var(--dark-text);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        
+        .testimonial-item p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-color);
+            font-style: normal;
+            font-size: 1.05rem;
+            margin-top: 1rem;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(45deg, var(--accent-color) 0%, #34d156 100%);
+            color: var(--light-text);
+            padding: 4rem 0;
+            text-align: center;
+            margin-top: 5rem;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: inset 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .cta-banner h2 {
+            font-size: 3rem;
+            color: var(--light-text);
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
 
         .cta-banner p {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-banner .btn {
+            background-color: var(--primary-color); /* Use primary color for CTA button here */
+        }
+
+        .cta-banner .btn:hover {
+            background-color: #0056b3;
         }
 
         /* Footer */
         footer {
-            background-color: var(--text-dark);
-            color: var(--text-light);
-            padding: 50px 0;
+            background-color: var(--dark-text);
+            color: var(--light-text);
+            padding: 3rem 0;
             text-align: center;
-            font-size: 0.9em;
+            font-size: 0.9rem;
         }
 
         footer .container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 1rem;
         }
 
-        .footer-logo .logo {
-            margin: 0 auto; /* Center the logo */
-            color: var(--text-light);
-        }
-        .footer-logo .logo span {
-            color: var(--text-light);
+        footer p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        .footer-links a {
-            color: var(--text-light);
+        footer .social-links a {
+            color: var(--light-text);
+            font-size: 1.5rem;
+            margin: 0 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: var(--primary-color);
             text-decoration: none;
-            margin: 0 15px;
+        }
+
+        footer .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 0.8rem;
             transition: color 0.3s ease;
         }
 
-        .footer-links a:hover {
-            color: var(--primary-color);
+        footer .footer-links a:hover {
+            color: var(--light-text);
+            text-decoration: underline;
         }
 
-        .social-icons a {
-            color: var(--text-light);
-            font-size: 1.5em;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Animations */
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 3em;
-            }
-            .hero p {
-                font-size: 1.3em;
-            }
-            .section h2 {
-                font-size: 2.5em;
-            }
-            .grid-3 {
-                grid-template-columns: 1fr 1fr;
-            }
-            .cta-banner h2 {
-                font-size: 3em;
-            }
+            h1 { font-size: 3.2rem; }
+            h2 { font-size: 2.4rem; }
+            .hero h1 { font-size: 3rem; }
+            .hero p { font-size: 1.2rem; }
+            .cta-banner h2 { font-size: 2.5rem; }
+            .cta-banner p { font-size: 1.1rem; }
         }
 
         @media (max-width: 768px) {
-            .logo {
-                font-size: 24px;
+            header .container {
+                flex-direction: column;
+                gap: 1rem;
             }
-            .logo span {
-                font-size: 18px;
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
             }
-            .hero {
-                padding: 80px 20px;
+            nav ul li {
+                margin: 0.5rem 1rem;
             }
-            .hero h1 {
-                font-size: 2.5em;
-            }
-            .hero p {
-                font-size: 1.1em;
-            }
-            .btn {
-                padding: 12px 25px;
-                font-size: 1em;
-            }
-            .section {
-                padding: 60px 0;
-            }
-            .section h2 {
-                font-size: 2em;
-            }
-            .grid-3 {
+            .hero { padding: 4rem 0; }
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+            .features, .testimonials, .cta-banner { padding: 3rem 0; }
+            .features h2, .testimonials h2 { font-size: 2rem; }
+            .feature-grid, .testimonial-grid {
                 grid-template-columns: 1fr;
             }
-            .feature-item {
-                text-align: center;
-            }
-            .feature-item i {
-                margin: 0 auto 20px auto;
-            }
-            .cta-banner h2 {
-                font-size: 2.5em;
-            }
-            .cta-banner p {
-                font-size: 1.1em;
-            }
-            footer .container {
-                flex-direction: column;
-            }
-            .footer-links {
-                margin-bottom: 15px;
-            }
+            .feature-item, .testimonial-item { padding: 1.5rem; }
+            .cta-banner h2 { font-size: 2rem; }
+            .cta-banner p { font-size: 1rem; }
+            .btn { padding: 0.8rem 1.8rem; font-size: 0.9rem; }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-            .section h2 {
-                font-size: 1.8em;
-            }
-            .cta-banner h2 {
-                font-size: 2em;
-            }
+        @media (max-width: 576px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            .hero h1 { font-size: 2rem; }
+            .hero p { font-size: 1rem; }
+            .logo { font-size: 1.5rem; }
+            nav ul li { margin: 0.3rem 0.8rem; }
+            .feature-item i { font-size: 2.5rem; }
+            .feature-item h3 { font-size: 1.5rem; }
+            .cta-banner h2 { font-size: 1.8rem; }
+            .cta-banner p { font-size: 0.9rem; }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="#" class="logo">
-                <i class="fas fa-brain"></i> Tâm Vạn Phúc <span>| Giáo Dục AI</span>
-            </a>
+            <a href="#" class="logo">Tâm Vạn Phúc <span>AI</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Trang Chủ</a></li>
+                    <li><a href="#features">Ưu Điểm</a></li>
+                    <li><a href="#testimonials">Cảm Nhận</a></li>
+                    <li><a href="#cta">Đăng Ký Ngay</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <h1>Chinh Phục Tương Lai Với Giáo Dục AI Từ Tâm Vạn Phúc</h1>
-            <p>Khai phá sức mạnh tiềm ẩn của Trí Tuệ Nhân Tạo để vươn tầm sự nghiệp, đổi mới doanh nghiệp và dẫn đầu xu hướng công nghệ.</p>
-            <a href="#" class="btn">Đăng Ký Khóa Học AI Ngay!</a>
+        <section id="hero" class="hero">
+            <div class="container">
+                <h1>Mở Khóa Tiềm Năng AI Của Bạn Cùng Tâm Vạn Phúc</h1>
+                <p>Khám phá thế giới Trí Tuệ Nhân Tạo với các khóa học thực chiến, lộ trình cá nhân hóa, và cộng đồng hỗ trợ nhiệt tình. Chuẩn bị cho tương lai AI ngay hôm nay!</p>
+                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">Khám Phá Khóa Học Ngay</a>
+            </div>
         </section>
 
-        <section class="section">
+        <section id="features" class="features">
             <div class="container">
-                <h2>Tại Sao Chọn Tâm Vạn Phúc Để Học AI?</h2>
-                <p>Chúng tôi mang đến một hệ sinh thái học tập toàn diện, nơi kiến thức AI được truyền tải một cách thực tiễn, dễ hiểu và chuyên sâu.</p>
-                <div class="grid-3">
+                <h2>Tại Sao Chọn Tâm Vạn Phúc AI?</h2>
+                <div class="feature-grid">
                     <div class="feature-item">
-                        <i class="fas fa-chalkboard-teacher"></i>
-                        <h3>Chuyên Gia Hàng Đầu</h3>
-                        <p>Học hỏi từ đội ngũ giảng viên là những chuyên gia AI với nhiều năm kinh nghiệm thực chiến và kiến thức chuyên sâu.</p>
+                        <i class="fas fa-brain"></i>
+                        <h3>Kiến Thức Thực Chiến</h3>
+                        <p>Nội dung được thiết kế tập trung vào ứng dụng thực tế, giúp bạn nhanh chóng áp dụng AI vào công việc và cuộc sống.</p>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-project-diagram"></i>
-                        <h3>Lộ Trình Bài Bản</h3>
-                        <p>Chương trình đào tạo được thiết kế khoa học, từ cơ bản đến nâng cao, đảm bảo bạn nắm vững kiến thức và kỹ năng cần thiết.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Ứng Dụng Thực Tiễn</h3>
-                        <p>Tập trung vào các dự án và tình huống thực tế, giúp bạn áp dụng ngay kiến thức vào công việc và cuộc sống.</p>
+                        <i class="fas fa-user-graduate"></i>
+                        <h3>Lộ Trình Cá Nhân Hóa</h3>
+                        <p>Chúng tôi cung cấp các khóa học phù hợp với mọi trình độ, từ người mới bắt đầu đến chuyên gia muốn nâng cao kỹ năng.</p>
                     </div>
                     <div class="feature-item">
                         <i class="fas fa-users"></i>
                         <h3>Cộng Đồng Hỗ Trợ</h3>
-                        <p>Tham gia cộng đồng học viên năng động, trao đổi kiến thức, kết nối và nhận được sự hỗ trợ liên tục từ các Mentor.</p>
+                        <p>Tham gia cộng đồng học viên năng động, nơi bạn có thể trao đổi, học hỏi và nhận được sự hỗ trợ từ các chuyên gia.</p>
                     </div>
                     <div class="feature-item">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Phát Triển Sự Nghiệp</h3>
-                        <p>Nâng cao năng lực cạnh tranh, mở ra cơ hội việc làm mới và thăng tiến vượt bậc trong kỷ nguyên số.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-handshake"></i>
-                        <h3>Đào Tạo Doanh Nghiệp</h3>
-                        <p>Giải pháp tùy chỉnh giúp doanh nghiệp trang bị kiến thức AI, tối ưu hóa quy trình và tăng cường hiệu quả hoạt động.</p>
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Công Nghệ Tiên Tiến</h3>
+                        <p>Luôn cập nhật những công nghệ và xu hướng AI mới nhất, đảm bảo bạn luôn đi đầu trong lĩnh vực này.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section cta-banner">
+        <section id="testimonials" class="testimonials">
             <div class="container">
-                <h2>Đừng Bỏ Lỡ Cơ Hội Dẫn Đầu Kỷ Nguyên AI!</h2>
-                <p>Hành trình làm chủ Trí Tuệ Nhân Tạo của bạn bắt đầu ngay hôm nay. Nắm bắt xu hướng, kiến tạo tương lai!</p>
-                <a href="#" class="btn">Khám Phá Các Khóa Học AI Ngay!</a>
+                <h2>Học Viên Nói Gì Về Chúng Tôi</h2>
+                <div class="testimonial-grid">
+                    <div class="testimonial-item">
+                        <p>"Trước đây tôi nghĩ AI rất phức tạp, nhưng nhờ Tâm Vạn Phúc AI, tôi đã có thể tự tin phát triển các dự án AI nhỏ. Giảng viên rất tận tâm!"</p>
+                        <span class="testimonial-author">Nguyễn Văn A - Lập trình viên</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Chất lượng khóa học vượt ngoài mong đợi! Tôi đặc biệt ấn tượng với cách hướng dẫn từng bước và các bài tập thực hành sát với thực tế."</p>
+                        <span class="testimonial-author">Trần Thị B - Chuyên viên Marketing</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Cộng đồng học viên rất tuyệt vời, tôi đã tìm được nhiều người bạn cùng chí hướng và học hỏi được rất nhiều điều từ họ."</p>
+                        <span class="testimonial-author">Lê Hoàng C - Sinh viên</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta-banner">
+            <div class="container">
+                <h2>Đừng Bỏ Lỡ Cơ Hội Nắm Bắt Tương Lai AI!</h2>
+                <p>Bắt đầu hành trình khám phá và làm chủ Trí Tuệ Nhân Tạo của bạn ngay hôm nay cùng Tâm Vạn Phúc AI.</p>
+                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Đăng Ký Khóa Học Ngay</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <div class="footer-logo">
-                <a href="#" class="logo">
-                    <i class="fas fa-brain"></i> Tâm Vạn Phúc <span>| Giáo Dục AI</span>
-                </a>
-            </div>
+            <p>&copy; 2023 Hệ Sinh Thái Tâm Vạn Phúc. Bảo lưu mọi quyền.</p>
             <div class="footer-links">
-                <a href="#">Điều khoản sử dụng</a>
-                <a href="#">Chính sách bảo mật</a>
-                <a href="#">Liên hệ</a>
+                <a href="#">Chính Sách Bảo Mật</a>
+                <a href="#">Điều Khoản Dịch Vụ</a>
+                <a href="#">Liên Hệ</a>
             </div>
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
-            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
         </div>
     </footer>
-    
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Vui lòng thay thế 'https://your_actual_tamvanphuc_base_url.com/landing-page-ai' bằng URL trang đích thực tế
-            // nơi bạn muốn gửi người dùng sau khi họ nhấp vào liên kết tiếp thị.
-            // ID tiếp thị sẽ được tự động thêm vào dưới dạng tham số truy vấn.
-            const affiliateBaseUrl = 'https://tamvanphuc.com/khoa-hoc-ai'; // Ví dụ: 'https://tamvanphuc.com/khoa-hoc-ai'
-            const affiliateId = 'afl_b08327f13ac81560aef9d64707d0592420ac9cda';
-            const fullAffiliateLink = `${affiliateBaseUrl}?ref=${affiliateId}`;
-
-            const ctaButtons = document.querySelectorAll('.btn');
-            ctaButtons.forEach(button => {
-                button.href = fullAffiliateLink;
-            });
-        });
-    </script>
 </body>
 </html>
