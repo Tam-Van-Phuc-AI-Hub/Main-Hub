@@ -1,29 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mental-AI: Khai Phá Sức Mạnh Tinh Thần Cùng Tâm Vạn Phúc</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Mental-AI | Tâm Vạn Phúc - Khai Phóng Tiềm Năng Tinh Thần</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #4A90E2; /* Soft Blue */
-            --secondary-color: #50E3C2; /* Mint Green */
-            --accent-color: #F5A623; /* Orange-Yellow for CTA */
-            --text-dark: #333333;
-            --text-light: #666666;
-            --background-light: #F8F8F8;
-            --background-white: #FFFFFF;
+            --primary-color: #3498db; /* Bright blue for main emphasis */
+            --secondary-color: #2ecc71; /* Green for positive actions/accents */
+            --dark-color: #2c3e50; /* Dark text, footer */
+            --light-bg: #ecf0f1; /* Light background for sections */
+            --text-color: #34495e; /* General body text */
+            --white: #ffffff;
+            --gradient-start: #3498db; /* Hero gradient start */
+            --gradient-end: #2980b9; /* Hero gradient end */
         }
 
-        body {
-            font-family: 'Inter', sans-serif;
+        /* Basic Reset & Typography */
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background-white);
+            color: var(--text-color);
+            background: var(--white);
+            scroll-behavior: smooth;
         }
 
         .container {
@@ -32,67 +38,60 @@
             padding: 0 20px;
         }
 
-        /* Header */
-        header {
-            background-color: var(--background-white);
-            padding: 15px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        h1, h2, h3 {
+            font-family: 'Roboto', sans-serif;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        h1 {
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-color);
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
             text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo span {
-            margin-left: 10px;
-            font-size: 18px;
-            font-weight: 400;
-            color: var(--text-light);
-        }
-        
-        .logo img {
-            height: 40px; /* Placeholder for a logo image */
-            margin-right: 10px;
-        }
-
-        .nav-links a {
-            color: var(--text-dark);
-            text-decoration: none;
-            margin-left: 25px;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
             color: var(--primary-color);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #76B9ED 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            color: var(--white);
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 60vh;
+            text-align: center;
             position: relative;
             overflow: hidden;
+            padding: 60px 0; /* Ensures padding on smaller screens */
         }
 
         .hero::before {
@@ -102,422 +101,312 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://source.unsplash.com/random/1600x900/?mindfulness,ai,technology') no-repeat center center/cover;
-            opacity: 0.2;
-            z-index: 1;
+            /* Subtle AI/mind-related SVG pattern as data-uri */
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><circle cx="50" cy="50" r="40" fill="none" stroke="white" stroke-width="1"/><path d="M50 10 L60 30 L80 30 L65 50 L70 70 L50 60 L30 70 L35 50 L20 30 L40 30 Z" fill="none" stroke="white" stroke-width="1"/></svg>') no-repeat center center / cover;
+            animation: pulseBg 20s infinite alternate;
+        }
+
+        @keyframes pulseBg {
+            0% { transform: scale(1); opacity: 0.1; }
+            100% { transform: scale(1.1); opacity: 0.05; }
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
+            position: relative; /* Brings content above the animated pseudo-element */
+            z-index: 1;
             max-width: 800px;
+            margin: 0 auto;
         }
 
         .hero h1 {
-            font-size: 56px;
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.1;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
         }
 
         .hero p {
-            font-size: 22px;
-            margin-bottom: 40px;
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
             opacity: 0.9;
         }
 
-        .btn {
+        .cta-button {
             display: inline-block;
-            background-color: var(--accent-color);
-            color: white;
-            padding: 15px 40px;
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 18px 40px;
             border-radius: 50px;
-            text-decoration: none;
-            font-size: 20px;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 8px 20px rgba(245, 166, 35, 0.4);
+            font-size: 1.2rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: none;
+            cursor: pointer;
         }
 
-        .btn:hover {
-            background-color: #e0971f;
+        .cta-button:hover {
+            background: #27ae60; /* Slightly darker green */
             transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button.large {
+            padding: 22px 50px;
+            font-size: 1.4rem;
         }
 
         /* Section Styling */
-        section {
+        .section {
             padding: 80px 0;
-            background-color: var(--background-white);
         }
 
-        section:nth-of-type(even) {
-            background-color: var(--background-light);
+        .section:nth-of-type(even) { /* Applies light background to alternating sections */
+            background: var(--light-bg);
         }
 
-        .section-title {
-            text-align: center;
-            font-size: 42px;
-            margin-bottom: 60px;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-        
-        .section-title span {
-            color: var(--text-dark);
-        }
-
-        /* Features Section */
+        /* Features Grid */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
         }
 
         .feature-item {
-            background-color: white;
+            background: var(--white);
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--primary-color); /* Highlight with primary color */
         }
 
         .feature-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .feature-item i {
-            font-size: 60px;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
 
         .feature-item h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--text-dark);
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.6rem;
         }
 
         .feature-item p {
-            font-size: 17px;
-            color: var(--text-light);
+            font-size: 1rem;
+            color: var(--text-color);
+        }
+        
+        /* Specific styling for 'How it Works' section */
+        #how-it-works.bg-gradient {
+            background: linear-gradient(90deg, #53a3e6 0%, #3498db 100%); /* A slightly different blue gradient */
+        }
+        #how-it-works h2::after {
+            background: var(--white); /* White line for white heading */
         }
 
-        /* About Section */
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            flex-wrap: wrap;
-        }
 
-        .about-image {
-            flex: 1;
-            min-width: 300px;
+        /* Final CTA Section */
+        .cta-section {
+            background: linear-gradient(45deg, var(--gradient-end) 0%, var(--gradient-start) 100%);
+            color: var(--white);
+            padding: 100px 0;
             text-align: center;
         }
-        .about-image img {
-            max-width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
 
-        .about-text {
-            flex: 2;
-            min-width: 300px;
-        }
-
-        .about-text h2 {
-            font-size: 36px;
-            margin-bottom: 25px;
-            color: var(--primary-color);
-        }
-
-        .about-text p {
-            font-size: 18px;
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-        
-        .about-text ul {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-        
-        .about-text ul li {
-            font-size: 17px;
-            margin-bottom: 15px;
-            color: var(--text-dark);
-            position: relative;
-            padding-left: 30px;
-        }
-        
-        .about-text ul li::before {
-            content: '✔';
-            color: var(--secondary-color);
-            font-size: 20px;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        /* Call to Action Final */
-        .cta-final {
-            background: linear-gradient(45deg, var(--primary-color) 0%, #76B9ED 100%);
-            color: white;
-            text-align: center;
-            padding: 80px 0;
-        }
-
-        .cta-final h2 {
-            font-size: 48px;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-
-        .cta-final p {
-            font-size: 22px;
-            margin-bottom: 50px;
-            opacity: 0.9;
-            max-width: 800px;
+        .cta-section h2 {
+            color: var(--white);
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            max-width: 900px;
             margin-left: auto;
             margin-right: auto;
         }
+        .cta-section h2::after {
+            background: var(--secondary-color); /* Green line for CTA heading */
+        }
 
         /* Footer */
-        footer {
-            background-color: var(--text-dark);
-            color: white;
-            padding: 40px 0;
+        .footer {
+            background: var(--dark-color);
+            color: var(--light-bg);
             text-align: center;
-            font-size: 16px;
+            padding: 40px 0;
+            font-size: 0.9rem;
         }
 
-        footer .footer-links a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+        .footer p {
+            margin: 0.5rem 0;
         }
 
-        footer .footer-links a:hover {
-            color: var(--primary-color);
-        }
-
-        footer p {
-            margin-top: 20px;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        /* Responsive Adjustments */
+        /* Responsive Design */
         @media (max-width: 992px) {
             .hero h1 {
-                font-size: 48px;
+                font-size: 3rem;
             }
             .hero p {
-                font-size: 20px;
+                font-size: 1.1rem;
             }
-            .section-title {
-                font-size: 36px;
+            .cta-button.large {
+                padding: 18px 40px;
+                font-size: 1.2rem;
             }
-            .about-content {
-                flex-direction: column;
-                text-align: center;
+            h2 {
+                font-size: 1.8rem;
             }
-            .about-image, .about-text {
-                min-width: unset;
-                width: 100%;
+            .cta-section h2 {
+                font-size: 2.2rem;
             }
-            .about-text h2 {
-                text-align: center;
-            }
-            .about-text ul {
-                text-align: left;
-                margin-left: auto;
-                margin-right: auto;
-                max-width: 500px;
+            .section {
+                padding: 60px 0;
             }
         }
 
         @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                align-items: center;
-            }
-            .nav-links {
-                margin-top: 15px;
-            }
-            .nav-links a {
-                margin: 0 10px;
-                display: inline-block;
-                margin-bottom: 10px;
-            }
             .hero {
-                padding: 80px 0;
+                min-height: 70vh;
             }
             .hero h1 {
-                font-size: 38px;
+                font-size: 2.2rem;
             }
             .hero p {
-                font-size: 18px;
+                font-size: 1rem;
             }
-            .btn {
-                padding: 12px 30px;
-                font-size: 18px;
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1rem;
             }
-            .section-title {
-                font-size: 30px;
+            h2 {
+                font-size: 1.6rem;
+                margin-bottom: 2rem;
+            }
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr; /* Single column for features on small screens */
             }
             .feature-item {
                 padding: 25px;
             }
-            .feature-item i {
-                font-size: 50px;
-            }
             .feature-item h3 {
-                font-size: 22px;
+                font-size: 1.4rem;
             }
-            .cta-final h2 {
-                font-size: 38px;
-            }
-            .cta-final p {
-                font-size: 18px;
+            .section {
+                padding: 40px 0;
             }
         }
 
         @media (max-width: 480px) {
-            .logo {
-                font-size: 24px;
-            }
-            .logo span {
-                font-size: 16px;
-            }
             .hero h1 {
-                font-size: 32px;
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
             }
             .hero p {
-                font-size: 16px;
+                font-size: 0.9rem;
+                margin-bottom: 1.5rem;
             }
-            .btn {
-                padding: 10px 25px;
-                font-size: 16px;
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 0.9rem;
             }
-            .section-title {
-                font-size: 26px;
+            h2 {
+                font-size: 1.4rem;
             }
-            .feature-item h3 {
-                font-size: 20px;
-            }
-            .cta-final h2 {
-                font-size: 32px;
+            .cta-section h2 {
+                font-size: 1.6rem;
             }
         }
     </style>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container navbar">
-            <a href="#" class="logo">
-                <!-- Replace with actual logo if available -->
-                <i class="fas fa-brain"></i> Tâm Vạn Phúc <span>Mental-AI</span>
-            </a>
-            <nav class="nav-links">
-                <a href="#about">Về chúng tôi</a>
-                <a href="#features">Tính năng</a>
-                <a href="#contact">Liên hệ</a>
-            </nav>
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Mental-AI: Khai Phóng Tiềm Năng Tinh Thần Cùng Trí Tuệ Nhân Tạo</h1>
+                <p>Giải pháp đột phá từ hệ sinh thái <strong>Tâm Vạn Phúc</strong>, giúp bạn cân bằng cảm xúc, phát triển tư duy và kiến tạo cuộc sống an nhiên trong thời đại số.</p>
+                <a href="https://tamvanphuc.com/mental-ai?affiliate_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" rel="noopener noreferrer" class="cta-button">Khám Phá Giải Pháp Ngay</a>
+            </div>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Khai Phá Sức Mạnh Tinh Thần Với Trí Tuệ Nhân Tạo</h1>
-            <p>Giải pháp Mental-AI từ Tâm Vạn Phúc giúp bạn tối ưu hóa sức khỏe tinh thần, tăng cường sự tập trung và đạt được bình an nội tại.</p>
-            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank">Bắt Đầu Hành Trình Của Bạn</a>
-        </div>
-    </section>
-
-    <section id="about">
+    <section id="features" class="section">
         <div class="container">
-            <h2 class="section-title">Về <span>Mental-AI</span> của Tâm Vạn Phúc</h2>
-            <div class="about-content">
-                <div class="about-image">
-                    <img src="https://source.unsplash.com/random/600x400/?meditation,technology" alt="AI và Thiền định">
-                </div>
-                <div class="about-text">
-                    <h2>Giải pháp toàn diện cho sức khỏe tinh thần</h2>
-                    <p>Trong thế giới hiện đại đầy áp lực, việc duy trì một tinh thần minh mẫn và bình an là điều vô cùng quan trọng. Mental-AI từ Tâm Vạn Phúc là cầu nối giữa khoa học tâm lý và công nghệ AI tiên tiến, mang đến cho bạn một người bạn đồng hành thông minh trên hành trình chăm sóc sức khỏe tinh thần.</p>
-                    <ul>
-                        <li>Cá nhân hóa trải nghiệm theo nhu cầu riêng.</li>
-                        <li>Hỗ trợ 24/7, mọi lúc mọi nơi.</li>
-                        <li>Tích hợp các phương pháp khoa học đã được kiểm chứng.</li>
-                        <li>Đảm bảo quyền riêng tư và bảo mật dữ liệu.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="features">
-        <div class="container">
-            <h2 class="section-title">Những Tính Năng <span>Nổi Bật</span></h2>
+            <h2>Tại Sao Chọn Mental-AI Từ Tâm Vạn Phúc?</h2>
             <div class="features-grid">
                 <div class="feature-item">
-                    <i class="fas fa-brain"></i>
-                    <h3>Phân Tích Tâm Lý Chuyên Sâu</h3>
-                    <p>AI sẽ phân tích các kiểu mẫu cảm xúc, thói quen và phản ứng của bạn để đưa ra những hiểu biết sâu sắc về trạng thái tinh thần.</p>
+                    <h3><span style="color: var(--secondary-color);">Cá Nhân Hóa</span> Trải Nghiệm</h3>
+                    <p>AI phân tích dữ liệu riêng của bạn để cung cấp lộ trình phát triển tinh thần và cảm xúc tối ưu, phù hợp với từng cá nhân.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-hand-holding-heart"></i>
-                    <h3>Chương Trình Hỗ Trợ Cá Nhân</h3>
-                    <p>Tạo ra lộ trình và bài tập tinh thần tùy chỉnh, từ thiền định, bài tập thở đến các kỹ thuật quản lý stress hiệu quả.</p>
+                    <h3><span style="color: var(--secondary-color);">Hỗ Trợ 24/7</span> Tận Tình</h3>
+                    <p>Luôn bên bạn mọi lúc, mọi nơi, cung cấp lời khuyên, bài tập thực hành và công cụ quản lý stress kịp thời khi bạn cần.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Theo Dõi Tiến Độ & Mục Tiêu</h3>
-                    <p>Dễ dàng theo dõi sự cải thiện của bạn theo thời gian, đặt ra và đạt được các mục tiêu về sức khỏe tinh thần.</p>
+                    <h3><span style="color: var(--secondary-color);">Phát Triển Toàn Diện</span> Bản Thân</h3>
+                    <p>Nâng cao trí tuệ cảm xúc (EQ), khả năng tập trung (IQ), đối mặt căng thẳng và ra quyết định hiệu quả hơn trong mọi khía cạnh cuộc sống.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-moon"></i>
-                    <h3>Cải Thiện Giấc Ngủ</h3>
-                    <p>Cung cấp các âm thanh thư giãn, câu chuyện trước khi ngủ và kỹ thuật giúp bạn có giấc ngủ sâu và ngon hơn.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-lightbulb"></i>
-                    <h3>Tăng Cường Sự Tập Trung</h3>
-                    <p>Các bài tập và công cụ giúp bạn loại bỏ phiền nhiễu, tăng cường khả năng tập trung vào công việc và cuộc sống.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-comment-dots"></i>
-                    <h3>Hỗ Trợ Cảm Xúc Thông Minh</h3>
-                    <p>Một người bạn đồng hành AI lắng nghe, thấu hiểu và đưa ra lời khuyên hữu ích khi bạn cần nhất.</p>
+                    <h3><span style="color: var(--secondary-color);">Dự Đoán & Phòng Ngừa</span> Chủ Động</h3>
+                    <p>Nhận diện sớm các dấu hiệu tiềm ẩn về sức khỏe tinh thần và cung cấp giải pháp chủ động để duy trì sự an nhiên, vững vàng.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="cta-final" id="contact">
-        <div class="container">
-            <h2>Sẵn Sàng Khám Phá Tiềm Năng Tinh Thần Của Bạn?</h2>
-            <p>Đừng để căng thẳng và lo âu làm suy giảm chất lượng cuộc sống của bạn. Bắt đầu hành trình cân bằng và hạnh phúc với Mental-AI ngay hôm nay!</p>
-            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank">Đăng Ký Ngay Để Nhận Ưu Đãi</a>
+    <section id="how-it-works" class="section bg-gradient">
+        <div class="container" style="color: var(--white);">
+            <h2 style="color: var(--white);">Mental-AI Hoạt Động Như Thế Nào?</h2>
+            <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+                <div class="feature-item" style="background: rgba(255, 255, 255, 0.9); border-top: 5px solid var(--secondary-color);">
+                    <h3>1. <span style="color: var(--primary-color);">Kết Nối & Chia Sẻ</span></h3>
+                    <p>Tương tác với Mental-AI thông qua giao diện thân thiện, chia sẻ cảm xúc và mục tiêu của bạn một cách an toàn và bảo mật.</p>
+                </div>
+                <div class="feature-item" style="background: rgba(255, 255, 255, 0.9); border-top: 5px solid var(--secondary-color);">
+                    <h3>2. <span style="color: var(--primary-color);">Phân Tích Chuyên Sâu</span></h3>
+                    <p>AI xử lý thông tin, nhận diện mẫu hành vi, tâm lý và đưa ra những phân tích chính xác về trạng thái tinh thần của bạn.</p>
+                </div>
+                <div class="feature-item" style="background: rgba(255, 255, 255, 0.9); border-top: 5px solid var(--secondary-color);">
+                    <h3>3. <span style="color: var(--primary-color);">Lộ Trình Cá Nhân</span></h3>
+                    <p>Nhận được các bài tập, thiền định, lời khuyên và chiến lược được thiết kế riêng để bạn phát triển bền vững và hiệu quả.</p>
+                </div>
+                <div class="feature-item" style="background: rgba(255, 255, 255, 0.9); border-top: 5px solid var(--secondary-color);">
+                    <h3>4. <span style="color: var(--primary-color);">Kiến Tạo Cuộc Sống</span></h3>
+                    <p>Liên tục theo dõi tiến độ, điều chỉnh và nâng cao sức khỏe tinh thần, hướng tới một cuộc sống tràn đầy hạnh phúc và ý nghĩa.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <section id="call-to-action" class="section cta-section">
+        <div class="container text-center">
+            <h2>Đừng Chờ Đợi! Bắt Đầu Hành Trình Cải Thiện Sức Khỏe Tinh Thần Của Bạn Ngay Hôm Nay.</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2.5rem;">Cơ hội để bạn tận dụng sức mạnh của AI, kiến tạo một phiên bản tốt hơn của chính mình với Tâm Vạn Phúc.</p>
+            <a href="https://tamvanphuc.com/mental-ai?affiliate_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" rel="noopener noreferrer" class="cta-button large">Tôi Muốn Khám Phá Mental-AI</a>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="container">
-            <div class="footer-links">
-                <a href="#">Chính sách bảo mật</a>
-                <a href="#">Điều khoản sử dụng</a>
-                <a href="#">Hỗ trợ</a>
-            </div>
             <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+            <p>Một sản phẩm đột phá trong hệ sinh thái Tâm Vạn Phúc.</p>
         </div>
     </footer>
+
+    <script>
+        // Minimal JavaScript for smooth scrolling, if any internal links were added.
+        // For this landing page, it's not strictly necessary as there are no internal links by default.
+        // Keeping it as a standard practice for interactive pages.
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
