@@ -1,551 +1,413 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
+    <title>Mental-AI: Khám Phá Tâm Trí Cùng Trí Tuệ Nhân Tạo | Tâm Vạn Phúc</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mental-AI: Nâng Tầm Tâm Trí, Khai Phá Tiềm Năng Vô Hạn Cùng Tâm Vạn Phúc</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Lora:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* Biến CSS */
         :root {
-            --primary-color: #6A1B9A; /* Deep Purple */
-            --secondary-color: #9C27B0; /* Medium Purple */
-            --accent-color: #FFEB3B; /* Yellow Gold */
-            --text-dark: #333;
-            --text-light: #f4f4f4;
-            --bg-light: #fcfcfc;
-            --bg-dark: #2c0b3b;
-            --gradient-hero: linear-gradient(135deg, #4A148C 0%, #8E24AA 100%);
-            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
-            --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --primary-blue: #4a90e2; /* Xanh dương chủ đạo */
+            --accent-green: #7ed321; /* Xanh lá nhấn mạnh */
+            --dark-text: #333; /* Màu chữ tối */
+            --light-bg: #f8f9fa; /* Nền sáng */
+            --white: #ffffff; /* Màu trắng */
+            --shadow-light: rgba(0, 0, 0, 0.1); /* Bóng nhẹ */
+            --heading-color: #2c3e50; /* Màu tiêu đề mạnh */
         }
 
-        * {
+        /* Đặt lại CSS cơ bản */
+        body {
+            font-family: 'Lora', serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        *, *::before, *::after {
             box-sizing: border-box;
         }
 
-        body {
+        h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            scroll-behavior: smooth;
+            font-weight: 700;
+            color: var(--heading-color);
+            line-height: 1.2;
+            margin-top: 0;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        p {
+            margin-bottom: 1.5rem;
         }
 
         a {
             text-decoration: none;
-            color: var(--primary-color);
-        }
-
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        h1 { font-size: 3.5rem; line-height: 1.1; }
-        h2 { font-size: 2.5rem; }
-        h3 { font-size: 1.8rem; }
-
-        p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--primary-color);
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
-            border: none;
-            cursor: pointer;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .btn:hover {
-            background: var(--primary-color);
-            color: var(--accent-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background: var(--primary-color);
-            color: var(--accent-color);
-            border: 2px solid var(--accent-color);
-        }
-
-        .btn-secondary:hover {
-            background: var(--accent-color);
-            color: var(--primary-color);
+            color: var(--primary-blue);
         }
 
         /* Header */
         header {
-            background: var(--bg-light);
-            padding: 20px 0;
-            box-shadow: var(--shadow-md);
+            background-color: var(--white);
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px var(--shadow-light);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        header .container {
+        nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary-color);
+            color: var(--primary-blue);
+            text-shadow: 1px 1px 2px rgba(74, 144, 226, 0.2);
         }
 
-        nav ul {
-            list-style: none;
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 30px;
-        }
-
-        nav ul li a {
-            color: var(--text-dark);
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Hero Section */
+        /* Phần Hero (Ảnh nền lớn) */
         .hero {
-            background: var(--gradient-hero);
-            color: var(--text-light);
-            padding: 120px 0;
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); /* Gradient xanh dương nhẹ */
+            color: var(--dark-text);
+            padding: 6rem 1.5rem;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://raw.githubusercontent.com/digital-mind-hub/assets/main/hero-bg-mental-ai.webp') no-repeat center center/cover; /* Placeholder background */
-            opacity: 0.1;
-            z-index: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 65vh; /* Chiếm phần lớn chiều cao màn hình */
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
             max-width: 900px;
             margin: 0 auto;
         }
 
         .hero h1 {
-            color: var(--accent-color);
-            margin-bottom: 25px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--heading-color);
+            font-weight: 700;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: #555;
+            font-weight: 400;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        /* Section Styling */
-        section {
-            padding: 80px 0;
+        /* Nút Kêu gọi Hành động (CTA) */
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 1.2rem 2.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(74, 144, 226, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            background-color: #3a7bd5; /* Xanh đậm hơn khi hover */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .large-button {
+            padding: 1.5rem 3.5rem;
+            font-size: 1.4rem;
+        }
+
+        /* Phần Lợi ích */
+        .benefits {
+            padding: 5rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        section:nth-of-type(even) {
-            background-color: var(--bg-light);
+        .benefits h2 {
+            font-size: 2.8rem;
+            margin-bottom: 3.5rem;
+            color: var(--heading-color);
         }
 
-        section:nth-of-type(odd) {
-            background-color: #f9f9f9;
-        }
-
-        .section-title {
-            margin-bottom: 60px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -15px;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        /* Features Section */
-        .features-grid {
+        .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
         }
 
-        .feature-item {
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow-md);
+        .benefit-item {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px var(--shadow-light);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-align: left;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-item i { /* Placeholder for icon if using FontAwesome */
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .feature-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        /* How It Works Section */
-        .how-it-works .steps-grid {
             display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 60px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: flex-start;
         }
 
-        .step-item {
-            flex: 1;
-            min-width: 280px;
-            max-width: 350px;
-            background: var(--gradient-hero);
-            color: var(--text-light);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: var(--shadow-md);
+        .benefit-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .benefit-item h3 {
+            font-size: 1.6rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
             position: relative;
-            text-align: center;
+            padding-left: 30px; /* Khoảng cách cho icon ảo */
         }
-
-        .step-item .step-number {
-            background: var(--accent-color);
-            color: var(--primary-color);
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0 auto 20px auto;
-            border: 3px solid var(--primary-color);
-        }
-
-        .step-item h3 {
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        .step-item p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-        }
-
-        /* Call to Action Section */
-        .cta-banner {
-            background: var(--secondary-color);
-            color: var(--text-light);
-            padding: 100px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-banner::before {
+        
+        /* Icon ảo cho lợi ích */
+        .benefit-item h3::before {
             content: '';
             position: absolute;
-            top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://raw.githubusercontent.com/digital-mind-hub/assets/main/cta-bg-mental-ai.webp') no-repeat center center/cover; /* Placeholder background */
-            opacity: 0.15;
-            z-index: 1;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            opacity: 0.7;
+            /* Thêm một chút gradient hoặc icon thực nếu cần */
+        }
+        .benefit-item:nth-child(1) h3::before { background-color: #6a93cb; } /* Xanh cá nhân hóa */
+        .benefit-item:nth-child(2) h3::before { background-color: #e28e4a; } /* Cam giảm stress */
+        .benefit-item:nth-child(3) h3::before { background-color: #4acbe2; } /* Xanh tăng tập trung */
+        .benefit-item:nth-child(4) h3::before { background-color: #7ed321; } /* Xanh phát triển */
+
+        .benefit-item p {
+            font-size: 1.05rem;
+            color: #666;
+            margin-bottom: 0;
         }
 
-        .cta-content {
-            position: relative;
-            z-index: 2;
+        /* Phần Kêu gọi Hành động dưới cùng */
+        .call-to-action-bottom {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 5rem 1.5rem;
+            text-align: center;
         }
 
-        .cta-banner h2 {
-            color: var(--accent-color);
+        .call-to-action-bottom h2 {
+            color: var(--white);
             font-size: 3rem;
-            margin-bottom: 30px;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
-        .cta-banner p {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
+        .call-to-action-bottom p {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.95;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .call-to-action-bottom .cta-button {
+            background-color: var(--accent-green); /* Sử dụng màu nhấn cho CTA mạnh */
+            box-shadow: 0 4px 10px rgba(126, 211, 33, 0.4);
+        }
+
+        .call-to-action-bottom .cta-button:hover {
+            background-color: #6abf1d;
+            box-shadow: 0 6px 15px rgba(126, 211, 33, 0.5);
         }
 
         /* Footer */
         footer {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            padding: 60px 0;
+            background-color: var(--heading-color); /* Sử dụng màu tối từ tiêu đề */
+            color: var(--white);
             text-align: center;
-        }
-
-        footer .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        footer .logo {
-            color: var(--accent-color);
-            margin-bottom: 20px;
-        }
-
-        footer p {
+            padding: 2rem 1.5rem;
             font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 10px;
+            opacity: 0.9;
         }
 
-        footer .social-links a {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        footer .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Responsive Design */
+        /* Thiết kế đáp ứng (Responsive Design) */
         @media (max-width: 992px) {
-            h1 { font-size: 2.8rem; }
-            h2 { font-size: 2rem; }
-            h3 { font-size: 1.6rem; }
-
-            .hero { padding: 80px 0; }
-            .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.1rem; }
-
-            .cta-banner { padding: 80px 0; }
-            .cta-banner h2 { font-size: 2.5rem; }
-            .cta-banner p { font-size: 1.2rem; }
-
-            nav ul { display: none; } /* Hide navigation for smaller screens, could add a hamburger menu */
-            header .container { justify-content: center; }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero p {
+                font-size: 1.3rem;
+            }
+            .benefits h2 {
+                font-size: 2.5rem;
+            }
+            .call-to-action-bottom h2 {
+                font-size: 2.5rem;
+            }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.4rem; }
+            .hero {
+                padding: 5rem 1rem;
+                min-height: 50vh;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1.15rem;
+            }
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+            .large-button {
+                padding: 1.2rem 2.5rem;
+                font-size: 1.2rem;
+            }
+            .benefits {
+                padding: 4rem 1rem;
+            }
+            .benefits h2 {
+                font-size: 2.2rem;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr; /* Xếp chồng các mục trên màn hình nhỏ */
+            }
+            .benefit-item {
+                padding: 2rem;
+            }
+            .benefit-item h3 {
+                font-size: 1.4rem;
+            }
+            .call-to-action-bottom {
+                padding: 4rem 1rem;
+            }
+            .call-to-action-bottom h2 {
+                font-size: 2.2rem;
+            }
+            .call-to-action-bottom p {
+                font-size: 1.1rem;
+            }
+        }
 
-            .hero { padding: 60px 0; }
-            .hero h1 { font-size: 2.2rem; }
-            .hero p { font-size: 1rem; }
-            .btn { padding: 12px 25px; font-size: 0.9rem; }
-
-            .features-grid { grid-template-columns: 1fr; }
-            .step-item { min-width: unset; max-width: 100%; }
-            .how-it-works .steps-grid { flex-direction: column; align-items: center; }
-
-            .cta-banner { padding: 60px 0; }
-            .cta-banner h2 { font-size: 2rem; }
-            .cta-banner p { font-size: 1rem; }
-
-            footer .container { padding: 0 20px; }
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            .hero {
+                padding: 3rem 0.5rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .cta-button {
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
+            }
+            .large-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+            .benefits {
+                padding: 3rem 0.5rem;
+            }
+            .benefits h2 {
+                font-size: 1.8rem;
+            }
+            .benefit-item {
+                padding: 1.5rem;
+            }
+            .benefit-item h3 {
+                font-size: 1.2rem;
+            }
+            .call-to-action-bottom {
+                padding: 3rem 0.5rem;
+            }
+            .call-to-action-bottom h2 {
+                font-size: 1.8rem;
+            }
+            .call-to-action-bottom p {
+                font-size: 1rem;
+            }
         }
     </style>
-    <!-- Placeholder for Font Awesome if needed, or replace with custom icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlalK+lS4g9E+uG+x2oB3O7bQ7+A6s7w5z8zP4m6E5pX1o9pG2mY5s4w5D2m03p8z1j9K8W2w0Q5N3l5eQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-
     <header>
-        <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc</a>
-            <nav>
-                <ul>
-                    <li><a href="#ve-mental-ai">Về Mental-AI</a></li>
-                    <li><a href="#tinh-nang">Tính Năng</a></li>
-                    <li><a href="#cach-hoat-dong">Cách Hoạt Động</a></li>
-                    <li><a href="#bat-dau">Bắt Đầu</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <div class="logo">Tâm Vạn Phúc</div>
+        </nav>
     </header>
 
     <main>
         <section class="hero">
-            <div class="hero-content container">
-                <h1>Mental-AI: Khai Sáng Tâm Trí, Định Hình Tương Lai</h1>
-                <p>Khám phá sức mạnh của Trí Tuệ Nhân Tạo để nuôi dưỡng sức khỏe tinh thần, nâng cao nhận thức và đạt được sự bình an nội tại. Một phần của hệ sinh thái Tâm Vạn Phúc.</p>
-                <a href="https://tamvanphuc.com/mental-ai?aff_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Bắt Đầu Hành Trình Của Bạn Ngay Hôm Nay</a>
+            <div class="hero-content">
+                <h1>Mental-AI: Vượt Qua Giới Hạn, Kiến Tạo Tâm Trí An Lạc</h1>
+                <p>Khám phá sức mạnh tổng hợp của Trí Tuệ Nhân Tạo và những phương pháp cổ truyền để đạt được sự bình yên, phát triển tối đa tiềm năng và sống một cuộc đời trọn vẹn từ hệ sinh thái Tâm Vạn Phúc.</p>
+                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button">Bắt Đầu Hành Trình Của Bạn Ngay Hôm Nay</a>
             </div>
         </section>
 
-        <section id="ve-mental-ai">
-            <div class="container">
-                <h2 class="section-title">Mental-AI Là Gì?</h2>
-                <p style="max-width: 800px; margin: 0 auto 30px auto; font-size: 1.1rem;">Mental-AI là cầu nối giữa công nghệ AI tiên tiến và nghệ thuật chăm sóc sức khỏe tinh thần. Chúng tôi mang đến các giải pháp cá nhân hóa, dựa trên dữ liệu để giúp bạn hiểu rõ hơn về bản thân, quản lý cảm xúc, giảm căng thẳng và phát triển nhận thức một cách bền vững.</p>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <i class="fas fa-brain"></i>
-                        <h3>Hiểu Rõ Bản Thân</h3>
-                        <p>Sử dụng AI để phân tích mẫu hình suy nghĩ và cảm xúc, cung cấp cái nhìn sâu sắc về tâm trí bạn.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-leaf"></i>
-                        <h3>Nuôi Dưỡng Bình An</h3>
-                        <p>Các bài tập thiền định, thực hành chánh niệm được cá nhân hóa, giúp giảm căng thẳng và tăng cường sự thư thái.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Phát Triển Nhận Thức</h3>
-                        <p>Đẩy mạnh sự tự nhận thức, phát triển trí tuệ cảm xúc và kỹ năng đối phó với thử thách cuộc sống.</p>
-                    </div>
+        <section class="benefits">
+            <h2>Tại Sao Chọn Mental-AI Của Tâm Vạn Phúc?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <h3>Cá Nhân Hóa Trải Nghiệm</h3>
+                    <p>AI phân tích sâu sắc các yếu tố tâm lý và đề xuất những bài tập, thiền định, và kiến thức phù hợp nhất với nhu cầu độc đáo của bạn.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Giảm Stress & Lo Âu Hiệu Quả</h3>
+                    <p>Công nghệ tiên tiến hỗ trợ bạn nhận diện, đối phó và giải tỏa căng thẳng một cách thông minh, mang lại sự nhẹ nhõm và an yên bền vững.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Tăng Cường Tập Trung & Minh Mẫn</h3>
+                    <p>Cải thiện khả năng tập trung, ghi nhớ và ra quyết định thông qua các bài tập được thiết kế khoa học, tối ưu hóa bởi Trí Tuệ Nhân Tạo.</p>
+                </div>
+                <div class="benefit-item">
+                    <h3>Phát Triển Bản Thân Toàn Diện</h3>
+                    <p>Kết hợp tinh hoa trí tuệ cổ xưa với công nghệ hiện đại, giúp bạn mở khóa tiềm năng, sống hạnh phúc và trọn vẹn hơn trong mọi khía cạnh.</p>
                 </div>
             </div>
         </section>
 
-        <section id="tinh-nang" style="background-color: #fcfcfc;">
-            <div class="container">
-                <h2 class="section-title">Các Tính Năng Nổi Bật</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <i class="fas fa-user-friends"></i>
-                        <h3>Huấn Luyện Viên AI Cá Nhân</h3>
-                        <p>Người bạn đồng hành AI thấu hiểu, cung cấp lời khuyên và hướng dẫn tùy chỉnh cho hành trình tinh thần của bạn.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-chart-line"></i>
-                        <h3>Theo Dõi Cảm Xúc Thông Minh</h3>
-                        <p>Ghi lại và phân tích trạng thái cảm xúc, giúp bạn nhận diện các mẫu hình và cải thiện sức khỏe tinh thần.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-headphones-alt"></i>
-                        <h3>Thư Viện Thiền Định Đa Dạng</h3>
-                        <p>Truy cập hàng trăm bài thiền định, âm thanh thư giãn và bài tập hít thở, phù hợp với mọi nhu cầu.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-book-open"></i>
-                        <h3>Tài Nguyên Học Tập Chuyên Sâu</h3>
-                        <p>Thư viện kiến thức phong phú về tâm lý học, chánh niệm và phát triển bản thân, được tuyển chọn kỹ lưỡng.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-bell"></i>
-                        <h3>Nhắc Nhở & Mục Tiêu</h3>
-                        <p>Đặt mục tiêu cá nhân và nhận nhắc nhở thông minh để duy trì thói quen tích cực hàng ngày.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Bảo Mật Dữ Liệu Tuyệt Đối</h3>
-                        <p>Mọi thông tin cá nhân của bạn được bảo mật an toàn, đảm bảo sự riêng tư tuyệt đối.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="cach-hoat-dong" class="how-it-works" style="background-color: #f9f9f9;">
-            <div class="container">
-                <h2 class="section-title">Cách Mental-AI Hoạt Động</h2>
-                <div class="steps-grid">
-                    <div class="step-item">
-                        <div class="step-number">1</div>
-                        <h3>Đăng Ký & Cá Nhân Hóa</h3>
-                        <p>Tạo tài khoản và chia sẻ thông tin để AI hiểu rõ nhu cầu và mục tiêu sức khỏe tinh thần của bạn.</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">2</div>
-                        <h3>Khám Phá & Thực Hành</h3>
-                        <p>Truy cập các công cụ, bài tập và tài nguyên được đề xuất bởi AI, bắt đầu hành trình cải thiện.</p>
-                    </div>
-                    <div class="step-item">
-                        <div class="step-number">3</div>
-                        <h3>Theo Dõi & Phát Triển</h3>
-                        <p>Theo dõi tiến độ, nhận phản hồi từ AI và điều chỉnh để liên tục phát triển và đạt được sự bình an bền vững.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="bat-dau" class="cta-banner">
-            <div class="cta-content container">
-                <h2>Sẵn Sàng Thay Đổi Cuộc Sống Của Bạn?</h2>
-                <p>Hãy để Mental-AI từ Tâm Vạn Phúc đồng hành cùng bạn trên con đường tìm kiếm sự bình an, hạnh phúc và phát triển toàn diện. Đừng chờ đợi, tương lai của tâm trí bạn bắt đầu từ hôm nay!</p>
-                <a href="https://tamvanphuc.com/mental-ai?aff_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn btn-secondary">Khám Phá Mental-AI Ngay Bây Giờ</a>
-            </div>
+        <section class="call-to-action-bottom">
+            <h2>Sẵn Sàng Khám Phá Tâm Trí Vô Hạn Của Bạn?</h2>
+            <p>Đừng để những rào cản tinh thần giữ chân bạn. Tham gia cộng đồng Mental-AI của Tâm Vạn Phúc để trải nghiệm sự thay đổi tích cực ngay hôm nay và kiến tạo một tương lai an lạc.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button large-button">Đăng Ký Ngay Để Nhận Ưu Đãi</a>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc</a>
-            <p>Nền tảng Mental-AI là một phần của hệ sinh thái Tâm Vạn Phúc.</p>
-            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <div class="social-links" style="margin-top: 20px;">
-                <!-- Placeholder for social media icons, assuming Font Awesome is used -->
-                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
+        <p>&copy; 2023 Tâm Vạn Phúc. Mọi Quyền Được Bảo Lưu.</p>
     </footer>
-
 </body>
 </html>
