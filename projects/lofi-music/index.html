@@ -1,77 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đắm Chìm Trong Giai Điệu Lofi - Tâm Vạn Phúc</title>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Tâm Vạn Phúc - Lofi Music: Tìm Bình Yên Trong Từng Nốt Nhạc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Lora:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #6a6ee0; /* Muted Violet Blue */
-            --secondary-color: #a49ee8; /* Lighter Violet Blue */
-            --accent-color: #f7a072; /* Soft Orange */
-            --text-color: #333d47; /* Dark Grey Blue */
-            --light-text-color: #f0f0f5; /* Off-white */
-            --background-dark: #2c2f42; /* Darker background */
-            --background-light: #f5f6fa; /* Light background */
-            --card-background: #ffffff;
-            --button-hover-dark: #585bd9;
-            --button-hover-light: #bcb7ed;
-            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.08);
-            --shadow-dark: 0 6px 20px rgba(0, 0, 0, 0.15);
+            --primary-bg: #f0f4f8; /* Light blue-grey */
+            --secondary-bg: #e0e7ed; /* Slightly darker blue-grey for sections */
+            --text-color: #333d47; /* Dark blue-grey */
+            --heading-color: #2a343e; /* Even darker blue-grey */
+            --accent-color: #8b9dc3; /* Soft blue */
+            --accent-hover: #6a7c9d; /* Darker soft blue */
+            --button-text: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.05);
+            --shadow-medium: rgba(0, 0, 0, 0.1);
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Quicksand', sans-serif;
-            margin: 0;
-            padding: 0;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--background-light);
-            scroll-behavior: smooth;
+            background-color: var(--primary-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+            color: var(--heading-color);
+            line-height: 1.2;
+            margin-bottom: 0.8em;
+        }
+
+        h1 { font-size: 3em; }
+        h2 { font-size: 2.2em; }
+        h3 { font-size: 1.6em; }
+
+        p {
+            margin-bottom: 1em;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        header {
-            background-color: var(--background-dark);
-            color: var(--light-text-color);
-            padding: 15px 0;
-            text-align: center;
-            box-shadow: var(--shadow-dark);
-        }
-
-        header .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.8em;
-            color: var(--light-text-color);
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 5px;
-        }
-
-        header .slogan {
-            font-size: 0.9em;
-            opacity: 0.8;
+            padding: 2em;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--light-text-color);
-            text-align: center;
-            padding: 100px 20px;
             position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--button-text);
             overflow: hidden;
-            border-bottom-left-radius: 50px;
-            border-bottom-right-radius: 50px;
-            box-shadow: var(--shadow-dark);
+            background: linear-gradient(135deg, #a3b1c6 0%, #8b9dc3 100%); /* Lofi gradient */
         }
 
         .hero::before {
@@ -81,312 +89,289 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://source.unsplash.com/random/1200x800/?lofi,chill,music'); /* Placeholder lofi image */
-            background-size: cover;
-            background-position: center;
-            opacity: 0.15;
-            z-index: 0;
-        }
-
-        .hero .content {
-            position: relative;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="transparent"/><path d="M50 0L100 50L50 100L0 50Z" fill="rgba(255,255,255,0.08)"/></svg>'); /* Subtle geometric pattern */
+            background-size: 50px 50px;
+            opacity: 0.5;
             z-index: 1;
         }
 
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2em;
+            text-shadow: 0 2px 4px var(--shadow-medium);
+            opacity: 0; /* For JS animation */
+            transform: translateY(20px); /* For JS animation */
+        }
+
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3em;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-size: clamp(2.5em, 6vw, 4.5em);
+            color: var(--button-text);
+            margin-bottom: 0.5em;
         }
 
         .hero p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
+            font-size: clamp(1.1em, 2.5vw, 1.5em);
+            margin-bottom: 2em;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--button-text);
+            padding: 0.9em 2em;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px var(--shadow-medium);
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
+        }
+
+        .cta-button.secondary {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            box-shadow: none;
+        }
+
+        .cta-button.secondary:hover {
+            background-color: var(--accent-color);
+            color: var(--button-text);
+            box-shadow: 0 4px 10px var(--shadow-medium);
+        }
+
+        /* Benefits Section */
+        .benefits {
+            background-color: var(--secondary-bg);
+            padding: 4em 2em;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        .benefits h2 {
+            margin-bottom: 1.5em;
+            font-size: clamp(1.8em, 4vw, 2.8em);
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2em;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            background-color: var(--primary-bg);
+            padding: 2em;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px var(--shadow-medium);
+        }
+
+        .benefit-item i {
+            font-size: 2.5em;
+            color: var(--accent-color);
+            margin-bottom: 0.5em;
+            display: block;
+        }
+        
+        .benefit-item h3 {
+            margin-bottom: 0.5em;
+            font-size: 1.4em;
+            color: var(--heading-color);
+        }
+
+        .benefit-item p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: var(--text-color);
+        }
+
+        /* Icons (Unicode based for simplicity) */
+        .icon-relax::before { content: "✨"; } /* Sparkles */
+        .icon-focus::before { content: "🎧"; } /* Headphone */
+        .icon-creative::before { content: "✍️"; } /* Writing Hand */
+        .icon-serene::before { content: "☁️"; } /* Cloud */
+
+
+        /* Call to Action Banner */
+        .cta-banner {
+            text-align: center;
+            padding: 4em 2em;
+            background: linear-gradient(45deg, var(--secondary-bg) 0%, var(--primary-bg) 100%);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .cta-banner h2 {
+            font-size: clamp(1.8em, 4vw, 2.8em);
+            margin-bottom: 1em;
+        }
+
+        .cta-banner p {
+            font-size: 1.1em;
+            margin-bottom: 2em;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            line-height: 1.8;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--background-dark);
-            padding: 15px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-light);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #e68e60; /* Darker accent */
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-dark);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        .features h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            margin-bottom: 60px;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .features h2::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-color);
-            margin: 15px auto 0;
-            border-radius: 2px;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .feature-item {
-            background-color: var(--card-background);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-light);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .feature-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-dark);
-        }
-
-        .feature-item .icon {
-            font-size: 2.5em;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: var(--light-text-color);
-            padding: 15px;
-            border-radius: 50%;
-        }
-
-        .feature-item h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5em;
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .feature-item p {
-            font-size: 1em;
-            color: var(--text-color);
-            opacity: 0.9;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(45deg, var(--secondary-color) 0%, var(--primary-color) 100%);
-            color: var(--light-text-color);
-            padding: 80px 20px;
-            text-align: center;
-            margin-top: 80px;
-            border-top-left-radius: 50px;
-            border-top-right-radius: 50px;
-            box-shadow: var(--shadow-dark);
-        }
-
-        .cta-section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.2);
-        }
-
-        .cta-section p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-
-        .cta-section .btn {
-            background-color: var(--light-text-color);
-            color: var(--primary-color);
-        }
-
-        .cta-section .btn:hover {
-            background-color: var(--background-light);
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-dark);
         }
 
         /* Footer */
         footer {
-            background-color: var(--background-dark);
-            color: var(--light-text-color);
+            background-color: var(--heading-color);
+            color: var(--primary-bg);
             text-align: center;
-            padding: 40px 20px;
+            padding: 2.5em 2em;
             font-size: 0.9em;
-            opacity: 0.9;
         }
 
-        footer a {
-            color: var(--accent-color);
-            text-decoration: none;
-            transition: color 0.3s ease;
+        footer p {
+            margin-bottom: 1em;
+            opacity: 0.8;
         }
 
-        footer a:hover {
-            color: #e68e60;
+        .footer-links a {
+            color: var(--primary-bg);
+            margin: 0 1em;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            text-decoration: underline;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.3em; }
+
+            .hero {
+                height: 70vh;
+                padding: 1em;
+            }
+
             .hero h1 {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
 
             .hero p {
                 font-size: 1em;
             }
 
-            .btn {
-                padding: 12px 25px;
+            .cta-button {
+                padding: 0.8em 1.5em;
                 font-size: 1em;
             }
 
-            .features h2, .cta-section h2 {
-                font-size: 2em;
-            }
-
-            .feature-grid {
+            .benefit-grid {
                 grid-template-columns: 1fr;
             }
 
-            .cta-section p {
-                font-size: 1em;
+            .benefits, .cta-banner {
+                padding: 3em 1.5em;
             }
         }
 
         @media (max-width: 480px) {
-            header .logo {
-                font-size: 1.5em;
-            }
-
-            .hero {
-                padding: 80px 15px;
-            }
-
             .hero h1 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
-            
-            .features, .cta-section {
-                padding: 60px 15px;
+            .footer-links a {
+                display: block;
+                margin: 0.5em 0;
             }
         }
-
-        /* FontAwesome for Icons (Optional, but enhances design) */
-        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc</a>
-            <p class="slogan">Nơi Bình Yên Bắt Đầu</p>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Tìm Bình Yên Trong Từng Nốt Nhạc Lofi</h1>
+            <p>Đắm chìm vào không gian âm nhạc tĩnh lặng, khơi nguồn cảm hứng và sự tập trung cùng <strong>Tâm Vạn Phúc</strong>.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button">Khám Phá Ngay</a>
         </div>
     </header>
 
     <main>
-        <section class="hero">
-            <div class="content">
-                <h1>Đắm Chìm Trong Giai Điệu Lofi, Tìm Lại Bình Yên & Tập Trung</h1>
-                <p>Khám phá bộ sưu tập nhạc lofi độc quyền từ Tâm Vạn Phúc, được tuyển chọn kỹ lưỡng để nâng cao sự tập trung, xoa dịu tâm hồn và mang đến giấc ngủ sâu. Lý tưởng cho học tập, làm việc, thiền định hay đơn giản là thư giãn.</p>
-                <a href="https://tamvanphuc.com/lofi-premium?aff_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Khám Phá Ngay</a>
-            </div>
-        </section>
-
-        <section class="features">
+        <section class="benefits">
             <div class="container">
-                <h2>Lợi Ích Mà Lofi Music Từ Tâm Vạn Phúc Mang Lại</h2>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <div class="icon"><i class="fas fa-brain"></i></div>
+                <h2>Tại Sao Chọn Lofi Music của Tâm Vạn Phúc?</h2>
+                <div class="benefit-grid">
+                    <div class="benefit-item">
+                        <i class="icon icon-relax"></i>
+                        <h3>Giảm Căng Thẳng</h3>
+                        <p>Thư giãn tâm trí, xoa dịu lo âu với những giai điệu nhẹ nhàng, êm ái, đưa bạn vào trạng thái bình yên.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="icon icon-focus"></i>
                         <h3>Tăng Cường Tập Trung</h3>
-                        <p>Âm thanh nhẹ nhàng, lặp lại giúp loại bỏ phiền nhiễu, tạo không gian lý tưởng cho việc học tập và làm việc cần sự tập trung cao độ.</p>
+                        <p>Nâng cao hiệu suất học tập và làm việc trong môi trường âm thanh lý tưởng, không lời, không xao nhãng.</p>
                     </div>
-                    <div class="feature-item">
-                        <div class="icon"><i class="fas fa-cloud"></i></div>
-                        <h3>Giảm Căng Thẳng & Lo Âu</h3>
-                        <p>Những giai điệu du dương, êm ái xoa dịu hệ thần kinh, giúp bạn thoát khỏi những lo toan, giảm stress hiệu quả.</p>
+                    <div class="benefit-item">
+                        <i class="icon icon-creative"></i>
+                        <h3>Khơi Gợi Sáng Tạo</h3>
+                        <p>Để những nốt nhạc lofi dẫn lối, mở ra không gian cho những ý tưởng mới mẻ và độc đáo thăng hoa.</p>
                     </div>
-                    <div class="feature-item">
-                        <div class="icon"><i class="fas fa-moon"></i></div>
-                        <h3>Cải Thiện Giấc Ngủ Sâu</h3>
-                        <p>Tạo ra một bầu không khí thư thái, giúp bạn dễ dàng đi vào giấc ngủ và có một giấc ngủ chất lượng hơn sau một ngày dài.</p>
-                    </div>
-                    <div class="feature-item">
-                        <div class="icon"><i class="fas fa-lightbulb"></i></div>
-                        <h3>Kích Thích Sáng Tạo</h3>
-                        <p>Mở ra một không gian tinh thần thoải mái, khuyến khích dòng chảy của ý tưởng và cảm hứng, thúc đẩy sự sáng tạo.</p>
+                    <div class="benefit-item">
+                        <i class="icon icon-serene"></i>
+                        <h3>Không Gian Bình Yên</h3>
+                        <p>Tạo lập góc riêng an tĩnh, thoát ly khỏi sự ồn ào của cuộc sống, nơi bạn có thể là chính mình.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta-section">
+        <section class="cta-banner">
             <div class="container">
-                <h2>Sẵn Sàng Đắm Chìm Trong Thế Giới Lofi Bình Yên?</h2>
-                <p>Đừng bỏ lỡ cơ hội trải nghiệm sự thư thái tột đỉnh và nâng cao hiệu suất làm việc, học tập cùng Tâm Vạn Phúc.</p>
-                <a href="https://tamvanphuc.com/lofi-premium?aff_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Bắt Đầu Hành Trình Lofi Của Bạn</a>
+                <h2>Sẵn Sàng Đắm Chìm Trong Thế Giới Lofi Của Riêng Bạn?</h2>
+                <p>Bắt đầu hành trình tìm kiếm sự tĩnh tại và cảm hứng ngay hôm nay với Tâm Vạn Phúc.</p>
+                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button secondary">Bắt Đầu Khám Phá</a>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <p>Thiết kế với <span style="color: #e25555;">&hearts;</span> cho sự bình yên.</p>
+        <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+        <div class="footer-links">
+            <a href="#">Điều Khoản Dịch Vụ</a>
+            <a href="#">Chính Sách Bảo Mật</a>
+            <a href="#">Liên Hệ</a>
         </div>
     </footer>
 
     <script>
-        // Minimal JS for potential future interactive elements
+        // Simple fade-in animation for hero content
         document.addEventListener('DOMContentLoaded', () => {
-            console.log('Landing Page Lofi Music của Tâm Vạn Phúc đã sẵn sàng!');
+            const heroContent = document.querySelector('.hero-content');
+            
+            // Ensure initial state is set for animation
+            heroContent.style.opacity = '0';
+            heroContent.style.transform = 'translateY(20px)';
 
-            // Example of a simple interaction (could be more complex)
-            const ctaButtons = document.querySelectorAll('.btn');
-            ctaButtons.forEach(button => {
-                button.addEventListener('click', (event) => {
-                    // console.log('CTA Button clicked!');
-                    // Optionally, add analytics tracking here
-                    // e.g., ga('send', 'event', 'Lofi_CTA', 'click', 'Explore Now');
-                });
-            });
+            // Apply transition and final state after a small delay
+            // This ensures the initial CSS styles are parsed before the transition starts
+            setTimeout(() => {
+                heroContent.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+                heroContent.style.opacity = '1';
+                heroContent.style.transform = 'translateY(0)';
+            }, 100); 
         });
     </script>
 </body>
