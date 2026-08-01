@@ -1,250 +1,458 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Mở Khóa Tương Lai Tài Chính Bình An Của Bạn</title>
-    <link rel="icon" href="https://via.placeholder.com/32/388e3c/ffffff?text=TVP" type="image/png">
+    <title>Tâm Vạn Phúc - Tự Chủ Tài Chính Cá Nhân</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxWfaNGkR+uGjU0EgiPzO9xA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             --primary-color: #388e3c; /* Dark Green */
-            --secondary-color: #66bb6a; /* Light Green */
-            --accent-color: #ffb300; /* Amber/Gold */
-            --text-color: #333;
-            --light-text-color: #f8f8f8;
-            --background-color: #e8f5e9; /* Lightest Green */
-            --white: #ffffff;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --secondary-color: #81c784; /* Light Green */
+            --accent-color: #ffb300; /* Amber */
+            --text-dark: #333;
+            --text-light: #f4f4f4;
+            --bg-light: #e8f5e9; /* Very light green */
+            --bg-white: #ffffff;
+            --shadow-light: rgba(0, 0, 0, 0.1);
         }
 
         body {
-            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: var(--background-color);
-            color: var(--text-color);
             line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            scroll-behavior: smooth;
         }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        h1 { font-size: 2.8em; }
+        h2 { font-size: 2.2em; }
+        h3 { font-size: 1.8em; }
 
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 30px;
-            background-color: var(--white);
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            transform: translateY(20px);
-            opacity: 0;
-            transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .container.loaded {
-            transform: translateY(0);
-            opacity: 1;
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 8px var(--shadow-light);
+            cursor: pointer;
         }
 
+        .btn:hover {
+            background-color: #2e7d32; /* Slightly darker green */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header */
         header {
-            margin-bottom: 30px;
+            background-color: var(--bg-white);
+            padding: 15px 0;
+            box-shadow: 0 2px 4px var(--shadow-light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        header h1 {
-            color: var(--primary-color);
-            font-size: 2.8em;
-            margin-bottom: 10px;
-            line-height: 1.2;
-        }
-
-        header p {
-            font-size: 1.3em;
-            color: #555;
-            margin-bottom: 25px;
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            margin-bottom: 20px;
-        }
-
-        .logo img {
-            max-width: 180px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-            text-align: left;
-        }
-
-        .feature-item {
-            background-color: #f0fdf0; /* Lighter green for features */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-            border-left: 5px solid var(--secondary-color);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .feature-item h3 {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8em;
             color: var(--primary-color);
-            font-size: 1.4em;
-            margin-top: 0;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-
-        .feature-item h3 svg {
-            margin-right: 10px;
-            color: var(--accent-color);
-            min-width: 24px; /* Ensure icon doesn't shrink */
-        }
-
-        .feature-item p {
-            color: #666;
-            font-size: 1em;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--accent-color);
-            color: var(--white);
-            padding: 18px 35px;
-            font-size: 1.5em;
-            font-weight: bold;
             text-decoration: none;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            border: none;
-            cursor: pointer;
-            outline: none;
-            letter-spacing: 0.5px;
+            font-weight: 700;
         }
 
-        .cta-button:hover {
-            background-color: #ffc107; /* Slightly brighter amber */
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        .logo span {
+            color: var(--accent-color);
         }
 
-        .cta-button:active {
-            transform: translateY(0);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
         }
 
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #a5d6a7 100%); /* Green gradient */
+            color: var(--text-light);
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before { /* Subtle background pattern */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239e9e9e' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 60h30V30H0zM30 30h30V0H30z'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            color: var(--text-light);
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .hero .btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color); /* Text on accent button */
+            padding: 18px 40px;
+            font-size: 1.2em;
+        }
+
+        .hero .btn:hover {
+            background-color: #ffc107; /* Slightly lighter accent */
+            color: var(--primary-color);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--bg-white);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 2.5em;
+            color: var(--primary-color);
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: var(--bg-white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px var(--shadow-light);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card .icon {
+            font-size: 3em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .feature-card p {
+            font-size: 1em;
+            color: #555;
+        }
+
+        /* About Section (Problem/Solution) */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .about-text, .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px var(--shadow-light);
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background: linear-gradient(45deg, #1b5e20 0%, var(--primary-color) 100%); /* Darker green gradient */
+            color: var(--text-light);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before { /* Subtle background pattern */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239e9e9e' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 60h30V30H0zM30 30h30V0H30z'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.1;
+            z-index: 1;
+        }
+        .cta-section-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            color: var(--text-light);
+            font-size: 3em;
+            margin-bottom: 25px;
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-section .btn {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-size: 1.3em;
+            padding: 20px 45px;
+        }
+        .cta-section .btn:hover {
+            background-color: #ffc107;
+            color: var(--primary-color);
+        }
+
+        /* Footer */
         footer {
-            margin-top: 40px;
+            background-color: #263238; /* Dark Grey Blue */
+            color: #eceff1;
+            padding: 40px 0;
+            text-align: center;
             font-size: 0.9em;
-            color: #888;
         }
 
+        footer p {
+            margin: 0;
+            padding-top: 10px;
+        }
+
+        footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #ffeb3b; /* Lighter accent */
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
-            }
-            header h1 {
-                font-size: 2em;
-            }
-            header p {
-                font-size: 1.1em;
-            }
-            .features {
-                grid-template-columns: 1fr;
-            }
-            .cta-button {
-                padding: 15px 30px;
-                font-size: 1.3em;
-            }
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            .hero { padding: 80px 20px; }
+            .hero h1 { font-size: 2.8em; }
+            .hero p { font-size: 1.2em; }
+            .btn { padding: 12px 25px; font-size: 1em; }
+            .hero .btn { padding: 15px 35px; font-size: 1.1em; }
+            .section-title { font-size: 2em; margin-bottom: 40px; }
+            .grid-3 { grid-template-columns: 1fr; }
+            .about-content { flex-direction: column; text-align: center; }
+            header .container { flex-direction: column; }
+            nav ul { margin-top: 15px; }
+            nav ul li { margin: 0 10px; }
+            .cta-section h2 { font-size: 2.2em; }
+            .cta-section p { font-size: 1em; }
+            .cta-section .btn { font-size: 1.1em; padding: 15px 35px; }
         }
 
         @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-            header p {
-                font-size: 1em;
-            }
-            .logo img {
-                max-width: 150px;
-            }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.5em; }
+            .hero h1 { font-size: 2.2em; }
+            .hero p { font-size: 1em; }
+            nav ul { flex-direction: column; text-align: center; }
+            nav ul li { margin: 10px 0; }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="lp-container">
-        <header>
-            <div class="logo">
-                <img src="https://via.placeholder.com/200x80/388e3c/ffffff?text=T%C3%82M+V%E1%BA%A0N+PH%C3%9AC" alt="Tâm Vạn Phúc Logo">
-            </div>
-            <h1>Tâm An, Tiền Vượng: Mở Khóa Tương Lai Tài Chính Bình An Cùng Tâm Vạn Phúc</h1>
-            <p>Khám phá bí quyết quản lý tiền bạc thông minh, xây dựng sự giàu có bền vững và tận hưởng cuộc sống trọn vẹn.</p>
-        </header>
+    <header>
+        <div class="container">
+            <a href="#hero" class="logo">Tâm Vạn <span>Phúc</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Trang Chủ</a></li>
+                    <li><a href="#about">Về Chúng Tôi</a></li>
+                    <li><a href="#benefits">Lợi Ích</a></li>
+                    <li><a href="#cta">Bắt Đầu</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-        <section class="features">
-            <div class="feature-item">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-zap"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-                    Loại bỏ lo âu tài chính
-                </h3>
-                <p>Học cách kiểm soát chi tiêu, tạo lập ngân sách và thoát khỏi gánh nặng nợ nần, mang lại sự bình yên trong tâm trí.</p>
-            </div>
-            <div class="feature-item">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trending-up"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-                    Tăng trưởng tài sản bền vững
-                </h3>
-                <p>Khám phá các phương pháp đầu tư thông minh, tích lũy tài sản và xây dựng nguồn thu nhập thụ động cho tương lai.</p>
-            </div>
-            <div class="feature-item">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-target"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
-                    Đạt được mục tiêu cá nhân
-                </h3>
-                <p>Thiết lập và thực hiện các mục tiêu tài chính từ ngắn hạn đến dài hạn, giúp bạn biến ước mơ thành hiện thực.</p>
-            </div>
-            <div class="feature-item">
-                <h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-                    Sống cuộc đời tự do & an lạc
-                </h3>
-                <p>Với nền tảng tài chính vững chắc, bạn sẽ có nhiều thời gian và sự lựa chọn hơn để tận hưởng cuộc sống mình mong muốn.</p>
+    <main>
+        <section id="hero" class="hero">
+            <div class="hero-content">
+                <h1>Đạt Tự Chủ Tài Chính & An Yên Tinh Thần Với Tâm Vạn Phúc</h1>
+                <p>Khám phá con đường vững chắc để quản lý tài chính cá nhân hiệu quả, xây dựng sự giàu có bền vững và sống cuộc đời an lạc.</p>
+                <a href="https://tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Bắt Đầu Hành Trình Của Bạn Ngay!</a>
             </div>
         </section>
 
-        <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" rel="noopener noreferrer" class="cta-button">
-            Bắt Đầu Hành Trình Thịnh Vượng Của Bạn Ngay!
-        </a>
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">Bạn Đang Gặp Phải Vấn Đề Này?</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Tài chính luôn là nỗi lo?</h3>
+                        <p>Bạn cảm thấy bế tắc khi nghĩ về tiền bạc? Không biết bắt đầu từ đâu để tiết kiệm, đầu tư hay thoát khỏi nợ nần? Cuộc sống hiện đại với nhiều cám dỗ chi tiêu khiến bạn khó lòng kiểm soát ví tiền của mình, dẫn đến căng thẳng và thiếu an tâm về tương lai.</p>
+                        <p><strong>Tâm Vạn Phúc</strong> hiểu rõ những trăn trở đó. Chúng tôi ở đây để cung cấp cho bạn những kiến thức, công cụ và lộ trình rõ ràng để bạn không còn lo lắng về tài chính, mà thay vào đó là sự tự tin và bình an.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://via.placeholder.com/600x400/81c784/ffffff?text=Tâm+Vạn+Phúc+-+Tài+Chính" alt="Người đang quản lý tài chính một cách bình tĩnh">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <footer>
+        <section id="benefits">
+            <div class="container">
+                <h2 class="section-title">Lợi Ích Bạn Sẽ Nhận Được</h2>
+                <div class="grid-3">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-chart-line"></i></div>
+                        <h3>Kế Hoạch Tài Chính Rõ Ràng</h3>
+                        <p>Học cách thiết lập ngân sách, tiết kiệm hiệu quả và đầu tư thông minh để đạt được các mục tiêu tài chính của bạn.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <h3>Giảm Thiểu Nợ Nần</h3>
+                        <p>Khám phá các chiến lược thực tế để thoát khỏi nợ xấu, quản lý nợ tốt hơn và xây dựng điểm tín dụng vững chắc.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-piggy-bank"></i></div>
+                        <h3>Tăng Cường Tiết Kiệm & Đầu Tư</h3>
+                        <p>Biến tiết kiệm thành thói quen, tìm hiểu các kênh đầu tư phù hợp để tiền của bạn làm việc cho bạn, tạo ra tài sản thụ động.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-leaf"></i></div>
+                        <h3>An Yên Tinh Thần</h3>
+                        <p>Không chỉ là tài chính, chúng tôi giúp bạn xây dựng tư duy tích cực, giảm căng thẳng và sống một cuộc đời cân bằng, an lạc.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                        <h3>Kiến Thức Thực Tế</h3>
+                        <p>Tiếp cận các bài học, tài liệu và công cụ dễ hiểu, áp dụng ngay vào cuộc sống hàng ngày để thấy sự thay đổi rõ rệt.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-users"></i></div>
+                        <h3>Cộng Đồng Hỗ Trợ</h3>
+                        <p>Kết nối với những người cùng chí hướng, chia sẻ kinh nghiệm và nhận được sự hỗ trợ từ cộng đồng Tâm Vạn Phúc.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta-section">
+            <div class="cta-section-content">
+                <h2>Bạn Đã Sẵn Sàng Thay Đổi Tương Lai Tài Chính Của Mình?</h2>
+                <p>Đừng để nỗi lo về tiền bạc cản trở bạn sống cuộc đời trọn vẹn. Hãy hành động ngay hôm nay để gieo hạt giống của sự thịnh vượng và an lạc.</p>
+                <a href="https://tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Tham Gia Cộng Đồng Tâm Vạn Phúc Ngay!</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
             <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-        </footer>
-    </div>
+            <p>Hệ sinh thái vì cuộc sống <a href="https://tamvanphuc.com/" target="_blank">An Lạc & Thịnh Vượng</a>.</p>
+        </div>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const container = document.getElementById('lp-container');
-            if (container) {
-                setTimeout(() => {
-                    container.classList.add('loaded');
-                }, 100);
-            }
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerOffset = document.querySelector('header').offsetHeight || 0;
+                    window.scrollTo({
+                        top: targetElement.offsetTop - headerOffset,
+                        behavior: 'smooth'
+                    });
+                }
+            });
         });
     </script>
 </body>
