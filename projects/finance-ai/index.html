@@ -3,570 +3,349 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc AI - Nâng Tầm Tài Chính Với Trí Tuệ Nhân Tạo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
+    <title>Tâm Vạn Phúc - Khai Phá Tương Lai Tài Chính Cùng AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #004d40; /* Dark Teal */
-            --secondary-color: #fbc02d; /* Amber Gold */
-            --accent-color: #007bff; /* A brighter blue for links/hover */
-            --text-dark: #333;
-            --text-light: #555;
-            --background-light: #f8f9fa;
-            --background-dark: #ffffff;
-            --cta-button-bg: var(--secondary-color);
-            --cta-button-text: var(--primary-color);
-            --font-primary: 'Montserrat', sans-serif;
-            --font-secondary: 'Open Sans', sans-serif;
-        }
-
-        /* Basic Reset & Typography */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #28a745; /* Green */
+            --dark-color: #343a40; /* Dark Grey */
+            --light-color: #f8f9fa; /* Light Grey */
+            --text-color: #495057; /* Medium Grey */
+            --white-color: #ffffff;
+            --gradient-start: #00c6ff;
+            --gradient-end: #0072ff;
         }
 
         body {
-            font-family: var(--font-secondary);
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--background-light);
-            -webkit-font-smoothing: antialiased;
-            scroll-behavior: smooth;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        h1, h2, h3 {
-            font-family: var(--font-primary);
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        h1 {
-            font-size: 3em;
-            line-height: 1.2;
-            color: var(--primary-color);
-        }
-
-        h2 {
-            font-size: 2.5em;
+        /* Header */
+        header {
+            background: var(--dark-color);
+            color: var(--white-color);
+            padding: 1rem 0;
             text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary-color);
-            border-radius: 2px;
         }
 
-        p {
-            margin-bottom: 20px;
-            color: var(--text-light);
-            font-size: 1.1em;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--accent-color);
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 15px 0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: var(--font-primary);
+        header .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
             font-weight: 700;
-            font-size: 1.8em;
-            color: #fff;
+            color: var(--primary-color);
+            margin: 0;
         }
 
-        .nav-links a {
-            color: #fff;
-            margin-left: 30px;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-            text-decoration: none;
-        }
-
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            background-color: var(--cta-button-bg);
-            color: var(--cta-button-text);
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-family: var(--font-primary);
-            font-weight: 700;
-            font-size: 1.2em;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border: none;
-            animation: pulse 2s infinite;
-        }
-
-        .cta-button:hover {
-            background-color: #e6a700; /* Darker amber */
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            text-decoration: none;
-            animation: none; /* Stop pulsing on hover */
-        }
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 0 0 0px rgba(251, 192, 45, 0.7);
-            }
-            70% {
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 0 0 10px rgba(251, 192, 45, 0);
-            }
-            100% {
-                box-shadow: 0 5px 15px rgba(0,0,0,0.2), 0 0 0 0px rgba(251, 192, 45, 0.7);
-            }
-        }
-
-        .secondary-cta {
-            background-color: var(--primary-color);
-            color: #fff;
-            margin-top: 40px;
-            font-size: 1.1em;
-            padding: 12px 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .secondary-cta:hover {
-            background-color: #003d33; /* Darker primary */
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-        .large-cta {
-            font-size: 1.5em;
-            padding: 20px 40px;
+        header .logo span {
+            color: var(--white-color);
+            font-weight: 400;
         }
 
         /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, var(--background-light) 0%, #e0f2f1 100%); /* Light gradient */
-            padding: 80px 0;
+        .hero {
+            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+            color: var(--white-color);
+            padding: 6rem 0;
             text-align: center;
+            position: relative;
             overflow: hidden;
         }
 
-        .hero-section .container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            gap: 40px;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1500x800/007bff/ffffff?text=AI+Finance+Background') no-repeat center center/cover; /* Placeholder background image */
+            opacity: 0.2;
+            z-index: 1;
         }
 
-        .hero-content {
-            flex: 1;
-            text-align: left;
+        .hero .container {
+            position: relative;
+            z-index: 2;
         }
 
-        .hero-content h1 {
-            font-size: 3.5em;
-            margin-bottom: 25px;
-            color: var(--primary-color);
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
         }
 
-        .hero-content p {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            color: var(--text-light);
-            max-width: 600px;
+        .hero p {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero-image {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .cta-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: var(--white-color);
+            padding: 1.2rem 2.8rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .hero-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            animation: float 3s ease-in-out infinite; /* Subtle floating animation */
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .cta-button:hover {
+            background-color: #218838; /* Darker green */
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
         }
 
         /* Features Section */
-        .features-section {
-            background-color: var(--background-dark);
-            padding: 80px 0;
+        .features {
+            padding: 5rem 0;
+            background-color: var(--white-color);
             text-align: center;
         }
 
-        .features-grid {
+        .features h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 3rem;
+        }
+
+        .feature-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            gap: 30px;
         }
 
         .feature-item {
-            background-color: #fff;
-            padding: 30px;
+            background-color: var(--light-color);
+            padding: 2.5rem;
             border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
         }
 
         .feature-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
         .feature-item img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-            filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(150deg) saturate(300%); /* Make placeholder icons greenish */
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1.5rem;
+            border-radius: 5px;
+            background-color: var(--primary-color); /* Fallback background for icons */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white-color);
+            font-size: 1.5rem;
+            font-weight: 700;
         }
+        
+        /* Specific image placeholders for visual distinction */
+        .feature-item:nth-child(1) img { background-color: #007bff; content: '📊'; } /* Chart icon */
+        .feature-item:nth-child(2) img { background-color: #28a745; content: '📈'; } /* Upward trend icon */
+        .feature-item:nth-child(3) img { background-color: #ffc107; content: '🛡️'; } /* Shield icon */
+        .feature-item:nth-child(4) img { background-color: #6f42c1; content: '⚙️'; } /* Gear icon */
 
         .feature-item h3 {
-            font-size: 1.5em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
             color: var(--primary-color);
-            margin-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 1rem;
         }
 
         .feature-item p {
-            font-size: 1em;
-            color: var(--text-light);
+            font-size: 1rem;
+            color: var(--text-color);
         }
-
-        /* How It Works Section */
-        .how-it-works-section {
-            padding: 80px 0;
-            background-color: var(--background-light);
-            text-align: center;
-        }
-
-        .steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-
-        .step-item {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            position: relative;
-            text-align: center;
-            padding-top: 60px; /* Space for step number */
-        }
-        .step-number {
-            font-family: var(--font-primary);
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--secondary-color);
-            background-color: var(--primary-color);
-            border-radius: 50%;
-            width: 70px;
-            height: 70px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: absolute;
-            top: -35px; /* Half of height to be centered on top border */
-            left: 50%;
-            transform: translateX(-50%);
-            border: 5px solid var(--background-light);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .step-item h3 {
-            font-size: 1.4em;
-            margin-bottom: 10px;
-            color: var(--primary-color);
-        }
-        .step-item p {
-            font-size: 0.95em;
-            color: var(--text-light);
-        }
-
 
         /* Final CTA Section */
-        .final-cta-section {
+        .final-cta {
             background-color: var(--primary-color);
-            color: #fff;
-            padding: 80px 0;
+            color: var(--white-color);
+            padding: 4rem 0;
             text-align: center;
         }
 
-        .final-cta-section h2 {
-            color: #fff;
-            margin-bottom: 30px;
-        }
-        .final-cta-section h2::after {
-            background-color: var(--secondary-color);
-        }
-
-        .final-cta-section p {
-            font-size: 1.3em;
-            max-width: 800px;
-            margin: 0 auto 40px auto;
-            color: #e0f2f1;
+        .final-cta h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
         }
 
         /* Footer */
         footer {
-            background-color: #222;
-            color: #bbb;
-            padding: 40px 0;
+            background: var(--dark-color);
+            color: var(--light-color);
             text-align: center;
-            font-size: 0.9em;
+            padding: 2rem 0;
+            font-size: 0.9rem;
+            margin-top: auto; /* Pushes footer to the bottom */
         }
 
         footer p {
-            margin-bottom: 10px;
-            color: #bbb;
+            margin: 0.5rem 0;
         }
 
         footer a {
-            color: #fff;
-            margin: 0 10px;
+            color: var(--primary-color);
+            text-decoration: none;
             transition: color 0.3s ease;
         }
 
         footer a:hover {
-            color: var(--secondary-color);
-            text-decoration: none;
+            color: var(--white-color);
         }
 
         /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero-section .container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .hero-content {
-                text-align: center;
-                margin-bottom: 40px;
-            }
-
-            .hero-content h1 {
-                font-size: 3em;
-            }
-            .hero-content p {
-                max-width: none;
-            }
-            .hero-image {
-                order: -1; /* Image above text on mobile */
-                margin-bottom: 40px;
-            }
-
-            .nav-links {
-                display: none; /* Simple hiding for nav on smaller screens, can be improved with a hamburger menu */
-            }
-            .navbar .container {
-                justify-content: center; /* Center logo if no nav */
-            }
-        }
-
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5em;
-            }
-            h2 {
-                font-size: 2em;
-            }
-            .hero-content p {
-                font-size: 1.1em;
-            }
-            .cta-button {
-                font-size: 1em;
-                padding: 12px 25px;
-            }
-            .large-cta {
-                font-size: 1.2em;
-                padding: 15px 30px;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            .features-grid, .steps-grid {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1.2rem;
             }
-            .feature-item, .step-item {
-                margin: 0 auto;
-                max-width: 400px;
+
+            .cta-button {
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
+            }
+
+            .features h2 {
+                font-size: 2rem;
+            }
+
+            .feature-item {
+                padding: 2rem;
+            }
+
+            .feature-item h3 {
+                font-size: 1.3rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2rem;
             }
         }
 
         @media (max-width: 480px) {
-            h1 {
-                font-size: 2em;
+            header .logo {
+                font-size: 1.5rem;
             }
-            h2 {
-                font-size: 1.8em;
+
+            .hero h1 {
+                font-size: 2rem;
             }
-            .hero-content p {
-                font-size: 1em;
+
+            .hero p {
+                font-size: 1rem;
             }
+
             .cta-button {
-                width: 100%;
-                margin-bottom: 15px;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
             }
-            .large-cta {
-                font-size: 1.1em;
-                padding: 15px 25px;
+
+            .features h2 {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
+    <header>
         <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc AI</a>
-            <nav class="nav-links">
-                <a href="#features">Tính Năng</a>
-                <a href="#how-it-works">Cách Hoạt Động</a>
-                <a href="#cta-section">Bắt Đầu</a>
-            </nav>
+            <h1 class="logo">Tâm Vạn Phúc <span>AI Finance</span></h1>
         </div>
     </header>
 
-    <section class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Nâng Tầm Quyết Định Tài Chính Với Trí Tuệ Nhân Tạo</h1>
-                <p>Khai phá sức mạnh của AI để tối ưu đầu tư, quản lý tài sản và gia tăng lợi nhuận bền vững cùng Tâm Vạn Phúc AI.</p>
-                <a href="https://tamvanphuc.com/affiliate?id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">Khám Phá Sức Mạnh AI Ngay</a>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Khai Phá Sức Mạnh AI, Tối Ưu Hóa Tài Chính Của Bạn</h1>
+                <p>Đưa ra quyết định đầu tư thông minh, tự động hóa quản lý tài sản và đạt được sự thịnh vượng bền vững với công nghệ Trí Tuệ Nhân Tạo tiên tiến từ Tâm Vạn Phúc.</p>
+                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button" target="_blank" rel="noopener noreferrer">Bắt Đầu Hành Trình Thịnh Vượng Ngay!</a>
             </div>
-            <div class="hero-image">
-                <img src="https://via.placeholder.com/600x400/004d40/fbc02d?text=AI+Finance+Innovation" alt="Trí tuệ nhân tạo trong tài chính">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="features" class="features-section">
-        <div class="container">
-            <h2>Tại Sao Chọn Tâm Vạn Phúc AI?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <img src="https://via.placeholder.com/80/004d40/fbc02d?text=24/7" alt="Biểu tượng phân tích 24/7">
-                    <h3>Phân Tích Chuyên Sâu 24/7</h3>
-                    <p>Trí tuệ nhân tạo liên tục quét và phân tích thị trường, cung cấp dữ liệu tức thì, giúp bạn không bỏ lỡ cơ hội.</p>
-                </div>
-                <div class="feature-item">
-                    <img src="https://via.placeholder.com/80/004d40/fbc02d?text=Predict" alt="Biểu tượng dự đoán">
-                    <h3>Dự Đoán Xu Hướng Chính Xác</h3>
-                    <p>Sử dụng thuật toán học máy tiên tiến để dự đoán các biến động thị trường, hỗ trợ ra quyết định thông minh.</p>
-                </div>
-                <div class="feature-item">
-                    <img src="https://via.placeholder.com/80/004d40/fbc02d?text=Optimize" alt="Biểu tượng tối ưu">
-                    <h3>Tối Ưu Danh Mục Cá Nhân Hóa</h3>
-                    <p>Xây dựng và điều chỉnh danh mục đầu tư phù hợp với mục tiêu và mức độ chấp nhận rủi ro của từng cá nhân.</p>
-                </div>
-                <div class="feature-item">
-                    <img src="https://via.placeholder.com/80/004d40/fbc02d?text=Secure" alt="Biểu tượng bảo mật">
-                    <h3>Bảo Mật Dữ Liệu Tuyệt Đối</h3>
-                    <p>Cam kết bảo vệ thông tin tài chính cá nhân của bạn với các tiêu chuẩn bảo mật hàng đầu.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="how-it-works" class="how-it-works-section">
-        <div class="container">
-            <h2>Cách Thức Hoạt Động</h2>
-            <div class="steps-grid">
-                <div class="step-item">
-                    <div class="step-number">1</div>
-                    <h3>Đăng Ký & Thiết Lập</h3>
-                    <p>Bắt đầu hành trình với Tâm Vạn Phúc AI chỉ trong vài bước đơn giản.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">2</div>
-                    <h3>Kết Nối Tài Khoản</h3>
-                    <p>Liên kết an toàn với các nền tảng tài chính của bạn để AI bắt đầu phân tích.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">3</div>
-                    <h3>Nhận Phân Tích & Khuyến Nghị</h3>
-                    <p>AI cung cấp các insight sâu sắc và khuyến nghị đầu tư tối ưu.</p>
-                </div>
-                <div class="step-item">
-                    <div class="step-number">4</div>
-                    <h3>Gia Tăng Lợi Nhuận</h3>
-                    <p>Đưa ra quyết định thông minh dựa trên dữ liệu AI và đạt được mục tiêu tài chính.</p>
+        <section class="features">
+            <div class="container">
+                <h2>Lợi Ích Độc Quyền Từ Giải Pháp AI Tài Chính Của Chúng Tôi</h2>
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <!-- Image placeholder - using background-color and content in CSS for simple icons -->
+                        <img src="" alt="Phân tích chuyên sâu">
+                        <h3>Phân Tích Thị Trường Chuyên Sâu</h3>
+                        <p>AI quét và xử lý hàng tỷ điểm dữ liệu, nhận diện xu hướng thị trường, đưa ra dự báo chính xác, giúp bạn nắm bắt cơ hội vàng.</p>
+                    </div>
+                    <div class="feature-item">
+                        <!-- Image placeholder -->
+                        <img src="" alt="Đầu tư thông minh">
+                        <h3>Đầu Tư Thông Minh Tự Động</h3>
+                        <p>Hệ thống đề xuất và thực hiện các giao dịch dựa trên thuật toán tối ưu, phù hợp với mục tiêu lợi nhuận và mức độ chấp nhận rủi ro của bạn.</p>
+                    </div>
+                    <div class="feature-item">
+                        <!-- Image placeholder -->
+                        <img src="" alt="Quản lý rủi ro">
+                        <h3>Quản Lý Rủi Ro Vượt Trội</h3>
+                        <p>Dự đoán và cảnh báo sớm các rủi ro tiềm ẩn, bảo vệ danh mục đầu tư của bạn khỏi những biến động không lường trước.</p>
+                    </div>
+                    <div class="feature-item">
+                        <!-- Image placeholder -->
+                        <img src="" alt="Cá nhân hóa">
+                        <h3>Cá Nhân Hóa Chiến Lược</h3>
+                        <p>Giải pháp tài chính được thiết kế riêng, điều chỉnh theo từng mục tiêu, khẩu vị rủi ro và tình hình tài chính độc đáo của bạn.</p>
+                    </div>
                 </div>
             </div>
-            <a href="https://tamvanphuc.com/affiliate?id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button secondary-cta">Bắt Đầu Ngay Hôm Nay</a>
-        </div>
-    </section>
+        </section>
 
-    <section id="cta-section" class="final-cta-section">
-        <div class="container">
-            <h2>Đừng Bỏ Lỡ Cơ Hội Nâng Cao Hiệu Quả Tài Chính Của Bạn!</h2>
-            <p>Trải nghiệm sự khác biệt với Tâm Vạn Phúc AI và xây dựng tương lai tài chính vững chắc.</p>
-            <a href="https://tamvanphuc.com/affiliate?id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button large-cta">Tôi Muốn Tối Ưu Tài Chính!</a>
-        </div>
-    </section>
+        <section class="final-cta">
+            <div class="container">
+                <h2>Đừng Bỏ Lỡ Cơ Hội Để Dẫn Đầu Thị Trường!</h2>
+                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button" target="_blank" rel="noopener noreferrer">Khám Phá Giải Pháp AI Tài Chính Ngay</a>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 Tâm Vạn Phúc AI. Mọi quyền được bảo lưu.</p>
-            <p>
-                <a href="#">Chính sách bảo mật</a> | 
-                <a href="#">Điều khoản sử dụng</a>
-            </p>
+            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+            <p>Một phần của hệ sinh thái <a href="#" target="_blank">Tâm Vạn Phúc</a></p>
         </div>
     </footer>
-
-    <script>
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
 </body>
 </html>
