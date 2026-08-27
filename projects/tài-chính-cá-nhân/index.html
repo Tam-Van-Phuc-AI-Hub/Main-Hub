@@ -3,433 +3,390 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Quản Lý Tài Chính Cá Nhân Thịnh Vượng</title>
-    <meta name="description" content="Khám phá các công cụ và kiến thức tài chính cá nhân toàn diện từ Tâm Vạn Phúc để đạt được sự tự do tài chính và an nhiên cuộc sống.">
+    <title>Tâm Vạn Phúc - Mở Khóa Tự Do Tài Chính Cá Nhân Của Bạn</title>
+    <meta name="description" content="Khám phá giải pháp tài chính cá nhân toàn diện từ Tâm Vạn Phúc. Xây dựng nền tảng vững chắc, quản lý tiền bạc hiệu quả và đạt được sự an tâm về tài chính.">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* General Styles */
         :root {
-            --primary-color: #007bff; /* Blue */
-            --primary-dark: #0056b3;
-            --secondary-color: #6c757d; /* Grey */
-            --accent-color: #28a745; /* Green */
+            --primary-color: #4CAF50; /* Green - Represents growth, stability */
+            --secondary-color: #2196F3; /* Blue - Represents trust, professionalism */
+            --accent-color: #FFC107; /* Amber - Represents enlightenment, opportunity */
+            --text-color: #333;
+            --light-text-color: #666;
             --background-light: #f8f9fa;
-            --background-white: #ffffff;
-            --text-dark: #343a40;
-            --text-light: #f8f9fa;
-            --border-color: #dee2e6;
-            --font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            --background-dark: #e0e0e0;
+            --white: #ffffff;
+            --shadow-light: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: var(--font-family);
+            font-family: 'Quicksand', sans-serif;
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            color: var(--text-dark);
+            color: var(--text-color);
             background-color: var(--background-light);
-            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        h1, h2, h3, h4, h5, h6 {
-            margin-top: 0;
-            margin-bottom: 0.5em;
+        header {
+            background: var(--white);
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+            box-shadow: var(--shadow-light);
+        }
+
+        header .logo {
+            font-size: 2em;
             font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        p {
-            margin-bottom: 1em;
-        }
-
-        a {
             color: var(--primary-color);
+            text-align: center;
+            display: block;
             text-decoration: none;
         }
+        header .logo span {
+            color: var(--secondary-color);
+        }
 
-        a:hover {
-            text-decoration: underline;
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="%23ffffff" fill-opacity="0.1" /></svg>');
+            background-size: 80px 80px;
+            opacity: 0.2;
+            animation: moveBackground 30s linear infinite;
+        }
+
+        @keyframes moveBackground {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            opacity: 0.9;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--text-light);
+            background-color: var(--accent-color);
+            color: var(--text-color);
             padding: 15px 30px;
-            border-radius: 8px;
             text-decoration: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1em;
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
             border: none;
             cursor: pointer;
         }
 
         .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            text-decoration: none;
+            background-color: darken(var(--accent-color), 10%);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-light);
         }
 
-        /* Header */
-        .header {
-            background-color: var(--background-white);
-            padding: 20px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        .logo span {
-            color: var(--accent-color);
-        }
-
-        .nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav ul li a {
-            color: var(--text-dark);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav ul li a:hover {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1554224155-16788226ad7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80') no-repeat center center/cover;
-            color: var(--text-light);
-            text-align: center;
-            padding: 100px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 60vh;
-        }
-
-        .hero-content {
-            max-width: 800px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--text-light);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        /* Section Styles */
         .section {
-            padding: 80px 0;
+            padding: 60px 0;
             text-align: center;
         }
 
         .section:nth-of-type(even) {
-            background-color: var(--background-white);
+            background-color: var(--background-dark);
         }
 
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .section h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
             color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
-        .section-subtitle {
-            font-size: 1.2rem;
-            color: var(--secondary-color);
-            margin-bottom: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Features/Benefits Grid */
-        .features-grid {
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin-top: 50px;
+            margin-top: 40px;
         }
 
-        .feature-item {
-            background-color: var(--background-white);
+        .feature-card {
+            background: var(--white);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-light);
             text-align: left;
             transition: transform 0.3s ease;
         }
 
-        .feature-item:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
         }
 
-        .feature-item h3 {
-            font-size: 1.6rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-
-        .feature-item p {
-            font-size: 1rem;
+        .feature-card i {
+            font-size: 3em;
             color: var(--secondary-color);
-        }
-
-        .feature-item .icon {
-            font-size: 3rem;
-            color: var(--accent-color);
             margin-bottom: 20px;
             display: block;
-        }
-
-        /* Call to Action Section */
-        .cta-section {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 80px 20px;
             text-align: center;
         }
 
-        .cta-section h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            color: var(--text-light);
+        .feature-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: center;
         }
 
-        .cta-section p {
-            font-size: 1.4rem;
+        .feature-card p {
+            font-size: 1em;
+            color: var(--light-text-color);
+            text-align: center;
+        }
+
+        .problem-solution {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+            text-align: left;
+        }
+        .problem-solution > div {
+            flex: 1;
+            min-width: 300px;
+        }
+        .problem-solution h3 {
+            font-size: 2em;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .problem-solution ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .problem-solution ul li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            color: var(--light-text-color);
+            position: relative;
+            padding-left: 30px;
+        }
+        .problem-solution ul li i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--primary-color);
+            font-size: 1.2em;
+        }
+
+        .cta-banner {
+            background: var(--secondary-color);
+            color: var(--white);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-banner h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        .cta-banner h2::after {
+            background-color: var(--accent-color);
+        }
+
+        .cta-banner p {
+            font-size: 1.2em;
             margin-bottom: 40px;
             opacity: 0.9;
         }
 
-        .cta-section .btn {
-            background-color: var(--accent-color);
-            color: var(--text-light);
-        }
-
-        .cta-section .btn:hover {
-            background-color: #218838;
-        }
-
-        /* Footer */
-        .footer {
-            background-color: var(--text-dark);
-            color: var(--text-light);
-            padding: 40px 0;
+        footer {
+            background: var(--text-color);
+            color: var(--white);
             text-align: center;
-            font-size: 0.9rem;
+            padding: 30px 20px;
+            margin-top: auto; /* Pushes footer to the bottom */
+            font-size: 0.9em;
         }
 
-        .footer p {
-            margin: 0;
-            opacity: 0.8;
-        }
-
-        .footer a {
-            color: var(--primary-color);
-            margin: 0 10px;
-        }
-
-        /* Responsiveness */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .header .container {
-                flex-direction: column;
-            }
-            .nav ul {
-                margin-top: 15px;
-                gap: 15px;
-            }
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            .hero p {
-                font-size: 1.1rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .section-subtitle {
-                font-size: 1rem;
-            }
-            .cta-section h2 {
-                font-size: 2rem;
-            }
-            .cta-section p {
-                font-size: 1.2rem;
-            }
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
             .hero {
-                padding: 80px 15px;
+                padding: 60px 20px;
             }
             .hero h1 {
-                font-size: 2rem;
+                font-size: 2.2em;
             }
             .hero p {
-                font-size: 0.95rem;
+                font-size: 1em;
             }
-            .nav ul {
-                flex-direction: column;
+            .section h2 {
+                font-size: 2em;
             }
-            .features-grid {
+            .grid {
                 grid-template-columns: 1fr;
             }
-            .section {
-                padding: 60px 0;
+            .problem-solution {
+                flex-direction: column;
+                text-align: center;
+            }
+            .problem-solution ul li {
+                text-align: left; /* Keep list items left-aligned */
+                margin: 0 auto 15px auto; /* Center list */
+                max-width: 80%; /* Limit width */
+            }
+            .problem-solution h3 {
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
-    <header class="header">
+    <header>
         <div class="container">
-            <a href="#" class="logo">Tâm Vạn <span>Phúc</span></a>
-            <nav class="nav">
-                <ul>
-                    <li><a href="#ve-chung-toi">Về chúng tôi</a></li>
-                    <li><a href="#loi-ich">Lợi ích</a></li>
-                    <li><a href="#cau-hoi">Câu hỏi</a></li>
-                    <li><a href="#lien-he">Liên hệ</a></li>
-                </ul>
-            </nav>
+            <a href="#" class="logo">Tâm Vạn Phúc <span>Tài Chính</span></a>
         </div>
     </header>
 
     <main>
         <section class="hero">
             <div class="hero-content">
-                <h1>Mở Khóa Tương Lai Tài Chính Thịnh Vượng Của Bạn</h1>
-                <p>Nắm vững kiến thức, xây dựng thói quen tài chính thông minh và đạt được sự an nhiên tài chính bạn hằng mơ ước cùng Tâm Vạn Phúc.</p>
-                <a href="https://tamvanphuc.com/register?aff_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Bắt Đầu Hành Trình Của Bạn Ngay Hôm Nay!</a>
+                <h1>Mở Khóa Tự Do Tài Chính Cá Nhân Cùng Tâm Vạn Phúc</h1>
+                <p>Khám phá giải pháp toàn diện giúp bạn xây dựng nền tảng tài chính vững chắc, quản lý tiền bạc hiệu quả và đạt được sự an tâm trong mọi khía cạnh cuộc sống.</p>
+                <a href="https://aff.tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank">Bắt Đầu Hành Trình Của Bạn Ngay!</a>
             </div>
         </section>
 
-        <section id="ve-chung-toi" class="section">
+        <section class="section">
             <div class="container">
-                <h2 class="section-title">Bạn Đang Vật Lộn Với Tài Chính Cá Nhân?</h2>
-                <p class="section-subtitle">Chúng tôi hiểu những khó khăn bạn đang gặp phải. Từ áp lực nợ nần, tiết kiệm không hiệu quả cho đến sự bối rối trước các lựa chọn đầu tư. Tâm Vạn Phúc ở đây để cùng bạn vượt qua.</p>
-
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <span class="icon">&#128184;</span> <!-- Briefcase icon -->
-                        <h3>Kiểm Soát Chi Tiêu</h3>
-                        <p>Học cách lập ngân sách thông minh, theo dõi và tối ưu hóa chi tiêu để dòng tiền của bạn luôn khỏe mạnh.</p>
+                <h2>Bạn Đang Đối Mặt Với Điều Gì?</h2>
+                <div class="problem-solution">
+                    <div>
+                        <h3>Những Thách Thức Phổ Biến</h3>
+                        <ul>
+                            <li><i class="fas fa-exclamation-triangle"></i> Khó khăn trong việc lập và tuân thủ ngân sách cá nhân.</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Cảm thấy lo lắng về nợ nần và không biết cách giải quyết.</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Tiết kiệm không hiệu quả, không đạt được mục tiêu tài chính.</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Thiếu kiến thức để đầu tư thông minh và tăng trưởng tài sản.</li>
+                            <li><i class="fas fa-exclamation-triangle"></i> Cảm thấy mất kiểm soát về tài chính, ảnh hưởng đến cuộc sống.</li>
+                        </ul>
                     </div>
-                    <div class="feature-item">
-                        <span class="icon">&#128176;</span> <!-- Money bag icon -->
+                    <div>
+                        <h3>Giải Pháp Từ Tâm Vạn Phúc</h3>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i> Phương pháp lập ngân sách đơn giản, dễ áp dụng.</li>
+                            <li><i class="fas fa-check-circle"></i> Chiến lược quản lý nợ hiệu quả, giúp bạn thoát khỏi gánh nặng.</li>
+                            <li><i class="fas fa-check-circle"></i> Kế hoạch tiết kiệm thông minh, tối ưu hóa mục tiêu của bạn.</li>
+                            <li><i class="fas fa-check-circle"></i> Hướng dẫn đầu tư cơ bản đến nâng cao, an toàn và bền vững.</li>
+                            <li><i class="fas fa-check-circle"></i> Cộng đồng hỗ trợ, kiến thức chuyên sâu để bạn làm chủ tài chính.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Lợi Ích Khi Đồng Hành Cùng Chúng Tôi</h2>
+                <div class="grid">
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Tăng Trưởng Tài Sản</h3>
+                        <p>Học cách đưa ra các quyết định đầu tư thông minh, giúp tài sản của bạn phát triển bền vững theo thời gian.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-piggy-bank"></i>
                         <h3>Tiết Kiệm Hiệu Quả</h3>
-                        <p>Xây dựng kế hoạch tiết kiệm rõ ràng, đặt mục tiêu tài chính cụ thể và biến ước mơ thành hiện thực nhanh chóng.</p>
+                        <p>Xây dựng thói quen tiết kiệm kỷ luật và đạt được các mục tiêu tài chính lớn như mua nhà, xe, hoặc nghỉ hưu an nhàn.</p>
                     </div>
-                    <div class="feature-item">
-                        <span class="icon">&#128187;</span> <!-- Chart icon -->
-                        <h3>Đầu Tư Thông Minh</h3>
-                        <p>Nhận hướng dẫn bài bản về các nguyên tắc đầu tư an toàn và hiệu quả, giúp tài sản của bạn tăng trưởng bền vững.</p>
+                    <div class="feature-card">
+                        <i class="fas fa-handshake"></i>
+                        <h3>An Tâm Tài Chính</h3>
+                        <p>Có được sự bình an trong tâm hồn khi biết rằng bạn đang kiểm soát tốt tình hình tài chính của mình và gia đình.</p>
                     </div>
-                    <div class="feature-item">
-                        <span class="icon">&#128198;</span> <!-- Book icon -->
-                        <h3>Kiến Thức Chuyên Sâu</h3>
-                        <p>Tiếp cận thư viện kiến thức tài chính đồ sộ, từ cơ bản đến nâng cao, được trình bày dễ hiểu và dễ áp dụng.</p>
+                    <div class="feature-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Nâng Cao Kiến Thức</h3>
+                        <p>Tiếp cận kho tàng kiến thức tài chính chuyên sâu, được cập nhật liên tục để bạn luôn đi trước một bước.</p>
                     </div>
-                    <div class="feature-item">
-                        <span class="icon">&#128100;</span> <!-- Person icon -->
-                        <h3>Hỗ Trợ Cộng Đồng</h3>
-                        <p>Tham gia cộng đồng những người cùng chí hướng, chia sẻ kinh nghiệm, học hỏi và truyền cảm hứng lẫn nhau.</p>
+                    <div class="feature-card">
+                        <i class="fas fa-users"></i>
+                        <h3>Cộng Đồng Hỗ Trợ</h3>
+                        <p>Tham gia cộng đồng những người cùng chí hướng, chia sẻ kinh nghiệm và học hỏi lẫn nhau để cùng phát triển.</p>
                     </div>
-                    <div class="feature-item">
-                        <span class="icon">&#128173;</span> <!-- Lightbulb icon -->
-                        <h3>Giải Pháp Toàn Diện</h3>
-                        <p>Tâm Vạn Phúc cung cấp một lộ trình rõ ràng, công cụ hiệu quả và sự hỗ trợ tận tâm để bạn làm chủ hoàn toàn tài chính cá nhân.</p>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Bảo Vệ Tài Sản</h3>
+                        <p>Tìm hiểu các phương pháp bảo vệ tài sản của bạn khỏi những rủi ro không mong muốn và xây dựng quỹ dự phòng vững chắc.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="loi-ich" class="cta-section">
+        <section class="cta-banner">
             <div class="container">
-                <h2>Hãy Để Tâm Vạn Phúc Đồng Hành Cùng Bạn</h2>
-                <p>Đừng để tài chính là gánh nặng. Hãy biến nó thành công cụ để bạn kiến tạo một cuộc sống an nhiên và thịnh vượng!</p>
-                <a href="https://tamvanphuc.com/register?aff_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Khám Phá Giải Pháp Của Chúng Tôi</a>
-            </div>
-        </section>
-
-        <section id="cau-hoi" class="section">
-            <div class="container">
-                <h2 class="section-title">Câu Hỏi Thường Gặp (FAQs)</h2>
-                <p class="section-subtitle">Dưới đây là một số câu hỏi phổ biến mà chúng tôi nhận được.</p>
-                <div style="max-width: 800px; margin: 0 auto; text-align: left;">
-                    <details style="margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
-                        <summary style="background-color: var(--background-white); padding: 20px; font-weight: 600; cursor: pointer; outline: none; transition: background-color 0.3s ease;">
-                            Tâm Vạn Phúc có phù hợp với người mới bắt đầu không?
-                        </summary>
-                        <div style="padding: 20px; background-color: var(--background-light); border-top: 1px solid var(--border-color);">
-                            Hoàn toàn phù hợp! Chương trình của chúng tôi được thiết kế từ cơ bản đến nâng cao, giúp mọi người dễ dàng tiếp cận và áp dụng.
-                        </div>
-                    </details>
-                    <details style="margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
-                        <summary style="background-color: var(--background-white); padding: 20px; font-weight: 600; cursor: pointer; outline: none; transition: background-color 0.3s ease;">
-                            Tôi có cần kinh nghiệm tài chính để tham gia không?
-                        </summary>
-                        <div style="padding: 20px; background-color: var(--background-light); border-top: 1px solid var(--border-color);">
-                            Không hề! Chúng tôi sẽ hướng dẫn bạn từ những khái niệm cơ bản nhất, không yêu cầu bất kỳ kinh nghiệm nào trước đó.
-                        </div>
-                    </details>
-                    <details style="margin-bottom: 15px; border: 1px solid var(--border-color); border-radius: 8px; overflow: hidden;">
-                        <summary style="background-color: var(--background-white); padding: 20px; font-weight: 600; cursor: pointer; outline: none; transition: background-color 0.3s ease;">
-                            Làm thế nào để tôi bắt đầu?
-                        </summary>
-                        <div style="padding: 20px; background-color: var(--background-light); border-top: 1px solid var(--border-color);">
-                            Rất đơn giản! Nhấn vào nút "Bắt Đầu Hành Trình Của Bạn Ngay Hôm Nay!" để truy cập nền tảng và khám phá các tài nguyên của chúng tôi.
-                        </div>
-                    </details>
-                </div>
+                <h2>Sẵn Sàng Thay Đổi Tương Lai Tài Chính Của Bạn?</h2>
+                <p>Đừng chần chừ! Hãy để Tâm Vạn Phúc đồng hành cùng bạn trên con đường hướng tới tự do và thịnh vượng tài chính.</p>
+                <a href="https://aff.tamvanphuc.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank">Khám Phá Giải Pháp Ngay Hôm Nay!</a>
             </div>
         </section>
     </main>
 
-    <footer id="lien-he" class="footer">
+    <footer>
         <div class="container">
             <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <p>
-                <a href="#">Chính sách bảo mật</a> |
-                <a href="#">Điều khoản sử dụng</a>
-            </p>
         </div>
     </footer>
 </body>
