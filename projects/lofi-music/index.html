@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc | Lofi Music - Thư Giãn, Tập Trung, An Nhiên</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>Thư Giãn Cùng Lofi - Tâm Vạn Phúc</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #7a9e9f; /* Muted teal/blue-green */
-            --secondary-color: #e2b48e; /* Soft peach/orange */
-            --text-color: #333;
-            --light-text-color: #f0f0f0;
-            --background-light: #f5f5f5; /* Light grey */
-            --button-hover: #6a8c8d;
-            --footer-bg: #4a6a77;
+            --primary-color: #6a8e99; /* Muted blue-grey */
+            --secondary-color: #f0e6d2; /* Light beige */
+            --accent-color: #d1b892; /* Warm beige/brown */
+            --text-color-dark: #333;
+            --text-color-light: #fff;
+            --font-main: 'Roboto', sans-serif;
+            --font-accent: 'Lora', serif;
         }
 
+        /* Reset & Base Styles */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -27,57 +28,34 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: var(--font-main);
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-light);
-            overflow-x: hidden;
+            color: var(--text-color-dark);
+            background-color: var(--secondary-color);
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        /* Header */
-        header {
-            background-color: transparent;
-            color: var(--light-text-color);
-            padding: 15px 0;
-            position: absolute;
-            width: 100%;
-            z-index: 1000;
-        }
-
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            font-size: 1.8em;
-            color: var(--light-text-color);
-            text-decoration: none;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        /* Hero Section */
+        /* --- Hero Section --- */
         .hero {
-            position: relative;
-            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #a4baba 100%); /* Lofi gradient */
+            color: var(--text-color-light);
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--light-text-color);
             text-align: center;
+            position: relative;
             overflow: hidden;
-            background: linear-gradient(45deg, #4b6cb7, #182848); /* Fallback background */
+            padding: 40px 20px; /* Add padding for smaller screens */
         }
 
+        /* Subtle rainy/grainy overlay for lofi feel */
         .hero::before {
             content: '';
             position: absolute;
@@ -85,166 +63,175 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://source.unsplash.com/random/1920x1080/?lofi,chill,rain,cozy'); /* Dynamic lofi background */
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.7) grayscale(0.2); /* Soften and mute colors */
-            z-index: -1;
-            animation: panBackground 60s infinite alternate linear; /* Subtle background movement */
-        }
-
-        @keyframes panBackground {
-            0% {
-                transform: scale(1) translateX(0) translateY(0);
-            }
-            100% {
-                transform: scale(1.1) translateX(5%) translateY(5%);
-            }
+            background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="rain" width="10" height="10" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="10" y2="10" stroke="%23ffffff20" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23rain)"/></svg>') repeat;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 5;
         }
 
         .hero-content {
-            z-index: 1;
             max-width: 800px;
+            z-index: 10;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.4); /* Semi-transparent overlay for readability */
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 2s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            animation: fadeIn 1.5s ease-out; /* Initial fade-in for hero content */
         }
 
         .hero h1 {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-accent);
             font-size: 3.5em;
             margin-bottom: 20px;
-            font-weight: 600;
-            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero p {
             font-size: 1.3em;
             margin-bottom: 30px;
-            font-weight: 300;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            opacity: 0.9;
         }
 
+        /* --- Call to Action Button --- */
         .btn {
             display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
+            background-color: var(--accent-color);
+            color: var(--text-color-dark);
             padding: 15px 30px;
-            text-decoration: none;
             border-radius: 50px;
-            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
             font-size: 1.1em;
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            font-weight: 700;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
         }
 
         .btn:hover {
-            background-color: var(--button-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            background-color: #c0a886; /* Slightly darker accent */
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
         }
 
-        /* Features Section */
-        .features {
+        /* --- Section Styling --- */
+        section {
             padding: 80px 0;
-            background-color: var(--background-light);
             text-align: center;
         }
 
-        .features h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.8em;
-            margin-bottom: 60px;
-            color: var(--primary-color);
-            position: relative;
+        section:nth-of-type(even) {
+            background-color: #f7f2ea; /* Slightly off-white for contrast */
         }
 
-        .features h2::after {
+        h2 {
+            font-family: var(--font-accent);
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block; /* To center the pseudo-element underline */
+            padding-bottom: 15px; /* Space for the underline */
+        }
+
+        h2::after {
             content: '';
             position: absolute;
-            bottom: -15px;
             left: 50%;
+            bottom: 0;
             transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--secondary-color);
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
             border-radius: 2px;
         }
 
-        .feature-grid {
+        /* --- Benefits Section --- */
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-top: 40px;
+            margin-top: 50px;
         }
 
-        .feature-item {
+        .benefit-item {
             background-color: #fff;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
+            text-align: left;
+            position: relative; /* For scroll animation */
         }
 
-        .feature-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        .benefit-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
-        .feature-item i {
+        /* Icon styling using unicode characters */
+        .benefit-item .icon {
             font-size: 3em;
             color: var(--primary-color);
             margin-bottom: 20px;
             display: block;
+            text-align: center;
         }
 
-        .feature-item h3 {
-            font-family: 'Montserrat', sans-serif;
+        .benefit-item h3 {
+            font-family: var(--font-accent);
             font-size: 1.5em;
             margin-bottom: 15px;
-            color: var(--text-color);
+            color: var(--primary-color);
         }
 
-        .feature-item p {
-            font-size: 1.1em;
+        .benefit-item p {
             color: #555;
+            font-size: 1em;
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--footer-bg);
-            color: var(--light-text-color);
-            text-align: center;
+        /* --- Call to Action Section (Mid-page) --- */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--text-color-light);
+            padding: 100px 0;
+            position: relative; /* For scroll animation */
+        }
+
+        .cta-section h2 {
+            color: var(--text-color-light);
+        }
+
+        .cta-section h2::after {
+            background-color: var(--accent-color);
+        }
+
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* --- Footer --- */
+        .footer {
+            background-color: #333;
+            color: #ccc;
             padding: 40px 0;
             font-size: 0.9em;
+            text-align: center;
         }
 
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        footer a {
-            color: var(--secondary-color);
+        .footer a {
+            color: var(--accent-color);
             text-decoration: none;
-            margin: 0 10px;
             transition: color 0.3s ease;
         }
 
-        footer a:hover {
+        .footer a:hover {
             color: #fff;
         }
 
-        /* Responsive Design */
+        /* --- Responsive Design --- */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5em;
@@ -254,97 +241,142 @@
                 font-size: 1.1em;
             }
 
-            .btn {
-                padding: 12px 25px;
-                font-size: 1em;
-            }
-
-            .features h2 {
+            h2 {
                 font-size: 2em;
             }
 
-            .feature-grid {
-                grid-template-columns: 1fr;
+            .benefits-grid {
+                grid-template-columns: 1fr; /* Stack items on small screens */
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .cta-section {
+                padding: 80px 0;
             }
         }
 
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5em;
-            }
-
             .hero h1 {
                 font-size: 2em;
             }
-
             .hero p {
                 font-size: 1em;
             }
-
             .btn {
-                padding: 10px 20px;
-                font-size: 0.9em;
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .benefit-item h3 {
+                font-size: 1.3em;
             }
         }
+
+        /* --- Animations --- */
+        /* Initial fade-in for hero content */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scroll reveal animation styles */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc</a>
+
+    <section class="hero">
+        <div class="hero-content animate-on-scroll">
+            <h1>Thư Giãn Cùng Âm Thanh Lofi</h1>
+            <p>Nơi Bình Yên Bắt Đầu: Tập trung học tập, làm việc, hay chỉ đơn giản là tìm một góc yên tĩnh cho tâm hồn. Khám phá kho nhạc lofi độc quyền từ Tâm Vạn Phúc.</p>
+            <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Khám Phá Ngay</a>
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Tìm Lại Bình Yên Với Âm Nhạc Lofi Cùng Tâm Vạn Phúc</h1>
-                <p>Đắm mình vào những giai điệu êm đềm, xua tan căng thẳng, tăng cường sự tập trung và tận hưởng khoảnh khắc thư thái tuyệt đối.</p>
-                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn" target="_blank" rel="noopener noreferrer">
-                    Khám Phá Thêm & Bắt Đầu Hành Trình An Nhiên
-                </a>
-            </div>
-        </section>
-
-        <section class="features">
-            <div class="container">
-                <h2>Lợi Ích Tuyệt Vời Của Lofi Music</h2>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <i class="fas fa-brain"></i>
-                        <h3>Tăng Cường Tập Trung</h3>
-                        <p>Giúp bạn loại bỏ xao nhãng, nâng cao hiệu suất làm việc và học tập với âm thanh nền nhẹ nhàng.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-leaf"></i>
-                        <h3>Giảm Căng Thẳng</h3>
-                        <p>Những giai điệu êm ái xoa dịu tâm hồn, mang lại cảm giác thư thái và bình yên sau ngày dài.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-moon"></i>
-                        <h3>Cải Thiện Giấc Ngủ</h3>
-                        <p>Ru bạn vào giấc ngủ sâu và ngon hơn, phục hồi năng lượng cho một ngày mới tràn đầy sức sống.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>Thức Tỉnh Sáng Tạo</h3>
-                        <p>Khơi nguồn cảm hứng, giúp bạn tư duy sáng tạo và tìm ra những ý tưởng mới mẻ.</p>
-                    </div>
+    <section id="benefits">
+        <div class="container">
+            <h2 class="animate-on-scroll">Lợi Ích Của Lofi Music</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item animate-on-scroll">
+                    <span class="icon">&#128173;</span> <!-- Focus icon (Book/Clipboard with pencil) -->
+                    <h3>Tăng Cường Tập Trung</h3>
+                    <p>Giúp bạn loại bỏ xao nhãng, nâng cao khả năng tập trung vào công việc hoặc học tập một cách hiệu quả.</p>
+                </div>
+                <div class="benefit-item animate-on-scroll">
+                    <span class="icon">&#127769;</span> <!-- Relax icon (Moon) -->
+                    <h3>Thư Giãn Sâu Sắc</h3>
+                    <p>Những giai điệu êm dịu mang đến cảm giác bình yên, xoa dịu tâm trí sau một ngày dài căng thẳng.</p>
+                </div>
+                <div class="benefit-item animate-on-scroll">
+                    <span class="icon">&#128164;</span> <!-- Sleep icon (Zzz) -->
+                    <h3>Cải Thiện Giấc Ngủ</h3>
+                    <p>Âm nhạc lofi nhẹ nhàng là lựa chọn lý tưởng để thư giãn trước khi ngủ, giúp bạn có giấc ngủ ngon hơn.</p>
+                </div>
+                <div class="benefit-item animate-on-scroll">
+                    <span class="icon">&#128172;</span> <!-- Idea/Creativity icon (Speech Bubble) -->
+                    <h3>Khơi Nguồn Cảm Hứng</h3>
+                    <p>Kích thích sự sáng tạo và giúp bạn tìm thấy nguồn cảm hứng mới trong mọi hoạt động.</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
+    <section class="cta-section">
+        <div class="container animate-on-scroll">
+            <h2>Hòa Mình Vào Thế Giới 'Tâm Vạn Phúc'</h2>
+            <p>Lofi music không chỉ là âm nhạc, mà còn là một phần của hành trình tìm về sự bình an và hạnh phúc toàn diện. 'Tâm Vạn Phúc' mang đến cho bạn không gian để nuôi dưỡng tâm hồn và thể chất, bắt đầu từ những giai điệu nhẹ nhàng.</p>
+            <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Bắt Đầu Hành Trình Của Bạn</a>
+        </div>
+    </section>
+
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <p>
-                <a href="#">Chính sách bảo mật</a> | 
-                <a href="#">Điều khoản sử dụng</a>
-            </p>
+            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu. | <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank">Khám Phá Lofi</a></p>
         </div>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateOnScrollElements = document.querySelectorAll('.animate-on-scroll');
+
+            const observerOptions = {
+                root: null, /* viewport as root */
+                rootMargin: '0px',
+                threshold: 0.1 /* 10% of element must be visible to trigger */
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); /* Stop observing once animated */
+                    }
+                });
+            }, observerOptions);
+
+            animateOnScrollElements.forEach(element => {
+                // Check if element is already in viewport on load for immediate animation
+                if (element.getBoundingClientRect().top < window.innerHeight && element.getBoundingClientRect().bottom > 0) {
+                    element.classList.add('is-visible');
+                } else {
+                    observer.observe(element);
+                }
+            });
+        });
+    </script>
 </body>
 </html>
