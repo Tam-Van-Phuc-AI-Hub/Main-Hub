@@ -3,20 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Edu-AI: Nâng Tầm Giáo Dục Thời Đại Mới</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Tâm Vạn Phúc Edu-AI: Khai Phóng Tiềm Năng Học Tập</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* General Styles */
         :root {
-            --primary-color: #0F4C81; /* Dark Blue */
-            --secondary-color: #3498DB; /* Medium Blue */
-            --accent-color: #2ECC71; /* Green */
-            --text-color: #333333;
-            --light-text-color: #666666;
-            --bg-color-light: #F9F9F9;
-            --bg-color-white: #FFFFFF;
-            --shadow-light: 0 4px 8px rgba(0, 0, 0, 0.05);
+            --primary-color: #5271FF; /* A vibrant blue */
+            --secondary-color: #4A5CFF; /* Slightly darker blue */
+            --accent-color: #FFC107; /* A yellow/orange for highlights */
+            --text-color: #333;
+            --light-text-color: #666;
+            --background-light: #f4f7fc;
+            --background-dark: #e9eff7;
+            --white: #fff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
             --border-radius: 8px;
         }
 
@@ -27,10 +26,10 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
-            background-color: var(--bg-color-light);
+            background-color: var(--white);
             scroll-behavior: smooth;
         }
 
@@ -40,612 +39,596 @@
             padding: 0 20px;
         }
 
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
         h1, h2, h3 {
             font-family: 'Montserrat', sans-serif;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+            color: var(--text-color);
+            margin-bottom: 15px;
         }
 
-        h1 {
-            font-size: 2.8em;
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        h2 {
-            font-size: 2.2em;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        h3 {
-            font-size: 1.5em;
-            font-weight: 600;
-        }
+        h1 { font-size: 2.8em; line-height: 1.2; }
+        h2 { font-size: 2.2em; text-align: center; margin-bottom: 40px; }
+        h3 { font-size: 1.5em; }
 
         p {
             margin-bottom: 15px;
-            font-size: 1.1em;
-            color: var(--light-text-color);
         }
 
-        a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: var(--primary-color);
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 25px;
-            border-radius: var(--border-radius);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
-            text-align: center;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .primary-btn {
-            background-color: var(--secondary-color);
-            color: var(--bg-color-white);
-            box-shadow: var(--shadow-light);
-        }
-
-        .primary-btn:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .large-btn {
-            padding: 15px 35px;
-            font-size: 1.2em;
-            border-radius: 10px;
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: var(--bg-color-white);
+        /* Header */
+        .header {
+            background-color: var(--white);
             padding: 15px 0;
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        .navbar .container {
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .navbar .logo img {
-            height: 50px;
-            vertical-align: middle;
-        }
-
-        .navbar .nav-links a {
-            margin-left: 30px;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 600;
+        .logo h1 {
+            font-size: 1.8em;
+            font-weight: 700;
             color: var(--primary-color);
-            font-size: 1.05em;
+            margin: 0;
+        }
+        .logo h1 span {
+            color: var(--accent-color);
+            font-weight: 600;
+            margin-left: 5px;
         }
 
-        .navbar .nav-links a:hover {
-            color: var(--secondary-color);
+        .navbar a {
+            color: var(--light-text-color);
+            margin-left: 25px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none; /* Hidden on desktop */
+            cursor: pointer;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+        }
+
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
         }
 
         /* Hero Section */
         .hero-section {
-            background: linear-gradient(135deg, var(--bg-color-white) 0%, var(--bg-color-light) 100%);
-            padding: 80px 0;
-            text-align: center;
+            background: linear-gradient(135deg, var(--background-light), var(--background-dark));
+            padding: 100px 0;
+            display: flex;
+            align-items: center;
+            min-height: 70vh;
         }
 
         .hero-section .container {
             display: flex;
-            justify-content: center;
             align-items: center;
-            flex-wrap: wrap;
             gap: 40px;
+            flex-wrap: wrap;
         }
 
         .hero-content {
             flex: 1;
             min-width: 300px;
-            text-align: left;
         }
 
         .hero-content h1 {
-            margin-bottom: 25px;
+            font-size: 3.5em;
+            font-weight: 700;
             color: var(--primary-color);
+            margin-bottom: 20px;
         }
 
-        .hero-content p {
+        .hero-content .sub-headline {
             font-size: 1.3em;
-            line-height: 1.5;
-            margin-bottom: 35px;
             color: var(--light-text-color);
+            margin-bottom: 30px;
         }
 
         .hero-image {
             flex: 1;
             min-width: 300px;
+            text-align: center;
         }
 
         .hero-image img {
             max-width: 100%;
             height: auto;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow);
         }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 18px 35px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
+        }
+
+        .cta-button:hover {
+            background-color: #FFB300;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 193, 7, 0.5);
+        }
+
+        /* Animations */
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
 
         /* Section Styling */
         section {
             padding: 80px 0;
         }
 
-        .about-section {
-            background-color: var(--bg-color-white);
+        section:nth-child(even) {
+            background-color: var(--background-light);
+        }
+
+        section h2 {
+            margin-bottom: 50px;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
             text-align: center;
         }
 
-        .about-section p {
-            max-width: 800px;
-            margin: 0 auto 50px auto;
-            line-height: 1.8;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .stat-item {
-            background-color: var(--bg-color-light);
+        .about-item {
+            background-color: var(--white);
             padding: 30px;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
-            text-align: center;
+            box-shadow: var(--shadow);
             transition: transform 0.3s ease;
         }
 
-        .stat-item:hover {
-            transform: translateY(-5px);
+        .about-item:hover {
+            transform: translateY(-10px);
         }
 
-        .stat-item h3 {
-            font-size: 2.5em;
+        .about-item .icon {
+            font-size: 3em;
             color: var(--secondary-color);
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
-        .stat-item p {
-            font-size: 1.1em;
-            color: var(--light-text-color);
-            margin: 0;
+        .about-item h3 {
+            color: var(--primary-color);
+            font-weight: 600;
         }
 
-        .features-section {
-            background-color: var(--bg-color-light);
-            text-align: center;
-        }
-
+        /* Features Section */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
-            margin-top: 50px;
         }
 
-        .feature-item {
-            background-color: var(--bg-color-white);
+        .feature-card {
+            background-color: var(--white);
             padding: 30px;
             border-radius: var(--border-radius);
-            box-shadow: var(--shadow-light);
+            box-shadow: var(--shadow);
             text-align: center;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .feature-item:hover {
+        .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
 
-        .feature-item i {
-            font-size: 3.5em;
-            color: var(--accent-color);
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .feature-item h3 {
-            margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        .feature-item p {
-            font-size: 1em;
-            color: var(--light-text-color);
-            margin: 0;
-        }
-
-        /* Call to Action Section */
-        .cta-section {
+        .feature-card .icon-circle {
+            width: 70px;
+            height: 70px;
             background-color: var(--primary-color);
-            color: var(--bg-color-white);
-            padding: 80px 0;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2em;
+            margin: 0 auto 20px auto;
+        }
+
+        .feature-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Testimonial Section */
+        .testimonial-section {
+            background-color: var(--background-dark);
+            padding-bottom: 100px;
+        }
+
+        .testimonial-slider {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding-bottom: 20px;
+        }
+
+        .testimonial-item {
+            flex: 0 0 calc(50% - 15px); /* Two items per row with gap */
+            max-width: calc(50% - 15px);
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
             text-align: center;
+            min-width: 300px;
         }
 
-        .cta-section h2 {
-            color: var(--bg-color-white);
+        .testimonial-item p {
+            font-style: italic;
+            color: var(--light-text-color);
             margin-bottom: 20px;
-            font-size: 2.5em;
+            font-size: 1.1em;
         }
 
-        .cta-section p {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.3em;
+        .testimonial-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .testimonial-item span {
+            font-size: 0.9em;
+            color: var(--light-text-color);
+        }
+
+
+        /* CTA Bottom Section */
+        .cta-bottom-section {
+            background-color: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 80px 0;
+        }
+
+        .cta-bottom-section h2 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .cta-bottom-section p {
+            font-size: 1.2em;
             margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            opacity: 0.9;
         }
 
-        .cta-section .btn {
+        .cta-bottom-section .cta-button {
             background-color: var(--accent-color);
-            color: var(--bg-color-white);
+            box-shadow: 0 5px 20px rgba(255, 193, 7, 0.6);
         }
 
-        .cta-section .btn:hover {
-            background-color: #27ae60; /* Darker green */
+        .cta-bottom-section .cta-button:hover {
+            background-color: #FFB300;
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.7);
         }
+
 
         /* Footer */
         .footer {
-            background-color: var(--text-color);
-            color: rgba(255, 255, 255, 0.7);
-            padding: 60px 0 30px 0;
-            font-size: 0.95em;
-        }
-
-        .footer .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            color: var(--bg-color-white);
-            margin-bottom: 20px;
-            font-size: 1.4em;
-        }
-
-        .footer-col ul {
-            list-style: none;
-        }
-
-        .footer-col ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-col ul li a {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 1em;
-        }
-
-        .footer-col ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        .footer-col p {
-            margin-bottom: 10px;
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .footer-col .social-links a {
-            color: var(--bg-color-white);
-            font-size: 1.5em;
-            margin-right: 15px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-col .social-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .footer .copyright {
+            background-color: #333;
+            color: #fff;
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 30px;
-            margin-top: 30px;
-            color: rgba(255, 255, 255, 0.5);
+            padding: 30px 0;
+            font-size: 0.9em;
         }
 
-        /* Scroll to Top Button */
-        #scrollToTopBtn {
-            display: none;
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 99;
-            font-size: 20px;
-            border: none;
-            outline: none;
-            background-color: var(--secondary-color);
-            color: white;
-            cursor: pointer;
-            padding: 15px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s, transform 0.3s;
+        .footer p {
+            margin: 5px 0;
+            opacity: 0.8;
         }
 
-        #scrollToTopBtn:hover {
-            background-color: var(--primary-color);
-            transform: translateY(-3px);
-        }
 
         /* Responsive Design */
         @media (max-width: 992px) {
-            .navbar .nav-links {
-                display: none; /* Hide nav links on smaller screens for simplicity on a landing page */
-            }
-
-            .navbar .container {
-                justify-content: center;
-            }
-
             .hero-section .container {
                 flex-direction: column;
                 text-align: center;
             }
-
-            .hero-content {
-                text-align: center;
-                margin-bottom: 30px;
-            }
-
             .hero-content h1 {
-                font-size: 2.2em;
+                font-size: 2.8em;
             }
-
-            .hero-content p {
-                font-size: 1.1em;
-            }
-
-            h2 {
-                font-size: 1.8em;
-            }
-
-            .features-grid, .stats-grid, .footer .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .feature-item, .stat-item {
-                margin: 0 auto;
-                max-width: 400px;
+            .hero-image {
+                margin-top: 40px;
             }
         }
 
         @media (max-width: 768px) {
-            .navbar .logo img {
-                height: 40px;
+            .navbar {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px; /* Adjust based on header height */
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                box-shadow: var(--shadow);
+                padding: 20px 0;
+            }
+            .navbar.active {
+                display: flex;
+            }
+            .navbar a {
+                margin: 10px 20px;
+                text-align: center;
+                width: auto;
+            }
+            .hamburger {
+                display: flex;
             }
 
-            .navbar .btn {
-                padding: 10px 20px;
-                font-size: 0.9em;
-            }
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.3em; }
 
             .hero-section {
-                padding: 60px 0;
+                padding: 80px 0;
             }
-
             .hero-content h1 {
-                font-size: 1.8em;
+                font-size: 2.5em;
             }
-
-            .hero-content p {
-                font-size: 1em;
-            }
-
-            .large-btn {
-                padding: 12px 25px;
-                font-size: 1em;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            h2 {
-                font-size: 1.6em;
-            }
-
-            .cta-section h2 {
-                font-size: 2em;
-            }
-
-            .cta-section p {
+            .hero-content .sub-headline {
                 font-size: 1.1em;
             }
-
-            .footer-col {
-                text-align: center;
+            .cta-button {
+                padding: 15px 25px;
+                font-size: 1em;
             }
 
-            .footer-col ul {
-                padding: 0;
+            .about-item, .feature-card {
+                padding: 25px;
             }
 
-            .footer-col ul li {
-                display: inline-block;
-                margin: 0 10px;
+            .testimonial-item {
+                flex: 0 0 100%; /* One item per row on smaller screens */
+                max-width: 100%;
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2em;
+            }
+            .hero-content .sub-headline {
+                font-size: 1em;
+            }
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+            }
+            h2 {
+                font-size: 1.6em;
             }
         }
     </style>
 </head>
 <body>
-    <header class="navbar">
+    <header class="header">
         <div class="container">
             <div class="logo">
-                <a href="#"><img src="https://via.placeholder.com/150x50/0F4C81/FFFFFF?text=Tâm+Vạn+Phúc" alt="Tâm Vạn Phúc Logo"></a>
+                <h1>Tâm Vạn Phúc<span>Edu-AI</span></h1>
             </div>
-            <nav class="nav-links">
-                <a href="#hero">Trang chủ</a>
-                <a href="#about">Về chúng tôi</a>
-                <a href="#features">Giải pháp</a>
-                <a href="#contact">Liên hệ</a>
+            <nav class="navbar">
+                <a href="#hero">Trang Chủ</a>
+                <a href="#gioi-thieu">Giới Thiệu</a>
+                <a href="#tinh-nang">Tính Năng</a>
+                <a href="#lien-he">Liên Hệ</a>
             </nav>
-            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn primary-btn affiliate-link">Đăng ký ngay</a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
-    <section id="hero" class="hero-section">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Tâm Vạn Phúc Edu-AI: Khai Phóng Tiềm Năng Học Tập Vô Hạn</h1>
-                <p>Nền tảng giáo dục thông minh ứng dụng Trí tuệ nhân tạo, giúp cá nhân hóa lộ trình học tập, tối ưu hóa hiệu suất và mang lại trải nghiệm học tập đột phá.</p>
-                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn large-btn primary-btn affiliate-link">Bắt đầu ngay hôm nay!</a>
-            </div>
-            <div class="hero-image">
-                <img src="https://via.placeholder.com/600x400/3498DB/FFFFFF?text=AI+in+Education+by+Tâm+Vạn+Phúc" alt="Hình ảnh AI trong giáo dục">
-            </div>
-        </div>
-    </section>
-
-    <section id="about" class="about-section">
-        <div class="container">
-            <h2>Về Hệ Sinh Thái Tâm Vạn Phúc & Edu-AI</h2>
-            <p>Tâm Vạn Phúc cam kết mang đến những giải pháp giáo dục tiên tiến nhất. Với Edu-AI, chúng tôi tích hợp sức mạnh của Trí tuệ nhân tạo để phân tích, cá nhân hóa và tối ưu hóa quá trình học tập cho mọi đối tượng.</p>
-            <p>Từ học sinh, sinh viên đến người đi làm, chúng tôi giúp bạn đạt được mục tiêu giáo dục một cách hiệu quả và bền vững, chuẩn bị sẵn sàng cho tương lai với kiến thức và kỹ năng vượt trội.</p>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <h3>1000+</h3>
-                    <p>Học viên hài lòng</p>
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Khai Phóng Tiềm Năng Học Tập <br>Cùng Trí Tuệ Nhân Tạo</h1>
+                    <p class="sub-headline">Cách mạng hóa giáo dục với các giải pháp AI tiên tiến từ hệ sinh thái Tâm Vạn Phúc.</p>
+                    <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button pulse">
+                        Khám Phá Giải Pháp AI Giáo Dục Ngay!
+                    </a>
                 </div>
-                <div class="stat-item">
-                    <h3>10+</h3>
-                    <p>Khóa học AI chuyên sâu</p>
-                </div>
-                <div class="stat-item">
-                    <h3>95%</h3>
-                    <p>Cải thiện hiệu suất học tập</p>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/600x400/5271FF/FFFFFF?text=AI+for+Education" alt="AI in Education">
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="features" class="features-section">
-        <div class="container">
-            <h2>Điểm Nổi Bật của Edu-AI</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <i class="fas fa-robot"></i>
-                    <h3>Gia sư AI Cá nhân hóa</h3>
-                    <p>Hệ thống AI phân tích năng lực, sở thích để đề xuất lộ trình học tập và bài giảng phù hợp nhất với từng cá nhân.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Theo dõi tiến độ thông minh</h3>
-                    <p>Thống kê chi tiết, biểu đồ trực quan giúp bạn nắm bắt rõ ràng sự tiến bộ và những điểm cần cải thiện.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-brain"></i>
-                    <h3>Nội dung học tập Đa dạng</h3>
-                    <p>Kho tài liệu, video, bài kiểm tra được cập nhật liên tục, đáp ứng nhu cầu học tập mọi cấp độ và lĩnh vực.</p>
-                </div>
-                <div class="feature-item">
-                    <i class="fas fa-comments"></i>
-                    <h3>Hỗ trợ 24/7</h3>
-                    <p>Giải đáp thắc mắc, hỗ trợ kỹ thuật nhanh chóng mọi lúc, mọi nơi với đội ngũ chuyên gia và AI chatbot.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="cta-section">
-        <div class="container">
-            <h2>Sẵn sàng trải nghiệm tương lai giáo dục?</h2>
-            <p>Đừng bỏ lỡ cơ hội bứt phá giới hạn học tập của bạn cùng Tâm Vạn Phúc Edu-AI!</p>
-            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn large-btn affiliate-link">Khám phá ngay!</a>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Tâm Vạn Phúc</h3>
-                    <p>Hệ sinh thái kiến tạo giá trị giáo dục và phát triển con người bền vững.</p>
-                </div>
-                <div class="footer-col">
-                    <h3>Liên kết nhanh</h3>
-                    <ul>
-                        <li><a href="#about">Về chúng tôi</a></li>
-                        <li><a href="#features">Giải pháp</a></li>
-                        <li><a href="#">Chính sách bảo mật</a></li>
-                        <li><a href="#">Điều khoản dịch vụ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Liên hệ</h3>
-                    <p><i class="fas fa-envelope"></i> info@tamvanphuc.vn</p>
-                    <p><i class="fas fa-phone"></i> +84 123 456 789</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <section id="gioi-thieu" class="about-section">
+            <div class="container">
+                <h2>AI Giáo Dục - Tương Lai Của Học Tập</h2>
+                <div class="about-grid">
+                    <div class="about-item">
+                        <i class="icon fas fa-chalkboard-teacher"></i>
+                        <h3>Cá Nhân Hóa Lộ Trình</h3>
+                        <p>Mỗi học viên có một lộ trình học riêng, tối ưu theo năng lực và sở thích.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="icon fas fa-chart-line"></i>
+                        <h3>Nâng Cao Hiệu Suất</h3>
+                        <p>Phân tích dữ liệu thông minh giúp cải thiện kết quả học tập vượt trội.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="icon fas fa-hand-holding-usd"></i>
+                        <h3>Tối Ưu Chi Phí & Thời Gian</h3>
+                        <p>Giải pháp hiệu quả, tiết kiệm đáng kể nguồn lực cho người học và tổ chức.</p>
                     </div>
                 </div>
             </div>
-            <div class="copyright">
-                &copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.
+        </section>
+
+        <section id="tinh-nang" class="features-section">
+            <div class="container">
+                <h2>Tính Năng Nổi Bật</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon-circle"><i class="fas fa-brain"></i></div>
+                        <h3>Hệ Thống Đề Xuất Thông Minh</h3>
+                        <p>Đề xuất tài liệu, bài tập và khóa học phù hợp với từng cá nhân.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-circle"><i class="fas fa-robot"></i></div>
+                        <h3>Gia Sư AI Tương Tác</h3>
+                        <p>Hỗ trợ giải đáp thắc mắc 24/7, cung cấp phản hồi tức thì.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-circle"><i class="fas fa-tasks"></i></div>
+                        <h3>Phân Tích Tiến Độ Học Tập</h3>
+                        <p>Theo dõi và đánh giá chi tiết quá trình học, phát hiện điểm mạnh, yếu.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon-circle"><i class="fas fa-users-cog"></i></div>
+                        <h3>Tùy Biến Dành Cho Tổ Chức</h3>
+                        <p>Giải pháp linh hoạt cho trường học, trung tâm và doanh nghiệp đào tạo.</p>
+                    </div>
+                </div>
             </div>
+        </section>
+
+        <section id="testimonial" class="testimonial-section">
+            <div class="container">
+                <h2>Họ Nói Gì Về Edu-AI Của Chúng Tôi?</h2>
+                <div class="testimonial-slider">
+                    <div class="testimonial-item">
+                        <p>"Giải pháp AI của Tâm Vạn Phúc đã giúp tôi tiết kiệm rất nhiều thời gian trong việc chuẩn bị bài giảng và đánh giá học sinh. Hiệu quả giảng dạy tăng lên rõ rệt!"</p>
+                        <h4>Cô Nguyễn Thị Lan</h4>
+                        <span>Giáo viên Toán học</span>
+                    </div>
+                    <div class="testimonial-item">
+                        <p>"Nhờ có lộ trình học cá nhân hóa, con tôi hứng thú hơn với việc học và đạt được kết quả tốt hơn hẳn. Cảm ơn Tâm Vạn Phúc!"</p>
+                        <h4>Chị Trần Mai Anh</h4>
+                        <span>Phụ huynh học sinh</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta-bottom" class="cta-bottom-section">
+            <div class="container">
+                <h2>Sẵn Sàng Khám Phá Tương Lai Giáo Dục?</h2>
+                <p>Hãy để Tâm Vạn Phúc Edu-AI đồng hành cùng bạn trên con đường phát triển kiến thức và kỹ năng.</p>
+                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button bounce">
+                    Đăng Ký Tư Vấn Miễn Phí Ngay!
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Tâm Vạn Phúc Edu-AI. Mọi quyền được bảo lưu.</p>
+            <p>Một phần của hệ sinh thái Tâm Vạn Phúc.</p>
+            <p id="lien-he">Liên hệ: info@tamvanphuc.com | Hotline: 1900-1234</p>
         </div>
     </footer>
 
-    <button id="scrollToTopBtn" title="Lên đầu trang"><i class="fas fa-arrow-up"></i></button>
-
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navbar = document.querySelector('.navbar');
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            // Toggle mobile menu
+            hamburger.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                hamburger.classList.toggle('open');
+            });
+
+            // Close mobile menu when a link is clicked
+            document.querySelectorAll('.navbar a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navbar.classList.remove('active');
+                    hamburger.classList.remove('open');
                 });
             });
-        });
 
-        // Scroll to top button functionality
-        const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
 
-        window.onscroll = function() {
-            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-                scrollToTopBtn.style.display = "block";
-            } else {
-                scrollToTopBtn.style.display = "none";
-            }
-        };
-
-        scrollToTopBtn.addEventListener("click", function() {
-            document.body.scrollTop = 0; // For Safari
-            document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
         });
     </script>
 </body>
