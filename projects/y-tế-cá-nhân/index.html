@@ -1,26 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Giải Pháp Y Tế Cá Nhân Hóa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Tâm Vạn Phúc - Chăm Sóc Sức Khỏe Cá Nhân Toàn Diện</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #28a745; /* Green for health/wellness */
+            --primary-color: #28a745; /* Green for health/growth */
             --secondary-color: #007bff; /* Blue for trust/professionalism */
-            --text-color: #333;
-            --light-text-color: #f8f9fa;
-            --background-light: #f4f7f6;
-            --background-dark: #2c3e50;
-            --button-hover: #218838;
+            --accent-color: #ffc107; /* Yellow for highlights */
+            --text-color: #343a40;
+            --light-text-color: #6c757d;
+            --background-light: #f8f9fa;
+            --background-white: #ffffff;
+            --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.08);
+            --border-radius: 0.5rem;
         }
 
-        body {
-            font-family: 'Roboto', sans-serif;
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-light);
@@ -30,334 +35,395 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
 
-        /* Header */
         header {
-            background-color: #fff;
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            text-align: center;
+            background-color: var(--background-white);
+            padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .logo {
-            font-size: 2.2em;
+            font-size: 1.8rem;
             font-weight: 700;
             color: var(--primary-color);
             text-decoration: none;
-            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
         }
+
+        .logo img {
+            height: 40px;
+            margin-right: 0.5rem;
+        }
+
         .logo span {
             color: var(--secondary-color);
         }
 
-        /* Hero Section */
-        #hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/1600x900/?health,family,wellness') no-repeat center center/cover;
-            color: var(--light-text-color);
-            text-align: center;
-            padding: 100px 20px;
+        nav ul {
+            list-style: none;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 600px;
+            gap: 1.5rem;
         }
 
-        #hero .hero-content {
-            max-width: 800px;
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
 
-        #hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .hero {
+            background: linear-gradient(to right, var(--secondary-color), #0056b3);
+            color: var(--background-white);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://via.placeholder.com/1920x800/007bff/ffffff?text=Healthcare+Pattern') no-repeat center center/cover; /* Placeholder background pattern */
+            opacity: 0.1;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
             font-weight: 700;
         }
 
-        #hero p {
-            font-size: 1.4em;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            padding: 18px 35px;
-            font-size: 1.2em;
-            font-weight: 700;
-            text-decoration: none;
-            border-radius: 50px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        .cta-button:hover {
-            background-color: var(--button-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Features Section */
-        #features {
-            padding: 80px 0;
-            text-align: center;
-            background-color: #fff;
-        }
-
-        #features h2 {
-            font-size: 2.8em;
-            margin-bottom: 60px;
-            color: var(--secondary-color);
-            position: relative;
-            display: inline-block;
-        }
-        #features h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: -15px;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .feature-card {
-            background-color: var(--background-light);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        }
-
-        .feature-card .icon {
-            font-size: 3em;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-            display: block;
-            text-align: center;
-        }
-        
-        .feature-card h3 {
-            font-size: 1.6em;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-            text-align: center;
-        }
-
-        .feature-card p {
-            font-size: 1.1em;
-            color: var(--text-color);
-            text-align: justify;
-        }
-
-        /* Second CTA Section */
-        #call-to-action {
-            background-color: var(--background-dark);
-            color: var(--light-text-color);
-            padding: 80px 20px;
-            text-align: center;
-        }
-
-        #call-to-action h2 {
-            font-size: 2.5em;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        #call-to-action p {
-            font-size: 1.3em;
-            margin-bottom: 40px;
-            max-width: 700px;
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             font-weight: 300;
         }
 
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #ccc;
-            padding: 40px 0;
-            text-align: center;
-            font-size: 0.9em;
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--background-white);
+            padding: 1rem 2.5rem;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0 0.3rem 0.8rem rgba(0, 0, 0, 0.2);
         }
 
-        footer .footer-logo {
-            font-size: 1.8em;
-            font-weight: 700;
+        .btn:hover {
+            background-color: #218838; /* Darker green */
+            transform: translateY(-3px);
+        }
+
+        .section {
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .section-light {
+            background-color: var(--background-light);
+        }
+
+        .section-white {
+            background-color: var(--background-white);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: var(--background-white);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.12);
+        }
+
+        .feature-card .icon {
+            font-size: 3rem;
             color: var(--primary-color);
-            text-decoration: none;
-            margin-bottom: 15px;
+            margin-bottom: 1rem;
             display: block;
         }
-        footer .footer-logo span {
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .feature-card p {
             color: var(--light-text-color);
         }
 
-        footer p {
-            margin: 5px 0;
+        .cta-section {
+            background: var(--primary-color);
+            color: var(--background-white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--background-white);
+            margin-bottom: 2rem;
+        }
+        .cta-section h2::after {
+            background-color: var(--accent-color);
+        }
+
+        .cta-section .btn {
+            background-color: var(--accent-color);
+            color: var(--text-color);
+        }
+
+        .cta-section .btn:hover {
+            background-color: #e0a800; /* Darker yellow */
+            transform: translateY(-3px);
+        }
+
+        footer {
+            background-color: var(--text-color);
+            color: var(--background-light);
+            padding: 2.5rem 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            #hero {
-                padding: 80px 20px;
-                min-height: 400px;
+            .hero {
+                padding: 4rem 0;
             }
 
-            #hero h1 {
-                font-size: 2.5em;
+            .hero h1 {
+                font-size: 2.5rem;
             }
 
-            #hero p {
-                font-size: 1.2em;
+            .hero p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
             }
 
-            .cta-button {
-                padding: 15px 30px;
-                font-size: 1.1em;
+            .btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
             }
 
-            #features h2 {
-                font-size: 2.2em;
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 2rem;
             }
 
-            #call-to-action h2 {
-                font-size: 2em;
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
             }
 
-            #call-to-action p {
-                font-size: 1.1em;
+            nav ul {
+                flex-direction: column;
+                gap: 0.8rem;
+                margin-top: 1rem;
             }
         }
 
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.8em;
+            .hero h1 {
+                font-size: 2rem;
             }
 
-            #hero {
-                padding: 60px 15px;
-                min-height: 350px;
+            .hero p {
+                font-size: 1rem;
             }
 
-            #hero h1 {
-                font-size: 2em;
+            .features-grid {
+                grid-template-columns: 1fr;
             }
 
-            #hero p {
-                font-size: 1em;
-            }
-
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 1em;
-            }
-
-            #features h2 {
-                font-size: 1.8em;
-                margin-bottom: 40px;
-            }
-            
-            .feature-card h3 {
-                font-size: 1.4em;
-            }
-
-            .feature-card p {
-                font-size: 1em;
-            }
-
-            #call-to-action h2 {
-                font-size: 1.8em;
-            }
-
-            #call-to-action p {
-                font-size: 1em;
+            .feature-card {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <a href="#" class="logo">Tâm Vạn <span>Phúc</span></a>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <!-- Replace with actual logo if available -->
+                <!-- <img src="logo-tamvanphuc.png" alt="Tâm Vạn Phúc Logo"> -->
+                Tâm Vạn Phúc<span>.</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#hero">Trang Chủ</a></li>
+                    <li><a href="#features">Ưu Điểm</a></li>
+                    <li><a href="#contact">Liên Hệ</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Sức Khỏe Của Bạn, Ưu Tiên Hàng Đầu Của Chúng Tôi.</h1>
-            <p>Tâm Vạn Phúc mang đến giải pháp y tế cá nhân hóa, tiện lợi và an toàn ngay tại nhà, giúp bạn và gia đình an tâm sống khỏe mỗi ngày.</p>
-            <a href="https://[YOUR_AFFILIATE_DOMAIN_HERE]/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">NHẬN TƯ VẤN SỨC KHỎE MIỄN PHÍ NGAY!</a>
-        </div>
-    </section>
+    <main>
+        <section id="hero" class="hero">
+            <div class="container hero-content">
+                <h1>Chăm Sóc Sức Khỏe Cá Nhân Toàn Diện Cùng Tâm Vạn Phúc</h1>
+                <p>Giải pháp y tế tiên tiến, đồng hành cùng bạn trên hành trình sức khỏe trọn đời.</p>
+                <a href="https://your_affiliate_domain.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">
+                    Khám Phá Giải Pháp Của Chúng Tôi Ngay
+                </a>
+            </div>
+        </section>
 
-    <section id="features">
-        <div class="container">
-            <h2>Tại Sao Chọn Tâm Vạn Phúc?</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <span class="icon">⚕️</span>
-                    <h3>Chăm Sóc Toàn Diện</h3>
-                    <p>Các gói dịch vụ y tế được thiết kế riêng biệt, đáp ứng mọi nhu cầu sức khỏe cá nhân từ phòng ngừa đến điều trị, đảm bảo bạn luôn nhận được sự quan tâm tốt nhất.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">👨‍⚕️</span>
-                    <h3>Đội Ngũ Chuyên Gia</h3>
-                    <p>Kết nối với đội ngũ bác sĩ và chuyên gia y tế hàng đầu, giàu kinh nghiệm, luôn sẵn sàng lắng nghe và tư vấn tận tâm, chuyên nghiệp mọi lúc, mọi nơi.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">🏠</span>
-                    <h3>Tiện Lợi Tối Đa</h3>
-                    <p>Khám chữa bệnh và tư vấn sức khỏe ngay tại nhà hoặc qua các kênh trực tuyến, giúp bạn tiết kiệm thời gian, công sức mà vẫn đảm bảo hiệu quả cao.</p>
-                </div>
-                <div class="feature-card">
-                    <span class="icon">💡</span>
-                    <h3>Công Nghệ Hiện Đại</h3>
-                    <p>Ứng dụng công nghệ tiên tiến vào quản lý hồ sơ sức khỏe điện tử, đặt lịch hẹn, và theo dõi tiến trình, mang lại trải nghiệm y tế số thông minh, an toàn.</p>
+        <section id="features" class="section section-white">
+            <div class="container">
+                <h2>Tại Sao Chọn Tâm Vạn Phúc Cho Sức Khỏe Cá Nhân?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="icon">&#128100;</span> <!-- Person icon -->
+                        <h3>Lộ Trình Cá Nhân Hóa</h3>
+                        <p>Mỗi khách hàng là một cá thể độc đáo. Chúng tôi thiết kế kế hoạch chăm sóc sức khỏe riêng biệt, phù hợp với nhu cầu và thể trạng của bạn.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon">&#128187;</span> <!-- Laptop/Tech icon -->
+                        <h3>Công Nghệ Y Tế Hiện Đại</h3>
+                        <p>Ứng dụng công nghệ tiên tiến nhất trong chẩn đoán, điều trị và theo dõi sức khỏe, mang lại hiệu quả tối ưu và sự tiện lợi tối đa.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon">&#128138;</span> <!-- Stethoscope icon -->
+                        <h3>Đội Ngũ Y Bác Sĩ Chuyên Môn Cao</h3>
+                        <p>Tập hợp các chuyên gia y tế hàng đầu, giàu kinh nghiệm và tận tâm, luôn sẵn sàng lắng nghe và đưa ra lời khuyên chuyên sâu.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon">&#128222;</span> <!-- Phone/Support icon -->
+                        <h3>Hỗ Trợ 24/7 Tận Tình</h3>
+                        <p>Chúng tôi luôn có mặt để hỗ trợ bạn mọi lúc, mọi nơi. Mọi thắc mắc và yêu cầu của bạn sẽ được giải đáp nhanh chóng.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon">&#127969;</span> <!-- Home/Accessibility icon -->
+                        <h3>Dễ Dàng Tiếp Cận</h3>
+                        <p>Dịch vụ y tế tại nhà, tư vấn trực tuyến và hệ thống đối tác rộng khắp giúp bạn tiếp cận dịch vụ y tế chất lượng một cách dễ dàng nhất.</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="icon">&#128170;</span> <!-- Biceps/Strength icon -->
+                        <h3>Phòng Ngừa & Nâng Cao Sức Khỏe</h3>
+                        <p>Không chỉ điều trị, chúng tôi tập trung vào việc phòng ngừa bệnh tật và xây dựng nền tảng sức khỏe vững chắc cho bạn và gia đình.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="call-to-action">
-        <div class="container">
-            <h2>Đừng Chần Chừ, Hãy Bắt Đầu Hành Trình Sức Khỏe Của Bạn!</h2>
-            <p>Trải nghiệm dịch vụ y tế cá nhân hóa, được thiết kế riêng cho bạn. An tâm sống khỏe, tận hưởng cuộc sống trọn vẹn cùng Tâm Vạn Phúc.</p>
-            <a href="https://[YOUR_AFFILIATE_DOMAIN_HERE]/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">KHÁM PHÁ DỊCH VỤ & ĐĂNG KÝ NGAY!</a>
-        </div>
-    </section>
+        <section id="cta-final" class="cta-section">
+            <div class="container">
+                <h2>Đừng Chần Chừ, Bắt Đầu Hành Trình Sức Khỏe Của Bạn Ngay Hôm Nay!</h2>
+                <p style="font-size: 1.25rem; margin-bottom: 2.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">Tâm Vạn Phúc luôn sẵn sàng đồng hành cùng bạn. Khám phá các gói dịch vụ và nhận tư vấn miễn phí.</p>
+                <a href="https://your_affiliate_domain.com/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">
+                    Đăng Ký Tư Vấn Miễn Phí
+                </a>
+            </div>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
-            <a href="#" class="footer-logo">Tâm Vạn <span>Phúc</span></a>
-            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
-            <p>Giải pháp y tế cá nhân hóa vì cộng đồng khỏe mạnh.</p>
+            <p>Bản quyền &copy; <span id="current-year"></span> Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+            <p>
+                <a href="#">Điều khoản sử dụng</a> |
+                <a href="#">Chính sách bảo mật</a> |
+                <a href="#">Liên hệ</a>
+            </p>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - (document.querySelector('header').offsetHeight), // Adjust for fixed header
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
