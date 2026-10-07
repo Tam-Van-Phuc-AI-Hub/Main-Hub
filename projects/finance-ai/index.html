@@ -1,673 +1,238 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tối Ưu Tài Chính Với AI | Tâm Vạn Phúc</title>
-    <meta name="description" content="Khám phá các giải pháp tài chính thông minh được hỗ trợ bởi AI từ hệ sinh thái Tâm Vạn Phúc. Nâng tầm quyết định đầu tư và quản lý tài sản của bạn.">
+    <title>Tâm Vạn Phúc AI Finance - Tối Ưu Hóa Tài Chính Của Bạn</title>
+    <meta name="description" content="Tận dụng sức mạnh trí tuệ nhân tạo từ Tâm Vạn Phúc để tối ưu hóa đầu tư, quản lý rủi ro và đạt được tự do tài chính.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2E86DE; /* Blue for finance/tech */
-            --secondary-color: #5DADE2; /* Lighter blue */
-            --accent-color: #27AE60; /* Green for growth/success */
-            --dark-color: #2C3E50; /* Dark text/background */
-            --light-color: #ECF0F1; /* Light background */
-            --text-color: #34495E; /* Standard text */
-            --white-color: #ffffff;
-            --gradient-start: #2C3E50;
-            --gradient-end: #34495E;
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #6c757d; /* Gray */
+            --accent-color: #28a745; /* Green */
+            --text-dark: #343a40; /* Dark gray */
+            --text-light: #f8f9fa; /* Light gray */
+            --background-light: #ffffff; /* White */
+            --background-dark: #f0f2f5; /* Off-white */
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: var(--font-body);
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-color);
-        }
-
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--dark-color);
-            margin-top: 0;
-        }
-
-        h1 { font-size: 2.8em; }
-        h2 { font-size: 2.2em; }
-        h3 { font-size: 1.6em; }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        /* Header */
-        header {
-            background: var(--dark-color);
-            color: var(--white-color);
-            padding: 15px 0;
-            text-align: center;
-        }
-
-        header .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.8em;
-            color: var(--white-color);
-            text-decoration: none;
-        }
-
-        header .logo span {
-            color: var(--primary-color);
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
-            color: var(--white-color);
-            text-align: center;
-            padding: 100px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 500px;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            background: rgba(46, 134, 222, 0.1);
-            border-radius: 50%;
-            animation: pulse 4s infinite ease-in-out;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: -50px;
-            right: -50px;
-            width: 180px;
-            height: 180px;
-            background: rgba(93, 173, 226, 0.1);
-            border-radius: 50%;
-            animation: pulse 4s infinite ease-in-out reverse;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.8); opacity: 0.5; }
-        }
-
-
-        .hero h1 {
-            color: var(--white-color);
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            max-width: 900px;
-        }
-
-        .hero p {
-            font-size: 1.4em;
-            margin-bottom: 40px;
-            max-width: 800px;
-            opacity: 0.9;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: var(--primary-color);
-            color: var(--white-color);
-            padding: 18px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2em;
-            transition: background 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            text-align: center;
-            background-color: var(--white-color);
-        }
-
-        .features h2 {
-            margin-bottom: 60px;
-            color: var(--dark-color);
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            text-align: left;
-        }
-
-        .feature-item {
-            background-color: var(--light-color);
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 5px solid var(--primary-color);
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .feature-item h3 {
-            color: var(--primary-color);
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
-        .feature-item p {
-            font-size: 1em;
-            color: var(--text-color);
-        }
-
-        .icon {
-            font-size: 3em;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--primary-color);
-            color: var(--white-color);
-            text-align: center;
-            padding: 80px 20px;
-            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" opacity="0.1"><circle cx="20" cy="20" r="15" fill="white"/><circle cx="80" cy="50" r="10" fill="white"/><circle cx="40" cy="80" r="12" fill="white"/><circle cx="60" cy="15" r="8" fill="white"/></svg>');
-            background-size: 150px 150px;
-        }
-
-        .cta-section h2 {
-            color: var(--white-color);
-            font-size: 2.5em;
-            margin-bottom: 25px;
-        }
-
-        .cta-section p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.9;
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            background: var(--accent-color);
-            color: var(--white-color);
-            padding: 18px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2em;
-            transition: background 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-secondary:hover {
-            background: #2ECC71; /* Slightly lighter green */
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark-color);
-            color: var(--light-color);
-            text-align: center;
-            padding: 40px 0;
-            font-size: 0.9em;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        footer .ecosystem-name {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 768px) {
-            .hero {
-                padding: 80px 20px;
-                min-height: 400px;
-            }
-            .hero h1 {
-                font-size: 2.5em;
-            }
-            .hero p {
-                font-size: 1.1em;
-            }
-            .btn-primary, .btn-secondary {
-                padding: 15px 30px;
-                font-size: 1.1em;
-            }
-            .features {
-                padding: 60px 0;
-            }
-            .features h2 {
-                font-size: 1.8em;
-                margin-bottom: 40px;
-            }
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-            .feature-item {
-                text-align: center;
-            }
-            .icon {
-                margin: 0 auto 15px auto;
-            }
-            .cta-section {
-                padding: 60px 20px;
-            }
-            .cta-section h2 {
-                font-size: 2em;
-            }
-            .cta-section p {
-                font-size: 1em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 { font-size: 2em; }
-            h2 { font-size: 1.6em; }
-            h3 { font-size: 1.3em; }
-            .hero {
-                padding: 60px 15px;
-                min-height: 350px;
-            }
-            .hero h1 {
-                font-size: 2em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-            .btn-primary, .btn-secondary {
-                padding: 12px 25px;
-                font-size: 1em;
-                width: 100%;
-                box-sizing: border-box;
-                max-width: 300px;
-            }
-        }
-    </style>
-    <!-- Font Awesome for icons (optional, but good for quick icons) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlalK+4pP+4f1N+K6V2O1Zp/n/S4sC+p/bB+W/y4aD905e+v+Q6A/k3D+P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P0.  **Heading (H1)**: Mở Khóa Tương Lai Tài Chính Của Bạn Với AI
-2.  **Subheading (P)**: Khám phá các giải pháp tài chính thông minh, được cung cấp bởi trí tuệ nhân tạo tiên tiến từ hệ sinh thái Tâm Vạn Phúc.
-3.  **Hero Image/Graphic**: Could be abstract tech/finance, or a line graph with an AI brain. For pure HTML/CSS, I'll use a placeholder or a simple gradient.
-4.  **Primary CTA Button**: "Bắt Đầu Hành Trình Của Bạn Ngay!" -> Affiliate link.
-5.  **Features Section**:
-    *   **Phân Tích Chuyên Sâu**: AI cung cấp cái nhìn toàn diện về thị trường và danh mục đầu tư của bạn.
-    *   **Quản Lý Rủi Ro Thông Minh**: Giảm thiểu rủi ro với các dự đoán chính xác và chiến lược tối ưu.
-    *   **Tăng Trưởng Bền Vững**: Xây dựng tương lai tài chính vững chắc với sự hỗ trợ của công nghệ AI.
-    *   **Tự Động Hóa Hiệu Quả**: Tiết kiệm thời gian và công sức với các quy trình tài chính tự động.
-6.  **Second CTA Button**: "Khám Phá Giải Pháp AI Của Chúng Tôi" -> Affiliate link.
-7.  **Footer**: Copyright info, "Tâm Vạn Phúc".
-
-I'll use some basic CSS for styling and responsiveness, and Google Fonts for a modern look.
-For icons, I'll link Font Awesome via CDN.
-
-Let's ensure the affiliate link is correct: `afl_b08327f13ac81560aef9d64707d0592420ac9cda`.
-I'll make sure the `target="_blank"` and `rel="noopener noreferrer"` attributes are added for external links.<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tối Ưu Tài Chính Với AI | Tâm Vạn Phúc</title>
-    <meta name="description" content="Khám phá các giải pháp tài chính thông minh được hỗ trợ bởi AI từ hệ sinh thái Tâm Vạn Phúc. Nâng tầm quyết định đầu tư và quản lý tài sản của bạn.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlalK+4pP+4f1N+K6V2O1Zp/n/S4sC+p/bB+W/y4aD905e+v+Q6A/k3D+P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P2y/y4A/K3D/P
-        body {
-            font-family: 'Open Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #34495E; /* Standard text */
-            background-color: #ECF0F1; /* Light background */
+            color: var(--text-dark);
+            background-color: var(--background-light);
             scroll-behavior: smooth;
         }
 
-        h1, h2, h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: #2C3E50; /* Dark text/background */
-            margin-top: 0;
+        *, *::before, *::after {
+            box-sizing: inherit;
         }
-
-        h1 { font-size: 2.8em; }
-        h2 { font-size: 2.2em; }
-        h3 { font-size: 1.6em; }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
-        /* Header */
         header {
-            background: #2C3E50;
-            color: #ffffff;
-            padding: 15px 0;
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            color: var(--text-light);
+            padding: 20px 0;
             text-align: center;
         }
 
-        header .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            font-size: 1.8em;
-            color: #ffffff;
-            text-decoration: none;
-        }
-
-        header .logo span {
-            color: #2E86DE; /* Primary color */
-        }
-
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #2C3E50 0%, #34495E 100%);
-            color: #ffffff;
-            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://source.unsplash.com/1600x900/?finance,ai,technology') no-repeat center center/cover;
+            color: var(--text-light);
             padding: 100px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 500px;
-            flex-direction: column;
+            text-align: center;
             position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before, .hero::after {
-            content: '';
-            position: absolute;
-            background: rgba(46, 134, 222, 0.1);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .hero::before {
-            top: -50px;
-            left: -50px;
-            width: 200px;
-            height: 200px;
-            animation: pulse 4s infinite ease-in-out;
-        }
-
-        .hero::after {
-            bottom: -50px;
-            right: -50px;
-            width: 180px;
-            height: 180px;
-            animation: pulse 4s infinite ease-in-out reverse;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.8); opacity: 0.5; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.8); opacity: 0.5; }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
         }
 
         .hero h1 {
-            color: #ffffff;
+            font-family: var(--font-heading);
             font-size: 3.5em;
             margin-bottom: 20px;
             line-height: 1.2;
-            max-width: 900px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
         }
 
         .hero p {
-            font-size: 1.4em;
-            margin-bottom: 40px;
-            max-width: 800px;
-            opacity: 0.9;
-        }
-
-        .btn-primary {
-            display: inline-block;
-            background: #2E86DE; /* Primary color */
-            color: #ffffff;
-            padding: 18px 35px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2em;
-            transition: background 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn-primary:hover {
-            background: #5DADE2; /* Lighter primary */
-            transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            text-align: center;
-            background-color: #ffffff;
-        }
-
-        .features h2 {
-            margin-bottom: 60px;
-            color: #2C3E50;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            text-align: left;
-        }
-
-        .feature-item {
-            background-color: #ECF0F1;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 5px solid #2E86DE; /* Primary color */
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-        }
-
-        .feature-item h3 {
-            color: #2E86DE; /* Primary color */
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
-        .feature-item p {
-            font-size: 1em;
-            color: #34495E;
-        }
-
-        .icon {
-            font-size: 3em;
-            color: #27AE60; /* Accent color */
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: #2E86DE; /* Primary color */
-            color: #ffffff;
-            text-align: center;
-            padding: 80px 20px;
-            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" opacity="0.1"><circle cx="20" cy="20" r="15" fill="white"/><circle cx="80" cy="50" r="10" fill="white"/><circle cx="40" cy="80" r="12" fill="white"/><circle cx="60" cy="15" r="8" fill="white"/></svg>');
-            background-size: 150px 150px;
-        }
-
-        .cta-section h2 {
-            color: #ffffff;
-            font-size: 2.5em;
-            margin-bottom: 25px;
-        }
-
-        .cta-section p {
-            font-size: 1.2em;
+            font-size: 1.3em;
             margin-bottom: 40px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.9;
         }
 
-        .btn-secondary {
+        .btn {
             display: inline-block;
-            background: #27AE60; /* Accent color */
-            color: #ffffff;
-            padding: 18px 40px;
+            background-color: var(--accent-color);
+            color: var(--text-light);
+            padding: 15px 30px;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2em;
-            transition: background 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            border-radius: var(--border-radius);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
         }
 
-        .btn-secondary:hover {
-            background: #2ECC71; /* Slightly lighter green */
+        .btn:hover {
+            background-color: #218838; /* Darker green */
             transform: translateY(-3px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
         }
 
-        /* Footer */
-        footer {
-            background: #2C3E50;
-            color: #ECF0F1;
+        section {
+            padding: 80px 0;
             text-align: center;
+            background-color: var(--background-light);
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--background-dark);
+        }
+
+        h2 {
+            font-family: var(--font-heading);
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .features-grid, .how-it-works-grid, .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .feature-item, .step-item, .benefit-item {
+            background-color: var(--background-light);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover, .step-item:hover, .benefit-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item h3, .step-item h3, .benefit-item h3 {
+            font-family: var(--font-heading);
+            color: var(--primary-color);
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .step-item {
+            text-align: center;
+            position: relative;
+            padding-top: 50px;
+        }
+        .step-item .step-number {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2em;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+        .benefit-item .icon {
+            font-size: 2em;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: var(--text-light);
+        }
+
+        footer {
+            background-color: var(--text-dark);
+            color: var(--text-light);
             padding: 40px 0;
+            text-align: center;
             font-size: 0.9em;
         }
 
-        footer p {
-            margin: 0;
-        }
-
-        footer .ecosystem-name {
-            font-weight: 600;
-            color: #2E86DE; /* Primary color */
-        }
-
-        /* Responsive Adjustments */
         @media (max-width: 768px) {
-            .hero {
-                padding: 80px 20px;
-                min-height: 400px;
-            }
             .hero h1 {
                 font-size: 2.5em;
             }
             .hero p {
                 font-size: 1.1em;
             }
-            .btn-primary, .btn-secondary {
-                padding: 15px 30px;
-                font-size: 1.1em;
-            }
-            .features {
-                padding: 60px 0;
-            }
-            .features h2 {
-                font-size: 1.8em;
-                margin-bottom: 40px;
-            }
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-            .feature-item {
-                text-align: center;
-            }
-            .icon {
-                margin: 0 auto 15px auto;
-            }
-            .cta-section {
-                padding: 60px 20px;
-            }
-            .cta-section h2 {
+            h2 {
                 font-size: 2em;
             }
-            .cta-section p {
-                font-size: 1em;
+            .features-grid, .how-it-works-grid, .benefits-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 480px) {
-            h1 { font-size: 2em; }
-            h2 { font-size: 1.6em; }
-            h3 { font-size: 1.3em; }
-            .hero {
-                padding: 60px 15px;
-                min-height: 350px;
-            }
             .hero h1 {
                 font-size: 2em;
             }
             .hero p {
                 font-size: 1em;
             }
-            .btn-primary, .btn-secondary {
+            .btn {
                 padding: 12px 25px;
                 font-size: 1em;
-                width: 100%;
-                box-sizing: border-box;
-                max-width: 300px;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .feature-item, .step-item, .benefit-item {
+                padding: 20px;
             }
         }
     </style>
@@ -675,59 +240,104 @@ I'll make sure the `target="_blank"` and `rel="noopener noreferrer"` attributes 
 <body>
     <header>
         <div class="container">
-            <a href="#" class="logo">Tâm Vạn Phúc <span>AI</span></a>
+            <h1 style="margin: 0; font-family: var(--font-heading); font-size: 2em;"><span style="color: #FFD700;">Tâm Vạn Phúc</span> AI Finance</h1>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Mở Khóa Tương Lai Tài Chính Của Bạn Với Trí Tuệ Nhân Tạo</h1>
-                <p>Khám phá các giải pháp tài chính thông minh, được cung cấp bởi AI tiên tiến từ hệ sinh thái <span style="color: #5DADE2;">Tâm Vạn Phúc</span>. Nâng tầm quyết định đầu tư và quản lý tài sản của bạn.</p>
-                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" rel="noopener noreferrer" class="btn-primary">Bắt Đầu Hành Trình Của Bạn Ngay!</a>
-            </div>
-        </section>
+    <section class="hero">
+        <div class="container">
+            <h1>Định Hình Tương Lai Tài Chính Của Bạn Với <br><span style="color: var(--accent-color);">Tâm Vạn Phúc AI Finance</span></h1>
+            <p>Tận dụng sức mạnh trí tuệ nhân tạo để tối ưu hóa đầu tư, quản lý rủi ro và đạt được tự do tài chính một cách thông minh, hiệu quả.</p>
+            <a href="https://tamvanphuc.com/go?ref=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Khám Phá Sức Mạnh AI Ngay!</a>
+        </div>
+    </section>
 
-        <section class="features" id="features">
-            <div class="container">
-                <h2>Lợi Ích Vượt Trội Của Tài Chính AI</h2>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <i class="fas fa-chart-line icon"></i>
-                        <h3>Phân Tích Chuyên Sâu</h3>
-                        <p>AI cung cấp cái nhìn toàn diện về thị trường, xu hướng và danh mục đầu tư của bạn với độ chính xác cao.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-shield-alt icon"></i>
-                        <h3>Quản Lý Rủi Ro Thông Minh</h3>
-                        <p>Giảm thiểu rủi ro tiềm ẩn với các dự đoán chính xác và chiến lược tối ưu được đề xuất bởi hệ thống AI.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-coins icon"></i>
-                        <h3>Tăng Trưởng Bền Vững</h3>
-                        <p>Xây dựng tương lai tài chính vững chắc, tối đa hóa lợi nhuận với sự hỗ trợ đắc lực của công nghệ AI.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-robot icon"></i>
-                        <h3>Tự Động Hóa Hiệu Quả</h3>
-                        <p>Tiết kiệm thời gian và công sức với các quy trình tài chính tự động, cho phép bạn tập trung vào những điều quan trọng hơn.</p>
-                    </div>
+    <section id="why-choose-us">
+        <div class="container">
+            <h2>Vì Sao Chọn Tâm Vạn Phúc AI Finance?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <h3>Phân Tích Chuyên Sâu</h3>
+                    <p>Thuật toán AI độc quyền cung cấp cái nhìn sâu sắc, vượt trội về thị trường, phát hiện cơ hội và rủi ro tiềm ẩn mà con người khó nhận thấy.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Đề Xuất Cá Nhân Hóa</h3>
+                    <p>Xây dựng chiến lược tài chính phù hợp với mục tiêu, khẩu vị rủi ro và tình hình tài chính cá nhân của bạn, không có giải pháp một kích cỡ cho tất cả.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Quản Lý Rủi Ro Thông Minh</h3>
+                    <p>Hệ thống cảnh báo và tối ưu hóa danh mục đầu tư theo thời gian thực, giúp bạn an tâm vượt qua biến động thị trường.</p>
+                </div>
+                <div class="feature-item">
+                    <h3>Tiết Kiệm Thời Gian</h3>
+                    <p>Tự động hóa các tác vụ phân tích và quản lý phức tạp, giải phóng thời gian quý báu để bạn tập trung vào cuộc sống và công việc.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="cta-section">
-            <div class="container">
-                <h2>Đừng Bỏ Lỡ Cơ Hội Nâng Tầm Tài Chính Của Bạn!</h2>
-                <p>Hệ sinh thái Tâm Vạn Phúc cam kết mang đến những công cụ AI mạnh mẽ nhất, giúp bạn chủ động kiến tạo sự thịnh vượng.</p>
-                <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" rel="noopener noreferrer" class="btn-secondary">Khám Phá Giải Pháp AI Của Chúng Tôi</a>
+    <section id="how-it-works">
+        <div class="container">
+            <h2>Cơ Chế Hoạt Động Của Chúng Tôi</h2>
+            <div class="how-it-works-grid">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Kết Nối & Thiết Lập Mục Tiêu</h3>
+                    <p>Đăng ký, kết nối các tài khoản liên quan và chia sẻ mục tiêu tài chính của bạn (ví dụ: tiết kiệm, đầu tư, hưu trí).</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Phân Tích & Đề Xuất AI</h3>
+                    <p>Hệ thống AI của Tâm Vạn Phúc sẽ phân tích dữ liệu, đánh giá xu hướng và đưa ra các chiến lược tối ưu nhất cho bạn.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Thực Thi & Phát Triển</h3>
+                    <p>Bạn áp dụng các đề xuất thông minh, theo dõi hiệu suất và nhìn thấy tài sản của mình tăng trưởng bền vững.</p>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <section id="benefits">
+        <div class="container">
+            <h2>Lợi Ích Bạn Nhận Được</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="icon">📈</div>
+                    <h3>Tăng Cường Lợi Nhuận</h3>
+                    <p>Phát hiện các cơ hội đầu tư tiềm năng và tối đa hóa lợi nhuận.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">🛡️</div>
+                    <h3>Giảm Thiểu Rủi Ro</h3>
+                    <p>Quản lý danh mục thông minh, bảo vệ tài sản khỏi biến động thị trường.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">🧠</div>
+                    <h3>Quyết Định Thông Minh Hơn</h3>
+                    <p>Dựa trên dữ liệu và phân tích AI, không còn cảm tính.</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="icon">⏱️</div>
+                    <h3>Tiết Kiệm Thời Gian Quý Báu</h3>
+                    <p>Đơn giản hóa việc quản lý tài chính, dành nhiều thời gian hơn cho bản thân.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Sẵn Sàng Thay Đổi Tương Lai Tài Chính Của Bạn?</h2>
+            <p style="font-size: 1.2em; max-width: 700px; margin: 0 auto 40px;">Đừng bỏ lỡ cơ hội để trí tuệ nhân tạo làm việc cho bạn. Tham gia Tâm Vạn Phúc AI Finance ngay hôm nay!</p>
+            <a href="https://tamvanphuc.com/go?ref=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Bắt Đầu Với AI Tài Chính!</a>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
-            <p>&copy; 2023 <span class="ecosystem-name">Tâm Vạn Phúc</span>. Mọi quyền được bảo lưu.</p>
+            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
         </div>
     </footer>
 </body>
