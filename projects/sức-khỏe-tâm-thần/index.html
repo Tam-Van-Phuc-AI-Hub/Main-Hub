@@ -3,269 +3,523 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc: Chữa Lành Tâm Hồn, Vững Bước An Nhiên</title>
+    <title>Tâm Vạn Phúc - Nâng Tầm Sức Khỏe Tâm Thần Của Bạn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
-        /* Biến CSS cho màu sắc và font */
         :root {
-            --primary-color: #4CAF50; /* Xanh lá cây dịu mát */
-            --secondary-color: #2196F3; /* Xanh dương của sự bình yên */
-            --text-dark: #333;
-            --text-light: #555;
-            --bg-light: #f8f8f8;
-            --bg-white: #ffffff;
-            --font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --primary-color: #4CAF50; /* Green - calming, growth */
+            --secondary-color: #6A1B9A; /* Purple - wisdom, spirituality */
+            --accent-color: #FFC107; /* Amber - warmth, optimism */
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --white-color: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
         }
 
-        /* Reset và các kiểu cơ bản */
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: var(--font-family);
-            line-height: 1.6;
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            color: var(--text-dark);
-            background-color: var(--bg-white);
         }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--white-color);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
-        }
-        h1, h2, h3 {
-            color: var(--text-dark);
-            line-height: 1.2;
-            margin-top: 0;
-        }
-        h1 { font-size: 2.8em; margin-bottom: 20px; }
-        h2 { font-size: 2.2em; margin-bottom: 25px; text-align: center; }
-        h3 { font-size: 1.8em; margin-bottom: 15px; }
-        p { margin-bottom: 15px; }
-
-        /* Phần Hero (Đầu trang) */
-        .hero-section {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://source.unsplash.com/random/1600x900/?meditation,nature,peaceful') no-repeat center center/cover;
-            color: #fff;
-            text-align: center;
-            padding: 100px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 60vh;
-        }
-        .hero-content {
-            max-width: 800px;
-        }
-        .hero-content h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-        .hero-content p {
-            font-size: 1.4em;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
         }
 
-        /* Nút Kêu gọi hành động (CTA Button) */
-        .cta-button {
+        .btn {
             display: inline-block;
             background-color: var(--primary-color);
-            color: #fff;
+            color: var(--white-color);
             padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.1em;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: var(--border-radius);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .cta-button:hover {
-            background-color: #43A047; /* Xanh lá cây đậm hơn */
-            transform: translateY(-2px);
-        }
-        .primary-cta {
-            background-color: var(--secondary-color);
-        }
-        .primary-cta:hover {
-            background-color: #1976D2; /* Xanh dương đậm hơn */
+            text-align: center;
         }
 
-        /* Các phần nội dung */
-        .section {
+        .btn:hover {
+            background-color: #43A047; /* Slightly darker green */
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white-color);
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+        }
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.8), rgba(106, 27, 154, 0.8)), url('https://source.unsplash.com/random/1600x900/?meditation,nature,mindfulness') no-repeat center center/cover;
+            color: var(--white-color);
+            padding: 100px 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        #hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--white-color);
+            line-height: 1.2;
+        }
+
+        #hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            color: var(--secondary-color);
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Problem-Solution */
+        #problem-solution .content-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        #problem-solution .text-content,
+        #problem-solution .image-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        #problem-solution .image-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        #problem-solution .text-content ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
+
+        #problem-solution .text-content ul li {
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%234CAF50" width="24px" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>') no-repeat left center;
+            background-size: 20px;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        #problem-solution .text-content p {
+            margin-bottom: 1rem;
+        }
+
+        /* Features */
+        #features .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        #features .feature-item {
+            background-color: var(--white-color);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #features .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Using simple SVG icon for features */
+        .icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        .icon-wrapper svg {
+            fill: var(--white-color);
+            width: 35px;
+            height: 35px;
+        }
+
+
+        #features .feature-item h3 {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        #features .feature-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+        
+        /* Testimonials */
+        #testimonials {
+            background-color: var(--secondary-color);
+            color: var(--white-color);
             padding: 80px 0;
             text-align: center;
         }
-        .section p {
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-            font-size: 1.1em;
+        #testimonials h2 {
+            color: var(--white-color);
         }
-        .problem-solution p {
-            text-align: left; /* Căn trái cho đoạn văn trong phần này */
-            margin-bottom: 25px;
-            max-width: 900px;
-        }
-        .bg-light {
-            background-color: var(--bg-light);
+        #testimonials h2::after {
+            background-color: var(--accent-color);
         }
 
-        /* Lưới tính năng */
-        .feature-grid {
+        #testimonials .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-top: 50px;
         }
-        .feature-item {
-            background-color: var(--bg-white);
+
+        #testimonials .testimonial-item {
+            background-color: rgba(255, 255, 255, 0.1);
             padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
             text-align: left;
-        }
-        .feature-item:hover {
-            transform: translateY(-5px);
-        }
-        .feature-item h3 {
-            color: var(--primary-color);
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .feature-item p {
-            font-size: 1em;
-            color: var(--text-light);
-            margin: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Phần kêu gọi hành động cuối cùng */
-        .call-to-action-final {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 100px 20px;
-        }
-        .call-to-action-final h2 {
-            color: #fff;
-            margin-bottom: 30px;
-        }
-        .call-to-action-final p {
-            font-size: 1.2em;
-            margin-bottom: 40px;
-            color: rgba(255, 255, 255, 0.9);
+        #testimonials .testimonial-item p {
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
         }
 
-        /* Chân trang */
-        footer {
-            background-color: var(--text-dark);
-            color: #fff;
+        #testimonials .testimonial-item .author {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+        }
+
+        /* CTA Sections */
+        .cta-section {
             text-align: center;
-            padding: 30px 20px;
-            font-size: 0.9em;
+            padding: 60px 20px;
+            background-color: var(--light-bg);
+            border-top: 1px solid #eee;
         }
-        footer p {
-            margin: 0;
+        .cta-section h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+        .cta-section h2::after {
+            background-color: var(--secondary-color);
+        }
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #555;
+        }
+        #final-cta {
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
+            color: var(--white-color);
+        }
+        #final-cta h2 {
+            color: var(--white-color);
+        }
+        #final-cta h2::after {
+            background-color: var(--accent-color);
         }
 
-        /* Điều chỉnh responsive */
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: var(--white-color);
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        footer .social-links a {
+            color: var(--white-color);
+            margin: 0 10px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            #hero h1 {
+                font-size: 2.8rem;
+            }
+            #hero p {
+                font-size: 1.1rem;
+            }
+            section h2 {
+                font-size: 2rem;
+            }
+            #problem-solution .content-grid {
+                flex-direction: column;
+            }
+            #problem-solution .image-content {
+                order: -1; /* Image first on mobile */
+            }
+        }
+
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5em;
+            .container {
+                padding: 15px;
             }
-            .hero-content p {
-                font-size: 1.2em;
+            #hero {
+                padding: 80px 15px;
             }
-            h1 { font-size: 2.2em; }
-            h2 { font-size: 1.8em; }
-            h3 { font-size: 1.5em; }
-            .section {
+            #hero h1 {
+                font-size: 2.2rem;
+            }
+            #hero p {
+                font-size: 1rem;
+            }
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.95rem;
+            }
+            section {
                 padding: 60px 0;
             }
-            .feature-grid {
+            section h2 {
+                font-size: 1.8rem;
+            }
+            .feature-grid, .testimonial-grid {
                 grid-template-columns: 1fr;
-            }
-            .feature-item {
-                text-align: center;
-            }
-            .problem-solution p {
-                text-align: center; /* Căn giữa trên màn hình nhỏ */
             }
         }
 
         @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2em;
+            .logo {
+                font-size: 1.5rem;
             }
-            .hero-content p {
-                font-size: 1em;
+            #hero {
+                padding: 60px 10px;
             }
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 1em;
+            #hero h1 {
+                font-size: 1.8rem;
             }
-            .section {
-                padding: 40px 0;
+            #hero p {
+                font-size: 0.9rem;
+            }
+            .btn {
+                width: 100%;
+                margin-top: 15px;
+            }
+            footer .container {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
-    <header class="hero-section">
-        <div class="hero-content">
-            <h1>Tâm Vạn Phúc: Hành Trình Tìm Lại Bình An Nội Tại</h1>
-            <p>Giải tỏa căng thẳng, lo âu, và kiến tạo một cuộc sống an yên, hạnh phúc viên mãn.</p>
-            <a href="https://tamvanphuc.com/afl/afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button">Khám Phá Ngay</a>
+    <header>
+        <div class="container">
+            <div class="logo">Tâm Vạn <span>Phúc</span></div>
         </div>
     </header>
 
-    <main>
-        <section class="section problem-solution">
-            <div class="container">
-                <h2>Bạn đang tìm kiếm sự bình yên?</h2>
-                <p>Cuộc sống hiện đại đầy áp lực khiến bạn mệt mỏi, căng thẳng, lo âu, và mất kết nối với chính mình? Bạn cảm thấy cô đơn trên hành trình tìm kiếm sự cân bằng nội tại?</p>
-                <p>Tâm Vạn Phúc là điểm đến tin cậy, nơi bạn tìm thấy sự đồng cảm, kiến thức sâu sắc và công cụ thực tiễn để nuôi dưỡng sức khỏe tinh thần, từng bước vượt qua khó khăn, và sống một cuộc đời trọn vẹn hơn với niềm vui và sự an yên.</p>
-            </div>
-        </section>
+    <section id="hero">
+        <div class="container">
+            <h1>Tìm Lại Bình An Nội Tại, Sống Trọn Vẹn Cùng Tâm Vạn Phúc</h1>
+            <p>Khám phá hệ sinh thái toàn diện giúp bạn chăm sóc sức khỏe tâm thần, vượt qua căng thẳng, lo âu và kiến tạo cuộc sống hạnh phúc, ý nghĩa hơn mỗi ngày.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Bắt Đầu Hành Trình Của Bạn</a>
+        </div>
+    </section>
 
-        <section class="section features bg-light">
-            <div class="container">
-                <h2>Tâm Vạn Phúc mang đến điều gì cho bạn?</h2>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <h3>Cộng Đồng Hỗ Trợ</h3>
-                        <p>Kết nối với những người cùng chí hướng, chia sẻ kinh nghiệm và nhận được sự động viên chân thành trong một không gian an toàn.</p>
+    <section id="problem-solution">
+        <div class="container content-grid">
+            <div class="text-content">
+                <h2>Bạn đang đối mặt với điều gì?</h2>
+                <p>Trong cuộc sống hiện đại, áp lực công việc, mối quan hệ và sự thay đổi liên tục dễ khiến chúng ta mất cân bằng. Bạn có thể đang cảm thấy:</p>
+                <ul>
+                    <li>Căng thẳng, lo âu thường xuyên</li>
+                    <li>Khó ngủ, mệt mỏi dù không làm gì nặng nhọc</li>
+                    <li>Mất hứng thú, thiếu động lực sống</li>
+                    <li>Khó khăn trong việc quản lý cảm xúc</li>
+                    <li>Cảm thấy cô đơn, lạc lõng</li>
+                </ul>
+                <p>Bạn không đơn độc. Hàng triệu người đang tìm kiếm cách để cải thiện sức khỏe tinh thần của mình. Tâm Vạn Phúc ở đây để đồng hành cùng bạn.</p>
+            </div>
+            <div class="image-content">
+                <img src="https://source.unsplash.com/random/600x400/?stress,anxiety,mind" alt="Người đang suy nghĩ, lo lắng">
+            </div>
+        </div>
+    </section>
+
+    <section id="features">
+        <div class="container">
+            <h2>Tâm Vạn Phúc mang đến điều gì cho bạn?</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
                     </div>
-                    <div class="feature-item">
-                        <h3>Tài Nguyên Chữa Lành</h3>
-                        <p>Truy cập thư viện phong phú gồm các bài viết chuyên sâu, podcast, video hướng dẫn thiền định, thực hành mindfulness, và quản lý cảm xúc.</p>
+                    <h3>Khóa Học Chuyên Sâu</h3>
+                    <p>Các chương trình được thiết kế bởi chuyên gia, giúp bạn hiểu rõ bản thân, học kỹ năng quản lý cảm xúc và phát triển chánh niệm.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 5.69l5 4.5V18h-2v-6H9v6H7v-7.81l5-4.5M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/></svg>
                     </div>
-                    <div class="feature-item">
-                        <h3>Khóa Học & Workshop</h3>
-                        <p>Tham gia các khóa học và workshop chuyên sâu từ các chuyên gia hàng đầu, giúp bạn phát triển bản thân và kỹ năng sống bền vững.</p>
+                    <h3>Cộng Đồng Hỗ Trợ</h3>
+                    <p>Kết nối với những người cùng chí hướng, chia sẻ kinh nghiệm, nhận sự động viên và cảm thấy được lắng nghe, thấu hiểu.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#000000"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/></svg>
                     </div>
-                    <div class="feature-item">
-                        <h3>Tư Vấn Chuyên Nghiệp</h3>
-                        <p>Tìm kiếm sự hỗ trợ và tư vấn từ các chuyên gia tâm lý uy tín khi bạn cần sự đồng hành cá nhân trên hành trình chữa lành.</p>
-                    </div>
+                    <h3>Tài Nguyên Đa Dạng</h3>
+                    <p>Thư viện thiền định, bài viết chuyên sâu, podcast và các công cụ thực hành chánh niệm giúp bạn duy trì thói quen tích cực.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="section call-to-action-final">
-            <div class="container">
-                <h2>Bắt Đầu Hành Trình Bình An Của Bạn Ngay Hôm Nay</h2>
-                <p>Đừng để căng thẳng, lo âu cản trở bạn sống một cuộc đời ý nghĩa và hạnh phúc. Tâm Vạn Phúc luôn ở đây để đồng hành cùng bạn trên mọi nẻo đường.</p>
-                <a href="https://tamvanphuc.com/afl/afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button primary-cta">Tham Gia Cộng Đồng Ngay</a>
+    <section id="cta-middle" class="cta-section">
+        <div class="container">
+            <h2>Đừng để căng thẳng cản trở hạnh phúc của bạn!</h2>
+            <p>Hàng ngàn người đã bắt đầu hành trình chuyển hóa cùng Tâm Vạn Phúc. Bạn đã sẵn sàng để trở thành phiên bản tốt đẹp hơn của chính mình?</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Khám Phá Tâm Vạn Phúc Ngay!</a>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2>Học Viên Nói Gì Về Tâm Vạn Phúc</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <p>"Sau một thời gian dài chật vật với lo âu, Tâm Vạn Phúc đã giúp tôi tìm lại sự bình yên. Các bài thiền và khóa học thực sự hữu ích."</p>
+                    <div class="author">- Nguyễn Thị A, Nhân viên văn phòng</div>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Cộng đồng ở đây thật tuyệt vời! Tôi tìm thấy sự đồng cảm và những lời khuyên chân thành từ những người bạn mới."</p>
+                    <div class="author">- Trần Văn B, Chủ doanh nghiệp nhỏ</div>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Tôi đã học được cách quản lý cảm xúc tốt hơn và sống chánh niệm hơn. Cuộc sống của tôi đã thay đổi tích cực rất nhiều."</p>
+                    <div class="author">- Lê Thị C, Sinh viên</div>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+
+    <section id="final-cta" class="cta-section">
+        <div class="container">
+            <h2>Bắt Đầu Kiến Tạo Cuộc Sống Hạnh Phúc & Bình An Ngay Hôm Nay!</h2>
+            <p>Tham gia Tâm Vạn Phúc để nhận được sự hỗ trợ chuyên sâu và nguồn tài nguyên phong phú, giúp bạn vượt qua mọi thử thách tâm lý.</p>
+            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Tham Gia Cộng Đồng Tâm Vạn Phúc</a>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
             <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+            <p>Chăm sóc sức khỏe tâm thần toàn diện.</p>
+            <div class="social-links">
+                <a href="https://facebook.com/tamvanphuc" aria-label="Facebook" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M12 2C6.477 2 2 6.477 2 12c0 5.016 3.657 9.176 8.428 9.879V14.89h-2.54V12h2.54V9.797c0-2.515 1.493-3.89 3.775-3.89 1.094 0 2.24.195 2.24.195V8.89h-1.21c-1.205 0-1.583.75-1.583 1.51v1.7h2.89L16.51 14.89h-2.39v6.989C19.343 21.176 23 17.016 23 12c0-5.523-4.477-10-10-10z"/></svg></a>
+                <a href="https://instagram.com/tamvanphuc" aria-label="Instagram" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4c0 3.2-2.6 5.8-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8C2 4.6 4.6 2 7.8 2zm-.2 2A2.8 2.8 0 005 7.8v8.4c0 1.54 1.26 2.8 2.8 2.8h8.4a2.8 2.8 0 002.8-2.8V7.8c0-1.54-1.26-2.8-2.8-2.8H7.6zm9.65 1.5a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4zM12 9c-1.65 0-3 1.35-3 3s1.35 3 3 3 3-1.35 3-3-1.35-3-3-3zm0 2c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1z"/></svg></a>
+                <a href="https://youtube.com/tamvanphuc" aria-label="YouTube" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24" width="24px" fill="#FFFFFF"><path d="M0 0h24v24H0z" fill="none"/><path d="M10 16.5l6-4.5-6-4.5v9zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg></a>
+            </div>
         </div>
     </footer>
 </body>
