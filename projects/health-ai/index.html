@@ -3,388 +3,668 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health AI - Tâm Vạn Phúc: Chăm Sóc Sức Khỏe Toàn Diện Bằng Trí Tuệ Nhân Tạo</title>
+    <title>Health AI - Tâm Vạn Phúc: Tương Lai Y Tế Thông Minh</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4C+M5E5cRz4p0E8g/z05r20s0vB/lR4L1q8b1k4+xR5bV0E0S4mQ+Q/iL7tH2c0u1z/g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* CSS Reset & General Styles */
-        body {
-            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        :root {
+            --primary-color: #007bff; /* Blue */
+            --secondary-color: #28a745; /* Green */
+            --dark-color: #343a40; /* Dark Grey */
+            --light-color: #f8f9fa; /* Light Grey */
+            --text-color: #495057; /* Medium Grey */
+            --white-color: #ffffff;
+            --font-montserrat: 'Montserrat', sans-serif;
+            --font-open-sans: 'Open Sans', sans-serif;
+            --spacing-unit: 1rem;
+        }
+
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-open-sans);
+            color: var(--text-color);
             line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
+            background-color: var(--white-color);
             scroll-behavior: smooth;
         }
 
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #007bff, #0056b3); /* Blue gradient */
-            color: #fff;
-            padding-bottom: 80px;
-            position: relative;
-            overflow: hidden;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
         }
 
-        /* Navigation */
-        nav {
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-montserrat);
+            color: var(--dark-color);
+            margin-bottom: var(--spacing-unit);
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 2rem; }
+        p { margin-bottom: var(--spacing-unit); }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-family: var(--font-montserrat);
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3; /* Darker primary */
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #218838; /* Darker secondary */
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--white-color);
+            padding: var(--spacing-unit) 0;
+            border-bottom: 1px solid var(--light-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
         }
 
-        nav .logo {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #fff;
+        .logo {
+            font-family: var(--font-montserrat);
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--dark-color);
+        }
+        .logo span {
+            color: var(--primary-color);
         }
 
-        nav ul {
+        .nav-menu ul {
             list-style: none;
-            margin: 0;
-            padding: 0;
             display: flex;
         }
 
-        nav ul li {
-            margin-left: 30px;
+        .nav-menu ul li {
+            margin-left: 2rem;
         }
 
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
+        .nav-menu ul li a {
+            color: var(--dark-color);
+            font-weight: 600;
+            position: relative;
         }
 
-        nav ul li a:hover {
-            color: #e2e6ea;
+        .nav-menu ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu ul li a:hover::after {
+            width: 100%;
         }
 
         /* Hero Section */
         .hero {
+            background: linear-gradient(135deg, rgba(0,123,255,0.9), rgba(40,167,69,0.9)), url('https://via.placeholder.com/1920x1080/007bff/ffffff?text=HealthAI_Background') no-repeat center center/cover;
+            color: var(--white-color);
             text-align: center;
-            padding: 80px 20px;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            padding: 8rem 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            color: var(--white-color);
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
         }
 
         .hero p {
-            font-size: 1.4em;
-            margin-bottom: 40px;
-            color: #e2e6ea;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
         }
 
-        /* CTA Button */
-        .cta-button {
-            display: inline-block;
-            background-color: #28a745; /* Green */
-            color: #fff;
-            padding: 15px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.2em;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            background-color: #218838;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-        }
-
-        .cta-button.secondary {
-            background-color: #007bff; /* Blue for secondary CTA */
-        }
-
-        .cta-button.secondary:hover {
-            background-color: #0056b3;
-        }
-
-        /* Sections */
-        .section {
-            padding: 80px 20px;
+        /* About Section */
+        .about {
+            background-color: var(--light-color);
             text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
         }
 
-        .section h2 {
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #007bff;
-            position: relative;
-            display: inline-block;
+        .about h2 {
+            margin-bottom: 2rem;
         }
 
-        .section h2::after {
-            content: '';
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .about-item {
+            background-color: var(--white-color);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .about-item i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
             display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #28a745; /* Green accent */
-            margin: 15px auto 0;
-            border-radius: 2px;
         }
 
-        .bg-light {
-            background-color: #f0f8ff; /* Lighter background for contrast */
+        .about-item h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
         }
 
-        /* Grid Layouts */
-        .intro-grid, .features-grid {
+        /* Features Section */
+        .features {
+            background-color: var(--white-color);
+            text-align: center;
+        }
+
+        .features h2 {
+            margin-bottom: 3rem;
+        }
+
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
+            gap: 2rem;
         }
 
-        .intro-item, .feature-item {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 10px;
+        .feature-card {
+            background-color: var(--white-color);
+            padding: 2rem;
+            border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-align: left;
-        }
-
-        .intro-item:hover, .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-        }
-
-        .intro-item h3, .feature-item h3 {
-            font-size: 1.6em;
-            color: #007bff;
-            margin-bottom: 15px;
-        }
-
-        .intro-item p, .feature-item p {
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        .feature-item {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .feature-item .icon {
-            font-size: 2em;
-            color: #28a745;
-            margin-bottom: 15px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            border: 2px solid #28a745;
-            border-radius: 50%;
-            font-style: normal;
-            font-weight: bold;
-        }
-        .feature-item .icon::before { /* Placeholder for actual icons like FontAwesome */
-            content: '✓';
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, #007bff, #00d4ff); /* Lighter blue gradient */
-            color: #fff;
-            padding: 100px 20px;
             text-align: center;
-            margin-top: 80px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 5px solid var(--primary-color);
         }
 
-        .cta-section h2 {
-            font-size: 2.8em;
-            margin-bottom: 25px;
-            color: #fff;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        .cta-section p {
-            font-size: 1.3em;
-            margin-bottom: 40px;
+        .feature-card i {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        /* Call to Action Section */
+        .cta-banner {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: var(--white-color);
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .cta-banner h2 {
+            color: var(--white-color);
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            opacity: 0.9;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light-color);
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            margin-bottom: 3rem;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white-color);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+        }
+
+        .testimonial-card i.fas.fa-quote-left {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+        .testimonial-card i.fas.fa-quote-right {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.9rem;
+            color: var(--text-color);
         }
 
         /* Footer */
-        footer {
-            background-color: #333;
-            color: #eee;
+        .footer {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+            padding: 3rem 0;
             text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9em;
+            font-size: 0.9rem;
         }
 
-        footer p {
-            margin: 5px 0;
+        .footer .container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
         }
 
-        footer a {
-            color: #00d4ff;
-            text-decoration: none;
+        .footer-links ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
         }
 
-        footer a:hover {
-            text-decoration: underline;
+        .footer-links ul li {
+            margin: 0 1rem;
         }
 
-        /* Responsive adjustments */
+        .footer-links ul li a {
+            color: var(--light-color);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons a {
+            color: var(--white-color);
+            font-size: 1.5rem;
+            margin: 0 0.8rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            width: 30px;
+            height: 22px;
+            justify-content: space-between;
+        }
+
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: var(--dark-color);
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
         @media (max-width: 768px) {
-            nav {
+            .header .nav-menu {
+                display: none;
                 flex-direction: column;
-                padding: 15px;
+                width: 100%;
+                position: absolute;
+                top: 60px; /* Adjust based on header height */
+                left: 0;
+                background-color: var(--white-color);
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                padding-bottom: 1rem;
             }
 
-            nav .logo {
-                margin-bottom: 15px;
+            .header .nav-menu.active {
+                display: flex;
             }
 
-            nav ul {
+            .nav-menu ul {
                 flex-direction: column;
-                align-items: center;
+                text-align: center;
+                width: 100%;
+                padding-top: 1rem;
             }
 
-            nav ul li {
-                margin: 10px 0;
+            .nav-menu ul li {
+                margin: 0.5rem 0;
+            }
+            .nav-menu ul li a {
+                padding: 0.5rem 0;
+                display: block;
+                color: var(--dark-color);
+            }
+            .nav-menu ul li a::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .menu-toggle {
+                display: flex;
             }
 
             .hero h1 {
-                font-size: 2.5em;
+                font-size: 2.5rem;
             }
 
             .hero p {
-                font-size: 1.2em;
+                font-size: 1.2rem;
             }
 
-            .section h2 {
-                font-size: 2em;
+            h2 {
+                font-size: 2rem;
             }
-
-            .cta-section h2 {
-                font-size: 2.2em;
+            h3 {
+                font-size: 1.5rem;
             }
-
-            .cta-button {
-                padding: 12px 30px;
-                font-size: 1.1em;
+            .btn {
+                padding: 0.6rem 1.5rem;
             }
+        }
 
-            .intro-grid, .features-grid {
-                grid-template-columns: 1fr;
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .about-item, .feature-card, .testimonial-card {
+                padding: 1.5rem;
+            }
+            .logo {
+                font-size: 1.5rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Tâm Vạn Phúc Health AI</div>
-            <ul>
-                <li><a href="#gioi-thieu">Giới thiệu</a></li>
-                <li><a href="#tinh-nang">Tính năng</a></li>
-                <li><a href="#lien-he">Liên hệ</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <h1>Tâm Vạn Phúc Health AI: Khai Phóng Tương Lai Sức Khỏe Của Bạn</h1>
-            <p>Ứng dụng trí tuệ nhân tạo để mang đến giải pháp chăm sóc sức khỏe cá nhân hóa, toàn diện và hiệu quả.</p>
-            <a href="https://tamvanphuc.com/dang-ky-healthai?aff_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button">Khám phá ngay</a>
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">Tâm Vạn <span>Phúc</span></a>
+            <nav class="nav-menu" id="navMenu">
+                <ul>
+                    <li><a href="#about">Về chúng tôi</a></li>
+                    <li><a href="#features">Giải pháp</a></li>
+                    <li><a href="#testimonials">Câu chuyện thành công</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                </ul>
+            </nav>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="gioi-thieu" class="section">
-            <h2>Cách Health AI Định Hình Lại Chăm Sóc Sức Khỏe</h2>
-            <div class="intro-grid">
-                <div class="intro-item">
-                    <h3>Phân Tích Chuyên Sâu</h3>
-                    <p>Sử dụng AI để phân tích dữ liệu y tế của bạn, từ hồ sơ bệnh án đến lối sống, cho cái nhìn toàn diện về sức khỏe.</p>
-                </div>
-                <div class="intro-item">
-                    <h3>Dự Đoán Sớm</h3>
-                    <p>Phát hiện nguy cơ bệnh tật tiềm ẩn trước khi chúng trở thành vấn đề nghiêm trọng, giúp bạn chủ động hơn.</p>
-                </div>
-                <div class="intro-item">
-                    <h3>Tư Vấn Cá Nhân</h3>
-                    <p>Đề xuất kế hoạch điều trị, dinh dưỡng và tập luyện phù hợp riêng cho bạn, dựa trên dữ liệu độc đáo của bạn.</p>
+        <section class="hero">
+            <div class="container">
+                <h1>Health AI Tâm Vạn Phúc: Định Hình Tương Lai Y Tế Việt Nam</h1>
+                <p>Nâng tầm chăm sóc sức khỏe với trí tuệ nhân tạo tiên tiến, mang lại giải pháp toàn diện và cá nhân hóa cho mọi người.</p>
+                <a href="https://tamvanphuc.com/join?ref=afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn">Khám Phá Giải Pháp Ngay <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>Health AI Là Gì và Tại Sao Lại Cần Thiết?</h2>
+                <p>Y học đang đứng trước những thách thức lớn: quá tải bệnh viện, chẩn đoán chậm trễ, chi phí leo thang và khả năng tiếp cận dịch vụ y tế hạn chế. Trí tuệ nhân tạo (AI) chính là chìa khóa để vượt qua những rào cản này, mở ra kỷ nguyên mới của y tế thông minh.</p>
+                <div class="about-grid">
+                    <div class="about-item">
+                        <i class="fas fa-brain"></i>
+                        <h3>Tối Ưu Hóa Chẩn Đoán</h3>
+                        <p>Hệ thống AI phân tích dữ liệu y tế khổng lồ, từ hình ảnh X-quang, MRI đến hồ sơ bệnh án, giúp phát hiện bệnh lý sớm và chính xác hơn, giảm thiểu sai sót do con người.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Điều Trị Cá Nhân Hóa</h3>
+                        <p>AI xây dựng phác đồ điều trị phù hợp nhất cho từng bệnh nhân dựa trên đặc điểm gen, lịch sử bệnh và phản ứng thuốc, tối đa hóa hiệu quả và giảm tác dụng phụ.</p>
+                    </div>
+                    <div class="about-item">
+                        <i class="fas fa-user-md"></i>
+                        <h3>Hỗ Trợ Y Bác Sĩ</h3>
+                        <p>Giải phóng y bác sĩ khỏi các tác vụ lặp lại, cung cấp công cụ phân tích mạnh mẽ để họ tập trung vào chuyên môn, nâng cao chất lượng chăm sóc và nghiên cứu.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="tinh-nang" class="section bg-light">
-            <h2>Điểm Nổi Bật Của Tâm Vạn Phúc Health AI</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <span class="icon"></span>
-                    <h3>Hồ Sơ Sức Khỏe Thông Minh</h3>
-                    <p>Tự động tổng hợp và cập nhật thông tin sức khỏe của bạn một cách an toàn và bảo mật, mọi lúc mọi nơi.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="icon"></span>
-                    <h3>Chẩn Đoán Hỗ Trợ AI</h3>
-                    <p>Cung cấp thông tin tham khảo dựa trên AI tiên tiến, hỗ trợ bác sĩ đưa ra quyết định chẩn đoán chính xác hơn.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="icon"></span>
-                    <h3>Quản Lý Thuốc & Liệu Trình</h3>
-                    <p>Nhắc nhở uống thuốc, theo dõi tiến độ điều trị và đánh giá hiệu quả, giúp bạn tuân thủ liệu trình một cách tốt nhất.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="icon"></span>
-                    <h3>Tương Tác Với Chuyên Gia</h3>
-                    <p>Kết nối dễ dàng và an toàn với đội ngũ bác sĩ và chuyên gia y tế hàng đầu của Tâm Vạn Phúc.</p>
+        <section id="features" class="features">
+            <div class="container">
+                <h2>Giải Pháp Health AI Tiên Tiến Từ Tâm Vạn Phúc</h2>
+                <p>Chúng tôi mang đến những ứng dụng AI đột phá để cách mạng hóa mọi khía cạnh của ngành y tế.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-diagnoses"></i>
+                        <h3>Chẩn Đoán Hình Ảnh Thông Minh</h3>
+                        <p>Phân tích tự động các hình ảnh y tế, phát hiện bất thường và đưa ra gợi ý chẩn đoán với độ chính xác cao.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-capsules"></i>
+                        <h3>Phát Triển Thuốc & Điều Trị</h3>
+                        <p>Tăng tốc quá trình khám phá thuốc mới và tối ưu hóa phác đồ điều trị thông qua mô phỏng và phân tích dữ liệu.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Dự Đoán & Ngăn Ngừa Bệnh</h3>
+                        <p>Phân tích yếu tố nguy cơ, dự đoán khả năng mắc bệnh và đưa ra khuyến nghị phòng ngừa chủ động.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-hospital-user"></i>
+                        <h3>Quản Lý Bệnh Viện Tối Ưu</h3>
+                        <p>Tối ưu hóa lịch trình, quản lý tài nguyên và nâng cao trải nghiệm bệnh nhân bằng hệ thống AI thông minh.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="cta-section">
-            <h2>Bạn Sẵn Sàng Trải Nghiệm Tương Lai Sức Khỏe?</h2>
-            <p>Tham gia cùng hàng ngàn người đã và đang cải thiện chất lượng cuộc sống với Tâm Vạn Phúc Health AI. Bắt đầu hành trình chăm sóc sức khỏe thông minh của bạn ngay hôm nay!</p>
-            <a href="https://tamvanphuc.com/dang-ky-healthai?aff_id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button secondary">Bắt đầu ngay hôm nay</a>
+        <section class="cta-banner">
+            <div class="container">
+                <h2>Sẵn Sàng Thay Đổi Tương Lai Y Tế Cùng Chúng Tôi?</h2>
+                <p>Đừng bỏ lỡ cơ hội tích hợp các giải pháp Health AI hàng đầu để nâng cao hiệu suất và chất lượng dịch vụ y tế của bạn.</p>
+                <a href="https://tamvanphuc.com/join?ref=afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="btn btn-secondary">Liên Hệ Ngay Để Tư Vấn <i class="fas fa-paper-plane"></i></a>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2>Đối Tác & Khách Hàng Nói Gì Về Chúng Tôi</h2>
+                <p>Niềm tin của bạn là động lực để Tâm Vạn Phúc không ngừng phát triển.</p>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Giải pháp Health AI của Tâm Vạn Phúc đã giúp bệnh viện chúng tôi giảm 30% thời gian chẩn đoán và tăng 15% độ chính xác. Đây thực sự là bước đột phá!"</p>
+                        <div class="testimonial-author">Bác sĩ Nguyễn Thị Thu Hà</div>
+                        <div class="testimonial-role">Trưởng khoa Chẩn đoán hình ảnh, Bệnh viện T.Ư</div>
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Với sự hỗ trợ của AI Tâm Vạn Phúc, chúng tôi đã có thể cá nhân hóa phác đồ điều trị ung thư, mang lại hy vọng mới cho nhiều bệnh nhân."</p>
+                        <div class="testimonial-author">Giáo sư Trần Văn Minh</div>
+                        <div class="testimonial-role">Viện trưởng Viện Nghiên cứu Y học</div>
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                    <div class="testimonial-card">
+                        <i class="fas fa-quote-left"></i>
+                        <p>"Hiệu quả trong quản lý dữ liệu và hỗ trợ ra quyết định của hệ thống AI Tâm Vạn Phúc là không thể phủ nhận. Chúng tôi rất hài lòng!"</p>
+                        <div class="testimonial-author">Ông Lê Hoàng Quân</div>
+                        <div class="testimonial-role">CEO Chuỗi Phòng khám Đa khoa Quốc tế</div>
+                        <i class="fas fa-quote-right"></i>
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer id="lien-he">
-        <p>&copy; 2023 Tâm Vạn Phúc Health AI. Mọi quyền được bảo lưu.</p>
-        <p>Liên hệ: <a href="mailto:info@tamvanphuc.com">info@tamvanphuc.com</a></p>
-        <p>Theo dõi chúng tôi trên mạng xã hội: Facebook | LinkedIn | Twitter</p>
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="logo">Tâm Vạn <span>Phúc</span></div>
+            <p>Nâng tầm sức khỏe Việt Nam bằng trí tuệ nhân tạo.</p>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Chính sách bảo mật</a></li>
+                    <li><a href="#">Điều khoản dịch vụ</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+        </div>
     </footer>
 
     <script>
-        // Smooth scrolling for anchor links
         document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                menuToggle.classList.toggle('active');
+            });
+
+            // Close menu when a nav link is clicked (for mobile)
+            document.querySelectorAll('.nav-menu ul li a').forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            });
+
+            // Smooth scrolling for anchor links
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
 
-                    const targetId = this.getAttribute('href');
-                    if (targetId) {
-                        document.querySelector(targetId).scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 });
             });
         });
