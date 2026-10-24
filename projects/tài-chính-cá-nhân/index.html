@@ -3,296 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Kiến Tạo Tài Chính An Lạc</title>
+    <title>Tâm Vạn Phúc - Kiến Tạo Tự Do Tài Chính Cá Nhân</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base Styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --primary-color: #2E8B57; /* Sea Green - calming, prosperous */
+            --secondary-color: #FDFEFE; /* White */
+            --accent-color: #FFD700; /* Gold - prosperity */
+            --text-color: #333;
+            --light-bg: #F8F8F8;
+            --dark-bg: #222;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
-            color: #333;
-            background-color: #f4f7f6; /* Light background */
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Merriweather', serif;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 2.8em;
+            color: var(--secondary-color); /* For hero section */
+        }
+
+        h2 {
+            font-size: 2.2em;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            color: var(--primary-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
 
         /* Header */
         header {
-            background-color: #ffffff;
-            color: #333;
+            background-color: var(--secondary-color);
             padding: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        header .logo {
-            font-size: 28px;
-            font-weight: bold;
-            color: #2e8b57; /* A calming green for Tâm Vạn Phúc */
-            text-align: center;
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-family: 'Merriweather', serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--primary-color);
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(to right, rgba(46, 139, 87, 0.8), rgba(60, 179, 113, 0.7)), url('https://source.unsplash.com/random/1600x900/?money,meditation,nature') no-repeat center center/cover;
-            color: #fff;
-            padding: 100px 0;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1549465220-1a9088f19939?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80') no-repeat center center/cover;
+            color: var(--secondary-color);
             text-align: center;
+            padding: 100px 20px;
             min-height: 500px;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
-        .hero h2 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(46, 139, 87, 0.7), rgba(255, 215, 0, 0.5)); /* Blending primary and accent */
+            opacity: 0.7;
+            z-index: 1;
+        }
+        .hero > * {
+            position: relative;
+            z-index: 2;
         }
 
         .hero p {
-            font-size: 22px;
+            font-size: 1.3em;
             margin-bottom: 40px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+            max-width: 800px;
         }
 
         .cta-button {
             display: inline-block;
-            background-color: #f1c40f; /* Yellow accent for CTA */
-            color: #333;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
             padding: 15px 30px;
-            font-size: 20px;
-            font-weight: bold;
-            text-decoration: none;
             border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 700;
             transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         .cta-button:hover {
-            background-color: #e6b100; /* Slightly darker yellow on hover */
+            background-color: #FFEA00;
             transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
 
-        /* Features Section */
-        .features {
+        /* Benefits Section */
+        .benefits {
             padding: 80px 0;
-            background-color: #ffffff;
-            text-align: center;
+            background-color: var(--light-bg);
         }
 
-        .features h3 {
-            font-size: 38px;
-            margin-bottom: 60px;
-            color: #2e8b57;
-        }
-
-        .feature-grid {
+        .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 50px;
         }
 
-        .feature-item {
-            background-color: #f9fdfb;
+        .benefit-item {
+            background-color: var(--secondary-color);
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-            text-align: left;
-            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .feature-item:hover {
+        .benefit-item:hover {
             transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
         }
 
-        .feature-item h4 {
-            font-size: 24px;
-            color: #34495e;
+        .benefit-item .icon {
+            font-size: 3em;
+            color: var(--accent-color);
             margin-bottom: 15px;
         }
 
-        .feature-item p {
-            font-size: 17px;
-            color: #555;
+        .benefit-item h3 {
+            margin-top: 0;
+            color: var(--primary-color);
         }
 
-        /* Bottom Call to Action */
-        .call-to-action-bottom {
-            background-color: #2e8b57; /* Primary brand color */
-            color: #fff;
-            padding: 80px 0;
+        /* Call to Action Section */
+        .cta-section {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
             text-align: center;
+            padding: 60px 20px;
         }
 
-        .call-to-action-bottom h2 {
-            font-size: 40px;
-            margin-bottom: 20px;
-        }
-
-        .call-to-action-bottom p {
-            font-size: 20px;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button.secondary {
-            background-color: #fff;
-            color: #2e8b57;
-        }
-
-        .cta-button.secondary:hover {
-            background-color: #f0f0f0;
-            color: #1e704a;
+        .cta-section h2 {
+            color: var(--secondary-color);
+            margin-bottom: 30px;
         }
 
         /* Footer */
         footer {
-            background-color: #34495e; /* Darker neutral */
-            color: #ecf0f1;
+            background-color: var(--dark-bg);
+            color: #ccc;
             text-align: center;
-            padding: 30px 0;
-            font-size: 15px;
+            padding: 40px 20px;
+            font-size: 0.9em;
+        }
+
+        footer .logo {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        footer p {
+            margin: 5px 0;
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .hero {
-                padding: 80px 0;
-                min-height: 400px;
+            h1 {
+                font-size: 2.2em;
             }
 
-            .hero h2 {
-                font-size: 38px;
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .hero {
+                padding: 80px 20px;
             }
 
             .hero p {
-                font-size: 18px;
-            }
-
-            .features h3 {
-                font-size: 32px;
-                margin-bottom: 40px;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr; /* Stack features on small screens */
-            }
-
-            .call-to-action-bottom h2 {
-                font-size: 32px;
-            }
-
-            .call-to-action-bottom p {
-                font-size: 18px;
-            }
-
-            header .logo {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                padding: 60px 0;
-            }
-
-            .hero h2 {
-                font-size: 30px;
-            }
-
-            .hero p {
-                font-size: 16px;
+                font-size: 1.1em;
             }
 
             .cta-button {
                 padding: 12px 25px;
-                font-size: 18px;
+                font-size: 1em;
             }
 
-            .features {
-                padding: 60px 0;
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
             }
 
-            .features h3 {
-                font-size: 28px;
+            h2 {
+                font-size: 1.6em;
             }
 
-            .call-to-action-bottom {
-                padding: 60px 0;
+            .hero {
+                padding: 60px 15px;
             }
 
-            .call-to-action-bottom h2 {
-                font-size: 28px;
+            .hero p {
+                font-size: 1em;
             }
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1 class="logo">Tâm Vạn Phúc</h1>
+        <div class="header-content container">
+            <span class="logo">Tâm Vạn Phúc</span>
         </div>
     </header>
 
     <main>
         <section class="hero">
-            <div class="container">
-                <h2>Bắt Đầu Hành Trình Tài Chính Tịnh Tâm Của Bạn</h2>
-                <p>Khám phá bí quyết kiến tạo sự thịnh vượng bền vững và an lạc từ bên trong cùng Tâm Vạn Phúc.</p>
-                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button">Khám Phá Ngay</a>
-            </div>
+            <h1>Kiến Tạo Tự Do Tài Chính: Bình An và Thịnh Vượng Cùng Tâm Vạn Phúc</h1>
+            <p>Khám phá lộ trình toàn diện để quản lý tiền bạc thông minh, đầu tư hiệu quả và xây dựng tương lai tài chính vững chắc, giúp bạn sống an nhiên, hạnh phúc.</p>
+            <a href="https://tamvanphuc.com/go?ref=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button" target="_blank" rel="noopener noreferrer">Bắt Đầu Hành Trình Của Bạn Ngay Hôm Nay!</a>
         </section>
 
-        <section class="features">
+        <section class="benefits">
             <div class="container">
-                <h3>Tại Sao Chọn Tâm Vạn Phúc?</h3>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <h4>Tài Chính Từ Tâm</h4>
-                        <p>Tiếp cận tài chính không chỉ là con số, mà là sự cân bằng và bình an nội tại.</p>
+                <h2>Bạn Sẽ Học Được Gì Cùng Tâm Vạn Phúc?</h2>
+                <div class="benefits-grid">
+                    <div class="benefit-item">
+                        <div class="icon">📈</div>
+                        <h3>Lập Kế Hoạch Tài Chính Cá Nhân</h3>
+                        <p>Biết cách thiết lập mục tiêu, xây dựng ngân sách hiệu quả và theo dõi chi tiêu một cách có hệ thống.</p>
                     </div>
-                    <div class="feature-item">
-                        <h4>Kế Hoạch Bền Vững</h4>
-                        <p>Xây dựng lộ trình tài chính rõ ràng, vững chắc, hướng tới tự do tài chính dài hạn.</p>
+                    <div class="benefit-item">
+                        <div class="icon">💰</div>
+                        <h3>Bí Quyết Đầu Tư Thông Minh</h3>
+                        <p>Tìm hiểu các nguyên tắc đầu tư cơ bản, cách lựa chọn kênh đầu tư phù hợp và tối ưu hóa lợi nhuận.</p>
                     </div>
-                    <div class="feature-item">
-                        <h4>Kiến Thức Thực Tiễn</h4>
-                        <p>Học hỏi các công cụ và chiến lược dễ áp dụng để quản lý tiền bạc hiệu quả.</p>
+                    <div class="benefit-item">
+                        <div class="icon">🛡️</div>
+                        <h3>Quản Lý Nợ và Rủi Ro</h3>
+                        <p>Giải quyết nợ hiệu quả, xây dựng quỹ khẩn cấp và bảo vệ tài sản của bạn khỏi những biến động bất ngờ.</p>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="icon">🌟</div>
+                        <h3>Tạo Dòng Tiền Thụ Động</h3>
+                        <p>Khám phá các phương pháp để tạo ra nhiều nguồn thu nhập, gia tăng tài sản và đạt được sự độc lập tài chính.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="call-to-action-bottom">
+        <section class="cta-section">
             <div class="container">
-                <h2>Biến Lo Lắng Tài Chính Thành An Yên Thịnh Vượng</h2>
-                <p>Hãy để Tâm Vạn Phúc đồng hành cùng bạn trên con đường kiến tạo cuộc sống tài chính viên mãn.</p>
-                <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button secondary">Bắt Đầu Ngay Hôm Nay</a>
+                <h2>Đừng Chần Chừ Nữa! Tương Lai Tài Chính Vững Chắc Đang Chờ Đón Bạn.</h2>
+                <p>Tham gia cùng hàng ngàn học viên khác của Tâm Vạn Phúc để biến ước mơ tự do tài chính thành hiện thực.</p>
+                <a href="https://tamvanphuc.com/go?ref=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="cta-button" target="_blank" rel="noopener noreferrer">Gia Nhập Cộng Đồng Tâm Vạn Phúc</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
+            <span class="logo">Tâm Vạn Phúc</span>
             <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+            <p>Giải pháp tài chính cá nhân toàn diện cho cuộc sống an nhiên, thịnh vượng.</p>
         </div>
     </footer>
 </body>
