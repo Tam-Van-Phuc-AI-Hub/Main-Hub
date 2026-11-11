@@ -3,358 +3,533 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mental-AI: Giải Phóng Tiềm Năng Tinh Thần Cùng Tâm Vạn Phúc</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Tâm Vạn Phúc | Mental-AI: Sức Khỏe Tinh Thần Thời Đại Số</title>
     <style>
+        /* General Styles */
         :root {
-            --primary-color: #2E86DE; /* Blue */
-            --secondary-color: #00B894; /* Green */
-            --accent-color: #FF7675; /* Coral */
-            --text-dark: #333;
-            --text-light: #f4f4f4;
-            --bg-light: #ffffff;
+            --primary-color: #4CAF50; /* Green */
+            --secondary-color: #2196F3; /* Blue */
+            --accent-color: #FFC107; /* Amber */
+            --text-color: #333;
+            --light-text-color: #f4f4f4;
+            --bg-light: #f9f9f9;
             --bg-dark: #2c3e50; /* Dark blue-gray */
-            --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --gradient-hero: linear-gradient(135deg, #a8e063, #56ab2f); /* Greenish gradient */
+            --gradient-cta: linear-gradient(45deg, #2196F3, #0d47a1); /* Blueish gradient */
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             line-height: 1.6;
-            color: var(--text-dark);
-            background: var(--bg-light);
+            color: var(--text-color);
+            background-color: var(--bg-light);
             scroll-behavior: smooth;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
-        /* Header (Optional, but good for branding) */
-        header {
-            background: var(--bg-light);
-            padding: 1rem 0;
-            box-shadow: var(--shadow);
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-top: 0;
+            color: var(--text-color);
+        }
+
+        h1 { font-size: 3em; line-height: 1.2; }
+        h2 { font-size: 2.5em; margin-bottom: 20px; }
+        h3 { font-size: 1.8em; margin-bottom: 15px; }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: 600;
+            text-align: center;
+            color: var(--light-text-color);
+            background-color: var(--primary-color);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+        }
+
+        .btn-primary {
+            background: var(--gradient-hero);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #7cb342, #43a047); /* Slightly darker on hover */
+        }
+
+        .btn-secondary {
+            background: var(--gradient-cta);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-3px);
+            background: linear-gradient(45deg, #1976D2, #0d47a1); /* Slightly darker on hover */
+        }
+
+        /* Header */
+        .header {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
-        header .container {
+        .header .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            font-weight: 700;
+            font-size: 1.8em;
+            font-weight: 800;
             color: var(--primary-color);
-            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
-
-        .logo span {
-            color: var(--secondary-color);
+        .logo svg {
+            margin-right: 10px;
+            fill: var(--primary-color);
         }
 
         /* Hero Section */
-        #hero {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #4a99e9 100%);
-            color: var(--text-light);
+        .hero {
+            background: var(--gradient-hero);
+            color: white;
             padding: 100px 0;
             text-align: center;
             display: flex;
             align-items: center;
+            justify-content: center;
             min-height: 60vh;
+            position: relative;
+            overflow: hidden;
         }
 
-        #hero h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
+        .hero::before { /* Background overlay/effect */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.1);
+            z-index: 1;
         }
 
-        #hero p {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
+        .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.8em;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.4em;
+            margin-bottom: 40px;
             opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--secondary-color);
-            color: var(--text-light);
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-weight: 600;
-            transition: background 0.3s ease, transform 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .btn:hover {
-            background: #008f75; /* Darker green */
-            transform: translateY(-3px);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
         /* Section Styling */
-        section {
+        .section {
             padding: 80px 0;
             text-align: center;
         }
 
-        section:nth-of-type(even) {
-            background: #f8f8f8;
+        .section:nth-of-type(even) {
+            background-color: var(--bg-light);
+        }
+        .section:nth-of-type(odd) {
+            background-color: white;
         }
 
-        h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: var(--primary-color);
-            font-weight: 700;
-        }
 
-        section p {
-            font-size: 1.15rem;
-            max-width: 900px;
-            margin: 0 auto 30px auto;
-            color: #555;
-        }
-
-        /* Introduction Section */
-        #introduction {
-            background: var(--bg-light);
-        }
-
-        #introduction h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            color: var(--accent-color);
-            margin-bottom: 15px;
-        }
-
-        /* Features Section */
-        #features .feature-grid {
+        /* Features Grid */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             margin-top: 50px;
         }
 
         .feature-item {
-            background: var(--bg-light);
+            background-color: white;
             padding: 30px;
             border-radius: 15px;
-            box-shadow: var(--shadow);
+            box-shadow: var(--shadow-light);
             text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .feature-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--primary-color);
             transition: transform 0.3s ease;
+            transform: translateX(-100%);
+        }
+        .feature-item:hover::before {
+            transform: translateX(0);
         }
 
         .feature-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .feature-item .icon {
-            font-size: 3rem;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-            display: block;
-            text-align: center;
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
         .feature-item h3 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            text-align: center;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .feature-item h3 svg {
+            margin-right: 10px;
+            fill: var(--secondary-color);
         }
 
         .feature-item p {
-            font-size: 1rem;
-            color: #666;
-            margin: 0;
-            text-align: left;
+            font-size: 1em;
+            color: #555;
         }
 
-        /* CTA Bottom Section */
-        #cta-bottom {
-            background: var(--bg-dark);
-            color: var(--text-light);
-            padding: 80px 0;
+        /* How it Works / Process */
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 50px;
         }
 
-        #cta-bottom h2 {
-            color: var(--secondary-color);
+        .step-item {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .step-item .icon {
+            font-size: 3em;
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
 
-        #cta-bottom p {
-            color: #c0c0c0;
+        .step-item .step-number {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            box-shadow: var(--shadow-light);
+        }
+
+        .step-item h3 {
+            color: var(--secondary-color);
+            margin-top: 15px; /* Adjust for step number */
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--bg-dark);
+            color: var(--light-text-color);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            color: white;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-item {
+            background-color: #3b5a77; /* Darker shade of bg-dark */
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+        }
+
+        .testimonial-item p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--light-text-color);
+            font-size: 1.1em;
+        }
+
+        .testimonial-item .author {
+            font-weight: 600;
+            color: var(--accent-color);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-cta);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 30px;
+            font-size: 2.8em;
+        }
+
+        .cta-section p {
+            font-size: 1.3em;
             margin-bottom: 40px;
+            opacity: 0.9;
         }
 
         /* Footer */
-        footer {
-            background: #333;
-            color: #aaa;
+        .footer {
+            background-color: var(--bg-dark);
+            color: var(--light-text-color);
+            padding: 40px 0;
             text-align: center;
-            padding: 30px 0;
-            font-size: 0.9rem;
+            font-size: 0.9em;
         }
 
-        footer a {
-            color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
+        .footer p {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.7);
         }
 
-        footer a:hover {
+        .footer a {
             color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3em; }
+            .hero p { font-size: 1.2em; }
+            h2 { font-size: 2em; }
+            h3 { font-size: 1.6em; }
+            .btn { font-size: 1.1em; padding: 12px 25px; }
+        }
+
         @media (max-width: 768px) {
-            #hero {
-                padding: 80px 0;
-                min-height: 50vh;
-            }
-
-            #hero h1 {
-                font-size: 2.5rem;
-            }
-
-            #hero p {
-                font-size: 1.2rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            section {
-                padding: 60px 0;
-            }
-
-            .feature-grid {
+            .hero { padding: 80px 0; }
+            .hero h1 { font-size: 2.5em; }
+            .hero p { font-size: 1.1em; }
+            .section { padding: 60px 0; }
+            h2 { font-size: 1.8em; }
+            h3 { font-size: 1.4em; }
+            .features-grid, .process-steps, .testimonial-grid {
                 grid-template-columns: 1fr;
             }
+            .step-item { max-width: 100%; }
         }
 
         @media (max-width: 480px) {
-            #hero h1 {
-                font-size: 2rem;
-            }
-
-            #hero p {
-                font-size: 1rem;
-            }
-
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-
-            h2 {
-                font-size: 1.8rem;
-            }
-
-            .feature-item h3 {
-                font-size: 1.3rem;
-            }
+            .hero { padding: 60px 0; }
+            .hero h1 { font-size: 2em; }
+            .hero p { font-size: 1em; }
+            .btn { padding: 10px 20px; font-size: 1em; }
+            .logo { font-size: 1.5em; }
+            h2 { font-size: 1.6em; }
+            .cta-section h2 { font-size: 2em; }
+            .cta-section p { font-size: 1.1em; }
         }
     </style>
 </head>
 <body>
-    <header>
+    <header class="header">
         <div class="container">
-            <a href="#" class="logo">Tâm Vạn <span>Phúc</span></a>
-            <!-- Navigation can be added here if needed, e.g., <nav>...</nav> -->
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/>
+                    <path d="M12 6c-3.313 0-6 2.687-6 6h2c0-2.206 1.794-4 4-4s4 1.794 4 4h2c0-3.313-2.687-6-6-6z"/>
+                </svg>
+                Tâm Vạn Phúc
+            </a>
+            <!-- Navigation can be added here if needed, but for a simple LP, often omitted or simplified -->
         </div>
     </header>
 
-    <section id="hero">
-        <div class="container">
-            <h1>Giải Phóng Tiềm Năng Tinh Thần, Vươn Tầm Cuộc Sống Với Mental-AI</h1>
-            <p>Khám phá sức mạnh của Trí Tuệ Nhân Tạo để nuôi dưỡng tâm trí, giảm căng thẳng và phát triển bản thân toàn diện trong hệ sinh thái Tâm Vạn Phúc.</p>
-            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Bắt Đầu Hành Trình Của Bạn Ngay</a>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Giải Phóng Tiềm Năng Tinh Thần Cùng Mental-AI</h1>
+            <p>Sức mạnh công nghệ hiện đại từ Tâm Vạn Phúc giúp bạn thấu hiểu, cân bằng và phát triển nội tâm sâu sắc, vững vàng trong thời đại số.</p>
+            <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+                Khám Phá Sức Mạnh Mental-AI Ngay!
+            </a>
         </div>
     </section>
 
-    <section id="introduction">
+    <section class="section">
         <div class="container">
-            <h2>Bạn Có Đang Tìm Kiếm Một Tâm Trí An Bình Hơn?</h2>
-            <p>Trong cuộc sống hiện đại đầy áp lực, việc giữ cho tâm trí minh mẫn và bình yên trở nên khó khăn hơn bao giờ hết. Căng thẳng, lo âu, thiếu tập trung là những rào cản lớn ngăn bạn đạt được hạnh phúc và thành công thực sự.</p>
-            <p><strong>Mental-AI từ Tâm Vạn Phúc là giải pháp đột phá</strong>, kết hợp trí tuệ nhân tạo tiên tiến với các phương pháp nuôi dưỡng tinh thần để mang lại sự hỗ trợ cá nhân hóa, giúp bạn vượt qua thách thức và khai mở tiềm năng bên trong.</p>
-        </div>
-    </section>
-
-    <section id="features">
-        <div class="container">
-            <h2>Mental-AI Mang Lại Cho Bạn Điều Gì?</h2>
-            <p>Được thiết kế để tối ưu hóa sức khỏe tinh thần và phát triển cá nhân, Mental-AI cung cấp các công cụ và hướng dẫn độc đáo:</p>
-            <div class="feature-grid">
+            <h2>Tại Sao Mental-AI Là Tương Lai Của Sức Khỏe Tinh Thần?</h2>
+            <p>Trong một thế giới đầy biến động và thông tin quá tải, việc duy trì sức khỏe tinh thần là một thách thức lớn. Mental-AI của Tâm Vạn Phúc mang đến một giải pháp đột phá, kết hợp trí tuệ nhân tạo với những triết lý chữa lành sâu sắc.</p>
+            <div class="features-grid">
                 <div class="feature-item">
-                    <span class="icon">&#9728;</span> <!-- Sun icon -->
-                    <h3>Phân Tích & Hiểu Cảm Xúc</h3>
-                    <p>AI giúp bạn nhận diện, phân tích và quản lý cảm xúc tốt hơn thông qua các bài tập và phản hồi cá nhân hóa.</p>
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-2-9h4v2h-4v-2zM9 8h6v2H9V8zm0 6h6v2H9v-2z"/>
+                        </svg>
+                        Thấu Hiểu Bản Thân Sâu Sắc
+                    </h3>
+                    <p>Mental-AI phân tích hành vi, cảm xúc và các yếu tố tâm lý để cung cấp cái nhìn cá nhân hóa, giúp bạn nhận diện những mẫu hình và tìm ra gốc rễ của vấn đề.</p>
                 </div>
                 <div class="feature-item">
-                    <span class="icon">&#128172;</span> <!-- Chat bubble icon -->
-                    <h3>Thiết Kế Lộ Trình Phát Triển Cá Nhân</h3>
-                    <p>Tạo kế hoạch rèn luyện tinh thần, nâng cao EQ, phát triển kỹ năng mềm và đạt mục tiêu sống một cách có hệ thống.</p>
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-11v4h2v-4h-2zm0 6h2v2h-2v-2z"/>
+                        </svg>
+                        Cá Nhân Hóa Lộ Trình Phát Triển
+                    </h3>
+                    <p>Không có giải pháp nào phù hợp với tất cả. Mental-AI thiết kế lộ trình riêng biệt, từ thiền định, bài tập tâm lý đến các hoạt động rèn luyện trí tuệ cảm xúc, phù hợp với nhu cầu của bạn.</p>
                 </div>
                 <div class="feature-item">
-                    <span class="icon">&#127769;</span> <!-- Moon icon -->
-                    <h3>Thư Viện Thiền & Thư Giãn</h3>
-                    <p>Hàng trăm bài tập thiền định, âm thanh thư giãn và hướng dẫn mindfulness được cá nhân hóa, giúp bạn giảm căng thẳng và cải thiện giấc ngủ.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">&#128187;</span> <!-- Laptop icon -->
-                    <h3>Hỗ Trợ 24/7</h3>
-                    <p>Mental-AI luôn bên bạn, cung cấp lời khuyên, động lực và các công cụ hỗ trợ bất cứ lúc nào bạn cần, ngay trên thiết bị của mình.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">&#127793;</span> <!-- Leaf icon -->
-                    <h3>Tích Hợp Hệ Sinh Thái Tâm Vạn Phúc</h3>
-                    <p>Đảm bảo chất lượng, sự tin cậy và liên kết chặt chẽ với các giá trị cốt lõi của Tâm Vạn Phúc, vì một cuộc sống trọn vẹn.</p>
-                </div>
-                <div class="feature-item">
-                    <span class="icon">&#128170;</span> <!-- Flexed biceps icon -->
-                    <h3>Tăng Cường Sức Mạnh Nội Tại</h3>
-                    <p>Củng cố sự tự tin, khả năng phục hồi và sức mạnh tinh thần để đối mặt với mọi thử thách trong cuộc sống một cách vững vàng.</p>
+                    <h3>
+                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-10h2v6h-2z"/>
+                        </svg>
+                        Hỗ Trợ Liên Tục 24/7
+                    </h3>
+                    <p>Dù bạn ở đâu, vào bất kỳ thời điểm nào, Mental-AI luôn sẵn sàng lắng nghe và cung cấp công cụ hỗ trợ để bạn vượt qua những khoảnh khắc khó khăn hay đơn giản là duy trì trạng thái cân bằng.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="cta-bottom">
+    <section class="section testimonials">
         <div class="container">
-            <h2>Đừng Để Căng Thẳng Ngăn Cản Bạn!</h2>
-            <p>Tham gia cùng hàng ngàn người đã tìm thấy sự an bình và phát triển bản thân với Mental-AI. Hãy bắt đầu hành trình chuyển đổi của bạn ngay hôm nay để có một tâm trí an lành và cuộc sống tươi đẹp hơn.</p>
-            <a href="afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn">Khám Phá Mental-AI Ngay!</a>
+            <h2>Hành Trình Chuyển Hóa Của Khách Hàng</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-item">
+                    <p>"Sau khi sử dụng Mental-AI, tôi đã tìm thấy sự bình yên mà tôi tưởng chừng đã đánh mất. Các gợi ý cá nhân hóa thực sự giúp tôi hiểu mình hơn."</p>
+                    <div class="author">- Nguyễn Thị Lan, Doanh nhân</div>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Mental-AI không chỉ là một ứng dụng, mà là một người bạn đồng hành. Nó giúp tôi quản lý stress hiệu quả và ngủ ngon hơn rất nhiều."</p>
+                    <div class="author">- Trần Văn Kiên, Chuyên viên IT</div>
+                </div>
+                <div class="testimonial-item">
+                    <p>"Tôi đã từng hoài nghi về AI trong sức khỏe tinh thần, nhưng Tâm Vạn Phúc đã chứng minh điều ngược lại. Tôi cảm thấy kết nối và được hỗ trợ mỗi ngày."</p>
+                    <div class="author">- Lê Thu Hà, Sinh viên</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <footer>
+    <section class="section">
         <div class="container">
-            <p>&copy; 2023 Tâm Vạn Phúc. Mọi Quyền Được Bảo Lưu.</p>
-            <p>Một phần của hệ sinh thái Tâm Vạn Phúc.</p>
+            <h2>Làm Thế Nào Mental-AI Hoạt Động Cùng Bạn?</h2>
+            <p>Trải nghiệm hành trình chuyển hóa tinh thần chỉ với vài bước đơn giản:</p>
+            <div class="process-steps">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <h3>Đánh Giá Ban Đầu</h3>
+                    <p>Hoàn thành bài kiểm tra ngắn để Mental-AI hiểu rõ về trạng thái tinh thần, mục tiêu và sở thích của bạn.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <h3>Nhận Lộ Trình Cá Nhân</h3>
+                    <p>Hệ thống AI sẽ đề xuất các bài tập, thiền định, nội dung và kỹ thuật phù hợp nhất với bạn.</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <h3>Thực Hành & Theo Dõi</h3>
+                    <p>Bắt đầu hành trình, thực hành hàng ngày và theo dõi tiến độ. Mental-AI sẽ điều chỉnh lộ trình khi bạn phát triển.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Sẵn Sàng Cho Một Tương Lai Tinh Thần Vững Vàng Hơn?</h2>
+            <p>Đừng để những áp lực cuộc sống cản trở bạn. Hãy cùng Tâm Vạn Phúc và Mental-AI kiến tạo một cuộc sống cân bằng, ý nghĩa và tràn đầy năng lượng.</p>
+            <a href="https://afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">
+                Bắt Đầu Hành Trình Của Bạn Ngay Hôm Nay
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 Tâm Vạn Phúc. Bảo lưu mọi quyền.</p>
+            <p>Một phần của hệ sinh thái Tâm Vạn Phúc - Nâng tầm giá trị cuộc sống.</p>
         </div>
     </footer>
 </body>
