@@ -1,533 +1,323 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tâm Vạn Phúc - Nơi Nương Tựa Tâm Hồn An Lành</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Tâm Vạn Phúc - Chăm Sóc Sức Khỏe Tâm Thần</title>
     <style>
-        /* CSS Reset & Global Styles */
-        :root {
-            --primary-color: #5A7D7D; /* Teal/Greenish Blue */
-            --secondary-color: #8C9F9F; /* Lighter Teal/Gray */
-            --accent-color: #B5C9C9; /* Even Lighter Teal/Gray */
-            --light-bg: #F8FBFB;
-            --dark-text: #333333;
-            --light-text: #666666;
-            --white: #ffffff;
-            --button-hover-bg: #406262;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
+        /* General Body */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
             line-height: 1.6;
-            color: var(--dark-text);
-            background-color: var(--light-bg);
-            scroll-behavior: smooth;
+            color: #333;
+            background-color: #f8fcfb; /* Very light, calming background */
         }
 
-        .container {
+        /* Header & Navigation */
+        header {
+            background-color: #ffffff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
         }
 
-        h1, h2, h3 {
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            color: var(--primary-color);
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2c7a7b; /* A calming teal */
         }
 
-        h1 { font-size: 2.8rem; }
-        h2 { font-size: 2.2rem; margin-bottom: 2rem;}
-        h3 { font-size: 1.6rem; }
-
-        p {
-            margin-bottom: 1rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-        }
-
-        a:hover {
-            color: var(--button-hover-bg);
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 15px 30px;
-            border-radius: 8px;
-            font-weight: 600;
-            text-align: center;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .primary-btn {
-            background-color: var(--primary-color);
-            color: var(--white);
-            font-size: 1.1rem;
-        }
-
-        .primary-btn:hover {
-            background-color: var(--button-hover-bg);
-            transform: translateY(-2px);
-            color: var(--white);
-        }
-
-        .secondary-btn {
-            background-color: var(--accent-color);
-            color: var(--dark-text);
-            border: 1px solid var(--primary-color);
-            font-size: 1.05rem;
-        }
-
-        .secondary-btn:hover {
-            background-color: var(--primary-color);
-            color: var(--white);
-            transform: translateY(-2px);
-        }
-
-        /* Header - Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--accent-color) 0%, var(--primary-color) 100%);
-            color: var(--white);
-            text-align: center;
-            padding: 100px 0;
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
             display: flex;
-            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #2c7a7b;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44,122,123,0.9), rgba(68,187,164,0.9)), url('https://source.unsplash.com/random/1600x900/?meditation,nature,peace') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 8rem 1.5rem;
             min-height: 60vh;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('https://images.unsplash.com/photo-1543852786-1cf6624b9987?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
-            background-attachment: fixed; /* Optional: parallax effect */
-            opacity: 0.15; /* Subtle overlay */
-            z-index: 0;
-        }
-        .hero .container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            color: var(--white);
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--white);
-            opacity: 0.9;
-        }
-
-        /* Section Styling */
-        section {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        section:nth-of-type(even) {
-            background-color: var(--light-bg);
-        }
-
-        section:nth-of-type(odd) {
-            background-color: var(--white);
-        }
-
-        /* Problem Section */
-        .problem-section {
-            background-color: var(--white);
-        }
-        .problem-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .problem-item {
-            background-color: var(--light-bg);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: left;
-            transition: transform 0.3s ease;
-        }
-        .problem-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .problem-item img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 15px;
-            border-radius: 50%;
-            background-color: var(--accent-color);
-            padding: 10px;
-            display: block;
-        }
-        .problem-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.4rem;
-        }
-        .problem-item p {
-            color: var(--light-text);
-            font-size: 0.95rem;
-        }
-
-
-        /* Solution Section */
-        .solution-section {
-            background-color: var(--light-bg);
-        }
-        .solution-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-            margin-bottom: 60px;
-        }
-
-        .solution-item {
-            background-color: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-top: 4px solid var(--primary-color);
-        }
-        .solution-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .solution-item img {
-            width: 80px;
-            height: 80px;
-            margin-bottom: 20px;
-            border-radius: 50%;
-            background-color: var(--secondary-color);
-            padding: 12px;
-            display: inline-block; /* Center image */
-        }
-        .solution-item h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        .solution-item p {
-            color: var(--light-text);
-        }
-
-        /* Testimonial Section */
-        .testimonial-section {
-            background-color: var(--white);
-            position: relative; /* For JS carousel */
-        }
-        .testimonial-carousel {
-            margin-top: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            overflow: hidden; /* Hide other testimonials */
-        }
-
-        .testimonial-item {
-            background-color: var(--light-bg);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            font-style: italic;
-            display: none; /* Hidden by default, JS shows one at a time */
-            min-height: 200px; /* Ensure consistent height */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        .testimonial-item p {
-            font-size: 1.2rem;
-            color: var(--dark-text);
-            margin-bottom: 20px;
-            max-width: 600px;
-        }
-        .testimonial-item span {
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 1rem;
-            display: block; /* New line */
-            margin-top: 10px;
-            font-style: normal;
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            line-height: 1.2;
         }
 
-        /* Call to Action Bottom */
-        .cta-bottom-section {
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 60px 0;
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            opacity: 0.9;
         }
-        .cta-bottom-section h2 {
-            color: var(--white);
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background-color: #f7a072; /* A warm, inviting orange */
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            background-color: #e68a5c;
+            transform: translateY(-2px);
+        }
+
+        /* Sections */
+        .section {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+
+        .section h2 {
             font-size: 2.5rem;
+            color: #2c7a7b;
+            margin-bottom: 2.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: #f7a072;
+            border-radius: 2px;
+        }
+
+        .about-us p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        /* Service Cards */
+        .service-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            color: #2c7a7b;
+            margin-bottom: 1rem;
+        }
+
+        .card p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Bottom CTA */
+        .call-to-action-bottom {
+            background-color: #e6f7f6; /* Lighter shade of teal */
+            padding: 5rem 1.5rem;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .call-to-action-bottom h2 {
+            font-size: 2.8rem;
+            color: #2c7a7b;
             margin-bottom: 1.5rem;
         }
-        .cta-bottom-section p {
+
+        .call-to-action-bottom p {
             font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 3rem auto;
-            opacity: 0.9;
+            color: #444;
+            max-width: 700px;
+            margin: 0 auto 2.5rem auto;
         }
 
         /* Footer */
         footer {
-            background-color: var(--dark-text);
-            color: var(--accent-color);
+            background-color: #333;
+            color: #eee;
             text-align: center;
-            padding: 40px 0;
+            padding: 2rem 1.5rem;
             font-size: 0.9rem;
         }
 
         footer p {
-            margin-bottom: 5px;
+            margin: 0.5rem 0;
         }
 
-        footer a {
-            color: var(--accent-color);
-            margin: 0 10px;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            .hero p {
-                font-size: 1.2rem;
-            }
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 1.8rem; }
-            h3 { font-size: 1.4rem; }
-
-            .problem-item, .solution-item {
-                padding: 25px;
-            }
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .hero {
-                padding: 80px 0;
-                min-height: 50vh;
+            nav {
+                flex-direction: column;
             }
+
+            nav ul {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 1rem;
+            }
+
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
+
             .hero p {
-                font-size: 1rem;
-            }
-            .btn {
-                padding: 12px 25px;
-                font-size: 1rem;
-            }
-            section {
-                padding: 60px 0;
-            }
-            .problem-grid, .solution-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .testimonial-item p {
                 font-size: 1.1rem;
             }
-            .cta-bottom-section h2 {
+
+            .section h2 {
                 font-size: 2rem;
             }
-            .cta-bottom-section p {
-                font-size: 1rem;
+
+            .service-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .call-to-action-bottom h2 {
+                font-size: 2rem;
             }
         }
 
         @media (max-width: 480px) {
             .hero h1 {
+                font-size: 2rem;
+            }
+
+            .cta-button {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+
+            .section h2 {
                 font-size: 1.8rem;
-            }
-            .hero p {
-                font-size: 0.9rem;
-            }
-            .btn {
-                width: 90%;
-                display: block;
-                margin: 0 auto 20px auto;
-            }
-            h1 { font-size: 2rem; }
-            h2 { font-size: 1.6rem; }
-            h3 { font-size: 1.2rem; }
-            .container {
-                padding: 0 15px;
             }
         }
     </style>
 </head>
 <body>
-    <header class="hero">
-        <div class="container">
-            <h1>Tâm Vạn Phúc: Nơi Nương Tựa Tâm Hồn An Lành</h1>
-            <p>Đồng hành cùng bạn trên hành trình chữa lành, vun đắp sức khỏe tinh thần vững chắc, tìm lại sự bình yên đích thực.</p>
-            <a href="https://tamvanphuc.com/affiliate?id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn primary-btn">Khám Phá Giải Pháp An Lành</a>
-        </div>
+    <header>
+        <nav>
+            <div class="logo">Tâm Vạn Phúc</div>
+            <ul>
+                <li><a href="#about">Về chúng tôi</a></li>
+                <li><a href="#services">Dịch vụ</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="problem-section">
-        <div class="container">
-            <h2>Bạn đang đối mặt với những lo âu thầm kín?</h2>
-            <div class="problem-grid">
-                <div class="problem-item">
-                    <img src="https://img.icons8.com/ios-filled/60/7B8D99/stress.png" alt="Stress icon">
-                    <h3>Căng thẳng & Áp lực</h3>
-                    <p>Bộn bề cuộc sống, công việc, mối quan hệ khiến bạn kiệt sức, khó tìm thấy sự thanh thản.</p>
+    <main>
+        <section class="hero">
+            <h1>Tìm lại bình yên, sống trọn vẹn từng khoảnh khắc</h1>
+            <p>Hệ sinh thái Tâm Vạn Phúc đồng hành cùng bạn trên hành trình chăm sóc sức khỏe tâm thần, kiến tạo cuộc sống an nhiên và hạnh phúc.</p>
+            <a href="https://affiliate.tamvanphuc.vn/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">Khám phá hành trình của bạn</a>
+        </section>
+
+        <section id="about" class="section about-us">
+            <h2>Tâm Vạn Phúc là gì?</h2>
+            <p>Chúng tôi là hệ sinh thái toàn diện, mang đến giải pháp hỗ trợ sức khỏe tâm thần thông qua liệu pháp, thiền định, khóa học và cộng đồng chia sẻ. Sứ mệnh của chúng tôi là giúp bạn giải tỏa căng thẳng, vượt qua khó khăn và tìm thấy sự cân bằng nội tâm.</p>
+        </section>
+
+        <section id="services" class="section services">
+            <h2>Dịch vụ của chúng tôi</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <h3>Tham vấn chuyên sâu</h3>
+                    <p>Kết nối với các chuyên gia tâm lý hàng đầu để nhận được sự hỗ trợ cá nhân hóa.</p>
                 </div>
-                <div class="problem-item">
-                    <img src="https://img.icons8.com/ios-filled/60/7B8D99/insomnia.png" alt="Anxiety icon">
-                    <h3>Lo âu & Mất ngủ</h3>
-                    <p>Những suy nghĩ tiêu cực bủa vây, cảm giác bất an thường trực và khó đi vào giấc ngủ sâu.</p>
+                <div class="card">
+                    <h3>Thiền định & Chánh niệm</h3>
+                    <p>Các bài hướng dẫn thiền định giúp bạn giảm stress, tăng cường sự tập trung và bình an.</p>
                 </div>
-                <div class="problem-item">
-                    <img src="https://img.icons8.com/ios-filled/60/7B8D99/solitude.png" alt="Loneliness icon">
-                    <h3>Cô đơn & Trống rỗng</h3>
-                    <p>Dù ở giữa đám đông, bạn vẫn cảm thấy lạc lõng, thiếu kết nối và một khoảng trống trong tâm hồn.</p>
+                <div class="card">
+                    <h3>Khóa học trực tuyến</h3>
+                    <p>Kiến thức và kỹ năng thực hành để tự chủ sức khỏe tâm thần của mình.</p>
                 </div>
-                <div class="problem-item">
-                    <img src="https://img.icons8.com/ios-filled/60/7B8D99/confused.png" alt="Purpose icon">
-                    <h3>Mất định hướng cuộc sống</h3>
-                    <p>Bạn mất động lực, hoang mang về tương lai và không biết phải bắt đầu từ đâu để thay đổi.</p>
+                <div class="card">
+                    <h3>Cộng đồng hỗ trợ</h3>
+                    <p>Nơi bạn có thể chia sẻ, lắng nghe và nhận được sự động viên từ những người đồng hành.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="solution-section">
-        <div class="container">
-            <h2>Tâm Vạn Phúc: Nguồn Sức Mạnh Nâng Đỡ Tinh Thần Bạn</h2>
-            <div class="solution-grid">
-                <div class="solution-item">
-                    <img src="https://img.icons8.com/ios-filled/80/6A8FD7/talk-female.png" alt="Counseling icon">
-                    <h3>Tham vấn chuyên sâu 1-1</h3>
-                    <p>Kết nối với các chuyên gia tâm lý giàu kinh nghiệm, được lắng nghe, thấu hiểu và định hướng cá nhân hóa.</p>
-                </div>
-                <div class="solution-item">
-                    <img src="https://img.icons8.com/ios-filled/80/6A8FD7/meditation.png" alt="Mindfulness icon">
-                    <h3>Thực hành Chánh niệm & Thiền định</h3>
-                    <p>Học cách làm chủ cảm xúc, giảm căng thẳng, tăng cường sự tập trung và sống trọn vẹn từng khoảnh khắc.</p>
-                </div>
-                <div class="solution-item">
-                    <img src="https://img.icons8.com/ios-filled/80/6A8FD7/community.png" alt="Community icon">
-                    <h3>Cộng đồng sẻ chia & Hỗ trợ</h3>
-                    <p>Gia nhập không gian an toàn, cùng những người đồng hành vượt qua thử thách, cảm nhận sự kết nối chân thật.</p>
-                </div>
-                <div class="solution-item">
-                    <img src="https://img.icons8.com/ios-filled/80/6A8FD7/online-course.png" alt="Resources icon">
-                    <h3>Kho tài liệu & Khóa học đa dạng</h3>
-                    <p>Truy cập bộ sưu tập kiến thức, công cụ thực hành khoa học giúp bạn tự chủ và phát triển sức khỏe tinh thần bền vững.</p>
-                </div>
-            </div>
-            <a href="https://tamvanphuc.com/affiliate?id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn secondary-btn">Bắt Đầu Hành Trình Chữa Lành Của Bạn</a>
-        </div>
-    </section>
+        <section class="call-to-action-bottom">
+            <h2>Đã đến lúc bạn ưu tiên hạnh phúc của mình</h2>
+            <p>Đừng để căng thẳng hay lo âu cản trở cuộc sống của bạn. Hãy bắt đầu hành trình kiến tạo sức khỏe tâm thần cùng Tâm Vạn Phúc ngay hôm nay.</p>
+            <a href="https://affiliate.tamvanphuc.vn/afl_b08327f13ac81560aef9d64707d0592420ac9cda" target="_blank" class="cta-button">Bắt đầu ngay</a>
+        </section>
+    </main>
 
-    <section class="testimonial-section">
-        <div class="container">
-            <h2>Những Câu Chuyện Chuyển Hóa Từ Tâm Vạn Phúc</h2>
-            <div class="testimonial-carousel">
-                <div class="testimonial-item">
-                    <p>"Trước đây tôi luôn cảm thấy lạc lõng và trống rỗng. Nhờ Tâm Vạn Phúc, tôi đã tìm lại được sự bình yên nội tại và ý nghĩa cuộc sống."</p>
-                    <span>- Nguyễn Thị An, 32 tuổi, TP.HCM</span>
-                </div>
-                <div class="testimonial-item">
-                    <p>"Tâm Vạn Phúc không chỉ giúp tôi giảm lo âu mà còn dạy tôi cách yêu thương bản thân. Tôi biết ơn vì sự hỗ trợ tận tâm ở đây."</p>
-                    <span>- Trần Văn Bình, 28 tuổi, Hà Nội</span>
-                </div>
-                <div class="testimonial-item">
-                    <p>"Sau một thời gian dài mất ngủ và căng thẳng, tôi đã tìm thấy ánh sáng tại Tâm Vạn Phúc. Cuộc sống của tôi đã thay đổi tích cực rõ rệt."</p>
-                    <span>- Lê Thị Hương, 45 tuổi, Đà Nẵng</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-bottom-section">
-        <div class="container">
-            <h2>Đừng Để Lo Lắng Chiếm Lấy Cuộc Đời Bạn Thêm Nữa</h2>
-            <p>Hành trình tìm lại sự bình yên và sức mạnh nội tại bắt đầu từ đây. Hãy để Tâm Vạn Phúc đồng hành cùng bạn trên con đường hướng tới hạnh phúc đích thực.</p>
-            <a href="https://tamvanphuc.com/affiliate?id=afl_b08327f13ac81560aef9d64707d0592420ac9cda" class="btn primary-btn">Chăm Sóc Tâm Hồn Ngay Hôm Nay</a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2023 Tâm Vạn Phúc. Bảo lưu mọi quyền.</p>
-            <p>
-                <a href="https://tamvanphuc.com/chinh-sach-bao-mat">Chính sách bảo mật</a> | 
-                <a href="https://tamvanphuc.com/dieu-khoan-dich-vu">Điều khoản dịch vụ</a>
-            </p>
-        </div>
+    <footer id="contact">
+        <p>&copy; 2023 Tâm Vạn Phúc. Mọi quyền được bảo lưu.</p>
+        <p>Liên hệ: info@tamvanphuc.vn | Hotline: 1900-XXXX</p>
     </footer>
-
-    <script>
-        // Simple testimonial carousel functionality
-        const testimonialCarousel = document.querySelector('.testimonial-carousel');
-        if (testimonialCarousel) {
-            let currentIndex = 0;
-            const testimonials = testimonialCarousel.querySelectorAll('.testimonial-item');
-            const totalTestimonials = testimonials.length;
-
-            function showTestimonial(index) {
-                testimonials.forEach((item, i) => {
-                    item.style.display = (i === index) ? 'flex' : 'none'; /* Use flex for centering content */
-                });
-            }
-
-            function nextTestimonial() {
-                currentIndex = (currentIndex + 1) % totalTestimonials;
-                showTestimonial(currentIndex);
-            }
-
-            // Initial display and auto-rotate
-            if (totalTestimonials > 0) {
-                showTestimonial(0);
-                setInterval(nextTestimonial, 7000); // Change testimonial every 7 seconds
-            }
-        }
-    </script>
 </body>
 </html>
